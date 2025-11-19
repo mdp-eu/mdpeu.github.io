@@ -3,23 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visione politica – Macedonian Diaspora Party</title>
-    <meta name="description" content="Identità politica, valori fondamentali e visione strategica del Macedonian Diaspora Party (MDP).">
-    <link rel="stylesheet" href="style.css">
+    <title>MDP – Visione politica</title>
+    <meta name="description" content="Visione politica del Macedonian Diaspora Party (MDP)">
     <link rel="icon" href="assets/mdp-logo.jpg">
+
+    <style>
+        :root {
+            --mdp-blue: #003366;
+            --mdp-red: #d0191b;
+            --mdp-gold: #f4c430;
+            --bg-soft: #f5f7fb;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg-soft);
+            color: #111827;
+        }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+        /* HEADER */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: #ffffff;
+            border-bottom: 3px solid var(--mdp-red);
+        }
+        .header-top {
+            font-size: 12px;
+            background: var(--mdp-blue);
+            color: #f9fafb;
+        }
+        .header-top-inner {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 6px 16px; gap: 8px;
+        }
+        .header-top a { color: #f9fafb; font-weight: 500; }
+
+        .header-main { padding: 10px 0; }
+        .header-inner {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .brand-link { display: flex; gap: 10px; align-items: center; }
+        .brand-logo {
+            width: 56px; height: 56px; object-fit: contain;
+        }
+        .brand-text { color: var(--mdp-blue); display: flex; flex-direction: column; }
+        .brand-text strong { font-size: 18px; }
+        .brand-text small { font-size: 11px; opacity: .8; }
+
+        .main-nav { display: flex; gap: 14px; font-size: 14px; }
+        .main-nav li { list-style: none; }
+        .main-nav a { padding: 6px 10px; border-radius: 999px; color: var(--mdp-blue); }
+        .main-nav a:hover { background: rgba(0,51,102,0.08); }
+        .nav-pill-primary a { background: var(--mdp-red); color: white; }
+        .nav-pill-primary a:hover { background: #aa1518; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--mdp-blue), #001a33);
+            color: white;
+            padding: 40px 0 34px;
+            border-bottom: 3px solid var(--mdp-red);
+        }
+        .hero-inner {
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; gap: 18px;
+        }
+        .hero-logo {
+            width: 110px; height: 110px; object-fit: contain;
+            background: white; padding: 8px;
+            border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+        }
+        .hero-kicker {
+            font-size: 11px; text-transform: uppercase; letter-spacing: .18em;
+            color: #cbd5f5;
+        }
+        .hero-title {
+            font-size: clamp(26px, 4vw, 32px); font-weight: 700;
+        }
+        .hero-subtitle {
+            font-size: 14px; max-width: 520px; color: #e5e7eb;
+        }
+
+        /* MAIN */
+        main { padding: 32px 0 40px; }
+        h2 { font-size: 22px; margin-bottom: 12px; color: var(--mdp-blue); }
+        p { font-size: 14px; color: #374151; margin-bottom: 14px; }
+
+        .pill-list { padding-left: 18px; }
+        .pill-list li { margin-bottom: 8px; }
+
+        /* FOOTER */
+        .site-footer {
+            background: var(--mdp-blue); color: #e5e7eb;
+            border-top: 3px solid var(--mdp-red);
+            padding: 12px 0; font-size: 12px;
+        }
+        .footer-inner {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .footer-inner a { color: #f9fafb; }
+
+        @media(max-width:768px) {
+            .header-top-inner, .header-inner, .footer-inner {
+                flex-direction: column; align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="site-header">
     <div class="header-top">
         <div class="container header-top-inner">
-            <span>MDP – Macedonian Diaspora Party · Movimento politico della diaspora macedone</span>
+            <span>MDP – Macedonian Diaspora Party</span>
             <span>
-                Contatti:
                 <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
-                <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>
+                <a href="https://wa.me/393282290062">WhatsApp +39 328 22 90 062</a>
             </span>
         </div>
     </div>
@@ -27,16 +132,15 @@
     <div class="header-main">
         <div class="container header-inner">
             <a href="index.html" class="brand-link">
-                <img src="assets/mdp-logo.jpg" alt="Logo Macedonian Diaspora Party" class="brand-logo">
+                <img src="assets/mdp-logo.jpg" class="brand-logo">
                 <div class="brand-text">
                     <strong>Macedonian Diaspora Party</strong>
                     <small>Movimento politico della diaspora macedone</small>
                 </div>
             </a>
-
             <ul class="main-nav">
                 <li><a href="movimento.html">Movimento</a></li>
-                <li><a href="visione.html" style="font-weight:700;">Visione</a></li>
+                <li><a href="visione.html">Visione</a></li>
                 <li><a href="diaspora.html">Diaspora</a></li>
                 <li><a href="documenti.html">Documenti</a></li>
                 <li class="nav-pill-primary"><a href="movimento.html#partecipa">Partecipa</a></li>
@@ -45,97 +149,60 @@
     </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div class="container hero-inner">
-        <img src="assets/mdp-logo.jpg" alt="MDP logo" class="hero-logo">
-
+        <img src="assets/mdp-logo.jpg" class="hero-logo">
         <div class="hero-kicker">Visione politica</div>
-        <div class="hero-title">Identità e linea politica del MDP</div>
-
+        <div class="hero-title">Identità politica del MDP</div>
         <p class="hero-subtitle">
-            Libertà, giustizia, meritocrazia e sovranità: i quattro assi che guidano ogni scelta del Macedonian Diaspora Party.
+            Libertà, giustizia, meritocrazia e sovranità: i quattro assi che guidano ogni scelta politica del Macedonian Diaspora Party.
         </p>
     </div>
 </section>
 
-<!-- MAIN CONTENT -->
-<main class="page-content">
+<main>
     <div class="container">
 
-        <h1>La visione politica del MDP</h1>
-        <p>
-            Il Macedonian Diaspora Party non nasce per partecipare alla politica tradizionale. Nasce per cambiarne le
-            fondamenta. La nostra visione è chiara: ricostruire lo Stato macedone come una Repubblica libera, sovrana,
-            meritocratica e moralmente solida.
-        </p>
+        <section>
+            <h2>I principi irrinunciabili del MDP</h2>
 
-        <h2>1. Libertà</h2>
-        <p>
-            Libertà significa uno Stato che non opprime i cittadini, che non usa la giustizia come arma politica
-            e che non ricatta le persone attraverso la dipendenza economica dai partiti.
-        </p>
-        <ul>
-            <li>Libertà di parola e di critica verso il potere.</li>
-            <li>Libertà economica, non subordinata ai partiti.</li>
-            <li>Libertà istituzionale dalle influenze straniere.</li>
-        </ul>
+            <p>
+                La visione politica del Macedonian Diaspora Party nasce da un presupposto semplice: lo Stato macedone è stato
+                corrotto, indebolito e trasformato in un sistema di clientele che ha distrutto meritocrazia, giustizia e
+                sovranità nazionale. Il MDP non entra nel sistema per adattarsi: entra per cambiarlo dalla radice.
+            </p>
 
-        <h2>2. Giustizia</h2>
-        <p>
-            La giustizia in Macedonia è stata troppo spesso manipolata o usata come strumento di potere. Il MDP vuole un
-            sistema in cui la legge valga per tutti, senza eccezioni, senza immunità di casta e senza strumenti di persecuzione politica.
-        </p>
-        <ul>
-            <li>Indipendenza reale del potere giudiziario.</li>
-            <li>Fine dell’impunità politica e amministrativa.</li>
-            <li>Riforma profonda dei meccanismi di controllo e trasparenza.</li>
-        </ul>
+            <ul class="pill-list">
+                <li><strong>Libertà:</strong> nessuno deve poter comprare o ricattare la volontà politica dei cittadini.</li>
+                <li><strong>Giustizia:</strong> leggi uguali per tutti, responsabilità personale, fine dell’impunità politica.</li>
+                <li><strong>Meritocrazia:</strong> le posizioni pubbliche devono essere assegnate ai più competenti, non ai più fedeli.</li>
+                <li><strong>Sovranità:</strong> la Repubblica di Macedonia deve essere difesa da pressioni straniere e interferenze sistemiche.</li>
+            </ul>
+        </section>
 
-        <h2>3. Meritocrazia</h2>
-        <p>
-            Lo Stato deve essere governato dai migliori, non dai fedeli. Il clientelismo è il principale cancro della Macedonia.
-        </p>
-        <ul>
-            <li>Accesso ai ruoli pubblici solo per competenza.</li>
-            <li>Nessuna promozione politica basata sulla fedeltà al partito.</li>
-            <li>Valutazione reale e continua delle persone che ricoprono ruoli pubblici.</li>
-        </ul>
+        <section>
+            <h2>Il modello istituzionale che il MDP vuole costruire</h2>
 
-        <h2>4. Sovranità</h2>
-        <p>
-            La Macedonia ha perso troppo controllo sul proprio destino a causa di pressioni esterne, ingerenze internazionali
-            e mancanza di leadership interna. Il MDP vuole restituire al popolo macedone il controllo politico, economico e culturale.
-        </p>
-        <ul>
-            <li>Protezione dell’identità nazionale e storica.</li>
-            <li>Autonomia nelle decisioni economiche strategiche.</li>
-            <li>Rafforzamento delle istituzioni sovrane dello Stato.</li>
-        </ul>
+            <p>
+                Il MDP sostiene un modello istituzionale che riduca radicalmente le zone grigie del potere e impedisca ai partiti
+                di trasformare lo Stato in una proprietà privata.
+            </p>
 
-        <h2>Una politica diversa dalle altre</h2>
-        <p>
-            Il MDP non cerca adesioni di massa per propaganda. Cerca persone che conoscono la responsabilità, la disciplina e la coerenza.
-            L’obiettivo non è “vincere le elezioni”, ma ricostruire uno Stato che funzioni, rispettato dentro e fuori dai confini.
-        </p>
-
-        <!-- CONTACT STRIP -->
-        <section class="contact-strip">
-            <strong>Vuoi contribuire seriamente al progetto?</strong>
-            <span>
-                Scrivi a <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> · WhatsApp:
-                <a href="https://wa.me/393282290062" target="_blank">+39 328 22 90 062</a>
-            </span>
+            <ul class="pill-list">
+                <li>Riforma dello Stato e taglio delle aree di abuso.</li>
+                <li>Istituzioni indipendenti e non ricattabili.</li>
+                <li>Trasparenza totale di atti, appalti e decisioni politiche.</li>
+                <li>Fine della fedeltà di partito come criterio di carriera pubblica.</li>
+            </ul>
         </section>
 
     </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="site-footer">
     <div class="container footer-inner">
-        <span>© Macedonian Diaspora Party (MDP)</span>
-        <span>mdp-eu.com · <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a></span>
+        <span>© MDP – Macedonian Diaspora Party</span>
+        <span><a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a></span>
     </div>
 </footer>
 
