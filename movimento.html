@@ -3,8 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movimento – Macedonian Diaspora Party</title>
-    <link rel="stylesheet" href="style.css">
+    <title>MDP – Il Movimento</title>
+    <meta name="description" content="Perché nasce il Macedonian Diaspora Party (MDP). Le origini, la missione e gli obiettivi del movimento politico della diaspora macedone.">
+    <link rel="icon" href="assets/mdp-logo.jpg">
+
+    <style>
+        :root {
+            --mdp-blue: #003366;
+            --mdp-red: #d0191b;
+            --mdp-gold: #f4c430;
+            --bg-soft: #f5f7fb;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg-soft);
+            color: #111827;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* HEADER */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: #ffffff;
+            border-bottom: 3px solid var(--mdp-red);
+        }
+
+        .header-top {
+            font-size: 12px;
+            background: var(--mdp-blue);
+            color: #f9fafb;
+        }
+
+        .header-top-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 16px;
+            gap: 8px;
+        }
+
+        .header-main {
+            padding: 10px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-logo {
+            width: 56px;
+            height: 56px;
+            object-fit: contain;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+            color: var(--mdp-blue);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 14px;
+            font-size: 14px;
+        }
+
+        .main-nav li { list-style: none; }
+
+        .main-nav a {
+            padding: 6px 10px;
+            border-radius: 999px;
+            color: var(--mdp-blue);
+        }
+
+        .main-nav a:hover {
+            background: rgba(0, 51, 102, 0.08);
+        }
+
+        .nav-pill-primary a {
+            background: var(--mdp-red);
+            color: #ffffff;
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--mdp-blue), #001a33);
+            color: #ffffff;
+            padding: 36px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--mdp-red);
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: auto;
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 6px 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            margin-bottom: 14px;
+        }
+
+        .hero-title {
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            max-width: 600px;
+            margin: 10px auto 0;
+            font-size: 14px;
+            color: #e5e7eb;
+        }
+
+        /* CONTENT */
+        main {
+            padding: 32px 0 40px;
+        }
+
+        h2 {
+            color: var(--mdp-blue);
+            margin-bottom: 12px;
+            font-size: 22px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            line-height: 1.55;
+            color: #374151;
+            font-size: 15px;
+        }
+
+        ul {
+            margin-left: 18px;
+            margin-bottom: 20px;
+            color: #374151;
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background: var(--mdp-blue);
+            color: #e5e7eb;
+            border-top: 3px solid var(--mdp-red);
+            padding: 12px 0;
+            font-size: 12px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .main-nav { flex-wrap: wrap; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
 </head>
 <body>
 
@@ -12,82 +189,74 @@
     <div class="header-top">
         <div class="container header-top-inner">
             <span>MDP – Macedonian Diaspora Party · Movimento politico della diaspora macedone</span>
-            <span>
-                Contatti:
-                <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
-                WhatsApp:
-                <a href="https://wa.me/393282290062" target="_blank">+39 328 22 90 062</a>
-            </span>
+            <span>Contatti: <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> · 
+                <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a></span>
         </div>
     </div>
     <div class="header-main">
         <div class="container header-inner">
-            <a href="index.html" class="brand">
-                <img src="assets/mdp-logo.jpg"
-     alt="Logo Macedonian Diaspora Party"
-     style="width:60px; height:auto; display:block;">
-                <div class="brand-title">
+            <a href="index.html" class="brand-link">
+                <img src="assets/mdp-logo.jpg" alt="Logo Macedonian Diaspora Party" class="brand-logo">
+                <div class="brand-text">
                     <strong>Macedonian Diaspora Party</strong>
                     <small>Movimento politico della diaspora macedone</small>
                 </div>
             </a>
+
             <ul class="main-nav">
-                <li class="nav-pill-primary"><a href="movimento.html">Movimento</a></li>
+                <li><a href="movimento.html">Movimento</a></li>
                 <li><a href="visione.html">Visione</a></li>
                 <li><a href="diaspora.html">Diaspora</a></li>
                 <li><a href="documenti.html">Documenti</a></li>
+                <li class="nav-pill-primary"><a href="#partecipa">Partecipa</a></li>
             </ul>
         </div>
     </div>
 </header>
 
+<section class="hero">
+    <img src="assets/mdp-logo.jpg" class="hero-logo" alt="Logo MDP">
+    <div class="hero-title">Il Movimento</div>
+    <p class="hero-subtitle">Perché nasce il MDP. Le basi morali, politiche e strategiche del progetto.</p>
+</section>
+
 <main>
-    <div class="container section-anchor" id="movimento">
-        <div class="section-tag gold">Il Movimento</div>
-        <h1>Che cos’è il Macedonian Diaspora Party</h1>
+    <div class="container">
+
+        <h2>Perché nasce il MDP</h2>
         <p>
-            Il Macedonian Diaspora Party (MDP) è un movimento politico indipendente, fondato il 27 novembre 2025 da Emir Alili.
-            Nasce fuori dai confini nazionali, dalla diaspora macedone, per ricostruire lo Stato su basi di libertà,
-            giustizia, meritocrazia e sovranità reale.
+            Il Macedonian Diaspora Party nasce come risposta alla crisi morale, politica e istituzionale che ha segnato
+            la Repubblica di Macedonia negli ultimi decenni. La politica tradizionale si è trasformata in uno strumento
+            di potere personale, clientelismo e dipendenza da interessi esterni.
         </p>
 
-        <div class="two-columns-text" style="margin-top:16px;">
-            <div>
-                <h2>Un partito della diaspora</h2>
-                <p>
-                    Il MDP unisce macedoni che vivono e lavorano all’estero, che non dipendono dai partiti tradizionali
-                    e non devono favori a nessuno. Proprio per questo possono parlare e agire con maggiore libertà
-                    rispetto a chi è intrappolato nei ricatti interni al sistema.
-                </p>
-                <p>
-                    L’obiettivo non è occupare poltrone, ma cambiare il modo in cui lo Stato viene governato:
-                    istituzioni pulite, responsabilità personale di chi decide, fine del clientelismo.
-                </p>
-            </div>
-            <div>
-                <h2>I principi di base</h2>
-                <ul class="pill-list">
-                    <li>Indipendenza reale da potenze straniere e lobby.</li>
-                    <li>Meritocrazia nella scelta delle persone ai ruoli chiave.</li>
-                    <li>Responsabilità personale di chi governa, senza impunità di casta.</li>
-                    <li>Difesa della Repubblica di Macedonia e della sua identità.</li>
-                </ul>
-            </div>
-        </div>
+        <p>
+            Il MDP rompe questo paradigma: la diaspora diventa finalmente protagonista, non spettatrice. Un movimento libero,
+            indipendente, competente, costruito su meritocrazia e responsabilità.
+        </p>
 
-        <div class="section-anchor" style="padding-top:32px;">
-            <div class="section-tag red">Per chi nasce il MDP</div>
-            <h2>Un movimento per chi non si riconosce in nessun partito</h2>
-            <p>
-                Il MDP è pensato per i macedoni che non accettano l’alternativa falsa tra emigrare per sempre
-                o rassegnarsi a un sistema corrotto. Per chi vuole restare legato alla propria identità,
-                ma pretende uno Stato che funzioni con regole serie.
-            </p>
-            <p style="margin-top:8px;">
-                Il messaggio è semplice: la diaspora non è un serbatoio di voti, ma la parte più libera della nazione.
-                E da lì deve partire il cambiamento.
-            </p>
-        </div>
+        <h2>Le basi morali e politiche</h2>
+        <ul>
+            <li>Responsabilità totale degli eletti verso i cittadini</li>
+            <li>Indipendenza dalla pressione di governi stranieri</li>
+            <li>Fine del clientelismo e delle reti di potere interne</li>
+            <li>Meritocrazia e trasparenza</li>
+        </ul>
+
+        <h2 id="partecipa">Come partecipare</h2>
+        <p>Puoi contribuire al progetto del MDP attraverso tre modalità:</p>
+        <ul>
+            <li>Iscrizione come simpatizzante</li>
+            <li>Partecipazione ai nuclei della diaspora</li>
+            <li>Collaborazione nei gruppi di lavoro tecnici e politici</li>
+        </ul>
+
+        <p><strong>Per partecipare seriamente:</strong></p>
+        <p>
+            Scrivi a <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a>  
+            oppure contatta <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>.
+        </p>
+
     </div>
 </main>
 
