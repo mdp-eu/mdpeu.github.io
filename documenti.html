@@ -1,50 +1,141 @@
-/* DOCUMENTI PAGE */
-.doc-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 25px;
-}
+<!DOCTYPE html>
+<html lang="it">
 
-.doc-card {
-    background: #fff;
-    padding: 20px;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
-    transition: 0.2s;
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documenti – Macedonian Diaspora Party</title>
+    <meta name="description" content="Documenti ufficiali del Macedonian Diaspora Party: atti fondativi, statuto, dichiarazione, strategia diaspora, identità politica e riforme istituzionali.">
+    <link rel="icon" href="assets/mdp-logo.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-.doc-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
-}
+<body>
 
-.doc-icon {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-top">
+        <div class="header-top-inner">
+            <span>MDP – Movimento politico della diaspora macedone</span>
+            <span>
+                <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
+                <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>
+            </span>
+        </div>
+    </div>
 
-.doc-tag {
-    font-size: 11px;
-    background: rgba(0,51,102,0.08);
-    color: var(--mdp-blue);
-    padding: 4px 9px;
-    border-radius: 999px;
-    display: inline-block;
-    margin-bottom: 8px;
-    font-weight: 600;
-}
+    <div class="header-inner">
+        <a href="index.html" class="brand-link">
+            <img src="assets/mdp-logo.jpg" class="brand-logo" alt="MDP Logo">
+            <div class="brand-text">
+                <strong>Macedonian Diaspora Party</strong>
+                <small>Movimento della diaspora macedone</small>
+            </div>
+        </a>
 
-.doc-link {
-    display: inline-block;
-    margin-top: 12px;
-    font-size: 13px;
-    color: var(--mdp-red);
-}
+        <ul class="main-nav">
+            <li><a href="movimento.html">Movimento</a></li>
+            <li><a href="visione.html">Visione</a></li>
+            <li><a href="diaspora.html">Diaspora</a></li>
+            <li><a href="documenti.html">Documenti</a></li>
+            <li class="nav-pill-primary"><a href="movimento.html#partecipa">Partecipa</a></li>
+        </ul>
+    </div>
+</header>
 
-.doc-link.disabled {
-    opacity: 0.6;
-    cursor: default;
-    text-decoration: none;
-}
+<!-- HERO EUROPEO -->
+<section class="hero-ue">
+    <div class="hero-ue-content">
+        <img src="assets/mdp-logo.jpg" class="hero-ue-logo" alt="Logo MDP">
+
+        <h1>Documenti Ufficiali</h1>
+
+        <p>
+            Atti fondativi, statuto, dichiarazioni politiche e materiali strategici del Macedonian Diaspora Party.
+            Tutti i documenti sono pubblicati in nome della trasparenza e della responsabilità istituzionale.
+        </p>
+    </div>
+</section>
+
+<main>
+    <div class="container">
+
+        <!-- INTRO -->
+        <section class="intro intro-ue">
+            <p>
+                I documenti del MDP definiscono la struttura, la visione, la missione e il percorso politico del movimento.
+                Sono organizzati in sezioni chiare e aggiornate per garantire trasparenza totale verso la diaspora e
+                verso i cittadini macedoni.
+            </p>
+        </section>
+
+        <!-- DOCUMENT GRID -->
+        <section class="ue-doc-grid">
+
+            <!-- DOCUMENTO -->
+            <div class="ue-doc-card">
+                <div class="ue-doc-icon">📘</div>
+                <h2>Atto Costitutivo e Statuto</h2>
+                <p>Il documento giuridico che fonda il MDP e ne stabilisce gli organi, le funzioni e le regole interne.</p>
+                <span class="ue-doc-status">In pubblicazione</span>
+            </div>
+
+            <div class="ue-doc-card">
+                <div class="ue-doc-icon">📝</div>
+                <h2>Dichiarazione Fondativa</h2>
+                <p>Il manifesto politico che spiega la nascita del movimento e il ruolo centrale della diaspora.</p>
+                <span class="ue-doc-status">Versione aggiornata in preparazione</span>
+            </div>
+
+            <div class="ue-doc-card">
+                <div class="ue-doc-icon">🏛️</div>
+                <h2>Struttura Istituzionale</h2>
+                <p>Proposta di riforma delle istituzioni per eliminare clientelismo, ricatti e instabilità politica.</p>
+                <span class="ue-doc-status">Disponibile prossimamente</span>
+            </div>
+
+            <div class="ue-doc-card">
+                <div class="ue-doc-icon">🌍</div>
+                <h2>Strategia della Diaspora</h2>
+                <p>Il piano per costruire reti territoriali, piattaforme digitali e rappresentanza politica mondiale.</p>
+                <span class="ue-doc-status">In fase di sviluppo</span>
+            </div>
+
+            <div class="ue-doc-card">
+                <div class="ue-doc-icon">📑</div>
+                <h2>Identità Politica e Programma</h2>
+                <p>I valori cardine del MDP: libertà, giustizia, meritocrazia e sovranità.</p>
+                <span class="ue-doc-status">Bozza in elaborazione</span>
+            </div>
+
+            <div class="ue-doc-card">
+                <div class="ue-doc-icon">🗂️</div>
+                <h2>Piano Organizzativo 12–36 mesi</h2>
+                <p>Percorso operativo per consolidare la struttura del movimento nel medio periodo.</p>
+                <span class="ue-doc-status">In costruzione</span>
+            </div>
+
+        </section>
+
+        <!-- CONTATTO -->
+        <section class="contact-strip">
+            <span><strong>Richieste specifiche o materiali dedicati?</strong></span>
+            <span>
+                Scrivi a <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> oppure contatta
+                <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>.
+            </span>
+        </section>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <span>© Macedonian Diaspora Party (MDP)</span>
+        <span>mdp-eu.com · <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a></span>
+    </div>
+</footer>
+
+</body>
+</html>
