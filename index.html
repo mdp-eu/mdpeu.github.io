@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MDP – Macedonian Diaspora Party</title>
+    <meta name="description" content="Macedonian Diaspora Party (MDP) – Movimento politico della diaspora macedone.">
+    <link rel="icon" href="assets/mdp-logo.jpg">
+
     <style>
         :root {
             --mdp-blue: #003366;
@@ -20,10 +23,10 @@
             color: #111827;
         }
 
-        a { color: inherit; }
+        a { color: inherit; text-decoration: none; }
 
         .container {
-            max-width: 1120px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 16px;
         }
@@ -48,14 +51,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 6px 16px;
+            gap: 8px;
         }
-
-        .header-top span { opacity: 0.9; }
 
         .header-top a {
             color: #f9fafb;
-            text-decoration: none;
-            margin-left: 10px;
             font-weight: 500;
         }
 
@@ -70,124 +70,104 @@
             gap: 16px;
         }
 
-        .brand {
+        .brand-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: var(--mdp-blue);
+            gap: 10px;
         }
 
-        .brand img {
-            width: 60px;
-            height: 60px;
+        .brand-logo {
+            width: 56px;
+            height: 56px;
             object-fit: contain;
         }
 
-        .brand-title {
+        .brand-text {
             display: flex;
             flex-direction: column;
+            color: var(--mdp-blue);
         }
 
-        .brand-title strong {
-            font-size: 18px;
-        }
-
-        .brand-title small {
-            font-size: 11px;
-            opacity: 0.75;
-        }
+        .brand-text strong { font-size: 18px; }
+        .brand-text small { font-size: 11px; opacity: 0.8; }
 
         .main-nav {
             display: flex;
-            gap: 18px;
+            gap: 14px;
             font-size: 14px;
         }
 
-        .main-nav > li {
-            list-style: none;
-            position: relative;
-        }
+        .main-nav li { list-style: none; }
 
-        .main-nav > li > a {
-            text-decoration: none;
-            color: var(--mdp-blue);
-            padding: 6px 8px;
+        .main-nav a {
+            padding: 6px 10px;
             border-radius: 999px;
-            transition: background 0.15s ease, transform 0.1s ease;
+            color: var(--mdp-blue);
         }
 
-        .main-nav > li > a:hover {
+        .main-nav a:hover {
             background: rgba(0, 51, 102, 0.08);
-            transform: translateY(-1px);
         }
 
-        .nav-pill-primary > a {
+        .nav-pill-primary a {
             background: var(--mdp-red);
             color: #ffffff;
-            border-radius: 999px;
         }
 
-        .nav-pill-primary > a:hover {
+        .nav-pill-primary a:hover {
             background: #aa1518;
         }
 
-        /* HERO HOME */
+        /* HERO */
         .hero {
             background: linear-gradient(135deg, var(--mdp-blue), #001a33);
             color: #ffffff;
-            padding: 56px 0 40px;
-            position: relative;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 4px;
-            background: var(--mdp-red);
+            padding: 40px 0 34px;
+            border-bottom: 3px solid var(--mdp-red);
         }
 
         .hero-inner {
-            display: grid;
-            grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-            gap: 28px;
-            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 18px;
+        }
+
+        .hero-logo {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+            background: #ffffff;
+            padding: 8px 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
         }
 
         .hero-kicker {
-            font-size: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
+            letter-spacing: 0.18em;
             color: #cbd5f5;
-            margin-bottom: 6px;
         }
 
-        h1 {
-            font-size: clamp(30px, 3.4vw, 38px);
-            line-height: 1.15;
-            margin-bottom: 10px;
+        .hero-title {
+            font-size: clamp(26px, 4vw, 32px);
+            font-weight: 700;
+            margin-top: 4px;
         }
 
         .hero-subtitle {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: #e5e7eb;
-        }
-
-        .hero-body {
             font-size: 14px;
-            color: #d1d5db;
-            max-width: 540px;
-            margin-bottom: 18px;
+            max-width: 520px;
+            color: #e5e7eb;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 10px;
+            margin-top: 4px;
         }
 
         .btn {
@@ -198,129 +178,122 @@
             border-radius: 999px;
             font-size: 14px;
             font-weight: 600;
-            text-decoration: none;
             border: 1px solid transparent;
             cursor: pointer;
-            transition: all 0.15s ease;
         }
 
         .btn-primary {
             background: var(--mdp-red);
             color: #ffffff;
-            box-shadow: 0 12px 30px rgba(208, 25, 27, 0.45);
+            box-shadow: 0 12px 28px rgba(208,25,27,0.45);
         }
 
-        .btn-primary:hover {
-            background: #aa1518;
-            transform: translateY(-1px);
-            box-shadow: 0 16px 45px rgba(208, 25, 27, 0.6);
-        }
+        .btn-primary:hover { background: #aa1518; }
 
         .btn-ghost {
             background: transparent;
             color: #f9fafb;
-            border-color: rgba(226, 232, 240, 0.6);
+            border-color: rgba(226,232,240,0.7);
         }
 
         .btn-ghost:hover {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15,23,42,0.7);
         }
 
-        .hero-feature {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 18px;
-            padding: 18px 18px 16px;
-            border: 1px solid rgba(248, 250, 252, 0.3);
-        }
-
-        .badge-category {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 3px 9px;
-            border-radius: 999px;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            background: rgba(244, 196, 48, 0.1);
-            color: var(--mdp-gold);
-            margin-bottom: 6px;
-        }
-
-        .hero-feature h2 {
-            font-size: 18px;
-            margin-bottom: 4px;
-            color: #ffffff;
-        }
-
-        .hero-feature p {
-            font-size: 13px;
-            color: #e5e7eb;
-            margin-bottom: 10px;
-        }
-
-        .hero-feature a {
-            font-size: 12px;
-            text-decoration: none;
-            color: #bfdbfe;
-        }
-
-        /* MAIN HOME: MACRO CATEGORIE */
+        /* MAIN */
         main {
             padding: 32px 0 40px;
         }
 
-        .macro-grid {
+        .intro {
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .intro p {
+            font-size: 14px;
+            color: #374151;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 18px;
+            gap: 16px;
+            margin-top: 18px;
         }
 
-        .macro-card {
+        .card-link {
+            display: block;
             background: #ffffff;
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 16px 16px 18px;
             border: 1px solid #e5e7eb;
-            box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+            transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+            height: 100%;
         }
 
-        .macro-card h2 {
-            font-size: 18px;
-            margin-bottom: 6px;
+        .card-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 30px rgba(15,23,42,0.12);
+            border-color: rgba(0,51,102,0.2);
+        }
+
+        .card-tag {
+            display: inline-flex;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            padding: 3px 9px;
+            border-radius: 999px;
+            margin-bottom: 8px;
+            background: rgba(0,51,102,0.06);
             color: var(--mdp-blue);
         }
 
-        .macro-card p {
-            font-size: 13px;
-            color: #4b5563;
-            margin-bottom: 10px;
+        .card-tag.red {
+            background: rgba(208,25,27,0.08);
+            color: var(--mdp-red);
         }
 
-        .macro-card a {
-            display: inline-flex;
-            align-items: center;
+        .card-tag.gold {
+            background: rgba(244,196,48,0.12);
+            color: var(--mdp-gold);
+        }
+
+        .card-link h2 {
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: var(--mdp-blue);
+        }
+
+        .card-link p {
             font-size: 13px;
-            text-decoration: none;
+            color: #4b5563;
+        }
+
+        .contact-strip {
+            margin-top: 28px;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px 16px;
+            border: 1px solid #e5e7eb;
+            font-size: 13px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-strip strong {
+            color: var(--mdp-blue);
+        }
+
+        .contact-strip a {
             color: var(--mdp-red);
             font-weight: 600;
-        }
-
-        .macro-card a span {
-            margin-left: 4px;
-        }
-
-        .section-intro {
-            margin-bottom: 18px;
-        }
-
-        .section-intro h2 {
-            font-size: 20px;
-            margin-bottom: 4px;
-        }
-
-        .section-intro p {
-            font-size: 14px;
-            color: #4b5563;
         }
 
         /* FOOTER */
@@ -328,7 +301,7 @@
             background: var(--mdp-blue);
             color: #e5e7eb;
             border-top: 3px solid var(--mdp-red);
-            padding: 14px 0;
+            padding: 12px 0;
             font-size: 12px;
         }
 
@@ -344,33 +317,28 @@
             text-decoration: none;
         }
 
-        .footer-inner a:hover {
-            text-decoration: underline;
-        }
+        .footer-inner a:hover { text-decoration: underline; }
 
         /* RESPONSIVE */
-        @media (max-width: 900px) {
+        @media (max-width: 768px) {
+            .header-top-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
             .header-inner {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
             .main-nav {
                 flex-wrap: wrap;
             }
-
-            .hero-inner {
-                grid-template-columns: minmax(0, 1fr);
+            .hero {
+                padding-top: 26px;
+                padding-bottom: 28px;
             }
-        }
-
-        @media (max-width: 640px) {
-            .header-top-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 4px;
+            .hero-logo {
+                width: 130px;
             }
-
             .footer-inner {
                 flex-direction: column;
                 align-items: flex-start;
@@ -385,123 +353,104 @@
         <div class="container header-top-inner">
             <span>MDP – Macedonian Diaspora Party · Movimento politico della diaspora macedone</span>
             <span>
-                Contatti: 
-                <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> · 
-                WhatsApp: <a href="https://wa.me/393282290062" target="_blank">+39 328 22 90 062</a>
+                Contatti:
+                <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
+                <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>
             </span>
         </div>
     </div>
-
     <div class="header-main">
         <div class="container header-inner">
-            <a href="index.html" class="brand">
-                <img src="./assets/mdp-logo.jpg" alt="Logo Macedonian Diaspora Party">
-                <div class="brand-title">
+            <a href="index.html" class="brand-link">
+                <img src="assets/mdp-logo.jpg" alt="Logo Macedonian Diaspora Party" class="brand-logo">
+                <div class="brand-text">
                     <strong>Macedonian Diaspora Party</strong>
                     <small>Movimento politico della diaspora macedone</small>
                 </div>
             </a>
-
             <ul class="main-nav">
                 <li><a href="movimento.html">Movimento</a></li>
                 <li><a href="visione.html">Visione</a></li>
                 <li><a href="diaspora.html">Diaspora</a></li>
                 <li><a href="documenti.html">Documenti</a></li>
-                <li class="nav-pill-primary"><a href="#partecipa">Partecipa</a></li>
+                <li class="nav-pill-primary"><a href="movimento.html#partecipa">Partecipa</a></li>
             </ul>
         </div>
-    </div>
-</header>
     </div>
 </header>
 
 <section class="hero" id="top">
     <div class="container hero-inner">
+        <img src="assets/mdp-logo.jpg" alt="MDP logo" class="hero-logo">
         <div>
             <div class="hero-kicker">Movimento politico della diaspora macedone</div>
-            <h1>Macedonian Diaspora Party</h1>
+            <div class="hero-title">Macedonian Diaspora Party</div>
             <p class="hero-subtitle">
-                Un movimento libero, sovrano e indipendente, nato dalla diaspora per ricostruire la Repubblica di Macedonia.
+                Un movimento libero, sovrano e indipendente, nato dalla diaspora per ricostruire la Repubblica di Macedonia
+                su basi di libertà, giustizia, meritocrazia e sovranità nazionale.
             </p>
-            <p class="hero-body">
-                Il MDP unisce i macedoni nel mondo che non devono favori ai partiti e non sono sotto ricatto di nessuno.
-                Persone che hanno visto sistemi più giusti e vogliono riportare equilibrio, dignità e sovranità nella
-                politica macedone.
-            </p>
-            <div class="hero-actions">
-                <a href="partecipa.html" class="btn btn-primary">Partecipa al progetto</a>
-                <a href="documenti.html" class="btn btn-ghost">Leggi i documenti fondativi</a>
-            </div>
         </div>
-        <aside class="hero-feature">
-            <div class="badge-category">In evidenza</div>
-            <h2>Perché nasce il Macedonian Diaspora Party</h2>
-            <p>
-                Il MDP nasce come risposta alla crisi morale, istituzionale ed economica della Macedonia e alla necessità
-                di una forza politica nuova, indipendente e guidata dalla diaspora.
-            </p>
-            <a href="visione.html">Scopri la visione politica →</a>
-        </aside>
+        <div class="hero-actions">
+            <a href="movimento.html" class="btn btn-primary">Scopri il Movimento</a>
+            <a href="visione.html" class="btn btn-ghost">Leggi la Visione politica</a>
+        </div>
     </div>
 </section>
 
 <main>
     <div class="container">
-        <div class="section-intro">
-            <h2>Le aree principali del progetto MDP</h2>
+        <section class="intro">
             <p>
-                Questa homepage ti offre una panoramica sintetica. Cliccando sulle macro categorie puoi accedere
-                alle pagine dettagliate dedicate al movimento, alla visione politica, al ruolo della diaspora,
-                ai documenti fondativi e alle modalità di partecipazione.
+                Questa è la pagina ufficiale del Macedonian Diaspora Party (MDP), il movimento politico della diaspora
+                macedone. Dalla diaspora, per la Macedonia: senza padroni, senza ricatti, senza compromessi.
             </p>
-        </div>
+        </section>
 
-        <div class="macro-grid">
-            <section class="macro-card">
-                <h2>Movimento</h2>
+        <section class="cards-grid">
+            <a href="movimento.html" class="card-link">
+                <div class="card-tag gold">Movimento</div>
+                <h2>Perché nasce il MDP</h2>
                 <p>
-                    Chi siamo, da dove nasce il Macedonian Diaspora Party, perché parte dalla diaspora
-                    e quale ruolo vuole avere nella storia politica della Repubblica di Macedonia.
+                    Origini del movimento, ruolo della diaspora, crisi morale e istituzionale che hanno portato alla
+                    fondazione del Macedonian Diaspora Party.
                 </p>
-                <a href="movimento.html">Vai alla pagina <span>→</span></a>
-            </section>
+            </a>
 
-            <section class="macro-card">
-                <h2>Visione politica</h2>
+            <a href="visione.html" class="card-link">
+                <div class="card-tag">Visione politica</div>
+                <h2>Identità e linea politica</h2>
                 <p>
-                    La missione del MDP, i principi non negoziabili e la linea politica generale: libertà,
-                    giustizia, meritocrazia e sovranità nazionale.
+                    Libertà, giustizia, meritocrazia, sovranità: i quattro assi su cui si fonda l’azione politica del MDP
+                    in Macedonia e nella diaspora.
                 </p>
-                <a href="visione.html">Vai alla pagina <span>→</span></a>
-            </section>
+            </a>
 
-            <section class="macro-card">
-                <h2>Diaspora</h2>
+            <a href="diaspora.html" class="card-link">
+                <div class="card-tag gold">Diaspora</div>
+                <h2>La rete mondiale dei macedoni</h2>
                 <p>
-                    Il ruolo della diaspora macedone nel progetto MDP: reti locali, piattaforma digitale,
-                    gruppi di lavoro, partecipazione concreta alla ricostruzione dello Stato.
+                    Struttura della diaspora, nuclei territoriali, piattaforma digitale e progetti concreti per portare
+                    competenze e investimenti in Macedonia.
                 </p>
-                <a href="diaspora.html">Vai alla pagina <span>→</span></a>
-            </section>
+            </a>
 
-            <section class="macro-card">
-                <h2>Documenti ufficiali</h2>
+            <a href="documenti.html" class="card-link">
+                <div class="card-tag red">Documenti</div>
+                <h2>Testi ufficiali del MDP</h2>
                 <p>
-                    Atto costitutivo, statuto, dichiarazione fondativa, struttura istituzionale, identità politica,
-                    programma e strategia per la diaspora.
+                    Atto costitutivo, statuto, dichiarazione fondativa e documenti programmatici: la base giuridica e
+                    politica del movimento.
                 </p>
-                <a href="documenti.html">Vai alla pagina <span>→</span></a>
-            </section>
+            </a>
+        </section>
 
-            <section class="macro-card">
-                <h2>Come partecipare</h2>
-                <p>
-                    Modalità di adesione, criteri per entrare nel progetto, forme di impegno e contatti diretti
-                    per chi vuole contribuire seriamente.
-                </p>
-                <a href="partecipa.html">Vai alla pagina <span>→</span></a>
-            </section>
-        </div>
+        <section class="contact-strip">
+            <span><strong>Vuoi contribuire seriamente al progetto?</strong></span>
+            <span>
+                Scrivi a <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> oppure contatta
+                <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>.
+            </span>
+        </section>
     </div>
 </main>
 
