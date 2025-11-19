@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MDP – Macedonian Diaspora Party</title>
-    <meta name="description" content="Macedonian Diaspora Party (MDP) – Movimento politico della diaspora macedone, libero e indipendente, nato dalla diaspora per ricostruire la Repubblica di Macedonia.">
+    <title>Macedonian Diaspora Party – MDP</title>
+    <meta name="description" content="Macedonian Diaspora Party (MDP): movimento politico indipendente della diaspora macedone. Libertà, giustizia, meritocrazia e sovranità reale.">
     <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
 
     <style>
@@ -16,7 +16,7 @@
             --bg-soft: #f5f7fb;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -32,12 +32,12 @@
             padding: 0 16px;
         }
 
-        /* HEADER con logo esteso */
+        /* HEADER */
         .site-header {
             position: sticky;
             top: 0;
-            z-index: 40;
             background: #ffffff;
+            z-index: 40;
             border-bottom: 3px solid var(--mdp-red);
         }
 
@@ -63,20 +63,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 10px 16px;
+            padding: 8px 10px;
         }
 
         .nav-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
+            flex-wrap: nowrap;
+            gap: 14px;
             list-style: none;
             font-size: 14px;
+            white-space: nowrap;
         }
 
         .nav-list a {
             color: #e5e7eb;
-            padding: 6px 10px;
+            padding: 4px 8px;
             border-radius: 999px;
         }
 
@@ -84,161 +85,87 @@
             background: rgba(255,255,255,0.14);
         }
 
-        /* HERO HOME */
+        /* HERO */
         .hero-home {
             background: var(--mdp-blue);
             color: #ffffff;
-            padding: 30px 0 28px;
-            border-bottom: 3px solid var(--mdp-red);
+            padding: 40px 0 38px;
             text-align: center;
-        }
-
-        .hero-kicker {
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #cbd5f5;
-            margin-bottom: 6px;
+            border-bottom: 3px solid var(--mdp-red);
         }
 
         .hero-title {
-            font-size: clamp(24px, 3.2vw, 30px);
+            font-size: clamp(26px, 3.4vw, 34px);
             font-weight: 700;
             margin-bottom: 10px;
         }
 
         .hero-subtitle {
-            font-size: 14px;
             max-width: 700px;
             margin: 0 auto;
+            font-size: 15px;
             color: #e5e7eb;
-            line-height: 1.6;
-        }
-
-        .hero-actions {
-            margin-top: 16px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 9px 18px;
-            border-radius: 999px;
-            font-size: 14px;
-            font-weight: 600;
-            border: 1px solid transparent;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--mdp-red);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background: #aa1518;
-        }
-
-        .btn-ghost {
-            background: transparent;
-            color: #f9fafb;
-            border-color: rgba(226,232,240,0.7);
-        }
-
-        .btn-ghost:hover {
-            background: rgba(15,23,42,0.7);
+            line-height: 1.7;
         }
 
         /* MAIN */
         main {
-            padding: 32px 0 40px;
+            padding: 36px 0 48px;
         }
 
         .section-intro {
             max-width: 760px;
-            margin: 0 auto 24px;
-            font-size: 14px;
+            margin: 0 auto 32px;
+            text-align: center;
+            font-size: 15px;
             line-height: 1.6;
             color: #374151;
-            text-align: center;
         }
 
-        .docs-layout {
+        .cards-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
-            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
         }
 
-        /* Colonna sinistra: card di sezione */
-        .home-section-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--mdp-blue-dark);
-        }
-
-        .home-cards {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .home-card {
+        .card-link {
             background: #ffffff;
+            padding: 18px;
             border-radius: 14px;
-            padding: 14px 16px;
             border: 1px solid #e5e7eb;
+            transition: 0.14s ease;
+            display: block;
         }
 
-        .home-card-tag {
+        .card-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,0.15);
+        }
+
+        .card-tag {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.16em;
-            margin-bottom: 4px;
-            color: #6b7280;
-        }
-
-        .home-card-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--mdp-blue);
-            margin-bottom: 4px;
-        }
-
-        .home-card-text {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-        }
-
-        /* Colonna destra: box laterale */
-        .side-box {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 14px 16px;
-            border: 1px solid #e5e7eb;
-            font-size: 13px;
-            line-height: 1.6;
-            color: #374151;
-        }
-
-        .side-box h3 {
-            font-size: 16px;
+            letter-spacing: 0.14em;
+            padding: 3px 9px;
+            border-radius: 999px;
+            display: inline-block;
             margin-bottom: 8px;
+        }
+        .tag-blue { background: rgba(0,43,92,0.08); color: var(--mdp-blue); }
+        .tag-red { background: rgba(208,25,27,0.1); color: var(--mdp-red); }
+        .tag-gold { background: rgba(244,196,48,0.14); color: #92400e; }
+
+        .card-link h2 {
+            font-size: 18px;
+            margin-bottom: 6px;
             color: var(--mdp-blue-dark);
         }
 
-        .side-list {
-            margin-top: 6px;
-            padding-left: 18px;
-        }
-
-        .side-list li {
-            margin-bottom: 4px;
+        .card-link p {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.5;
         }
 
         /* FOOTER */
@@ -256,33 +183,25 @@
             align-items: center;
             gap: 10px;
         }
-
-        .footer-inner a {
-            color: #f9fafb;
-        }
-
-        .footer-inner a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 900px) {
-            .docs-layout { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 
 <body>
 
 <header class="site-header">
+
     <div class="logo-strip">
         <div class="container">
-            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" class="logo-full" alt="MDP Logo">
+            <img class="logo-full"
+                 src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                 alt="MDP Logo">
         </div>
     </div>
 
     <nav class="main-nav">
         <div class="container nav-inner">
             <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="movimento.html">Movimento</a></li>
                 <li><a href="visione.html">Visione</a></li>
                 <li><a href="diaspora.html">Diaspora</a></li>
@@ -290,93 +209,54 @@
             </ul>
         </div>
     </nav>
+
 </header>
 
 <section class="hero-home">
-    <div class="container">
-        <div class="hero-kicker">Movimento politico della diaspora macedone</div>
-        <h1 class="hero-title">Macedonian Diaspora Party</h1>
-        <p class="hero-subtitle">
-            Un movimento libero, sovrano e indipendente, nato dalla diaspora per ricostruire la Repubblica di Macedonia
-            su basi di libertà, giustizia, meritocrazia e sovranità nazionale.
-        </p>
-
-        <div class="hero-actions">
-            <a href="movimento.html" class="btn btn-primary">Scopri il Movimento</a>
-            <a href="visione.html" class="btn btn-ghost">Leggi la Visione politica</a>
-        </div>
-    </div>
+    <h1 class="hero-title">Macedonian Diaspora Party</h1>
+    <p class="hero-subtitle">
+        Un movimento libero, indipendente e sovrano nato dalla diaspora macedone per ricostruire lo Stato su basi
+        di libertà, giustizia, meritocrazia e sovranità reale.
+    </p>
 </section>
 
 <main>
     <div class="container">
+
         <section class="section-intro">
-            Il MDP nasce fuori dai confini nazionali, dalla diaspora macedone, per riportare al centro lo Stato,
-            la responsabilità personale di chi governa e la difesa dell’identità nazionale. Questo sito è il punto di
-            riferimento pubblico del movimento.
+            Questa è la pagina ufficiale del Macedonian Diaspora Party (MDP).  
+            Un progetto politico indipendente, nato fuori dai confini nazionali per riportare alla Macedonia una
+            nuova visione di Stato: pulito, meritocratico, libero da influenze esterne.
         </section>
 
-        <section class="docs-layout">
-            <!-- Colonna principale -->
-            <div>
-                <h2 class="home-section-title">Cosa trovi nel MDP</h2>
-                <div class="home-cards">
+        <section class="cards-grid">
 
-                    <div class="home-card">
-                        <div class="home-card-tag">Movimento</div>
-                        <div class="home-card-title">Perché nasce il MDP</div>
-                        <p class="home-card-text">
-                            Origini del movimento, rottura con i partiti tradizionali, ruolo della diaspora
-                            e motivazioni che hanno portato alla fondazione del Macedonian Diaspora Party.
-                        </p>
-                    </div>
+            <a href="movimento.html" class="card-link">
+                <span class="card-tag tag-gold">Movimento</span>
+                <h2>Perché nasce il MDP</h2>
+                <p>Origini, valori e obiettivi del movimento che nasce dalla diaspora per ricostruire il Paese.</p>
+            </a>
 
-                    <div class="home-card">
-                        <div class="home-card-tag">Visione politica</div>
-                        <div class="home-card-title">Linea, valori e obiettivi</div>
-                        <p class="home-card-text">
-                            I quattro assi del progetto: libertà reale, giustizia senza impunità, meritocrazia
-                            e sovranità nazionale. Come questi principi si traducono in scelte concrete.
-                        </p>
-                    </div>
+            <a href="visione.html" class="card-link">
+                <span class="card-tag tag-blue">Visione</span>
+                <h2>Identità politica</h2>
+                <p>Libertà, giustizia, meritocrazia e sovranità: la base del nuovo modello politico macedone.</p>
+            </a>
 
-                    <div class="home-card">
-                        <div class="home-card-tag">Diaspora</div>
-                        <div class="home-card-title">La forza dei macedoni all’estero</div>
-                        <p class="home-card-text">
-                            Struttura organizzativa, sezioni locali, piattaforma digitale e progetti per portare
-                            competenze, investimenti e pressione politica positiva verso la Macedonia.
-                        </p>
-                    </div>
+            <a href="diaspora.html" class="card-link">
+                <span class="card-tag tag-gold">Diaspora</span>
+                <h2>La rete mondiale</h2>
+                <p>Come la diaspora diventa protagonista del cambiamento con competenze, investimenti e presenza globale.</p>
+            </a>
 
-                    <div class="home-card">
-                        <div class="home-card-tag">Documenti ufficiali</div>
-                        <div class="home-card-title">Base giuridica e politica</div>
-                        <p class="home-card-text">
-                            Atto costitutivo, statuto, dichiarazione fondativa e materiali programmatici.
-                            Tutto sarà pubblicato in forma integrale nella sezione “Documenti”.
-                        </p>
-                    </div>
+            <a href="documenti.html" class="card-link">
+                <span class="card-tag tag-red">Documenti</span>
+                <h2>Atti e Testi Ufficiali</h2>
+                <p>Atto costitutivo, statuto, dichiarazione fondativa e documenti politici ufficiali del MDP.</p>
+            </a>
 
-                </div>
-            </div>
-
-            <!-- Colonna laterale -->
-            <aside>
-                <div class="side-box">
-                    <h3>Un movimento senza padroni</h3>
-                    <p>
-                        Il MDP non nasce per occupare poltrone, ma per cambiare il modo in cui lo Stato viene
-                        governato: istituzioni pulite, responsabilità personale di chi decide, fine del clientelismo.
-                    </p>
-                    <ul class="side-list">
-                        <li>Totale indipendenza da lobby e potenze straniere.</li>
-                        <li>Centralità della diaspora come soggetto politico attivo.</li>
-                        <li>Trasparenza su programmi, documenti e finanziamenti.</li>
-                    </ul>
-                </div>
-            </aside>
         </section>
+
     </div>
 </main>
 
