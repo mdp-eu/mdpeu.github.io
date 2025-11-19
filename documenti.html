@@ -32,7 +32,7 @@
             padding: 0 16px;
         }
 
-        /* HEADER CON LOGO ESTESO CENTRATO */
+        /* HEADER con logo esteso ridotto */
         .site-header {
             position: sticky;
             top: 0;
@@ -42,7 +42,7 @@
         }
 
         .logo-strip {
-            padding: 10px 0 8px;
+            padding: 8px 0; /* ridotto */
             border-bottom: 1px solid #e5e7eb;
         }
 
@@ -50,10 +50,11 @@
             display: block;
             margin: 0 auto;
             width: 100%;
-            max-width: 520px;   /* esteso ma controllato */
+            max-width: 420px; /* più piccolo */
             height: auto;
         }
 
+        /* NAV */
         .main-nav {
             background: var(--mdp-blue-dark);
         }
@@ -88,46 +89,13 @@
             color: #ffffff;
         }
 
-        .nav-pill-primary a:hover {
-            background: #aa1518;
-        }
-
-        /* HERO DOCUMENTI */
+        /* HERO SENZA LOGO */
         .hero-docs {
             background: var(--mdp-blue);
             color: #ffffff;
-            padding: 36px 0 32px;
+            padding: 30px 0 28px; /* ridotto */
             border-bottom: 3px solid var(--mdp-red);
-        }
-
-        .hero-docs-inner {
-            max-width: 800px;
-            margin: 0 auto;
             text-align: center;
-        }
-
-        .hero-kicker {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: #cbd5f5;
-            margin-bottom: 10px;
-        }
-
-        .hero-logo-box {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 22px;
-            border-radius: 18px;
-            background: #ffffff;
-            margin-bottom: 16px;
-        }
-
-        .hero-logo-box img {
-            display: block;
-            width: 140px;
-            height: auto;
         }
 
         .hero-title {
@@ -138,8 +106,10 @@
 
         .hero-subtitle {
             font-size: 14px;
-            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
             color: #e5e7eb;
+            line-height: 1.6;
         }
 
         /* MAIN */
@@ -168,29 +138,18 @@
             color: var(--mdp-blue-dark);
         }
 
-        .docs-column p {
-            font-size: 14px;
-            color: #374151;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
         .doc-list {
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            margin-top: 6px;
         }
 
         .doc-item {
             background: #ffffff;
             border-radius: 14px;
-            padding: 12px 14px 13px;
+            padding: 12px 14px;
             border: 1px solid #e5e7eb;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
         }
 
         .doc-title {
@@ -202,69 +161,26 @@
         .doc-meta {
             font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.14em;
             color: #6b7280;
-        }
-
-        .doc-status {
-            font-size: 12px;
-            color: #4b5563;
+            letter-spacing: 0.14em;
         }
 
         .badge {
-            display: inline-flex;
-            align-items: center;
             padding: 2px 8px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 600;
         }
-
-        .badge-pdf {
-            background: rgba(208,25,27,0.08);
-            color: var(--mdp-red);
-        }
-
-        .badge-doc {
-            background: rgba(0,43,92,0.08);
-            color: var(--mdp-blue);
-        }
-
-        .badge-bozza {
-            background: rgba(244,196,48,0.14);
-            color: #92400e;
-        }
+        .badge-pdf { background: rgba(208,25,27,0.08); color: var(--mdp-red); }
+        .badge-doc { background: rgba(0,43,92,0.08); color: var(--mdp-blue); }
+        .badge-bozza { background: rgba(244,196,48,0.14); color: #92400e; }
 
         .side-box {
             background: #ffffff;
             border-radius: 14px;
-            padding: 14px 16px 16px;
+            padding: 14px 16px;
             border: 1px solid #e5e7eb;
             font-size: 13px;
-            color: #374151;
-        }
-
-        .side-box h3 {
-            font-size: 15px;
-            margin-bottom: 6px;
-            color: var(--mdp-blue);
-        }
-
-        .side-box ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 6px;
-        }
-
-        .side-box li {
-            font-size: 13px;
-            margin-bottom: 4px;
-        }
-
-        .side-box li::before {
-            content: "•";
-            color: var(--mdp-red);
-            margin-right: 6px;
         }
 
         /* FOOTER */
@@ -283,45 +199,21 @@
             gap: 10px;
         }
 
-        .footer-inner a {
-            color: #f9fafb;
-            text-decoration: none;
-        }
-
-        .footer-inner a:hover {
-            text-decoration: underline;
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 900px) {
-            .docs-layout {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
-        @media (max-width: 640px) {
-            .nav-inner {
-                justify-content: center;
-            }
-            .nav-list {
-                justify-content: center;
-            }
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .docs-layout { grid-template-columns: 1fr; }
         }
     </style>
 </head>
+
 <body>
 
 <header class="site-header">
     <div class="logo-strip">
-        <!-- Logo esteso centrato, larghezza controllata -->
         <div class="container">
-            <img src="assets/mdp-logo.jpg" alt="Macedonian Diaspora Party" class="logo-full">
+            <img src="assets/mdp-logo.jpg" class="logo-full" alt="MDP Logo">
         </div>
     </div>
+
     <nav class="main-nav">
         <div class="container nav-inner">
             <ul class="nav-list">
@@ -336,90 +228,46 @@
 </header>
 
 <section class="hero-docs">
-    <div class="container hero-docs-inner">
-        <div class="hero-logo-box">
-            <img src="assets/mdp-logo.jpg" alt="Logo Macedonian Diaspora Party">
-        </div>
-        <div class="hero-kicker">Movimento politico della diaspora macedone</div>
-        <h1 class="hero-title">Documenti Ufficiali</h1>
-        <p class="hero-subtitle">
-            Atti fondativi, statuto, dichiarazioni politiche e materiali strategici del Macedonian Diaspora Party.
-            Tutti i documenti sono pubblicati in nome della trasparenza e della responsabilità istituzionale.
-        </p>
-    </div>
+    <h1 class="hero-title">Documenti Ufficiali</h1>
+    <p class="hero-subtitle">
+        Atti fondativi, statuto, dichiarazioni politiche e materiali strategici del Macedonian Diaspora Party.
+    </p>
 </section>
 
 <main>
     <div class="container">
         <section class="section-intro">
-            <p>
-                I documenti del MDP definiscono la struttura, la visione, la missione e il percorso politico del movimento.
-                Ogni testo pubblicato ha valore ufficiale e sarà disponibile in versione integrale non appena approvato.
-            </p>
+            I documenti ufficiali definiscono la struttura, la visione e l’identità politica del MDP.
         </section>
 
         <section class="docs-layout">
-            <!-- Colonna lista documenti -->
             <div class="docs-column">
                 <h2>Materiali fondativi</h2>
                 <ul class="doc-list">
                     <li class="doc-item">
-                        <div class="doc-meta"><span class="badge badge-pdf">PDF</span>&nbsp; · Atto costitutivo</div>
+                        <div class="doc-meta"><span class="badge badge-pdf">PDF</span> · Atto costitutivo</div>
                         <div class="doc-title">Atto costitutivo del Macedonian Diaspora Party</div>
-                        <div class="doc-status">Disponibile a breve in versione scaricabile.</div>
+                        <div class="doc-status">Disponibile a breve.</div>
                     </li>
-                    <li class="doc-item">
-                        <div class="doc-meta"><span class="badge badge-pdf">PDF</span>&nbsp; · Statuto</div>
-                        <div class="doc-title">Statuto ufficiale del Macedonian Diaspora Party</div>
-                        <div class="doc-status">Versione definitiva in preparazione, con pubblicazione integrale.</div>
-                    </li>
-                    <li class="doc-item">
-                        <div class="doc-meta"><span class="badge badge-doc">DOCUMENTO POLITICO</span></div>
-                        <div class="doc-title">Dichiarazione fondativa del MDP</div>
-                        <div class="doc-status">Testo politico che definisce identità, valori e motivazioni della nascita del movimento.</div>
-                    </li>
-                </ul>
 
-                <h2 style="margin-top:22px;">Programmi e linee politiche</h2>
-                <ul class="doc-list">
                     <li class="doc-item">
-                        <div class="doc-meta"><span class="badge badge-bozza">BOZZA</span>&nbsp; · Programma generale</div>
-                        <div class="doc-title">Programma generale del Macedonian Diaspora Party</div>
-                        <div class="doc-status">Documento in aggiornamento, costruito con il contributo della diaspora nel mondo.</div>
+                        <div class="doc-meta"><span class="badge badge-pdf">PDF</span> · Statuto</div>
+                        <div class="doc-title">Statuto ufficiale del MDP</div>
+                        <div class="doc-status">Versione in preparazione.</div>
                     </li>
+
                     <li class="doc-item">
-                        <div class="doc-meta"><span class="badge badge-doc">DOCUMENTO</span>&nbsp; · Linee guida diaspora</div>
-                        <div class="doc-title">Linee guida per l’organizzazione della diaspora</div>
-                        <div class="doc-status">Schema operativo per sezioni locali, piattaforma digitale e rappresentanza politica.</div>
+                        <div class="doc-meta"><span class="badge badge-doc">Documento</span></div>
+                        <div class="doc-title">Dichiarazione fondativa del MDP</div>
+                        <div class="doc-status">Testo ufficiale in pubblicazione.</div>
                     </li>
                 </ul>
             </div>
 
-            <!-- Colonna laterale spiegazioni -->
             <aside class="docs-column">
                 <div class="side-box">
-                    <h3>Trasparenza e responsabilità</h3>
-                    <p>
-                        Tutti i documenti approvati dal Macedonian Diaspora Party verranno pubblicati in modo integrale,
-                        con data di approvazione e versione. Ogni modifica sostanziale sarà tracciata e resa visibile.
-                    </p>
-                    <ul>
-                        <li>Pubblicazione integrale degli atti fondativi.</li>
-                        <li>Versioni numerate di statuto e regolamenti interni.</li>
-                        <li>Accesso libero ai documenti programmatici.</li>
-                    </ul>
-                </div>
-
-                <div class="side-box" style="margin-top:14px;">
-                    <h3>Richiesta documenti</h3>
-                    <p>
-                        Fino alla pubblicazione delle versioni definitive, è possibile richiedere informazioni e materiali
-                        direttamente ai referenti del MDP.
-                    </p>
-                    <p style="margin-top:6px;">
-                        Scrivi a <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> indicando chi sei, dove vivi e
-                        per quale motivo richiedi la documentazione.
-                    </p>
+                    <h3>Trasparenza</h3>
+                    <p>Tutti i documenti saranno pubblicati integralmente con versioni aggiornate.</p>
                 </div>
             </aside>
         </section>
@@ -428,10 +276,10 @@
 
 <footer class="site-footer">
     <div class="container footer-inner">
-        <span>© Macedonian Diaspora Party (MDP)</span>
+        <span>© Macedonian Diaspora Party</span>
         <span>
-            Contatti: <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
-            <a href="https://wa.me/393282290062" target="_blank">WhatsApp +39 328 22 90 062</a>
+            <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
+            <a href="https://wa.me/393282290062">WhatsApp +39 328 22 90 062</a>
         </span>
     </div>
 </footer>
