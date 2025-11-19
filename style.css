@@ -80,3 +80,13 @@
     color: var(--mdp-red);
     font-weight: 600;
 }
+/* LOGO FIX – FORZA DIMENSIONI CORRETTE */
+.brand-logo,
+.hero-logo {
+    width: 130px !important;
+    height: auto !important;
+    max-width: 130px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto;
+}
