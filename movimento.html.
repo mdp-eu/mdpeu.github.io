@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDP – Movimento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="site-header">
+    <div class="header-top">
+        <div class="container header-top-inner">
+            <span>MDP – Macedonian Diaspora Party</span>
+            <span>
+                Contatti: <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> · 
+                WhatsApp: <a href="https://wa.me/393282290062" target="_blank">+39 328 22 90 062</a>
+            </span>
+        </div>
+    </div>
+    <div class="header-main">
+        <div class="container header-inner">
+            <a href="index.html" class="brand">
+                <img src="assets/mdp-logo.jpg" alt="Logo MDP">
+                <div class="brand-title">
+                    <strong>Macedonian Diaspora Party</strong>
+                    <small>Movimento politico della diaspora macedone</small>
+                </div>
+            </a>
+            <ul class="main-nav">
+                <li><a href="movimento.html" class="nav-pill-primary">Movimento</a></li>
+                <li><a href="visione.html">Visione</a></li>
+                <li><a href="diaspora.html">Diaspora</a></li>
+                <li><a href="documenti.html">Documenti</a></li>
+                <li><a href="partecipa.html">Partecipa</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section class="hero" id="top">
+    <div class="container hero-inner">
+        <div>
+            <div class="hero-kicker">Il Movimento</div>
+            <h1>Perché nasce il Macedonian Diaspora Party</h1>
+            <p class="hero-subtitle">
+                Non un nuovo partito, ma un nuovo modello politico: libero, indipendente, disciplinato.
+            </p>
+            <p class="hero-body">
+                Il MDP nasce dalla diaspora macedone: la parte più libera, onesta e competente del popolo,
+                non ricattabile, non dipendente dai partiti e capace di portare nella politica macedone
+                meritocrazia, moralità e visione moderna dello Stato.
+            </p>
+        </div>
+    </div>
+</section>
+
+<main>
+    <div class="container section-anchor" id="chi-siamo">
+        <div class="section-tag gold">Identità</div>
+        <h2>Chi siamo</h2>
+        <p>
+            Il Macedonian Diaspora Party (MDP) è un movimento politico sovranista e apartitico, fondato 
+            il 27 novembre 2025 da Emir Alili. È una realtà nata interamente dalla diaspora, senza 
+            finanziamenti esterni, senza padrini politici e senza legami con i vecchi partiti.
+        </p>
+        <p>
+            Il MDP rappresenta i macedoni che vivono all’estero, che hanno visto sistemi più giusti e 
+            funzionanti, e che vogliono riportare disciplina, moralità e competenza nella vita pubblica.
+        </p>
+    </div>
+
+    <div class="container section-anchor" id="perche">
+        <div class="section-tag red">Perché</div>
+        <h2>Perché nasce il MDP</h2>
+        <p>
+            Dopo trent’anni di corruzione, clientelismo e interferenze straniere, la Macedonia ha perso 
+            credibilità istituzionale, sovranità politica e fiducia popolare. 
+        </p>
+        <p>
+            La diaspora è l’unica parte del popolo che non è controllabile dai partiti, che non vive di 
+            favori politici e che conosce il valore della meritocrazia. Da questa forza nasce il MDP: 
+            libero, sovrano, disciplinato.
+        </p>
+
+        <ul class="pill-list" style="margin-top:12px;">
+            <li>Ricostruire lo Stato macedone su moralità e competenza.</li>
+            <li>Proteggere la sovranità nazionale da pressioni esterne.</li>
+            <li>Eliminare il clientelismo come metodo di governo.</li>
+            <li>Dare rappresentanza reale alla diaspora mondiale.</li>
+        </ul>
+    </div>
+
+    <div class="container section-anchor" id="missione">
+        <div class="section-tag">Missione</div>
+        <h2>Missione del Movimento</h2>
+        <p>
+            Il MDP ha una missione chiara: riportare ordine, giustizia e responsabilità nelle istituzioni.
+        </p>
+        <p>
+            Chi entra nel movimento accetta disciplina, trasparenza e responsabilità personale. 
+            Il MDP non vuole “posti”, ma risultati concreti: rigenerazione dello Stato, meritocrazia, 
+            sovranità e difesa dell’identità nazionale.
+        </p>
+
+        <ul class="pill-list" style="margin-top:12px;">
+            <li>Libertà politica e morale.</li>
+            <li>Giustizia uguale per tutti.</li>
+            <li>Meritocrazia reale.</li>
+            <li>Sovranità della Repubblica di Macedonia.</li>
+        </ul>
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>© Macedonian Diaspora Party (MDP)</span>
+        <span>mdp-eu.com · 
+            <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a>
+        </span>
+    </div>
+</footer>
+
+</body>
+</html>
