@@ -1021,7 +1021,7 @@
             </div>
         </section>
 
-        <!-- CTA FINALE -->
+        <!-- CTA FINALE CON FORMSPREE -->
         <section class="cta-section">
             <div class="cta-card">
                 <div>
@@ -1034,30 +1034,37 @@
                 </div>
 
                 <form class="cta-form"
-      action="mailto:info@mdp-eu.com"
-      method="POST"
-      enctype="text/plain">
+                      id="referent-form"
+                      action="https://formspree.io/f/mldzkeyd"
+                      method="POST">
 
-    <div>
-        <label for="cta-name">Nome e cognome</label>
-        <input type="text" id="cta-name" name="Nome e cognome" placeholder="Inserisci il tuo nome completo">
-    </div>
-    <div>
-        <label for="cta-city">Paese / Città</label>
-        <input type="text" id="cta-city" name="Paese / Città" placeholder="Es. Italia – Milano">
-    </div>
-    <div>
-        <label for="cta-email">Email</label>
-        <input type="email" id="cta-email" name="Email" placeholder="Inserisci la tua email">
-    </div>
-    <div>
-        <label for="cta-note">In che modo vuoi contribuire?</label>
-        <textarea id="cta-note" name="Come vuoi contribuire" placeholder="Presentati in poche righe e indica come vorresti partecipare."></textarea>
-    </div>
-    <button type="submit" class="cta-submit">
-        Invia la tua manifestazione di interesse
-    </button>
-</form>
+                    <input type="hidden" name="_subject" value="Nuova candidatura referente MDP">
+                    <input type="hidden" name="_language" value="it">
+
+                    <div>
+                        <label for="cta-name">Nome e Cognome</label>
+                        <input type="text" id="cta-name" name="nome" placeholder="Inserisci il tuo nome completo" required>
+                    </div>
+
+                    <div>
+                        <label for="cta-city">Paese / Città</label>
+                        <input type="text" id="cta-city" name="citta" placeholder="Es. Italia – Milano" required>
+                    </div>
+
+                    <div>
+                        <label for="cta-email">Email</label>
+                        <input type="email" id="cta-email" name="email" placeholder="Inserisci la tua email" required>
+                    </div>
+
+                    <div>
+                        <label for="cta-note">In che modo vuoi contribuire?</label>
+                        <textarea id="cta-note" name="messaggio" placeholder="Scrivi poche righe sulla tua disponibilità e competenze" required></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-submit">
+                        Invia la tua manifestazione di interesse
+                    </button>
+                </form>
             </div>
         </section>
 
@@ -1077,6 +1084,7 @@
 </footer>
 
 <script>
+    // menu mobile
     const navToggle = document.getElementById("navToggle");
     const mainNav = document.getElementById("mainNav");
 
@@ -1084,6 +1092,16 @@
         navToggle.addEventListener("click", () => {
             navToggle.classList.toggle("active");
             mainNav.classList.toggle("nav-open");
+        });
+    }
+
+    // messaggio di conferma dopo invio form
+    const referentForm = document.getElementById("referent-form");
+    if (referentForm) {
+        referentForm.addEventListener("submit", function () {
+            setTimeout(() => {
+                alert("Grazie! La tua richiesta è stata inviata correttamente.\nVerrai contattato da un referente MDP.");
+            }, 400);
         });
     }
 </script>
