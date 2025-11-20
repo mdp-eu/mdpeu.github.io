@@ -1,91 +1,286 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Visione – Macedonian Diaspora Party</title>
-<meta name="description" content="La visione politica del Macedonian Diaspora Party (MDP).">
-<link rel="icon" href="assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visione – Macedonian Diaspora Party</title>
 
+    <meta name="description" content="La visione politica del Macedonian Diaspora Party (MDP): libertà, giustizia, meritocrazia e sovranità nazionale come assi centrali del progetto.">
+    <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
 
-<style>
-:root {
---mdp-blue: #002b5c;
---mdp-blue-dark: #001836;
---mdp-red: #d0191b;
---bg-soft: #f5f7fb;
-}
+    <style>
+        :root {
+            --mdp-blue: #002b5c;
+            --mdp-blue-dark: #001836;
+            --mdp-red: #d0191b;
+            --bg-soft: #f5f7fb;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg-soft);
+            color: #111827;
+        }
 
+        a { text-decoration: none; color: inherit; }
 
-body {
-font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-background: var(--bg-soft);
-color: #111827;
-}
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
 
+        /* HEADER */
+        .site-header {
+            background: #ffffff;
+            border-bottom: 3px solid var(--mdp-red);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
 
-a { text-decoration: none; color: inherit; }
+        .logo-strip {
+            padding: 12px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
 
+        .logo-full {
+            display: block;
+            margin: 0 auto;
+            max-width: 420px;
+            width: 100%;
+            height: auto;
+        }
 
-.container {
-max-width: 1120px;
-margin: 0 auto;
-padding: 0 16px;
-}
+        /* NAVBAR */
+        .main-nav {
+            background: var(--mdp-blue-dark);
+        }
 
+        .nav-inner {
+            display: flex;
+            justify-content: center;
+            padding: 10px 16px;
+        }
 
-/* HEADER */
-.site-header {
-background: #ffffff;
-border-bottom: 3px solid var(--mdp-red);
-position: sticky;
-top: 0;
-z-index: 50;
-}
+        .nav-list {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            font-size: 13px;
+            white-space: nowrap;
+        }
 
+        .nav-list a {
+            padding: 6px 8px;
+            border-radius: 999px;
+            color: #e5e7eb;
+        }
 
-.logo-strip {
-padding: 12px 0;
-border-bottom: 1px solid #e5e7eb;
-}
+        .nav-list a:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
 
+        /* HERO */
+        .hero-visione {
+            background: var(--mdp-blue);
+            color: #ffffff;
+            text-align: center;
+            padding: 32px 0 28px;
+            border-bottom: 3px solid var(--mdp-red);
+        }
 
-.logo-full {
-display: block;
-margin: 0 auto;
-max-width: 420px;
-width: 100%;
-height: auto;
-}
+        .hero-title {
+            font-size: clamp(24px, 3vw, 30px);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
 
+        .hero-subtitle {
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 14px;
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
 
-/* NAV */
-.main-nav {
-background: var(--mdp-blue-dark);
-}
+        /* MAIN */
+        main { padding: 36px 0 40px; }
 
+        .section-block {
+            max-width: 780px;
+            margin: 0 auto 36px auto;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 20px 22px;
+            border: 1px solid #e5e7eb;
+        }
 
-.nav-inner {
-display: flex;
-justify-content: center;
-</html>
+        .section-block h2 {
+            color: var(--mdp-blue-dark);
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
 
+        .section-block p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            color: #374151;
+        }
+
+        .list-clean {
+            list-style: none;
+            margin-top: 6px;
+        }
+
+        .list-clean li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .list-clean li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--mdp-red);
+        }
+
+        /* FOOTER */
+        .site-footer {
+            background: var(--mdp-blue-dark);
+            color: #e5e7eb;
+            border-top: 3px solid var(--mdp-red);
+            padding: 14px 0;
+            font-size: 12px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contacts {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-icon-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-icon-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="logo-strip">
+        <div class="container">
+            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                 class="logo-full" alt="MDP Logo">
+        </div>
+    </div>
+
+    <nav class="main-nav">
+        <div class="container nav-inner">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="movimento.html">Movimento</a></li>
+                <li><a href="visione.html">Visione</a></li>
+                <li><a href="diaspora.html">Diaspora</a></li>
+                <li><a href="documenti.html">Documenti</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<section class="hero-visione">
+    <h1 class="hero-title">Visione politica del MDP</h1>
+    <p class="hero-subtitle">
+        La linea politica del Macedonian Diaspora Party si fonda su quattro assi: libertà, giustizia,
+        meritocrazia e sovranità nazionale. Sono criteri operativi, non slogan.
+    </p>
+</section>
+
+<main>
+    <div class="container">
+
+        <section class="section-block">
+            <h2>Una politica al servizio dello Stato, non dei partiti</h2>
+            <p>
+                Il MDP parte da un principio semplice: la politica deve far funzionare lo Stato,
+                non diventare una rete clientelare che distribuisce posti, favori e immunità.
+            </p>
+            <p>
+                Se lo Stato diventa proprietà di pochi, i cittadini perdono fiducia, emigrano,
+                si rassegnano. Il MDP vuole spezzare questo ciclo con un modello politico serio,
+                responsabile e libero da condizionamenti.
+            </p>
+        </section>
+
+        <section class="section-block">
+            <h2>I quattro assi della visione MDP</h2>
+            <p>Ogni scelta politica deve rispettare questi quattro principi fondamentali:</p>
+
+            <ul class="list-clean">
+                <li><strong>Libertà</strong> – tutela reale del pensiero critico, dei diritti civili, della libertà politica.</li>
+                <li><strong>Giustizia</strong> – fine dell’impunità, giudici indipendenti, legge uguale per tutti.</li>
+                <li><strong>Meritocrazia</strong> – incarichi assegnati a chi è competente, non ai fedeli di partito.</li>
+                <li><strong>Sovranità nazionale</strong> – difesa della Repubblica di Macedonia da pressioni straniere e interferenze geopolitiche.</li>
+            </ul>
+        </section>
+
+        <section class="section-block">
+            <h2>Metodo e stile politico</h2>
+            <p>
+                La visione MDP non è teorica. È un metodo operativo fondato su disciplina,
+                responsabilità personale e trasparenza.
+            </p>
+
+            <ul class="list-clean">
+                <li>Impegni politici chiari e verificabili.</li>
+                <li>Tolleranza zero verso corruzione e conflitti di interesse.</li>
+                <li>Comunicazione diretta con i cittadini.</li>
+                <li>Coinvolgimento costante della diaspora nelle scelte strategiche.</li>
+            </ul>
+
+            <p>
+                L’obiettivo non è “gestire meglio” il sistema, ma cambiare il modo in cui
+                viene esercitato il potere pubblico.
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<!-- FOOTER (SOSTITUITO ESATTAMENTE COME RICHIESTO) -->
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>© Macedonian Diaspora Party</span>
         <div class="footer-contacts">
-            <a href="mailto:info@mdp-eu.com" class="footer-icon-link">
-                📧 info@mdp-eu.com
-            </a>
-            <a href="tel:+393282290062" class="footer-icon-link">
-                ☎️ +39 328 22 90 062
-            </a>
-            <a href="https://wa.me/393282290062" target="_blank" class="footer-icon-link">
-                🟢 WhatsApp
-            </a>
+            <a href="mailto:info@mdp-eu.com" class="footer-icon-link">📧 info@mdp-eu.com</a>
+            <a href="tel:+393282290062" class="footer-icon-link">☎️ +39 328 22 90 062</a>
+            <a href="https://wa.me/393282290062" target="_blank" class="footer-icon-link">🟢 WhatsApp</a>
         </div>
     </div>
 </footer>
