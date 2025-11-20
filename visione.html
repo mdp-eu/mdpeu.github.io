@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visione politica – Macedonian Diaspora Party</title>
+    <title>Visione – Macedonian Diaspora Party</title>
+
     <meta name="description" content="La visione politica del Macedonian Diaspora Party (MDP): libertà, giustizia, meritocrazia e sovranità nazionale come assi centrali del progetto.">
     <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
 
@@ -12,11 +13,14 @@
             --mdp-blue: #002b5c;
             --mdp-blue-dark: #001836;
             --mdp-red: #d0191b;
-            --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -24,7 +28,10 @@
             color: #111827;
         }
 
-        a { color: inherit; text-decoration: none; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
         .container {
             max-width: 1120px;
@@ -32,13 +39,13 @@
             padding: 0 16px;
         }
 
-        /* HEADER con logo esteso */
+        /* HEADER */
         .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 40;
             background: #ffffff;
             border-bottom: 3px solid var(--mdp-red);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
 
         .logo-strip {
@@ -49,12 +56,12 @@
         .logo-full {
             display: block;
             margin: 0 auto;
-            width: 100%;
             max-width: 420px;
+            width: 100%;
             height: auto;
         }
 
-        /* NAV */
+        /* NAVBAR */
         .main-nav {
             background: var(--mdp-blue-dark);
         }
@@ -62,140 +69,98 @@
         .nav-inner {
             display: flex;
             justify-content: center;
-            align-items: center;
             padding: 10px 16px;
         }
 
         .nav-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
+            flex-wrap: nowrap;
+            gap: 10px;
             list-style: none;
-            font-size: 14px;
+            font-size: 13px;
+            justify-content: center;
+            white-space: nowrap;
         }
 
         .nav-list a {
-            color: #e5e7eb;
-            padding: 6px 10px;
+            padding: 6px 8px;
             border-radius: 999px;
+            color: #e5e7eb;
         }
 
         .nav-list a:hover {
-            background: rgba(255,255,255,0.14);
+            background: rgba(255, 255, 255, 0.14);
         }
 
-        /* HERO VISIONE */
-        .hero-vis {
+        /* HERO */
+        .hero-visione {
             background: var(--mdp-blue);
             color: #ffffff;
-            padding: 30px 0 28px;
-            border-bottom: 3px solid var(--mdp-red);
             text-align: center;
-        }
-
-        .hero-kicker {
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #cbd5f5;
-            margin-bottom: 6px;
+            padding: 32px 0 28px;
+            border-bottom: 3px solid var(--mdp-red);
         }
 
         .hero-title {
-            font-size: clamp(24px, 3.2vw, 30px);
+            font-size: clamp(24px, 3vw, 30px);
             font-weight: 700;
             margin-bottom: 10px;
         }
 
         .hero-subtitle {
-            font-size: 14px;
-            max-width: 780px;
+            max-width: 720px;
             margin: 0 auto;
+            font-size: 14px;
             color: #e5e7eb;
             line-height: 1.6;
         }
 
         /* MAIN */
         main {
-            padding: 32px 0 40px;
+            padding: 36px 0 40px;
         }
 
-        .section-intro {
-            max-width: 800px;
-            margin: 0 auto 24px;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #374151;
-            text-align: center;
-        }
-
-        .docs-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
-            gap: 24px;
-        }
-
-        .block-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--mdp-blue-dark);
-        }
-
-        .paragraph-block {
+        .section-block {
+            max-width: 780px;
+            margin: 0 auto 36px auto;
             background: #ffffff;
-            border-radius: 14px;
-            padding: 14px 16px;
+            border-radius: 16px;
+            padding: 20px 22px;
             border: 1px solid #e5e7eb;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #374151;
+        }
+
+        .section-block h2 {
+            color: var(--mdp-blue-dark);
+            font-size: 20px;
             margin-bottom: 12px;
         }
 
-        .paragraph-block h3 {
+        .section-block p {
             font-size: 15px;
-            margin-bottom: 6px;
-            color: var(--mdp-blue);
-        }
-
-        .paragraph-block p + p {
-            margin-top: 6px;
-        }
-
-        .pill-list {
-            margin-top: 4px;
-            padding-left: 18px;
-            font-size: 13px;
-        }
-
-        .pill-list li {
-            margin-bottom: 4px;
-        }
-
-        /* BOX LATERALE */
-        .side-box {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 14px 16px;
-            border: 1px solid #e5e7eb;
-            font-size: 13px;
             line-height: 1.6;
+            margin-bottom: 12px;
             color: #374151;
         }
 
-        .side-box h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: var(--mdp-blue-dark);
-        }
-
-        .side-list {
+        .list-clean {
+            list-style: none;
             margin-top: 6px;
-            padding-left: 18px;
         }
 
-        .side-list li {
-            margin-bottom: 4px;
+        .list-clean li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .list-clean li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--mdp-red);
         }
 
         /* FOOTER */
@@ -214,16 +179,21 @@
             gap: 10px;
         }
 
-        .footer-inner a {
-            color: #f9fafb;
+        .footer-contacts {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .footer-inner a:hover {
+        .footer-icon-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-icon-link:hover {
             text-decoration: underline;
-        }
-
-        @media (max-width: 900px) {
-            .docs-layout { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -233,13 +203,15 @@
 <header class="site-header">
     <div class="logo-strip">
         <div class="container">
-            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" class="logo-full" alt="MDP Logo">
+            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                 class="logo-full" alt="MDP Logo">
         </div>
     </div>
 
     <nav class="main-nav">
         <div class="container nav-inner">
             <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="movimento.html">Movimento</a></li>
                 <li><a href="visione.html">Visione</a></li>
                 <li><a href="diaspora.html">Diaspora</a></li>
@@ -249,129 +221,93 @@
     </nav>
 </header>
 
-<section class="hero-vis">
-    <div class="container">
-        <div class="hero-kicker">Visione politica</div>
-        <h1 class="hero-title">Linea, valori e obiettivi del MDP</h1>
-        <p class="hero-subtitle">
-            La visione politica del Macedonian Diaspora Party si basa su quattro assi centrali – libertà, giustizia,
-            meritocrazia e sovranità nazionale – che guidano ogni scelta del movimento, in Macedonia e nella diaspora.
-        </p>
-    </div>
+<section class="hero-visione">
+    <h1 class="hero-title">Visione politica del MDP</h1>
+    <p class="hero-subtitle">
+        La linea politica del Macedonian Diaspora Party si fonda su quattro assi: libertà, giustizia,
+        meritocrazia e sovranità nazionale. Non come slogan, ma come criterio operativo per ogni scelta.
+    </p>
 </section>
 
 <main>
     <div class="container">
-        <section class="section-intro">
-            Il MDP non è un partito “neutrale” o generico: ha una linea chiara. L’obiettivo non è adattarsi al sistema,
-            ma cambiarlo alla radice, imponendo regole di responsabilità reale, recupero della sovranità e difesa
-            dell’interesse collettivo contro le convenienze di partito o di potere esterno.
+
+        <section class="section-block">
+            <h2>Una politica al servizio dello Stato, non dei partiti</h2>
+            <p>
+                La visione del MDP parte da un principio semplice: la politica deve tornare a essere uno strumento
+                per far funzionare lo Stato, non una piattaforma per garantire vantaggi personali, posti di lavoro
+                e impunità a una cerchia ristretta.
+            </p>
+            <p>
+                Lo Stato è un patto tra cittadini. Se quel patto viene tradito da chi governa, il risultato è
+                sfiducia, emigrazione, rassegnazione. Il MDP vuole invertire questo processo, ripristinando
+                un rapporto di serietà tra potere politico e società.
+            </p>
         </section>
 
-        <section class="docs-layout">
-            <!-- COLONNA PRINCIPALE -->
-            <div>
-                <h2 class="block-title">I quattro assi della visione MDP</h2>
-
-                <div class="paragraph-block">
-                    <h3>Libertà reale, non di facciata</h3>
-                    <p>
-                        Libertà significa poter parlare, criticare e decidere senza essere ricattati da un posto di lavoro,
-                        da un partito o da un clan. Una società è libera quando i cittadini possono cambiare il governo
-                        senza che nessuno rischi il pane per aver espresso un’opinione.
-                    </p>
-                    <p>
-                        Per il MDP, questo si traduce in:
-                    </p>
-                    <ul class="pill-list">
-                        <li>fine dei ricatti occupazionali legati alla tessera di partito;</li>
-                        <li>protezione di chi denuncia corruzione e abusi;</li>
-                        <li>comunicazione politica trasparente, senza propaganda tossica.</li>
-                    </ul>
-                </div>
-
-                <div class="paragraph-block">
-                    <h3>Giustizia uguale per tutti</h3>
-                    <p>
-                        Senza una giustizia credibile, la politica è solo gestione di interessi. La visione del MDP prevede
-                        un sistema giudiziario che non risponda né ai partiti né alle ambasciate, ma alla legge e ai fatti.
-                    </p>
-                    <p>
-                        Per questo, la linea del movimento punta a:
-                    </p>
-                    <ul class="pill-list">
-                        <li>ridurre l’influenza dei partiti su nomine e carriere nella magistratura;</li>
-                        <li>processi più rapidi per corruzione, appalti, abuso d’ufficio;</li>
-                        <li>piena trasparenza su procedimenti che coinvolgono figure pubbliche.</li>
-                    </ul>
-                </div>
-
-                <div class="paragraph-block">
-                    <h3>Meritocrazia e responsabilità personale</h3>
-                    <p>
-                        La Macedonia non si salva con slogan, ma con persone competenti messe nei posti giusti. La
-                        meritocrazia non è una parola da campagna elettorale: è una regola organizzativa.
-                    </p>
-                    <p>
-                        Nella visione MDP:
-                    </p>
-                    <ul class="pill-list">
-                        <li>gli incarichi pubblici devono essere legati a criteri chiari di competenza;</li>
-                        <li>chi fallisce in modo evidente un mandato deve lasciare il posto, non cambiare poltrona;</li>
-                        <li>il curriculum pesa più delle appartenenze etniche, di partito o di clan.</li>
-                    </ul>
-                </div>
-
-                <div class="paragraph-block">
-                    <h3>Sovranità nazionale e dignità dello Stato</h3>
-                    <p>
-                        Un Paese senza sovranità reale è solo un territorio amministrato da altri. La visione del MDP
-                        prevede una Macedonia che dialoga con tutti, ma decide da sola le proprie linee strategiche:
-                        politica estera, difesa, economia, patrimonio culturale.
-                    </p>
-                    <p>
-                        Questo significa:
-                    </p>
-                    <ul class="pill-list">
-                        <li>nessun accordo imposto dall’esterno contro l’interesse del Paese;</li>
-                        <li>trasparenza sugli impegni internazionali e sui loro effetti interni;</li>
-                        <li>difesa dell’identità costituzionale e storica della Repubblica di Macedonia.</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- COLONNA LATERALE -->
-            <aside>
-                <div class="side-box">
-                    <h3>Che tipo di Stato immaginiamo</h3>
-                    <p>
-                        La visione del MDP non è astratta: si traduce in un modello di Stato concreto, misurabile,
-                        verificabile nel tempo.
-                    </p>
-                    <ul class="side-list">
-                        <li>Uno Stato che risponde ai cittadini, non ai partiti.</li>
-                        <li>Istituzioni che funzionano senza dover “conoscere qualcuno dentro”.</li>
-                        <li>Media che informano, non che coprono gli abusi del potere.</li>
-                        <li>Un’amministrazione che tratta tutti allo stesso modo, con regole chiare.</li>
-                    </ul>
-                    <p style="margin-top:8px;">
-                        La visione politica del MDP è pensata per essere tradotta in leggi, riforme e procedure. Ogni
-                        proposta del movimento dovrà poter essere ricondotta a questi assi: libertà, giustizia,
-                        meritocrazia, sovranità.
-                    </p>
-                </div>
-            </aside>
+        <section class="section-block">
+            <h2>I quattro assi della visione MDP</h2>
+            <p>
+                La linea politica del MDP non è costruita su slogan generici, ma su quattro assi che devono guidare
+                ogni scelta concreta.
+            </p>
+            <ul class="list-clean">
+                <li>
+                    <strong>Libertà</strong> – Libertà di parola, di pensiero, di critica politica e di organizzazione.
+                    Senza libertà reale, tutto il resto diventa solo gestione controllata del consenso.
+                </li>
+                <li>
+                    <strong>Giustizia</strong> – Legge applicata in modo uguale, indipendenza reale del sistema giudiziario,
+                    fine dell’impunità per chi usa lo Stato come un patrimonio privato.
+                </li>
+                <li>
+                    <strong>Meritocrazia</strong> – Ruoli chiave assegnati per competenza e risultati, non per fedeltà
+                    personale o appartenenza a una struttura di partito.
+                </li>
+                <li>
+                    <strong>Sovranità nazionale</strong> – Difesa della Repubblica di Macedonia come soggetto politico
+                    indipendente, non come terreno di manovra per interessi stranieri o progetti di ingegneria geopolitica.
+                </li>
+            </ul>
         </section>
+
+        <section class="section-block">
+            <h2>Metodo e stile politico</h2>
+            <p>
+                La visione del MDP si traduce in un metodo preciso: trasparenza, responsabilità personale, rifiuto
+                delle ambiguità. Chi rappresenta il movimento deve sapere che il mandato politico è un incarico
+                temporaneo e revocabile, non un privilegio.
+            </p>
+            <ul class="list-clean">
+                <li>Impegni politici chiari, misurabili e verificabili.</li>
+                <li>Nessuna tolleranza verso corruzione, clientelismo e conflitti di interesse.</li>
+                <li>Comunicazione diretta con i cittadini, senza filtri propagandistici.</li>
+                <li>Coinvolgimento costante della diaspora nelle decisioni strategiche.</li>
+            </ul>
+            <p>
+                La visione del MDP non è quella di “gestire meglio” l’esistente, ma di cambiare la logica con cui
+                viene esercitato il potere pubblico.
+            </p>
+        </section>
+
     </div>
 </main>
 
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>© Macedonian Diaspora Party</span>
-        <span>
-            <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
-            <a href="https://wa.me/393282290062">WhatsApp +39 328 22 90 062</a>
-        </span>
+        <div class="footer-contacts">
+            <a href="mailto:info@mdp-eu.com" class="footer-icon-link">
+                📧 info@mdp-eu.com
+            </a>
+            <a href="tel:+393282290062" class="footer-icon-link">
+                ☎️ +39 328 22 90 062
+            </a>
+            <a href="https://wa.me/393282290062" target="_blank" class="footer-icon-link">
+                🟢 WhatsApp
+            </a>
+        </div>
     </div>
 </footer>
 
