@@ -1033,27 +1033,31 @@
                     </div>
                 </div>
 
-                <form class="cta-form">
-                    <div>
-                        <label for="cta-name">Nome e cognome</label>
-                        <input type="text" id="cta-name" name="nome" placeholder="Inserisci il tuo nome completo">
-                    </div>
-                    <div>
-                        <label for="cta-city">Paese / Città</label>
-                        <input type="text" id="cta-city" name="citta" placeholder="Es. Italia – Milano">
-                    </div>
-                    <div>
-                        <label for="cta-email">Email</label>
-                        <input type="email" id="cta-email" name="email" placeholder="Inserisci la tua email">
-                    </div>
-                    <div>
-                        <label for="cta-note">In che modo vuoi contribuire?</label>
-                        <textarea id="cta-note" name="nota" placeholder="Presentati in poche righe e indica come vorresti partecipare."></textarea>
-                    </div>
-                    <button type="button" class="cta-submit">
-                        Invia la tua manifestazione di interesse
-                    </button>
-                </form>
+                <form class="cta-form"
+      action="mailto:info@mdp-eu.com"
+      method="POST"
+      enctype="text/plain">
+
+    <div>
+        <label for="cta-name">Nome e cognome</label>
+        <input type="text" id="cta-name" name="Nome e cognome" placeholder="Inserisci il tuo nome completo">
+    </div>
+    <div>
+        <label for="cta-city">Paese / Città</label>
+        <input type="text" id="cta-city" name="Paese / Città" placeholder="Es. Italia – Milano">
+    </div>
+    <div>
+        <label for="cta-email">Email</label>
+        <input type="email" id="cta-email" name="Email" placeholder="Inserisci la tua email">
+    </div>
+    <div>
+        <label for="cta-note">In che modo vuoi contribuire?</label>
+        <textarea id="cta-note" name="Come vuoi contribuire" placeholder="Presentati in poche righe e indica come vorresti partecipare."></textarea>
+    </div>
+    <button type="submit" class="cta-submit">
+        Invia la tua manifestazione di interesse
+    </button>
+</form>
             </div>
         </section>
 
