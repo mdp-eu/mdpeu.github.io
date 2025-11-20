@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diaspora – Macedonian Diaspora Party</title>
-    <meta name="description" content="La diaspora macedone come forza politica organizzata: rete mondiale, nuclei territoriali e piattaforma del Macedonian Diaspora Party (MDP).">
+
+    <meta name="description" content="La diaspora macedone come forza politica organizzata: rete mondiale, nuclei locali, piattaforma digitale e partecipazione nel Macedonian Diaspora Party.">
     <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
 
     <style>
@@ -12,11 +13,14 @@
             --mdp-blue: #002b5c;
             --mdp-blue-dark: #001836;
             --mdp-red: #d0191b;
-            --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -24,7 +28,10 @@
             color: #111827;
         }
 
-        a { color: inherit; text-decoration: none; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
         .container {
             max-width: 1120px;
@@ -32,13 +39,13 @@
             padding: 0 16px;
         }
 
-        /* HEADER con logo esteso */
+        /* HEADER */
         .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 40;
             background: #ffffff;
             border-bottom: 3px solid var(--mdp-red);
+            position: sticky;
+            top: 0;
+            z-index: 50;
         }
 
         .logo-strip {
@@ -49,12 +56,12 @@
         .logo-full {
             display: block;
             margin: 0 auto;
-            width: 100%;
             max-width: 420px;
+            width: 100%;
             height: auto;
         }
 
-        /* NAV */
+        /* NAVBAR */
         .main-nav {
             background: var(--mdp-blue-dark);
         }
@@ -62,140 +69,98 @@
         .nav-inner {
             display: flex;
             justify-content: center;
-            align-items: center;
             padding: 10px 16px;
         }
 
         .nav-list {
             display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
+            flex-wrap: nowrap;
+            gap: 10px;
             list-style: none;
-            font-size: 14px;
+            font-size: 13px;
+            justify-content: center;
+            white-space: nowrap;
         }
 
         .nav-list a {
-            color: #e5e7eb;
-            padding: 6px 10px;
+            padding: 6px 8px;
             border-radius: 999px;
+            color: #e5e7eb;
         }
 
         .nav-list a:hover {
-            background: rgba(255,255,255,0.14);
+            background: rgba(255, 255, 255, 0.14);
         }
 
-        /* HERO DIASPORA */
-        .hero-dias {
+        /* HERO */
+        .hero-diaspora {
             background: var(--mdp-blue);
             color: #ffffff;
-            padding: 30px 0 28px;
-            border-bottom: 3px solid var(--mdp-red);
             text-align: center;
-        }
-
-        .hero-kicker {
-            font-size: 11px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: #cbd5f5;
-            margin-bottom: 6px;
+            padding: 32px 0 28px;
+            border-bottom: 3px solid var(--mdp-red);
         }
 
         .hero-title {
-            font-size: clamp(24px, 3.2vw, 30px);
+            font-size: clamp(24px, 3vw, 30px);
             font-weight: 700;
             margin-bottom: 10px;
         }
 
         .hero-subtitle {
-            font-size: 14px;
-            max-width: 780px;
+            max-width: 720px;
             margin: 0 auto;
+            font-size: 14px;
             color: #e5e7eb;
             line-height: 1.6;
         }
 
         /* MAIN */
         main {
-            padding: 32px 0 40px;
+            padding: 36px 0 40px;
         }
 
-        .section-intro {
-            max-width: 800px;
-            margin: 0 auto 24px;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #374151;
-            text-align: center;
-        }
-
-        .docs-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
-            gap: 24px;
-        }
-
-        .block-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: var(--mdp-blue-dark);
-        }
-
-        .paragraph-block {
+        .section-block {
+            max-width: 780px;
+            margin: 0 auto 36px auto;
             background: #ffffff;
-            border-radius: 14px;
-            padding: 14px 16px;
+            border-radius: 16px;
+            padding: 20px 22px;
             border: 1px solid #e5e7eb;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #374151;
+        }
+
+        .section-block h2 {
+            color: var(--mdp-blue-dark);
+            font-size: 20px;
             margin-bottom: 12px;
         }
 
-        .paragraph-block h3 {
+        .section-block p {
             font-size: 15px;
-            margin-bottom: 6px;
-            color: var(--mdp-blue);
-        }
-
-        .paragraph-block p + p {
-            margin-top: 6px;
-        }
-
-        .pill-list {
-            margin-top: 4px;
-            padding-left: 18px;
-            font-size: 13px;
-        }
-
-        .pill-list li {
-            margin-bottom: 4px;
-        }
-
-        /* BOX LATERALE */
-        .side-box {
-            background: #ffffff;
-            border-radius: 14px;
-            padding: 14px 16px;
-            border: 1px solid #e5e7eb;
-            font-size: 13px;
             line-height: 1.6;
+            margin-bottom: 12px;
             color: #374151;
         }
 
-        .side-box h3 {
-            font-size: 16px;
-            margin-bottom: 8px;
-            color: var(--mdp-blue-dark);
-        }
-
-        .side-list {
+        .list-clean {
+            list-style: none;
             margin-top: 6px;
-            padding-left: 18px;
         }
 
-        .side-list li {
-            margin-bottom: 4px;
+        .list-clean li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .list-clean li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--mdp-red);
         }
 
         /* FOOTER */
@@ -214,16 +179,21 @@
             gap: 10px;
         }
 
-        .footer-inner a {
-            color: #f9fafb;
+        .footer-contacts {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .footer-inner a:hover {
+        .footer-icon-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-icon-link:hover {
             text-decoration: underline;
-        }
-
-        @media (max-width: 900px) {
-            .docs-layout { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -233,13 +203,15 @@
 <header class="site-header">
     <div class="logo-strip">
         <div class="container">
-            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" class="logo-full" alt="MDP Logo">
+            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                 class="logo-full" alt="MDP Logo">
         </div>
     </div>
 
     <nav class="main-nav">
         <div class="container nav-inner">
             <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="movimento.html">Movimento</a></li>
                 <li><a href="visione.html">Visione</a></li>
                 <li><a href="diaspora.html">Diaspora</a></li>
@@ -249,140 +221,96 @@
     </nav>
 </header>
 
-<section class="hero-dias">
-    <div class="container">
-        <div class="hero-kicker">Diaspora macedone</div>
-        <h1 class="hero-title">La diaspora come forza politica organizzata</h1>
-        <p class="hero-subtitle">
-            Il Macedonian Diaspora Party nasce dalla diaspora e per la diaspora: una rete mondiale di macedoni
-            che non vogliono limitarsi a votare dall’estero, ma incidere sulle scelte reali della Repubblica di Macedonia.
-        </p>
-    </div>
+<section class="hero-diaspora">
+    <h1 class="hero-title">Diaspora e partecipazione</h1>
+    <p class="hero-subtitle">
+        Il Macedonian Diaspora Party nasce dalla diaspora, ma non per restare all’estero:
+        la sua missione è riportare competenze, disciplina e libertà politica al centro della vita pubblica macedone.
+    </p>
 </section>
 
 <main>
     <div class="container">
-        <section class="section-intro">
-            Milioni di macedoni vivono fuori dai confini nazionali. Finora sono stati trattati come serbatoio di voti
-            e propaganda. La visione del MDP è diversa: trasformare la diaspora in un soggetto politico strutturato,
-            capace di influenzare in modo diretto la direzione del Paese.
+
+        <section class="section-block">
+            <h2>La diaspora come forza politica</h2>
+            <p>
+                La diaspora macedone è una delle risorse più grandi del Paese: milioni di persone che hanno visto
+                sistemi più giusti, economie più solide e istituzioni più serie. Per troppo tempo è stata trattata
+                solo come un serbatoio di voti o un simbolo da esibire nelle campagne elettorali.
+            </p>
+            <p>
+                Il MDP ribalta questa logica: la diaspora non è un pubblico, ma un soggetto politico organizzato.
+                Chi vive all’estero e non è ricattabile dai partiti interni può permettersi un livello di libertà
+                che in patria spesso non è possibile.
+            </p>
         </section>
 
-        <section class="docs-layout">
-            <!-- COLONNA PRINCIPALE -->
-            <div>
-                <h2 class="block-title">Come sarà organizzata la diaspora nel MDP</h2>
-
-                <div class="paragraph-block">
-                    <h3>Rete mondiale della diaspora</h3>
-                    <p>
-                        La diaspora non è un blocco unico. Esistono comunità diverse per Paese, storia, generazione,
-                        livello di integrazione. Il MDP parte da questo dato reale per costruire una rete ordinata
-                        e funzionale.
-                    </p>
-                    <p>
-                        La struttura di base prevede:
-                    </p>
-                    <ul class="pill-list">
-                        <li><strong>Sezioni nazionali</strong> nei principali Paesi di presenza macedone (Europa, America, Australia, ecc.).</li>
-                        <li><strong>Nuclei locali</strong> nelle città dove la comunità è più attiva e organizzata.</li>
-                        <li><strong>Coordinamenti regionali</strong> per collegare le realtà di più Paesi vicini.</li>
-                    </ul>
-                    <p>
-                        Ogni livello ha compiti chiari: ascolto della comunità, proposta politica, organizzazione delle attività
-                        e collegamento con la direzione centrale del movimento.
-                    </p>
-                </div>
-
-                <div class="paragraph-block">
-                    <h3>Piattaforma digitale di consultazione</h3>
-                    <p>
-                        La diaspora è dispersa nello spazio, ma può essere unita nel digitale. Il MDP prevede la costruzione
-                        di una piattaforma online per informare, consultare e coinvolgere i macedoni nel mondo.
-                    </p>
-                    <p>
-                        Elementi chiave della piattaforma:
-                    </p>
-                    <ul class="pill-list">
-                        <li>accesso riservato agli iscritti verificati;</li>
-                        <li>documenti, proposte politiche e materiali sempre disponibili;</li>
-                        <li>consultazioni periodiche su temi strategici;</li>
-                        <li>strumenti per votare posizioni interne e candidature.</li>
-                    </ul>
-                    <p>
-                        L’obiettivo è semplice: la diaspora non deve ricevere solo comunicati, ma poter incidere sulle scelte
-                        del movimento e, di conseguenza, sul futuro della Macedonia.
-                    </p>
-                </div>
-
-                <div class="paragraph-block">
-                    <h3>Progetti concreti della diaspora per la Macedonia</h3>
-                    <p>
-                        La diaspora non è solo “opinione politica”: è fatta di imprenditori, lavoratori, studenti,
-                        professionisti, persone che ogni giorno gestiscono aziende, progetti, competenze.
-                    </p>
-                    <p>
-                        Il MDP vuole canalizzare questa forza in:
-                    </p>
-                    <ul class="pill-list">
-                        <li>progetti economici mirati in settori strategici;</li>
-                        <li>programmi di rientro di competenze e know-how;</li>
-                        <li>supporto a iniziative locali trasparenti sul territorio macedone;</li>
-                        <li>pressione politica organizzata verso istituzioni nazionali e internazionali.</li>
-                    </ul>
-                    <p>
-                        Ogni progetto dovrà essere tracciabile, misurabile e libero da logiche clientelari.
-                    </p>
-                </div>
-            </div>
-
-            <!-- COLONNA LATERALE -->
-            <aside>
-                <div class="side-box">
-                    <h3>Chi può far parte della struttura diaspora MDP</h3>
-                    <p>
-                        La diaspora è vasta, ma non tutti sono adatti a un ruolo organizzativo. Il MDP cerca persone
-                        con alcuni requisiti minimi chiari.
-                    </p>
-                    <ul class="side-list">
-                        <li>Origine macedone e legame reale con la comunità.</li>
-                        <li>Nessun debito politico verso partiti macedoni esistenti.</li>
-                        <li>Profilo personale e professionale pulito.</li>
-                        <li>Disponibilità a rispettare disciplina interna e linea politica del movimento.</li>
-                    </ul>
-                    <p style="margin-top:8px;">
-                        Chi non vuole ruoli, ma condivide la visione, può comunque sostenere il progetto come simpatizzante,
-                        partecipare alle iniziative e contribuire con idee, contatti e supporto concreto.
-                    </p>
-                </div>
-
-                <div class="side-box" style="margin-top:16px;">
-                    <h3>Primo contatto</h3>
-                    <p>
-                        In attesa della piattaforma digitale completa, il canale principale per i macedoni della diaspora
-                        che vogliono mettersi a disposizione è:
-                    </p>
-                    <ul class="side-list">
-                        <li><strong>Email:</strong> <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a></li>
-                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/393282290062" target="_blank">+39 328 22 90 062</a></li>
-                    </ul>
-                    <p style="margin-top:8px;">
-                        Ogni contatto viene valutato in base al profilo, alle competenze e alla disponibilità reale
-                        a lavorare per il progetto, non solo a sostenerlo a parole.
-                    </p>
-                </div>
-            </aside>
+        <section class="section-block">
+            <h2>Struttura della rete mondiale</h2>
+            <p>
+                La diaspora non può essere solo un elenco di città in cui vivono macedoni. Deve diventare
+                una struttura organizzata, con responsabilità chiare e un metodo di lavoro comune.
+            </p>
+            <ul class="list-clean">
+                <li>
+                    <strong>Nuclei territoriali</strong> – Sezioni MDP nei principali Paesi europei e nei continenti
+                    con una presenza significativa di macedoni.
+                </li>
+                <li>
+                    <strong>Referenti di area</strong> – Figure individuate per coordinare il lavoro politico
+                    in aree geografiche omogenee (Europa occidentale, Nord America, Australia, ecc.).
+                </li>
+                <li>
+                    <strong>Gruppi di lavoro tematici</strong> – Economia, istruzione, diritti, politica estera,
+                    riforma dello Stato: chi ha competenze entra dove può dare contributi reali.
+                </li>
+            </ul>
         </section>
+
+        <section class="section-block">
+            <h2>Strumenti di partecipazione</h2>
+            <p>
+                Senza strumenti concreti, la parola “partecipazione” resta uno slogan. Per questo il MDP
+                si fonda su meccanismi chiari di coinvolgimento e decisione.
+            </p>
+            <ul class="list-clean">
+                <li>
+                    <strong>Piattaforma digitale</strong> – Un ambiente online dedicato per informare, discutere
+                    e votare le linee politiche fondamentali del movimento.
+                </li>
+                <li>
+                    <strong>Assemblee periodiche</strong> – Riunioni online e, dove possibile, in presenza,
+                    per confrontarsi su strategia e priorità.
+                </li>
+                <li>
+                    <strong>Canale diretto con la direzione politica</strong> – La diaspora deve poter
+                    dialogare direttamente con la guida del movimento, senza filtri propagandistici.
+                </li>
+            </ul>
+            <p>
+                L’obiettivo non è creare una struttura pesante, ma una rete disciplinata, concreta e utile
+                alla ricostruzione della Repubblica di Macedonia.
+            </p>
+        </section>
+
     </div>
 </main>
 
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>© Macedonian Diaspora Party</span>
-        <span>
-            <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a> ·
-            <a href="https://wa.me/393282290062">WhatsApp +39 328 22 90 062</a>
-        </span>
+        <div class="footer-contacts">
+            <a href="mailto:info@mdp-eu.com" class="footer-icon-link">
+                📧 info@mdp-eu.com
+            </a>
+            <a href="tel:+393282290062" class="footer-icon-link">
+                ☎️ +39 328 22 90 062
+            </a>
+            <a href="https://wa.me/393282290062" target="_blank" class="footer-icon-link">
+                🟢 WhatsApp
+            </a>
+        </div>
     </div>
 </footer>
 
