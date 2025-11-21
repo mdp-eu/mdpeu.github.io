@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visione – Macedonian Diaspora Party</title>
+    <meta name="description" content="La visione del Macedonian Diaspora Party: libertà reale, giustizia, meritocrazia e sovranità per una Macedonia al servizio dei cittadini.">
 
-    <meta name="description" content="La visione politica del Macedonian Diaspora Party (MDP): libertà, giustizia, meritocrazia e sovranità nazionale come assi centrali del progetto.">
+    <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
 
     <style>
         :root {
-            --mdp-blue: #002b5c;
-            --mdp-blue-dark: #001836;
+            --mdp-blue: #003366;
+            --mdp-blue-dark: #001c3a;
             --mdp-red: #d0191b;
+            --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -36,254 +35,553 @@
             padding: 0 16px;
         }
 
-        /* HEADER */
-        .site-header {
+        /* HEADER (identico a home/movimento) */
+        .site-header-wrapper {
             background: #ffffff;
-            border-bottom: 3px solid var(--mdp-red);
+            border-bottom: 1px solid #e5e7eb;
             position: sticky;
             top: 0;
-            z-index: 50;
+            z-index: 200;
         }
 
-        .logo-strip {
-            padding: 12px 0;
-            border-bottom: 1px solid #e5e7eb;
+        .site-header {
+            padding: 18px 0;
         }
 
-        .logo-full {
-            display: block;
-            margin: 0 auto;
-            max-width: 420px;
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-logo-box {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo-box img {
             width: 100%;
-            height: auto;
+            max-height: 220px;
+            object-fit: contain;
+            display: block;
         }
 
-        /* NAVBAR */
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .main-nav {
-            background: var(--mdp-blue-dark);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 15px;
+            font-weight: 500;
         }
 
-        .nav-inner {
-            display: flex;
+        .main-nav a {
+            color: var(--mdp-blue-dark);
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .main-nav a:hover {
+            background: #f0f2f5;
+        }
+
+        .main-nav a.active {
+            background: #e5edf9;
+            color: #111827;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
             justify-content: center;
-            padding: 10px 16px;
+            align-items: center;
+            cursor: pointer;
         }
 
-        .nav-list {
-            display: flex;
-            gap: 10px;
-            list-style: none;
-            font-size: 13px;
-            white-space: nowrap;
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            position: relative;
         }
 
-        .nav-list a {
-            padding: 6px 8px;
-            border-radius: 999px;
-            color: #e5e7eb;
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            left: 0;
+            transition: 0.2s ease;
         }
 
-        .nav-list a:hover {
-            background: rgba(255, 255, 255, 0.14);
+        .nav-toggle span::before { top: -6px; }
+        .nav-toggle span::after  { top: 6px; }
+
+        .nav-toggle.active span { background: transparent; }
+        .nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
+        .nav-toggle.active span::after  { top: 0; transform: rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .brand-logo-box {
+                width: 60%;
+            }
+            .brand-logo-box img {
+                max-height: 160px;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: 110px;
+                right: 16px;
+                background: #ffffff;
+                border-radius: 12px;
+                border: 1px solid #e5e7eb;
+                padding: 16px;
+                width: 210px;
+                flex-direction: column;
+                gap: 14px;
+                opacity: 0;
+                pointer-events: none;
+                box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+            }
+
+            .main-nav.nav-open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
         }
 
-        /* HERO */
-        .hero-visione {
-            background: var(--mdp-blue);
+        /* HERO PAGINA INTERNA */
+        .hero-inner-wrapper {
+            margin-top: 24px;
+            margin-bottom: 20px;
+        }
+
+        .hero-inner {
+            background: linear-gradient(135deg, #003366, #001c3a);
             color: #ffffff;
-            text-align: center;
-            padding: 32px 0 28px;
-            border-bottom: 3px solid var(--mdp-red);
+            padding: 32px 22px 28px;
+            border-radius: 18px;
+            box-shadow: 0 16px 40px rgba(15,23,42,0.35);
+        }
+
+        .hero-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #e5e7eb;
+            margin-bottom: 6px;
         }
 
         .hero-title {
-            font-size: clamp(24px, 3vw, 30px);
+            font-size: clamp(24px, 3vw, 32px);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .hero-subtitle {
+            font-size: 14px;
+            line-height: 1.6;
             max-width: 720px;
-            margin: 0 auto;
-            font-size: 14px;
             color: #e5e7eb;
-            line-height: 1.6;
         }
 
-        /* MAIN */
-        main { padding: 36px 0 40px; }
-
-        .section-block {
-            max-width: 780px;
-            margin: 0 auto 36px auto;
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 20px 22px;
-            border: 1px solid #e5e7eb;
+        main {
+            margin-bottom: 40px;
         }
 
-        .section-block h2 {
-            color: var(--mdp-blue-dark);
-            font-size: 20px;
-            margin-bottom: 12px;
+        .page-section {
+            margin-top: 26px;
         }
 
-        .section-block p {
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            color: #374151;
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 6px;
         }
 
-        .list-clean {
-            list-style: none;
-            margin-top: 6px;
+        .section-subtitle {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 10px;
         }
 
-        .list-clean li {
-            position: relative;
-            padding-left: 18px;
-            margin-bottom: 8px;
+        .section-text {
             font-size: 14px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .bullet-list li {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
             color: #374151;
         }
 
-        .list-clean li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--mdp-red);
+        .bullet-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            margin-top: 6px;
+            background: var(--mdp-red);
+            flex-shrink: 0;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+        }
+
+        .pillar-card {
+            background: #ffffff;
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            padding: 12px 12px 10px;
+            box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+        }
+
+        .pillar-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6b7280;
+            margin-bottom: 3px;
+        }
+
+        .pillar-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .pillar-text {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .two-cols-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 900px) {
+            .two-cols-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
         }
 
         /* FOOTER */
         .site-footer {
+            margin-top: 40px;
             background: var(--mdp-blue-dark);
-            color: #e5e7eb;
             border-top: 3px solid var(--mdp-red);
-            padding: 14px 0;
-            font-size: 12px;
+            padding: 16px 0;
+            color: #e5e7eb;
+            font-size: 13px;
         }
 
         .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
-        }
-
-        .footer-contacts {
-            display: flex;
-            gap: 14px;
+            gap: 12px;
             flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .footer-icon-link {
-            color: #e5e7eb;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .footer-icon-link:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
 
-<header class="site-header">
-    <div class="logo-strip">
-        <div class="container">
-            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
-                 class="logo-full" alt="MDP Logo">
-        </div>
+<!-- HEADER -->
+<div class="site-header-wrapper">
+    <div class="container">
+        <header class="site-header">
+            <div class="header-inner">
+
+                <div class="brand-logo-box">
+                    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                         alt="Logo MDP">
+                </div>
+
+                <div class="nav-wrapper">
+                    <nav class="main-nav" id="mainNav">
+                        <a href="index.html">Home</a>
+                        <a href="movimento.html">Movimento</a>
+                        <a href="visione.html" class="active">Visione</a>
+                        <a href="diaspora.html">Diaspora</a>
+                        <a href="documenti.html">Documenti</a>
+                    </nav>
+
+                    <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+                        <span></span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
     </div>
+</div>
 
-    <nav class="main-nav">
-        <div class="container nav-inner">
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="movimento.html">Movimento</a></li>
-                <li><a href="visione.html">Visione</a></li>
-                <li><a href="diaspora.html">Diaspora</a></li>
-                <li><a href="documenti.html">Documenti</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<section class="hero-visione">
-    <h1 class="hero-title">Visione politica del MDP</h1>
-    <p class="hero-subtitle">
-        La linea politica del Macedonian Diaspora Party si fonda su quattro assi: libertà, giustizia,
-        meritocrazia e sovranità nazionale. Sono criteri operativi, non slogan.
-    </p>
-</section>
+<!-- HERO VISIONE -->
+<div class="hero-inner-wrapper">
+    <div class="container">
+        <section class="hero-inner">
+            <div class="hero-kicker">Visione politica</div>
+            <h1 class="hero-title">Che tipo di Stato vuole costruire l’MDP</h1>
+            <p class="hero-subtitle">
+                Uno Stato al servizio dei cittadini, non dei partiti. Un sistema basato su libertà reale, giustizia,
+                meritocrazia e sovranità, capace di trattenere i propri giovani e difendere i propri interessi.
+            </p>
+        </section>
+    </div>
+</div>
 
 <main>
     <div class="container">
 
-        <section class="section-block">
-            <h2>Una politica al servizio dello Stato, non dei partiti</h2>
-            <p>
-                Il MDP parte da un principio semplice: la politica deve far funzionare lo Stato,
-                non diventare una rete clientelare che distribuisce posti, favori e immunità.
+        <!-- BLOCCO 1: cosa soffoca oggi la Macedonia -->
+        <section class="page-section">
+            <h2 class="section-title">Cosa soffoca oggi la Macedonia</h2>
+            <p class="section-subtitle">
+                Il problema non è solo economico. È un sistema costruito per proteggere chi comanda, non i cittadini.
             </p>
-            <p>
-                Se lo Stato diventa proprietà di pochi, i cittadini perdono fiducia, emigrano,
-                si rassegnano. Il MDP vuole spezzare questo ciclo con un modello politico serio,
-                responsabile e libero da condizionamenti.
+
+            <ul class="bullet-list">
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Corruzione strutturale e partiti trasformati in aziende private.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Giustizia politicizzata e pubblica amministrazione clientelare.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Ricatto etnico usato come arma politica e divisione permanente della società.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Media controllati, propaganda, mancanza di informazione libera e plurale.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Fuga dei giovani, precarietà, dipendenza da interessi esterni.</span>
+                </li>
+            </ul>
+
+            <p class="section-text" style="margin-top:8px;">
+                L’MDP nasce per colpire queste cause alla radice, non per adattarsi al sistema esistente.
             </p>
         </section>
 
-        <section class="section-block">
-            <h2>I quattro assi della visione MDP</h2>
-            <p>Ogni scelta politica deve rispettare questi quattro principi fondamentali:</p>
+        <!-- BLOCCO 2: missione -->
+        <section class="page-section">
+            <h2 class="section-title">La missione del Macedonian Diaspora Party</h2>
+            <p class="section-subtitle">
+                Non “entrare nel sistema”, ma riscriverne le regole.
+            </p>
 
-            <ul class="list-clean">
-                <li><strong>Libertà</strong> – tutela reale del pensiero critico, dei diritti civili, della libertà politica.</li>
-                <li><strong>Giustizia</strong> – fine dell’impunità, giudici indipendenti, legge uguale per tutti.</li>
-                <li><strong>Meritocrazia</strong> – incarichi assegnati a chi è competente, non ai fedeli di partito.</li>
-                <li><strong>Sovranità nazionale</strong> – difesa della Repubblica di Macedonia da pressioni straniere e interferenze geopolitiche.</li>
+            <ul class="bullet-list">
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Restituire serietà alla politica: il programma come contratto, non come slogan.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Rendere lo Stato indipendente da clientele, lobby e influenze esterne.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Costruire istituzioni che difendano i cittadini, non i gruppi di potere.</span>
+                </li>
             </ul>
         </section>
 
-        <section class="section-block">
-            <h2>Metodo e stile politico</h2>
-            <p>
-                La visione MDP non è teorica. È un metodo operativo fondato su disciplina,
-                responsabilità personale e trasparenza.
+        <!-- BLOCCO 3: quattro pilastri -->
+        <section class="page-section">
+            <h2 class="section-title">I quattro pilastri della visione MDP</h2>
+            <p class="section-subtitle">
+                Pochi punti chiari che definiscono il tipo di Paese che vogliamo.
             </p>
 
-            <ul class="list-clean">
-                <li>Impegni politici chiari e verificabili.</li>
-                <li>Tolleranza zero verso corruzione e conflitti di interesse.</li>
-                <li>Comunicazione diretta con i cittadini.</li>
-                <li>Coinvolgimento costante della diaspora nelle scelte strategiche.</li>
+            <div class="pillars-grid">
+                <article class="pillar-card">
+                    <div class="pillar-label">Pilastro 1</div>
+                    <div class="pillar-title">Libertà reale</div>
+                    <div class="pillar-text">
+                        Libertà di parola, di informazione, di organizzazione politica. Niente ricatti legati al lavoro,
+                        alla carriera o all’appartenenza. Il cittadino deve poter parlare e scegliere senza paura.
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-label">Pilastro 2</div>
+                    <div class="pillar-title">Giustizia che funziona</div>
+                    <div class="pillar-text">
+                        Giustizia indipendente dai partiti, tempi ragionevoli, regole uguali per tutti. Senza giustizia
+                        non esiste né economia sana né democrazia credibile.
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-label">Pilastro 3</div>
+                    <div class="pillar-title">Meritocrazia</div>
+                    <div class="pillar-text">
+                        Incarichi pubblici, concorsi, responsabilità: assegnati per competenza, non per tessera o amicizia.
+                        Senza merito, i giovani scappano e lo Stato si svuota.
+                    </div>
+                </article>
+
+                <article class="pillar-card">
+                    <div class="pillar-label">Pilastro 4</div>
+                    <div class="pillar-title">Sovranità reale</div>
+                    <div class="pillar-text">
+                        Collaborare con tutti ma decidere in autonomia. Difesa delle risorse strategiche e delle
+                        scelte nazionali, senza essere ostaggio di agende esterne.
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- BLOCCO 4: democrazia partecipata + diaspora -->
+        <section class="page-section">
+            <div class="two-cols-grid">
+                <div>
+                    <h2 class="section-title">Democrazia partecipata</h2>
+                    <p class="section-subtitle">
+                        Il voto non basta. Serve controllo continuo.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Programma elettorale come impegno vincolante, con verifiche periodiche.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Strumenti per valutare l’operato degli eletti e chiedere conto delle scelte fatte.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Accesso ai dati, decisioni spiegate, niente accordi nascosti.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h2 class="section-title">La diaspora come risorsa strategica</h2>
+                    <p class="section-subtitle">
+                        Non solo voti: competenze, indipendenza e visione.
+                    </p>
+                    <ul class="bullet-list">
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>
+                                Macedoni che vivono all’estero come fonte di competenza e visione più ampia.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>
+                                Meno condizionati dalle clientele locali, possono bilanciare i poteri interni.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>
+                                Ponte stabile tra Macedonia e reti economiche, culturali e politiche internazionali.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCCO 5: diritti sociali e dignità -->
+        <section class="page-section">
+            <h2 class="section-title">Diritti sociali e dignità</h2>
+            <p class="section-subtitle">
+                Libertà politica senza giustizia sociale è una facciata.
+            </p>
+
+            <ul class="bullet-list">
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Chi è in difficoltà va sostenuto, ma con percorsi di reinserimento e responsabilità.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>I diritti fondamentali non sono favori di partito, ma garanzie per tutti.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Diversità etnica, culturale e religiosa come ricchezza, non strumento di divisione.</span>
+                </li>
+                <li>
+                    <span class="bullet-dot"></span>
+                    <span>Le istituzioni si giudicano da quanto riducono disuguaglianze e ingiustizie, non dalla propaganda.</span>
+                </li>
             </ul>
-
-            <p>
-                L’obiettivo non è “gestire meglio” il sistema, ma cambiare il modo in cui
-                viene esercitato il potere pubblico.
-            </p>
         </section>
 
     </div>
 </main>
 
-<!-- FOOTER (SOSTITUITO ESATTAMENTE COME RICHIESTO) -->
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>© Macedonian Diaspora Party</span>
-        <div class="footer-contacts">
-            <a href="mailto:info@mdp-eu.com" class="footer-icon-link">📧 info@mdp-eu.com</a>
-            <a href="tel:+393282290062" class="footer-icon-link">☎️ +39 328 22 90 062</a>
-            <a href="https://wa.me/393282290062" target="_blank" class="footer-icon-link">🟢 WhatsApp</a>
+        <div>
+            <a href="mailto:info@mdp-eu.com">📧 info@mdp-eu.com</a>
+            <a href="tel:+393282290062" style="margin-left:12px;">☎️ +39 328 22 90 062</a>
+            <a href="https://wa.me/393282290062" target="_blank" style="margin-left:12px;">🟢 WhatsApp</a>
         </div>
     </div>
 </footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("active");
+            mainNav.classList.toggle("nav-open");
+        });
+    }
+</script>
 
 </body>
 </html>
