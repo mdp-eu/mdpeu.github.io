@@ -16,6 +16,17 @@
             --mdp-red: #d0191b;
             --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
+
+            /* Azzurri pastello come movimento */
+            --az-50:  #f5f8ff;
+            --az-100: #e5f1ff;
+            --az-150: #ddeeff;
+            --az-200: #d0e6ff;
+            --az-250: #c0dcff;
+            --az-300: #aed2ff;
+            --az-400: #7fb5ff;
+
+            --panel-radius: 24px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -169,37 +180,55 @@
             }
         }
 
-        /* HERO PAGINA INTERNA */
-        .hero-inner-wrapper {
+        /* HERO – stesso stile azzurro di movimento */
+        .hero-wrapper {
             margin-top: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .hero-inner {
-            background: linear-gradient(135deg, #003366, #001c3a);
+        .hero-home {
+            background: radial-gradient(circle at top left, #7fb5ff 0, #3f83f8 40%, #2459a6 100%);
             color: #ffffff;
-            padding: 32px 22px 28px;
-            border-radius: 18px;
-            box-shadow: 0 16px 40px rgba(15,23,42,0.35);
+            padding: 40px 24px 36px;
+            border-radius: var(--panel-radius);
+            box-shadow: 0 20px 45px rgba(15,23,42,0.35);
         }
 
-        .hero-kicker {
+        .hero-main {
+            text-align: left;
+            max-width: 720px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 11px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.3);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.16em;
             color: #e5e7eb;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--mdp-gold);
         }
 
         .hero-title {
-            font-size: clamp(24px, 3vw, 32px);
+            font-size: clamp(24px, 3.4vw, 32px);
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .hero-subtitle {
             font-size: 14px;
-            line-height: 1.6;
+            line-height: 1.7;
             max-width: 720px;
             color: #e5e7eb;
         }
@@ -208,8 +237,52 @@
             margin-bottom: 40px;
         }
 
+        /* MACRO-SEZIONI A PANNELLI */
+        .macro-section {
+            margin-top: -18px;
+            padding-top: 26px;
+        }
+
+        .macro-inner {
+            border-radius: var(--panel-radius);
+            padding: 22px 20px 26px;
+            box-shadow: 0 14px 34px rgba(15,23,42,0.18);
+        }
+
+        .macro--tone1 .macro-inner {
+            background: linear-gradient(135deg, var(--az-150), var(--az-250));
+        }
+
+        .macro--tone2 .macro-inner {
+            background: linear-gradient(135deg, var(--az-100), var(--az-200));
+        }
+
+        .macro--tone3 .macro-inner {
+            background: linear-gradient(135deg, var(--az-50), var(--az-150));
+        }
+
+        .macro--tone4 .macro-inner {
+            background: linear-gradient(135deg, var(--az-150), var(--az-300));
+        }
+
+        /* BOX INTERNI (RIQUADRI) */
+        .block {
+            border-radius: 20px;
+            padding: 16px 18px 18px;
+        }
+
+        .block--primary {
+            background: #ffffff;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.15);
+        }
+
+        .block--soft {
+            background: rgba(239,246,255,0.9);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+        }
+
         .page-section {
-            margin-top: 26px;
+            margin-top: 4px;
         }
 
         .section-title {
@@ -221,7 +294,7 @@
 
         .section-subtitle {
             font-size: 13px;
-            color: #6b7280;
+            color: #4b5563;
             margin-bottom: 10px;
         }
 
@@ -255,6 +328,20 @@
             flex-shrink: 0;
         }
 
+        /* GRIGLIE */
+        .two-cols-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 900px) {
+            .two-cols-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -263,10 +350,10 @@
 
         .pillar-card {
             background: #ffffff;
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid #e5e7eb;
             padding: 12px 12px 10px;
-            box-shadow: 0 8px 20px rgba(15,23,42,0.04);
+            box-shadow: 0 8px 22px rgba(15,23,42,0.1);
         }
 
         .pillar-label {
@@ -290,22 +377,9 @@
             line-height: 1.5;
         }
 
-        .two-cols-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
-            gap: 18px;
-            align-items: flex-start;
-        }
-
-        @media (max-width: 900px) {
-            .two-cols-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-        }
-
         /* FOOTER */
         .site-footer {
-            margin-top: 40px;
+            margin-top: 38px;
             background: var(--mdp-blue-dark);
             border-top: 3px solid var(--mdp-red);
             padding: 16px 0;
@@ -356,15 +430,20 @@
 </div>
 
 <!-- HERO VISIONE -->
-<div class="hero-inner-wrapper">
+<div class="hero-wrapper">
     <div class="container">
-        <section class="hero-inner">
-            <div class="hero-kicker">Visione politica</div>
-            <h1 class="hero-title">Che tipo di Stato vuole costruire l’MDP</h1>
-            <p class="hero-subtitle">
-                Uno Stato al servizio dei cittadini, non dei partiti. Un sistema basato su libertà reale, giustizia,
-                meritocrazia e sovranità, capace di trattenere i propri giovani e difendere i propri interessi.
-            </p>
+        <section class="hero-home">
+            <div class="hero-main">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    VISIONE POLITICA
+                </div>
+                <h1 class="hero-title">Che tipo di Stato vuole costruire l’MDP</h1>
+                <p class="hero-subtitle">
+                    Uno Stato al servizio dei cittadini, non dei partiti. Un sistema basato su libertà reale, giustizia,
+                    meritocrazia e sovranità, capace di trattenere i propri giovani e difendere i propri interessi.
+                </p>
+            </div>
         </section>
     </div>
 </div>
@@ -372,188 +451,207 @@
 <main>
     <div class="container">
 
-        <!-- BLOCCO 1: cosa soffoca oggi la Macedonia -->
-        <section class="page-section">
-            <h2 class="section-title">Cosa soffoca oggi la Macedonia</h2>
-            <p class="section-subtitle">
-                Il problema non è solo economico. È un sistema costruito per proteggere chi comanda, non i cittadini.
-            </p>
+        <!-- MACRO 1: problema + missione -->
+        <section class="macro-section macro--tone1">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="two-cols-grid">
+                        <div class="block block--primary">
+                            <h2 class="section-title">Cosa soffoca oggi la Macedonia</h2>
+                            <p class="section-subtitle">
+                                Il problema non è solo economico. È un sistema costruito per proteggere chi comanda, non i cittadini.
+                            </p>
 
-            <ul class="bullet-list">
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Corruzione strutturale e partiti trasformati in aziende private.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Giustizia politicizzata e pubblica amministrazione clientelare.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Ricatto etnico usato come arma politica e divisione permanente della società.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Media controllati, propaganda, mancanza di informazione libera e plurale.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Fuga dei giovani, precarietà, dipendenza da interessi esterni.</span>
-                </li>
-            </ul>
+                            <ul class="bullet-list">
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Corruzione strutturale e partiti trasformati in aziende private.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Giustizia politicizzata e pubblica amministrazione clientelare.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Ricatto etnico usato come arma politica e divisione permanente della società.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Media controllati, propaganda, mancanza di informazione libera e plurale.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Fuga dei giovani, precarietà, dipendenza da interessi esterni.</span>
+                                </li>
+                            </ul>
 
-            <p class="section-text" style="margin-top:8px;">
-                L’MDP nasce per colpire queste cause alla radice, non per adattarsi al sistema esistente.
-            </p>
-        </section>
+                            <p class="section-text" style="margin-top:8px;">
+                                L’MDP nasce per colpire queste cause alla radice, non per adattarsi al sistema esistente.
+                            </p>
+                        </div>
 
-        <!-- BLOCCO 2: missione -->
-        <section class="page-section">
-            <h2 class="section-title">La missione del Macedonian Diaspora Party</h2>
-            <p class="section-subtitle">
-                Non “entrare nel sistema”, ma riscriverne le regole.
-            </p>
+                        <div class="block block--soft">
+                            <h2 class="section-title">La missione del Macedonian Diaspora Party</h2>
+                            <p class="section-subtitle">
+                                Non “entrare nel sistema”, ma riscriverne le regole.
+                            </p>
 
-            <ul class="bullet-list">
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Restituire serietà alla politica: il programma come contratto, non come slogan.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Rendere lo Stato indipendente da clientele, lobby e influenze esterne.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Costruire istituzioni che difendano i cittadini, non i gruppi di potere.</span>
-                </li>
-            </ul>
-        </section>
-
-        <!-- BLOCCO 3: quattro pilastri -->
-        <section class="page-section">
-            <h2 class="section-title">I quattro pilastri della visione MDP</h2>
-            <p class="section-subtitle">
-                Pochi punti chiari che definiscono il tipo di Paese che vogliamo.
-            </p>
-
-            <div class="pillars-grid">
-                <article class="pillar-card">
-                    <div class="pillar-label">Pilastro 1</div>
-                    <div class="pillar-title">Libertà reale</div>
-                    <div class="pillar-text">
-                        Libertà di parola, di informazione, di organizzazione politica. Niente ricatti legati al lavoro,
-                        alla carriera o all’appartenenza. Il cittadino deve poter parlare e scegliere senza paura.
+                            <ul class="bullet-list">
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Restituire serietà alla politica: il programma come contratto, non come slogan.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Rendere lo Stato indipendente da clientele, lobby e influenze esterne.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Costruire istituzioni che difendano i cittadini, non i gruppi di potere.</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </article>
-
-                <article class="pillar-card">
-                    <div class="pillar-label">Pilastro 2</div>
-                    <div class="pillar-title">Giustizia che funziona</div>
-                    <div class="pillar-text">
-                        Giustizia indipendente dai partiti, tempi ragionevoli, regole uguali per tutti. Senza giustizia
-                        non esiste né economia sana né democrazia credibile.
-                    </div>
-                </article>
-
-                <article class="pillar-card">
-                    <div class="pillar-label">Pilastro 3</div>
-                    <div class="pillar-title">Meritocrazia</div>
-                    <div class="pillar-text">
-                        Incarichi pubblici, concorsi, responsabilità: assegnati per competenza, non per tessera o amicizia.
-                        Senza merito, i giovani scappano e lo Stato si svuota.
-                    </div>
-                </article>
-
-                <article class="pillar-card">
-                    <div class="pillar-label">Pilastro 4</div>
-                    <div class="pillar-title">Sovranità reale</div>
-                    <div class="pillar-text">
-                        Collaborare con tutti ma decidere in autonomia. Difesa delle risorse strategiche e delle
-                        scelte nazionali, senza essere ostaggio di agende esterne.
-                    </div>
-                </article>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 4: democrazia partecipata + diaspora -->
-        <section class="page-section">
-            <div class="two-cols-grid">
-                <div>
-                    <h2 class="section-title">Democrazia partecipata</h2>
-                    <p class="section-subtitle">
-                        Il voto non basta. Serve controllo continuo.
-                    </p>
-                    <ul class="bullet-list">
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Programma elettorale come impegno vincolante, con verifiche periodiche.</span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Strumenti per valutare l’operato degli eletti e chiedere conto delle scelte fatte.</span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Accesso ai dati, decisioni spiegate, niente accordi nascosti.</span>
-                        </li>
-                    </ul>
-                </div>
+        <!-- MACRO 2: quattro pilastri -->
+        <section class="macro-section macro--tone2">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--soft">
+                        <h2 class="section-title">I quattro pilastri della visione MDP</h2>
+                        <p class="section-subtitle">
+                            Pochi punti chiari che definiscono il tipo di Paese che vogliamo.
+                        </p>
 
-                <div>
-                    <h2 class="section-title">La diaspora come risorsa strategica</h2>
-                    <p class="section-subtitle">
-                        Non solo voti: competenze, indipendenza e visione.
-                    </p>
-                    <ul class="bullet-list">
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>
-                                Macedoni che vivono all’estero come fonte di competenza e visione più ampia.
-                            </span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>
-                                Meno condizionati dalle clientele locali, possono bilanciare i poteri interni.
-                            </span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>
-                                Ponte stabile tra Macedonia e reti economiche, culturali e politiche internazionali.
-                            </span>
-                        </li>
-                    </ul>
-                </div>
+                        <div class="pillars-grid">
+                            <article class="pillar-card">
+                                <div class="pillar-label">Pilastro 1</div>
+                                <div class="pillar-title">Libertà reale</div>
+                                <div class="pillar-text">
+                                    Libertà di parola, di informazione, di organizzazione politica. Niente ricatti legati al lavoro,
+                                    alla carriera o all’appartenenza. Il cittadino deve poter parlare e scegliere senza paura.
+                                </div>
+                            </article>
+
+                            <article class="pillar-card">
+                                <div class="pillar-label">Pilastro 2</div>
+                                <div class="pillar-title">Giustizia che funziona</div>
+                                <div class="pillar-text">
+                                    Giustizia indipendente dai partiti, tempi ragionevoli, regole uguali per tutti. Senza giustizia
+                                    non esiste né economia sana né democrazia credibile.
+                                </div>
+                            </article>
+
+                            <article class="pillar-card">
+                                <div class="pillar-label">Pilastro 3</div>
+                                <div class="pillar-title">Meritocrazia</div>
+                                <div class="pillar-text">
+                                    Incarichi pubblici, concorsi, responsabilità: assegnati per competenza, non per tessera o amicizia.
+                                    Senza merito, i giovani scappano e lo Stato si svuota.
+                                </div>
+                            </article>
+
+                            <article class="pillar-card">
+                                <div class="pillar-label">Pilastro 4</div>
+                                <div class="pillar-title">Sovranità reale</div>
+                                <div class="pillar-text">
+                                    Collaborare con tutti ma decidere in autonomia. Difesa delle risorse strategiche e delle
+                                    scelte nazionali, senza essere ostaggio di agende esterne.
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 5: diritti sociali e dignità -->
-        <section class="page-section">
-            <h2 class="section-title">Diritti sociali e dignità</h2>
-            <p class="section-subtitle">
-                Libertà politica senza giustizia sociale è una facciata.
-            </p>
+        <!-- MACRO 3: democrazia partecipata + diaspora -->
+        <section class="macro-section macro--tone3">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--primary">
+                        <div class="two-cols-grid">
+                            <div>
+                                <h2 class="section-title">Democrazia partecipata</h2>
+                                <p class="section-subtitle">
+                                    Il voto non basta. Serve controllo continuo.
+                                </p>
+                                <ul class="bullet-list">
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>Programma elettorale come impegno vincolante, con verifiche periodiche.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>Strumenti per valutare l’operato degli eletti e chiedere conto delle scelte fatte.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>Accesso ai dati, decisioni spiegate, niente accordi nascosti.</span>
+                                    </li>
+                                </ul>
+                            </div>
 
-            <ul class="bullet-list">
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Chi è in difficoltà va sostenuto, ma con percorsi di reinserimento e responsabilità.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>I diritti fondamentali non sono favori di partito, ma garanzie per tutti.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Diversità etnica, culturale e religiosa come ricchezza, non strumento di divisione.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Le istituzioni si giudicano da quanto riducono disuguaglianze e ingiustizie, non dalla propaganda.</span>
-                </li>
-            </ul>
+                            <div>
+                                <h2 class="section-title">La diaspora come risorsa strategica</h2>
+                                <p class="section-subtitle">
+                                    Non solo voti: competenze, indipendenza e visione.
+                                </p>
+                                <ul class="bullet-list">
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>Macedoni che vivono all’estero come fonte di competenza e visione più ampia.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>Meno condizionati dalle clientele locali, possono bilanciare i poteri interni.</span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>Ponte stabile tra Macedonia e reti economiche, culturali e politiche internazionali.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- MACRO 4: diritti sociali e dignità -->
+        <section class="macro-section macro--tone4">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--soft">
+                        <h2 class="section-title">Diritti sociali e dignità</h2>
+                        <p class="section-subtitle">
+                            Libertà politica senza giustizia sociale è una facciata.
+                        </p>
+
+                        <ul class="bullet-list">
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Chi è in difficoltà va sostenuto, ma con percorsi di reinserimento e responsabilità.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>I diritti fondamentali non sono favori di partito, ma garanzie per tutti.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Diversità etnica, culturale e religiosa come ricchezza, non strumento di divisione.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Le istituzioni si giudicano da quanto riducono disuguaglianze e ingiustizie, non dalla propaganda.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </section>
 
     </div>
@@ -573,7 +671,7 @@
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const mainNav = document.getElementById("mainNav");
+    const mainNav   = document.getElementById("mainNav");
 
     if (navToggle && mainNav) {
         navToggle.addEventListener("click", () => {
