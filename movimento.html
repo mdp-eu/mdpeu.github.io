@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movimento – Macedonian Diaspora Party</title>
+    <meta name="description" content="Il Macedonian Diaspora Party (MDP) è un movimento politico nato dalla diaspora macedone in Europa, indipendente dai partiti tradizionali e orientato a trasparenza, meritocrazia e sovranità reale.">
 
-    <meta name="description" content="Il Macedonian Diaspora Party (MDP): origini, motivazioni politiche, fondatore e missione del movimento della diaspora macedone.">
+    <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
 
     <style>
         :root {
-            --mdp-blue: #002b5c;
-            --mdp-blue-dark: #001836;
+            --mdp-blue: #003366;
+            --mdp-blue-dark: #001c3a;
             --mdp-red: #d0191b;
+            --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -32,158 +35,408 @@
             padding: 0 16px;
         }
 
-        /* HEADER */
-        .site-header {
+        /* HEADER (identico alla home) */
+        .site-header-wrapper {
             background: #ffffff;
-            border-bottom: 3px solid var(--mdp-red);
+            border-bottom: 1px solid #e5e7eb;
             position: sticky;
             top: 0;
-            z-index: 50;
+            z-index: 200;
         }
 
-        .logo-strip {
-            padding: 12px 0;
-            border-bottom: 1px solid #e5e7eb;
+        .site-header {
+            padding: 18px 0;
         }
 
-        .logo-full {
-            display: block;
-            margin: 0 auto;
-            max-width: 420px;
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-logo-box {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo-box img {
             width: 100%;
-            height: auto;
+            max-height: 220px;
+            object-fit: contain;
+            display: block;
         }
 
-        /* NAVBAR */
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .main-nav a {
+            color: var(--mdp-blue-dark);
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .main-nav a:hover {
+            background: #f0f2f5;
+        }
+
+        .main-nav a.active {
+            background: #e5edf9;
+            color: #111827;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
             background: var(--mdp-blue-dark);
+            position: relative;
         }
 
-        .nav-inner {
-            display: flex;
-            justify-content: center;
-            padding: 10px 16px;
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            left: 0;
+            transition: 0.2s ease;
         }
 
-        .nav-list {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 10px;
-            list-style: none;
-            font-size: 13px;
-            justify-content: center;
-            white-space: nowrap;
+        .nav-toggle span::before { top: -6px; }
+        .nav-toggle span::after  { top: 6px; }
+
+        .nav-toggle.active span { background: transparent; }
+        .nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
+        .nav-toggle.active span::after  { top: 0; transform: rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .brand-logo-box {
+                width: 60%;
+            }
+            .brand-logo-box img {
+                max-height: 160px;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: 110px;
+                right: 16px;
+                background: #ffffff;
+                border-radius: 12px;
+                border: 1px solid #e5e7eb;
+                padding: 16px;
+                width: 210px;
+                flex-direction: column;
+                gap: 14px;
+                opacity: 0;
+                pointer-events: none;
+                box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+            }
+
+            .main-nav.nav-open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
         }
 
-        .nav-list a {
-            padding: 6px 8px;
-            border-radius: 999px;
+        /* HERO PAGINA INTERNA */
+        .hero-inner-wrapper {
+            margin-top: 24px;
+            margin-bottom: 20px;
+        }
+
+        .hero-inner {
+            background: linear-gradient(135deg, #003366, #001c3a);
+            color: #ffffff;
+            padding: 40px 22px 34px;
+            border-radius: 18px;
+            box-shadow: 0 16px 40px rgba(15,23,42,0.35);
+        }
+
+        .hero-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
             color: #e5e7eb;
-        }
-
-        .nav-list a:hover {
-            background: rgba(255,255,255,0.14);
-        }
-
-        .nav-pill-primary a {
-            background: var(--mdp-red);
-            color: #ffffff;
-        }
-
-        /* HERO */
-        .hero-mov {
-            background: var(--mdp-blue);
-            color: #ffffff;
-            text-align: center;
-            padding: 32px 0 28px;
-            border-bottom: 3px solid var(--mdp-red);
+            margin-bottom: 8px;
         }
 
         .hero-title {
-            font-size: clamp(24px, 3vw, 30px);
+            font-size: clamp(26px, 3.2vw, 34px);
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .hero-subtitle {
-            max-width: 700px;
-            margin: 0 auto;
             font-size: 14px;
+            line-height: 1.7;
+            max-width: 720px;
             color: #e5e7eb;
-            line-height: 1.6;
         }
 
-        /* MAIN */
         main {
-            padding: 36px 0 40px;
+            margin-bottom: 40px;
         }
 
-        .section-block {
-            max-width: 780px;
-            margin: 0 auto 36px auto;
+        .page-section {
+            margin-top: 30px;
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 14px;
+        }
+
+        .section-text {
+            font-size: 14px;
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        /* BLOCCO: perché il MDP è un movimento diverso */
+        .movement-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .movement-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 4px;
+        }
+
+        .movement-list li {
+            display: flex;
+            gap: 8px;
+            font-size: 14px;
+            color: #374151;
+        }
+
+        .bullet-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            margin-top: 6px;
+            background: var(--mdp-red);
+        }
+
+        @media (max-width: 800px) {
+            .movement-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /* PRINCIPI ORGANIZZATIVI */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .principle-card {
             background: #ffffff;
             border-radius: 16px;
-            padding: 20px 22px;
             border: 1px solid #e5e7eb;
+            padding: 14px 14px 12px;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.06);
         }
 
-        .section-block h2 {
-            color: var(--mdp-blue-dark);
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .section-block p {
-            font-size: 15px;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            color: #374151;
-        }
-
-        .section-block ul {
-            margin-left: 18px;
-            margin-top: 6px;
-            margin-bottom: 8px;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #374151;
-        }
-
-        .section-block ul li {
+        .principle-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #6b7280;
             margin-bottom: 4px;
         }
 
-        .section-block strong {
-            color: var(--mdp-blue-dark);
+        .principle-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
         }
 
-        /* FOOTER */
+        .principle-text {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* STRUTTURA DEL MOVIMENTO */
+        .structure-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            gap: 22px;
+            align-items: flex-start;
+        }
+
+        .structure-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 14px 14px 12px;
+            box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+        }
+
+        .structure-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .structure-card p {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .structure-list {
+            list-style: none;
+            margin-top: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .structure-list li {
+            font-size: 13px;
+            color: #374151;
+        }
+
+        @media (max-width: 900px) {
+            .structure-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /* COME SI PARTECIPA */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .step-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 14px 14px 12px;
+            box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 999px;
+            background: #e5edf9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .step-text {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            margin-top: 10px;
+            font-size: 13px;
+            color: var(--mdp-blue-dark);
+            text-decoration: underline;
+        }
+
+        /* IMPEGNI PUBBLICI */
+        .commit-list {
+            list-style: none;
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .commit-list li {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+            color: #374151;
+        }
+
+        .commit-icon {
+            font-size: 13px;
+            margin-top: 1px;
+        }
+
+        /* FOOTER (come home) */
         .site-footer {
+            margin-top: 40px;
             background: var(--mdp-blue-dark);
-            color: #e5e7eb;
             border-top: 3px solid var(--mdp-red);
-            padding: 14px 0;
-            font-size: 12px;
+            padding: 16px 0;
+            color: #e5e7eb;
+            font-size: 13px;
         }
 
         .footer-inner {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .footer-inner a {
-            color: #ffffff;
-        }
-
-        .footer-inner a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-contacts {
-            display: flex;
             gap: 12px;
             flex-wrap: wrap;
         }
@@ -192,146 +445,311 @@
 
 <body>
 
-<header class="site-header">
-    <div class="logo-strip">
-        <div class="container">
-            <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" class="logo-full" alt="MDP Logo">
-        </div>
+<!-- HEADER -->
+<div class="site-header-wrapper">
+    <div class="container">
+        <header class="site-header">
+            <div class="header-inner">
+
+                <div class="brand-logo-box">
+                    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                         alt="Logo MDP">
+                </div>
+
+                <div class="nav-wrapper">
+                    <nav class="main-nav" id="mainNav">
+                        <a href="index.html">Home</a>
+                        <a href="movimento.html" class="active">Movimento</a>
+                        <a href="visione.html">Visione</a>
+                        <a href="diaspora.html">Diaspora</a>
+                        <a href="documenti.html">Documenti</a>
+                    </nav>
+
+                    <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
+                        <span></span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
     </div>
+</div>
 
-    <nav class="main-nav">
-        <div class="container nav-inner">
-            <ul class="nav-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="movimento.html">Movimento</a></li>
-                <li><a href="visione.html">Visione</a></li>
-                <li><a href="diaspora.html">Diaspora</a></li>
-                <li><a href="documenti.html">Documenti</a></li>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<section class="hero-mov">
-    <h1 class="hero-title">Il Movimento MDP</h1>
-    <p class="hero-subtitle">
-        Origini, motivazioni e struttura del Macedonian Diaspora Party: un movimento nato dalla diaspora
-        per riportare serietà, libertà e sovranità nella politica macedone.
-    </p>
-</section>
+<!-- HERO MOVIMENTO -->
+<div class="hero-inner-wrapper">
+    <div class="container">
+        <section class="hero-inner">
+            <div class="hero-kicker">Il Movimento</div>
+            <h1 class="hero-title">Che cos’è il Macedonian Diaspora Party</h1>
+            <p class="hero-subtitle">
+                Il Macedonian Diaspora Party (MDP) è un movimento politico nato dalla diaspora macedone in Europa,
+                indipendente dai partiti tradizionali e costruito per riportare trasparenza, meritocrazia e
+                sovranità reale allo Stato macedone.
+            </p>
+        </section>
+    </div>
+</div>
 
 <main>
     <div class="container">
 
-        <section class="section-block">
-            <h2>Cos’è il Macedonian Diaspora Party</h2>
-            <p>
-                Il Macedonian Diaspora Party è un movimento politico indipendente, nato nella diaspora macedone per
-                rappresentare quella parte del popolo che non deve favori ai partiti, non è sotto ricatto e non accetta
-                di rassegnarsi alla corruzione come regola del gioco.
-            </p>
-            <p>
-                Il MDP non nasce per aggiungersi alla lista dei partiti esistenti, ma per cambiare il modo in cui lo Stato
-                viene governato. È un movimento che mette al centro responsabilità personale, competenza e sovranità
-                nazionale, contro anni di clientelismo e subordinazione a interessi esterni.
-            </p>
+        <!-- BLOCCO 1: identità del movimento + origine -->
+        <section class="page-section">
+            <div class="movement-grid">
+                <div>
+                    <h2 class="section-title">Un movimento nato fuori dai palazzi</h2>
+                    <p class="section-subtitle">
+                        Il MDP nasce da un percorso personale e politico maturato nella diaspora.
+                    </p>
+
+                    <p class="section-text">
+                        Il Macedonian Diaspora Party nasce dalla volontà di <strong>Emir Alili</strong>, cittadino
+                        macedone di origine mista – padre di etnia albanese e madre macedone – cresciuto in Italia,
+                        dove ha sviluppato una visione politica maturata tra imprenditoria, managerialità e
+                        attivismo sociale. La sua esperienza personale, segnata dall’integrazione tra comunità diverse
+                        e dalla difesa dei diritti delle minoranze, ha creato una sensibilità profonda verso temi di
+                        giustizia sociale, uguaglianza reale e tutela dei cittadini più vulnerabili.
+                    </p>
+
+                    <p class="section-text" style="margin-top:8px;">
+                        Imprenditore e scrittore, analista geopolitico e consulente strategico per tematiche legate al
+                        diritto sociale, Emir Alili ha collaborato negli anni con gruppi di lavoro impegnati nella
+                        costruzione di movimenti politici nazionali in Italia, acquisendo competenze specifiche su
+                        partecipazione civica, organizzazione politica, processi decisionali, comunicazione pubblica
+                        e dinamiche istituzionali.
+                    </p>
+
+                    <p class="section-text" style="margin-top:8px;">
+                        La convinzione che la Macedonia abbia bisogno di un modello politico realmente nuovo – libero da
+                        clientelismo, influenze esterne e corruzione strutturale – nasce dall’osservazione del divario
+                        tra le prassi politiche del Paese e quelle dei sistemi democratici più maturi. Da qui l’idea
+                        di un movimento radicato nella diaspora, formato da persone che hanno vissuto in Stati dove
+                        istituzioni, giustizia e responsabilità politica funzionano davvero, e che possono trasportare
+                        questa esperienza verso la Macedonia.
+                    </p>
+
+                    <p class="section-text" style="margin-top:8px;">
+                        L’MDP rappresenta quindi un progetto politico indipendente, costruito attorno alla competenza,
+                        alla responsabilità e alla partecipazione attiva. Non è un movimento identitario né etnico:
+                        è un progetto civico che nasce da un percorso personale e professionale che unisce Macedonia,
+                        Italia e l’intera diaspora europea, con l’obiettivo di riportare il Paese su basi di
+                        meritocrazia, trasparenza e sovranità reale.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="section-subtitle" style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#6b7280;">
+                        Cosa rende il MDP diverso
+                    </h3>
+                    <ul class="movement-list">
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Non è legato ai partiti tradizionali di Skopje, né è una loro “lista parallela” per la diaspora.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Non basa la propria forza su reti clientelari, ma su competenze, credibilità personale e risultati.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Considera il programma politico come un contratto vincolante, non come una campagna pubblicitaria.</span>
+                        </li>
+                        <li>
+                            <span class="bullet-dot"></span>
+                            <span>Riconosce alla diaspora un ruolo stabile nel processo decisionale, e non solo durante le elezioni.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-        <section class="section-block">
-            <h2>Origini del Movimento</h2>
-            <p>
-                Il MDP nasce dalla constatazione che la Repubblica di Macedonia è stata tenuta per anni in uno stato di
-                dipendenza politica, economica e istituzionale. Classi dirigenti deboli, corrotte o ricattabili hanno
-                trasformato lo Stato in un sistema di scambi di favore e fedeltà di partito, invece che di servizio ai
-                cittadini.
+        <!-- BLOCCO 2: principi organizzativi -->
+        <section class="page-section">
+            <h2 class="section-title">Principi organizzativi del movimento</h2>
+            <p class="section-subtitle">
+                Come funziona concretamente il MDP all’interno: regole, metodo e limiti chiari.
             </p>
-            <p>
-                La diaspora, che vive in Paesi dove le istituzioni funzionano meglio e la responsabilità politica ha un
-                peso reale, non accetta più di osservare da lontano il degrado del proprio Paese d’origine. Da qui nasce
-                l’idea di costruire un movimento che prenda avvio dalla diaspora, libero da pressioni interne e da equilibri
-                consolidati, per poi tornare ad incidere sulla scena politica macedone.
-            </p>
+
+            <div class="principles-grid">
+                <article class="principle-card">
+                    <div class="principle-label">Metodo</div>
+                    <div class="principle-title">Decisioni collegiali, non personalistiche</div>
+                    <div class="principle-text">
+                        Le decisioni politiche principali non sono delegate a un singolo leader, ma a organi collegiali.
+                        Le posizioni ufficiali del movimento devono essere il risultato di un confronto reale, con
+                        verbali e responsabilità dichiarate.
+                    </div>
+                </article>
+
+                <article class="principle-card">
+                    <div class="principle-label">Trasparenza</div>
+                    <div class="principle-title">Scelte e risorse tracciabili</div>
+                    <div class="principle-text">
+                        Finanziamenti, incarichi, accordi politici e alleanze devono essere dichiarati, spiegati e
+                        documentati. La diaspora e i cittadini devono poter verificare come viene usato il mandato affidato.
+                    </div>
+                </article>
+
+                <article class="principle-card">
+                    <div class="principle-label">Mandato</div>
+                    <div class="principle-title">Programma come contratto</div>
+                    <div class="principle-text">
+                        Il programma politico non è un testo generico, ma un insieme di impegni verificabili in tempi
+                        definiti. In caso di scarto evidente tra promesse e azioni, il movimento prevede strumenti interni
+                        di correzione e responsabilità.
+                    </div>
+                </article>
+
+                <article class="principle-card">
+                    <div class="principle-label">Etica</div>
+                    <div class="principle-title">Zero compromessi su corruzione e clientele</div>
+                    <div class="principle-text">
+                        Il MDP rifiuta compromessi su corruzione, favoritismi e scambi di beneficio personale.
+                        Chi ricopre ruoli politici o organizzativi deve essere consapevole che la credibilità è la
+                        prima risorsa del movimento.
+                    </div>
+                </article>
+            </div>
         </section>
 
-        <section class="section-block">
-            <h2>Perché un partito della diaspora</h2>
-            <p>
-                Milioni di macedoni vivono all’estero. In molti casi hanno studiato, lavorato, creato imprese, conosciuto
-                sistemi più giusti e più esigenti verso chi governa. Sono una risorsa enorme che i partiti hanno usato
-                soltanto come serbatoio di voti o come immagine folkloristica durante le campagne elettorali.
+        <!-- BLOCCO 3: struttura del movimento -->
+        <section class="page-section">
+            <h2 class="section-title">Struttura del Macedonian Diaspora Party</h2>
+            <p class="section-subtitle">
+                Un movimento orizzontale ma organizzato, con ruoli chiari e responsabilità definite.
             </p>
-            <p>
-                Il MDP capovolge questa logica: la diaspora non è più decorazione, ma
-                <strong>centro di gravità del progetto politico</strong>. I macedoni nel mondo portano con sé:
+
+            <div class="structure-grid">
+                <div class="structure-card">
+                    <h3>Organi principali</h3>
+                    <p>
+                        La struttura del movimento è pensata per tenere insieme la realtà della Macedonia e quella della diaspora,
+                        evitando sia il centralismo assoluto, sia la frammentazione.
+                    </p>
+                    <ul class="structure-list">
+                        <li><strong>Assemblea del movimento</strong>: spazio politico generale di indirizzo e confronto.</li>
+                        <li><strong>Coordinamento centrale</strong>: organo esecutivo che attua le linee approvate.</li>
+                        <li><strong>Consiglio diaspora</strong>: rappresentanza stabile dei macedoni all’estero.</li>
+                        <li><strong>Gruppi Paese / Città</strong>: nodi locali che costruiscono il lavoro sul territorio.</li>
+                    </ul>
+                </div>
+
+                <div class="structure-card">
+                    <h3>Rapporto tra centro, diaspora e territorio</h3>
+                    <p>
+                        Il movimento evita sia il modello “partito di Skopje che usa la diaspora”, sia il modello
+                        “gruppi isolati all’estero senza collegamento con il Paese”.
+                    </p>
+                    <p style="margin-top:6px;">
+                        Ogni scelta politica rilevante deve tenere conto di tre livelli:
+                    </p>
+                    <ul class="structure-list">
+                        <li>interesse della popolazione residente in Macedonia,</li>
+                        <li>posizione e percezione della diaspora,</li>
+                        <li>equilibrio tra sovranità nazionale e contesto internazionale.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCCO 4: come si partecipa -->
+        <section class="page-section">
+            <h2 class="section-title">Come si entra nel movimento</h2>
+            <p class="section-subtitle">
+                Partecipare all’MDP significa assumersi una responsabilità politica, non solo “simpatizzare”.
             </p>
-            <ul>
-                <li>una maggiore libertà da ricatti economici e clientelari;</li>
-                <li>esperienza diretta di Stati che funzionano meglio;</li>
-                <li>competenze professionali e reti internazionali;</li>
-                <li>la possibilità di parlare con più autonomia rispetto ai poteri locali.</li>
+
+            <div class="steps-grid">
+                <article class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-title">Comprendere la linea del MDP</div>
+                    <div class="step-text">
+                        Il primo passo è leggere con attenzione la dichiarazione fondativa, lo statuto e le posizioni
+                        pubbliche del movimento. La condivisione della linea di fondo è condizione necessaria prima di
+                        qualsiasi ruolo operativo.
+                    </div>
+                    <a href="documenti.html" class="btn-link">Vai alla sezione documenti</a>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-title">Segnalare la propria disponibilità</div>
+                    <div class="step-text">
+                        Chi è interessato a contribuire può proporsi come semplice aderente, come referente locale
+                        della diaspora o come supporto in ambito tecnico (giuridico, economico, comunicazione, ecc.).
+                    </div>
+                    <a href="index.html#referent-form" class="btn-link">Compila il form dalla pagina principale</a>
+                </article>
+
+                <article class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-title">Entrare in un percorso strutturato</div>
+                    <div class="step-text">
+                        Chi entra nel movimento viene inserito in un percorso chiaro: conoscenza della linea, verifica
+                        delle competenze, definizione di un ruolo, regole di trasparenza e responsabilità verso il gruppo.
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- BLOCCO 5: impegni pubblici -->
+        <section class="page-section">
+            <h2 class="section-title">Impegni pubblici del Macedonian Diaspora Party</h2>
+            <p class="section-subtitle">
+                Ciò che il movimento si impegna a non fare e ciò che dichiara di voler fare, in modo chiaro.
+            </p>
+
+            <p class="section-text">
+                Il MDP considera la fiducia politica come un bene che non si ricostruisce con la propaganda, ma con
+                comportamenti costanti nel tempo. Per questo il movimento assume alcuni impegni pubblici di base:
+            </p>
+
+            <ul class="commit-list">
+                <li>
+                    <span class="commit-icon">✔︎</span>
+                    <span>Non entrare in accordi di potere che tradiscano il proprio programma per ottenere posizioni o benefici.</span>
+                </li>
+                <li>
+                    <span class="commit-icon">✔︎</span>
+                    <span>Rendere pubblici i passaggi decisivi che riguardano alleanze, voti parlamentari, scelte istituzionali.</span>
+                </li>
+                <li>
+                    <span class="commit-icon">✔︎</span>
+                    <span>Pubblicare in modo trasparente i flussi di finanziamento, gli eventuali donatori principali e le condizioni di eventuali accordi.</span>
+                </li>
+                <li>
+                    <span class="commit-icon">✔︎</span>
+                    <span>Prevedere strumenti interni per richiamare o sostituire chi, in ruoli politici o organizzativi, si discosta in modo evidente dal mandato ricevuto.</span>
+                </li>
             </ul>
-            <p>
-                Per questo il MDP nasce nella diaspora: perché qui esiste ancora la possibilità di dire no ai compromessi
-                che hanno bloccato la Macedonia negli ultimi decenni.
-            </p>
-        </section>
-
-        <section class="section-block">
-            <h2>Cosa rende diverso il MDP</h2>
-            <p>
-                Il Macedonian Diaspora Party si distingue dai partiti tradizionali per alcune scelte nette:
-            </p>
-            <ul>
-                <li><strong>Nessun legame organico con i vecchi partiti</strong> e con le loro clientele;</li>
-                <li><strong>indipendenza da poteri esterni</strong> che usano la Macedonia come pedina geopolitica;</li>
-                <li><strong>centralità della responsabilità personale</strong>: chi tradisce il mandato deve risponderne;</li>
-                <li><strong>merito e competenza</strong> come criteri di selezione della classe dirigente, non fedeltà di partito;</li>
-                <li><strong>difesa della Repubblica di Macedonia</strong> e della sua sovranità, anche quando è scomodo dirlo.</li>
-            </ul>
-            <p>
-                Il MDP non chiede fiducia in bianco: chiede alla diaspora e ai cittadini di giudicare il movimento sui fatti,
-                sulla coerenza delle scelte e sulla trasparenza con cui verrà costruita la sua organizzazione.
-            </p>
-        </section>
-
-        <section class="section-block">
-            <h2>Un movimento da costruire insieme</h2>
-            <p>
-                Il MDP nasce da un’idea chiara: senza la diaspora, la Macedonia continuerà a essere controllata da piccoli
-                gruppi di potere. Con la diaspora organizzata e consapevole, esiste invece la possibilità concreta di
-                ricostruire lo Stato su basi più giuste, serie e moderne.
-            </p>
-            <p>
-                Questo movimento è pensato per chi non si riconosce più in nessun partito, ma non vuole rinunciare alla
-                propria identità e alla responsabilità verso il Paese d’origine. Il MDP è uno strumento: la sua forza
-                dipenderà da quante persone decideranno di usarlo, in modo serio, disciplinato e coerente.
-            </p>
-            <p>
-                Chi vuole capire meglio, può leggere le pagine dedicate alla <strong>Visione</strong>, alla
-                <strong>Diaspora</strong> e ai <strong>Documenti</strong> fondativi, oppure mettersi in contatto diretto
-                con il movimento attraverso i canali ufficiali.
-            </p>
         </section>
 
     </div>
 </main>
 
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>© Macedonian Diaspora Party</span>
-        <div class="footer-contacts">
-            <a href="mailto:info@mdp-eu.com" class="footer-icon-link">
-                📧 info@mdp-eu.com
-            </a>
-            <a href="tel:+393282290062" class="footer-icon-link">
-                ☎️ +39 328 22 90 062
-            </a>
-            <a href="https://wa.me/393282290062" target="_blank" class="footer-icon-link">
-                🟢 WhatsApp
-            </a>
+        <div>
+            <a href="mailto:info@mdp-eu.com">📧 info@mdp-eu.com</a>
+            <a href="tel:+393282290062" style="margin-left:12px;">☎️ +39 328 22 90 062</a>
+            <a href="https://wa.me/393282290062" target="_blank" style="margin-left:12px;">🟢 WhatsApp</a>
         </div>
     </div>
 </footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("active");
+            mainNav.classList.toggle("nav-open");
+        });
+    }
+</script>
 
 </body>
 </html>
