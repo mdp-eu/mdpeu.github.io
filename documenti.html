@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documenti – Macedonian Diaspora Party</title>
-    <meta name="description" content="Documenti ufficiali del Macedonian Diaspora Party (MDP): atto costitutivo, statuto, programma politico, comunicati e materiali pubblici.">
+    <meta name="description" content="Documenti ufficiali del Macedonian Diaspora Party: dichiarazione fondativa, statuto, atti formali e aggiornamenti pubblici consultabili in modo trasparente.">
 
     <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
@@ -16,6 +16,17 @@
             --mdp-red: #d0191b;
             --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
+
+            /* Azzurri pastello coerenti con le altre pagine */
+            --az-50:  #f5f8ff;
+            --az-100: #e5f1ff;
+            --az-150: #ddeeff;
+            --az-200: #d0e6ff;
+            --az-250: #c0dcff;
+            --az-300: #aed2ff;
+            --az-400: #7fb5ff;
+
+            --panel-radius: 24px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -169,38 +180,56 @@
             }
         }
 
-        /* HERO PAGINA INTERNA */
-        .hero-inner-wrapper {
+        /* HERO – stile azzurro */
+        .hero-wrapper {
             margin-top: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .hero-inner {
-            background: linear-gradient(135deg, #003366, #001c3a);
+        .hero-home {
+            background: radial-gradient(circle at top left, #7fb5ff 0, #3f83f8 40%, #2459a6 100%);
             color: #ffffff;
-            padding: 32px 22px 28px;
-            border-radius: 18px;
-            box-shadow: 0 16px 40px rgba(15,23,42,0.35);
+            padding: 40px 24px 36px;
+            border-radius: var(--panel-radius);
+            box-shadow: 0 20px 45px rgba(15,23,42,0.35);
         }
 
-        .hero-kicker {
+        .hero-main {
+            text-align: left;
+            max-width: 780px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 11px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.3);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.16em;
             color: #e5e7eb;
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--mdp-gold);
         }
 
         .hero-title {
-            font-size: clamp(24px, 3vw, 32px);
+            font-size: clamp(24px, 3.4vw, 32px);
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .hero-subtitle {
             font-size: 14px;
-            line-height: 1.6;
-            max-width: 720px;
+            line-height: 1.7;
+            max-width: 780px;
             color: #e5e7eb;
         }
 
@@ -208,8 +237,52 @@
             margin-bottom: 40px;
         }
 
+        /* MACRO-SEZIONI A PANNELLI */
+        .macro-section {
+            margin-top: -18px;
+            padding-top: 26px;
+        }
+
+        .macro-inner {
+            border-radius: var(--panel-radius);
+            padding: 22px 20px 26px;
+            box-shadow: 0 14px 34px rgba(15,23,42,0.18);
+        }
+
+        .macro--tone1 .macro-inner {
+            background: linear-gradient(135deg, var(--az-150), var(--az-250));
+        }
+
+        .macro--tone2 .macro-inner {
+            background: linear-gradient(135deg, var(--az-100), var(--az-200));
+        }
+
+        .macro--tone3 .macro-inner {
+            background: linear-gradient(135deg, var(--az-50), var(--az-150));
+        }
+
+        .macro--tone4 .macro-inner {
+            background: linear-gradient(135deg, var(--az-150), var(--az-300));
+        }
+
+        /* BOX INTERNI */
+        .block {
+            border-radius: 20px;
+            padding: 16px 18px 18px;
+        }
+
+        .block--primary {
+            background: #ffffff;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.15);
+        }
+
+        .block--soft {
+            background: rgba(239,246,255,0.9);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+        }
+
         .page-section {
-            margin-top: 26px;
+            margin-top: 4px;
         }
 
         .section-title {
@@ -221,7 +294,7 @@
 
         .section-subtitle {
             font-size: 13px;
-            color: #6b7280;
+            color: #4b5563;
             margin-bottom: 10px;
         }
 
@@ -229,53 +302,6 @@
             font-size: 14px;
             color: #4b5563;
             line-height: 1.6;
-        }
-
-        .docs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 14px;
-        }
-
-        .doc-card {
-            background: #ffffff;
-            border-radius: 14px;
-            border: 1px solid #e5e7eb;
-            padding: 12px 12px 10px;
-            box-shadow: 0 8px 20px rgba(15,23,42,0.04);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 130px;
-        }
-
-        .doc-type {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: #6b7280;
-            margin-bottom: 3px;
-        }
-
-        .doc-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 4px;
-        }
-
-        .doc-text {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.5;
-            margin-bottom: 8px;
-        }
-
-        .doc-link {
-            font-size: 13px;
-            text-decoration: underline;
-            color: var(--mdp-blue-dark);
-            margin-top: 4px;
         }
 
         .bullet-list {
@@ -302,9 +328,118 @@
             flex-shrink: 0;
         }
 
+        /* GRIGLIE E CARD */
+        .two-cols-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+            gap: 18px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 900px) {
+            .two-cols-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            padding: 12px 12px 12px;
+            box-shadow: 0 8px 22px rgba(15,23,42,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .card-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6b7280;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        .card-meta {
+            font-size: 11px;
+            color: #6b7280;
+        }
+
+        .card-text {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .card-link {
+            font-size: 13px;
+            color: var(--mdp-blue-dark);
+            text-decoration: underline;
+            margin-top: 6px;
+            align-self: flex-start;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 999px;
+            background: #e5f1ff;
+            color: #1f2937;
+        }
+
+        .meta-list {
+            list-style: none;
+            margin-top: 4px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        .meta-list strong {
+            font-weight: 600;
+        }
+
+        .note-box {
+            font-size: 12px;
+            color: #4b5563;
+            border-radius: 10px;
+            padding: 8px 10px;
+            background: rgba(255,255,255,0.8);
+            margin-top: 8px;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            margin-top: 8px;
+            font-size: 13px;
+            color: var(--mdp-blue-dark);
+            text-decoration: underline;
+        }
+
         /* FOOTER */
         .site-footer {
-            margin-top: 40px;
+            margin-top: 38px;
             background: var(--mdp-blue-dark);
             border-top: 3px solid var(--mdp-red);
             padding: 16px 0;
@@ -355,15 +490,21 @@
 </div>
 
 <!-- HERO DOCUMENTI -->
-<div class="hero-inner-wrapper">
+<div class="hero-wrapper">
     <div class="container">
-        <section class="hero-inner">
-            <div class="hero-kicker">Documenti ufficiali</div>
-            <h1 class="hero-title">Atti, programmi e comunicazioni del MDP</h1>
-            <p class="hero-subtitle">
-                In questa pagina sono raccolti gli atti ufficiali del Macedonian Diaspora Party: fondazione, regole
-                interne, programma politico e principali comunicazioni pubbliche del movimento.
-            </p>
+        <section class="hero-home">
+            <div class="hero-main">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    DOCUMENTI UFFICIALI
+                </div>
+                <h1 class="hero-title">Trasparenza, regole chiare e atti pubblici</h1>
+                <p class="hero-subtitle">
+                    Qui sono raccolti i documenti fondamentali del Macedonian Diaspora Party: dichiarazione fondativa,
+                    statuto, atti formali e aggiornamenti pubblici. Tutto ciò che definisce identità, regole interne
+                    e responsabilità del movimento è consultabile in modo chiaro.
+                </p>
+            </div>
         </section>
     </div>
 </div>
@@ -371,187 +512,253 @@
 <main>
     <div class="container">
 
-        <!-- BLOCCO 1: atti fondativi -->
-        <section class="page-section">
-            <h2 class="section-title">Atti di fondazione e statuto</h2>
-            <p class="section-subtitle">
-                La base giuridica e organizzativa del Macedonian Diaspora Party.
-            </p>
+        <!-- MACRO 1: perché i documenti contano -->
+        <section class="macro-section macro--tone1">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="two-cols-grid">
+                        <div class="block block--primary">
+                            <h2 class="section-title">Perché i documenti sono centrali per l’MDP</h2>
+                            <p class="section-subtitle">
+                                Nessuna politica credibile senza testi chiari, pubblici e vincolanti.
+                            </p>
+                            <ul class="bullet-list">
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        La dichiarazione fondativa definisce identità politica, principi non negoziabili
+                                        e obiettivi di lungo periodo.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        Lo statuto stabilisce come funziona il movimento: organi, ruoli, limiti e
+                                        procedure di responsabilità interna.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        Gli atti formali e le registrazioni descrivono come l’MDP si colloca nel quadro
+                                        giuridico nazionale ed europeo.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        Gli aggiornamenti e gli allegati tematici permettono di seguire l’evoluzione
+                                        del progetto nel tempo, senza zone d’ombra.
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
 
-            <div class="docs-grid">
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Atto ufficiale</div>
-                        <div class="doc-title">Atto costitutivo del MDP</div>
-                        <p class="doc-text">
-                            Documento che certifica la nascita del Macedonian Diaspora Party, i fondatori, la sede
-                            legale e gli obiettivi generali del movimento.
-                        </p>
+                        <div class="block block--soft">
+                            <h2 class="section-title">Come leggere questa sezione</h2>
+                            <p class="section-subtitle">
+                                I documenti non sono propaganda, ma strumenti di controllo.
+                            </p>
+                            <ul class="bullet-list">
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        Ogni testo indica data, versione e ambito di validità: politica, organizzativa,
+                                        giuridica.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        In caso di modifica, viene mantenuta traccia delle versioni precedenti e delle
+                                        motivazioni del cambiamento.
+                                    </span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>
+                                        I cittadini e la diaspora possono usare questi documenti per verificare coerenza
+                                        tra impegni dichiarati e scelte concrete.
+                                    </span>
+                                </li>
+                            </ul>
+                            <div class="note-box">
+                                In questa fase i documenti sono in aggiornamento progressivo. Le versioni pubblicate
+                                rappresentano lo stato ufficiale del progetto al momento dell’ultima revisione.
+                            </div>
+                        </div>
                     </div>
-                    <a class="doc-link" href="docs/atto-costitutivo-mdp.pdf" target="_blank">
-                        Scarica l’atto costitutivo (PDF)
-                    </a>
-                </article>
-
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Regole interne</div>
-                        <div class="doc-title">Statuto del MDP</div>
-                        <p class="doc-text">
-                            Testo che definisce struttura, organi interni, modalità decisionali, diritti e doveri di
-                            iscritti, aderenti e organi dirigenti del movimento.
-                        </p>
-                    </div>
-                    <a class="doc-link" href="docs/statuto-mdp.pdf" target="_blank">
-                        Scarica lo statuto (PDF)
-                    </a>
-                </article>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 2: programma politico -->
-        <section class="page-section">
-            <h2 class="section-title">Programma politico: “Programma per una Nuova Macedonia”</h2>
-            <p class="section-subtitle">
-                Le riforme strutturali proposte dal MDP per liberare il Paese dalle dinamiche che lo soffocano.
-            </p>
-
-            <div class="docs-grid">
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Programma</div>
-                        <div class="doc-title">Programma per una Nuova Macedonia</div>
-                        <p class="doc-text">
-                            Documento programmatico che raccoglie i dieci assi principali di riforma: responsabilità
-                            politica, giustizia, pubblica amministrazione, giovani, equità sociale, sovranità economica,
-                            diritti, media e trasparenza dei partiti.
+        <!-- MACRO 2: documenti principali -->
+        <section class="macro-section macro--tone2" id="documenti-principali">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--soft">
+                        <h2 class="section-title">Documenti principali</h2>
+                        <p class="section-subtitle">
+                            I tre testi fondamentali che definiscono identità, struttura e inquadramento del Macedonian Diaspora Party.
                         </p>
-                    </div>
-                    <a class="doc-link" href="docs/programma-nuova-macedonia.pdf" target="_blank">
-                        Scarica il programma completo (PDF)
-                    </a>
-                </article>
 
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Sintesi</div>
-                        <div class="doc-title">Sintesi operativa delle riforme</div>
-                        <p class="doc-text">
-                            Versione sintetica del programma, pensata per una lettura rapida: obiettivi principali,
-                            strumenti previsti e risultati attesi delle riforme MDP.
-                        </p>
+                        <div class="cards-grid">
+                            <article class="card" id="dichiarazione">
+                                <div class="card-label">Documento fondativo</div>
+                                <div class="card-title">Dichiarazione fondativa dell’MDP</div>
+                                <div class="card-meta">Versione 1.0 · Data: da definire</div>
+                                <div class="card-text">
+                                    Il testo che racconta perché nasce il Macedonian Diaspora Party, quali sono i suoi
+                                    obiettivi politici e quali limiti etici e strategici si dà fin dall’inizio. È il
+                                    riferimento di base per comprendere la linea del movimento.
+                                </div>
+                                <!-- Sostituisci href con il link reale al PDF quando disponibile -->
+                                <a href="#" class="card-link">Scarica la dichiarazione (PDF)</a>
+                            </article>
+
+                            <article class="card" id="statuto">
+                                <div class="card-label">Struttura interna</div>
+                                <div class="card-title">Statuto del Macedonian Diaspora Party</div>
+                                <div class="card-meta">Versione 1.0 · Data: da definire</div>
+                                <div class="card-text">
+                                    Regole interne, organi del movimento, modalità di adesione, diritti e doveri dei
+                                    membri, criteri di elezione e revoca dei responsabili. Lo statuto è la mappa con
+                                    cui viene organizzata la vita quotidiana del movimento.
+                                </div>
+                                <a href="#" class="card-link">Scarica lo statuto (PDF)</a>
+                            </article>
+
+                            <article class="card" id="atto-costitutivo">
+                                <div class="card-label">Quadro giuridico</div>
+                                <div class="card-title">Atto costitutivo e registrazioni</div>
+                                <div class="card-meta">Allegati legali · Paesi di riferimento</div>
+                                <div class="card-text">
+                                    Documentazione formale relativa alla nascita giuridica del Macedonian Diaspora Party
+                                    e alle registrazioni presso le autorità competenti nei diversi Paesi in cui il
+                                    movimento assume una forma riconosciuta.
+                                </div>
+                                <a href="#" class="card-link">Scarica la documentazione (PDF)</a>
+                            </article>
+                        </div>
                     </div>
-                    <a class="doc-link" href="docs/programma-nuova-macedonia-sintesi.pdf" target="_blank">
-                        Scarica la sintesi (PDF)
-                    </a>
-                </article>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 3: comunicati e dichiarazioni -->
-        <section class="page-section">
-            <h2 class="section-title">Comunicati e dichiarazioni ufficiali</h2>
-            <p class="section-subtitle">
-                Posizioni pubbliche del MDP su temi politici, sociali, istituzionali e internazionali.
-            </p>
-
-            <div class="docs-grid">
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Comunicati</div>
-                        <div class="doc-title">Comunicati per la stampa</div>
-                        <p class="doc-text">
-                            Raccolta dei comunicati stampa diffusi dal Macedonian Diaspora Party su questioni interne
-                            macedoni, diaspora, rapporti internazionali e processi politici in corso.
+        <!-- MACRO 3: allegati tematici e aggiornamenti -->
+        <section class="macro-section macro--tone3">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--primary">
+                        <h2 class="section-title">Allegati tematici e aggiornamenti</h2>
+                        <p class="section-subtitle">
+                            Documenti di approfondimento su singoli temi, riforme proposte e posizioni ufficiali.
                         </p>
-                    </div>
-                    <a class="doc-link" href="docs/comunicati-stampa-mdp.pdf" target="_blank">
-                        Vedi raccolta comunicati (PDF)
-                    </a>
-                </article>
 
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Dichiarazioni</div>
-                        <div class="doc-title">Dichiarazioni politiche e note ufficiali</div>
-                        <p class="doc-text">
-                            Note, prese di posizione, analisi e documenti di indirizzo che esprimono in modo chiaro
-                            la linea del movimento su temi specifici.
-                        </p>
+                        <div class="cards-grid">
+                            <article class="card">
+                                <div class="card-label">Linee programmatiche</div>
+                                <div class="card-title">Quadro generale delle riforme</div>
+                                <div class="card-meta">Documento in preparazione</div>
+                                <div class="card-text">
+                                    Una sintesi dei principali assi di riforma che l’MDP intende portare a livello
+                                    istituzionale: giustizia, pubblica amministrazione, lotta alla corruzione, ruolo
+                                    della diaspora, democrazia partecipata.
+                                </div>
+                                <div class="note-box">
+                                    Il documento verrà pubblicato quando la versione 1.0 delle linee programmatiche
+                                    sarà completata e approvata.
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-label">Posizioni ufficiali</div>
+                                <div class="card-title">Note e prese di posizione</div>
+                                <div class="card-meta">Aggiornamento periodico</div>
+                                <div class="card-text">
+                                    Raccolta di comunicati e note ufficiali su temi politici interni, rapporti
+                                    internazionali, dinamiche legate alla diaspora e a eventuali processi elettorali.
+                                </div>
+                                <div class="note-box">
+                                    Le posizioni ufficiali saranno collegate, quando necessario, a riferimenti
+                                    normativi e articoli dello statuto.
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <div class="card-label">Trasparenza interna</div>
+                                <div class="card-title">Report sintetici su attività e decisioni</div>
+                                <div class="card-meta">Formato: report PDF / note pubbliche</div>
+                                <div class="card-text">
+                                    Documenti brevi che spiegano le principali decisioni interne del movimento:
+                                    alleanze, scelte strategiche, cambi di linea, motivazioni delle scelte organizzative.
+                                </div>
+                                <div class="note-box">
+                                    L’obiettivo è permettere a cittadini e diaspora di capire non solo “cosa” viene
+                                    deciso, ma anche “perché”.
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                    <a class="doc-link" href="docs/dichiarazioni-ufficiali-mdp.pdf" target="_blank">
-                        Scarica le dichiarazioni (PDF)
-                    </a>
-                </article>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 4: materiali pubblici -->
-        <section class="page-section">
-            <h2 class="section-title">Materiali pubblici e informativi</h2>
-            <p class="section-subtitle">
-                Strumenti per chi vuole informarsi, spiegare il progetto MDP o organizzare incontri.
-            </p>
-
-            <div class="docs-grid">
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Materiali</div>
-                        <div class="doc-title">Presentazione del movimento</div>
-                        <p class="doc-text">
-                            Breve presentazione del Macedonian Diaspora Party, pensata per incontri pubblici, comunità
-                            macedoni all’estero e realtà associative interessate a conoscere il progetto.
+        <!-- MACRO 4: metodo di aggiornamento e richieste -->
+        <section class="macro-section macro--tone4">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--soft">
+                        <h2 class="section-title">Metodo di aggiornamento e richieste di chiarimento</h2>
+                        <p class="section-subtitle">
+                            La documentazione non è statica: segue l’evoluzione del movimento e del contesto politico.
                         </p>
-                    </div>
-                    <a class="doc-link" href="docs/presentazione-mdp.pdf" target="_blank">
-                        Scarica la presentazione (PDF)
-                    </a>
-                </article>
 
-                <article class="doc-card">
-                    <div>
-                        <div class="doc-type">Sintesi</div>
-                        <div class="doc-title">Scheda riassuntiva MDP</div>
-                        <p class="doc-text">
-                            Una pagina con i punti essenziali: chi siamo, perché nasciamo, cosa vogliamo cambiare,
-                            quali sono le priorità immediate del movimento.
-                        </p>
+                        <div class="two-cols-grid">
+                            <div>
+                                <ul class="bullet-list">
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>
+                                            Ogni nuovo documento viene datato, numerato e collegato all’area tematica
+                                            di riferimento (organizzazione, programma, alleanze, ecc.).
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>
+                                            In caso di modifica di testi già pubblicati, viene indicato chiaramente
+                                            cosa è stato cambiato e per quale motivo.
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="bullet-dot"></span>
+                                        <span>
+                                            Le versioni superate possono restare consultabili come archivio, per
+                                            garantire tracciabilità delle scelte nel tempo.
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div>
+                                <p class="section-text">
+                                    Chi fa parte della diaspora o chi segue l’MDP dall’interno della Macedonia deve
+                                    avere la possibilità di chiedere chiarimenti su qualsiasi documento pubblicato.
+                                </p>
+                                <ul class="meta-list">
+                                    <li><strong>Richieste generali:</strong> spiegazioni sul significato di articoli dello statuto o della dichiarazione fondativa.</li>
+                                    <li><strong>Richieste tecniche:</strong> domande giuridiche o organizzative legate all’applicazione pratica dei testi.</li>
+                                    <li><strong>Proposte di integrazione:</strong> suggerimenti per migliorare, chiarire o aggiornare parti dei documenti.</li>
+                                </ul>
+                                <a href="index.html#referent-form" class="btn-link">
+                                    Invia una richiesta o proposta attraverso il form di contatto
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a class="doc-link" href="docs/scheda-riassuntiva-mdp.pdf" target="_blank">
-                        Scarica la scheda (PDF)
-                    </a>
-                </article>
+                </section>
             </div>
-        </section>
-
-        <!-- BLOCCO 5: trasparenza e futuro -->
-        <section class="page-section">
-            <h2 class="section-title">Trasparenza e aggiornamenti futuri</h2>
-            <p class="section-subtitle">
-                Questa pagina verrà aggiornata man mano che il movimento crescerà.
-            </p>
-
-            <p class="section-text">
-                Ogni documento pubblicato in questa sezione rappresenta una posizione ufficiale del Macedonian Diaspora
-                Party. Nuovi atti, modifiche statutarie, aggiornamenti programmatici e comunicati verranno aggiunti
-                progressivamente, mantenendo una linea chiara: tutto ciò che riguarda il mandato politico dell’MDP
-                deve essere accessibile ai cittadini e alla diaspora in modo semplice e trasparente.
-            </p>
-
-            <ul class="bullet-list" style="margin-top:8px;">
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Documenti sempre consultabili in formato digitale.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Versioni aggiornate chiaramente identificate con data e versione.</span>
-                </li>
-                <li>
-                    <span class="bullet-dot"></span>
-                    <span>Comunicazioni ufficiali distinte da opinioni personali o contenuti non istituzionali.</span>
-                </li>
-            </ul>
         </section>
 
     </div>
@@ -571,7 +778,7 @@
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const mainNav = document.getElementById("mainNav");
+    const mainNav   = document.getElementById("mainNav");
 
     if (navToggle && mainNav) {
         navToggle.addEventListener("click", () => {
