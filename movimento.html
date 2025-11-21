@@ -16,6 +16,17 @@
             --mdp-red: #d0191b;
             --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
+
+            /* Azzurri pastello */
+            --az-50:  #f5f8ff;
+            --az-100: #e5f1ff;
+            --az-150: #ddeeff;
+            --az-200: #d0e6ff;
+            --az-250: #c0dcff;
+            --az-300: #aed2ff;
+            --az-400: #7fb5ff;
+
+            --panel-radius: 24px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -35,7 +46,7 @@
             padding: 0 16px;
         }
 
-        /* HEADER (identico alla home) */
+        /* HEADER */
         .site-header-wrapper {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
@@ -169,30 +180,48 @@
             }
         }
 
-        /* HERO PAGINA INTERNA */
-        .hero-inner-wrapper {
+        /* HERO – azzurro ma deciso */
+        .hero-wrapper {
             margin-top: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .hero-inner {
-            background: linear-gradient(135deg, #003366, #001c3a);
+        .hero-home {
+            background: radial-gradient(circle at top left, #7fb5ff 0, #3f83f8 40%, #2459a6 100%);
             color: #ffffff;
-            padding: 40px 22px 34px;
-            border-radius: 18px;
-            box-shadow: 0 16px 40px rgba(15,23,42,0.35);
+            padding: 40px 24px 36px;
+            border-radius: var(--panel-radius);
+            box-shadow: 0 20px 45px rgba(15,23,42,0.35);
         }
 
-        .hero-kicker {
+        .hero-main {
+            text-align: left;
+            max-width: 640px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 11px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.3);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.16em;
             color: #e5e7eb;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--mdp-gold);
         }
 
         .hero-title {
-            font-size: clamp(26px, 3.2vw, 34px);
+            font-size: clamp(26px, 3.4vw, 34px);
             font-weight: 700;
             margin-bottom: 8px;
         }
@@ -208,8 +237,69 @@
             margin-bottom: 40px;
         }
 
+        /* MACRO-SEZIONI AZZURRE A PANNELLI */
+        .macro-section {
+            margin-top: -18px;
+            padding-top: 26px;
+        }
+
+        .macro-inner {
+            border-radius: var(--panel-radius);
+            padding: 22px 20px 26px;
+            box-shadow: 0 14px 34px rgba(15,23,42,0.18);
+        }
+
+        /* Alternanza azzurro chiaro/medio */
+        .macro--tone1 .macro-inner {
+            background: linear-gradient(135deg, var(--az-150), var(--az-250));
+        }
+
+        .macro--tone2 .macro-inner {
+            background: linear-gradient(135deg, var(--az-100), var(--az-200));
+        }
+
+        .macro--tone3 .macro-inner {
+            background: linear-gradient(135deg, var(--az-50), var(--az-150));
+        }
+
+        .macro--tone4 .macro-inner {
+            background: linear-gradient(135deg, var(--az-150), var(--az-300));
+        }
+
+        .macro--tone5 .macro-inner {
+            background: linear-gradient(135deg, var(--az-200), var(--az-100));
+        }
+
+        /* BOX INTERNI (RIQUADRI) */
+        .block {
+            border-radius: 20px;
+            padding: 16px 18px 18px;
+        }
+
+        .block--primary {
+            background: #ffffff;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.15);
+        }
+
+        .block--tint {
+            background: rgba(191,219,254,0.7);
+            box-shadow: 0 10px 26px rgba(15,23,42,0.12);
+        }
+
+        .block--soft {
+            background: rgba(239,246,255,0.9);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+        }
+
+        .block--accent {
+            background: #ffffff;
+            border: 1px solid rgba(59,130,246,0.4);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.18);
+        }
+
+        /* TIPOGRAFIA GENERALE */
         .page-section {
-            margin-top: 30px;
+            margin-top: 4px;
         }
 
         .section-title {
@@ -221,7 +311,7 @@
 
         .section-subtitle {
             font-size: 13px;
-            color: #6b7280;
+            color: #4b5563;
             margin-bottom: 14px;
         }
 
@@ -231,10 +321,10 @@
             line-height: 1.7;
         }
 
-        /* BLOCCO: perché il MDP è un movimento diverso */
+        /* BLOCCO: identità del movimento */
         .movement-grid {
             display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
             gap: 24px;
             align-items: flex-start;
         }
@@ -276,18 +366,17 @@
         }
 
         .principle-card {
-            background: #ffffff;
             border-radius: 16px;
-            border: 1px solid #e5e7eb;
             padding: 14px 14px 12px;
-            box-shadow: 0 10px 26px rgba(15,23,42,0.06);
+            border: 1px solid rgba(148,163,184,0.4);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
         }
 
         .principle-label {
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            color: #6b7280;
+            color: #64748b;
             margin-bottom: 4px;
         }
 
@@ -304,6 +393,12 @@
             line-height: 1.6;
         }
 
+        /* Leggera scala di azzurri tra le card */
+        .macro--tone2 .principle-card:nth-child(1) { background: #ffffff; }
+        .macro--tone2 .principle-card:nth-child(2) { background: var(--az-50); }
+        .macro--tone2 .principle-card:nth-child(3) { background: var(--az-100); }
+        .macro--tone2 .principle-card:nth-child(4) { background: var(--az-150); }
+
         /* STRUTTURA DEL MOVIMENTO */
         .structure-grid {
             display: grid;
@@ -317,7 +412,7 @@
             border-radius: 16px;
             border: 1px solid #e5e7eb;
             padding: 14px 14px 12px;
-            box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
         }
 
         .structure-card h3 {
@@ -360,18 +455,18 @@
         }
 
         .step-card {
-            background: #ffffff;
             border-radius: 16px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid rgba(148,163,184,0.4);
             padding: 14px 14px 12px;
-            box-shadow: 0 10px 24px rgba(15,23,42,0.06);
+            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+            background: #ffffff;
         }
 
         .step-number {
             width: 24px;
             height: 24px;
             border-radius: 999px;
-            background: #e5edf9;
+            background: var(--az-200);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -398,14 +493,22 @@
             display: inline-flex;
             margin-top: 10px;
             font-size: 13px;
-            color: var(--mdp-blue-dark);
+            color: #2563eb;
             text-decoration: underline;
         }
 
         /* IMPEGNI PUBBLICI */
+        .commit-card {
+            border-radius: 20px;
+            padding: 16px 18px 18px;
+            background: #ffffff;
+            box-shadow: 0 12px 30px rgba(15,23,42,0.18);
+            border: 1px solid rgba(37,99,235,0.4);
+        }
+
         .commit-list {
             list-style: none;
-            margin-top: 8px;
+            margin-top: 10px;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -421,11 +524,12 @@
         .commit-icon {
             font-size: 13px;
             margin-top: 1px;
+            color: #16a34a;
         }
 
-        /* FOOTER (come home) */
+        /* FOOTER */
         .site-footer {
-            margin-top: 40px;
+            margin-top: 38px;
             background: var(--mdp-blue-dark);
             border-top: 3px solid var(--mdp-red);
             padding: 16px 0;
@@ -476,16 +580,21 @@
 </div>
 
 <!-- HERO MOVIMENTO -->
-<div class="hero-inner-wrapper">
+<div class="hero-wrapper">
     <div class="container">
-        <section class="hero-inner">
-            <div class="hero-kicker">Il Movimento</div>
-            <h1 class="hero-title">Che cos’è il Macedonian Diaspora Party</h1>
-            <p class="hero-subtitle">
-                Il Macedonian Diaspora Party (MDP) è un movimento politico nato dalla diaspora macedone in Europa,
-                indipendente dai partiti tradizionali e costruito per riportare trasparenza, meritocrazia e
-                sovranità reale allo Stato macedone.
-            </p>
+        <section class="hero-home">
+            <div class="hero-main">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    IL MOVIMENTO · STRUTTURA
+                </div>
+                <h1 class="hero-title">Che cos’è il Macedonian Diaspora Party</h1>
+                <p class="hero-subtitle">
+                    Il Macedonian Diaspora Party (MDP) è un movimento politico nato dalla diaspora macedone in Europa,
+                    indipendente dai partiti tradizionali e costruito per riportare trasparenza, meritocrazia e
+                    sovranità reale allo Stato macedone.
+                </p>
+            </div>
         </section>
     </div>
 </div>
@@ -493,235 +602,263 @@
 <main>
     <div class="container">
 
-        <!-- BLOCCO 1: identità del movimento + origine -->
-        <section class="page-section">
-            <div class="movement-grid">
-                <div>
-                    <h2 class="section-title">Un movimento nato fuori dai palazzi</h2>
-                    <p class="section-subtitle">
-                        Il MDP nasce da un percorso personale e politico maturato nella diaspora.
-                    </p>
+        <!-- MACRO 1 · TONO AZZURRO MEDIO: identità del movimento -->
+        <section class="macro-section macro--tone1">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="movement-grid">
+                        <div class="block block--primary">
+                            <h2 class="section-title">Un movimento nato fuori dai palazzi</h2>
+                            <p class="section-subtitle">
+                                Il MDP nasce da un percorso personale e politico maturato nella diaspora.
+                            </p>
 
-                    <p class="section-text">
-                        Il Macedonian Diaspora Party nasce dalla volontà di <strong>Emir Alili</strong>, cittadino
-                        macedone di origine mista – padre di etnia albanese e madre macedone – cresciuto in Italia,
-                        dove ha sviluppato una visione politica maturata tra imprenditoria, managerialità e
-                        attivismo sociale. La sua esperienza personale, segnata dall’integrazione tra comunità diverse
-                        e dalla difesa dei diritti delle minoranze, ha creato una sensibilità profonda verso temi di
-                        giustizia sociale, uguaglianza reale e tutela dei cittadini più vulnerabili.
-                    </p>
+                            <p class="section-text">
+                                Il Macedonian Diaspora Party nasce dalla volontà di <strong>Emir Alili</strong>, cittadino
+                                macedone di origine mista – padre di etnia albanese e madre macedone – cresciuto in Italia,
+                                dove ha sviluppato una visione politica maturata tra imprenditoria, managerialità e
+                                attivismo sociale. La sua esperienza personale, segnata dall’integrazione tra comunità diverse
+                                e dalla difesa dei diritti delle minoranze, ha creato una sensibilità profonda verso temi di
+                                giustizia sociale, uguaglianza reale e tutela dei cittadini più vulnerabili.
+                            </p>
 
-                    <p class="section-text" style="margin-top:8px;">
-                        Imprenditore e scrittore, analista geopolitico e consulente strategico per tematiche legate al
-                        diritto sociale, Emir Alili ha collaborato negli anni con gruppi di lavoro impegnati nella
-                        costruzione di movimenti politici nazionali in Italia, acquisendo competenze specifiche su
-                        partecipazione civica, organizzazione politica, processi decisionali, comunicazione pubblica
-                        e dinamiche istituzionali.
-                    </p>
+                            <p class="section-text" style="margin-top:8px;">
+                                Imprenditore e scrittore, analista geopolitico e consulente strategico per tematiche legate al
+                                diritto sociale, Emir Alili ha collaborato negli anni con gruppi di lavoro impegnati nella
+                                costruzione di movimenti politici nazionali in Italia, acquisendo competenze specifiche su
+                                partecipazione civica, organizzazione politica, processi decisionali, comunicazione pubblica
+                                e dinamiche istituzionali.
+                            </p>
 
-                    <p class="section-text" style="margin-top:8px;">
-                        La convinzione che la Macedonia abbia bisogno di un modello politico realmente nuovo – libero da
-                        clientelismo, influenze esterne e corruzione strutturale – nasce dall’osservazione del divario
-                        tra le prassi politiche del Paese e quelle dei sistemi democratici più maturi. Da qui l’idea
-                        di un movimento radicato nella diaspora, formato da persone che hanno vissuto in Stati dove
-                        istituzioni, giustizia e responsabilità politica funzionano davvero, e che possono trasportare
-                        questa esperienza verso la Macedonia.
-                    </p>
+                            <p class="section-text" style="margin-top:8px;">
+                                La convinzione che la Macedonia abbia bisogno di un modello politico realmente nuovo – libero da
+                                clientelismo, influenze esterne e corruzione strutturale – nasce dall’osservazione del divario
+                                tra le prassi politiche del Paese e quelle dei sistemi democratici più maturi. Da qui l’idea
+                                di un movimento radicato nella diaspora, formato da persone che hanno vissuto in Stati dove
+                                istituzioni, giustizia e responsabilità politica funzionano davvero, e che possono trasportare
+                                questa esperienza verso la Macedonia.
+                            </p>
 
-                    <p class="section-text" style="margin-top:8px;">
-                        L’MDP rappresenta quindi un progetto politico indipendente, costruito attorno alla competenza,
-                        alla responsabilità e alla partecipazione attiva. Non è un movimento identitario né etnico:
-                        è un progetto civico che nasce da un percorso personale e professionale che unisce Macedonia,
-                        Italia e l’intera diaspora europea, con l’obiettivo di riportare il Paese su basi di
-                        meritocrazia, trasparenza e sovranità reale.
-                    </p>
-                </div>
+                            <p class="section-text" style="margin-top:8px;">
+                                L’MDP rappresenta quindi un progetto politico indipendente, costruito attorno alla competenza,
+                                alla responsabilità e alla partecipazione attiva. Non è un movimento identitario né etnico:
+                                è un progetto civico che nasce da un percorso personale e professionale che unisce Macedonia,
+                                Italia e l’intera diaspora europea, con l’obiettivo di riportare il Paese su basi di
+                                meritocrazia, trasparenza e sovranità reale.
+                            </p>
+                        </div>
 
-                <div>
-                    <h3 class="section-subtitle" style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#6b7280;">
-                        Cosa rende il MDP diverso
-                    </h3>
-                    <ul class="movement-list">
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Non è legato ai partiti tradizionali di Skopje, né è una loro “lista parallela” per la diaspora.</span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Non basa la propria forza su reti clientelari, ma su competenze, credibilità personale e risultati.</span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Considera il programma politico come un contratto vincolante, non come una campagna pubblicitaria.</span>
-                        </li>
-                        <li>
-                            <span class="bullet-dot"></span>
-                            <span>Riconosce alla diaspora un ruolo stabile nel processo decisionale, e non solo durante le elezioni.</span>
-                        </li>
-                    </ul>
-                </div>
+                        <div class="block block--soft">
+                            <h3 class="section-subtitle" style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em;">
+                                Cosa rende il MDP diverso
+                            </h3>
+                            <ul class="movement-list">
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Non è legato ai partiti tradizionali di Skopje, né è una loro “lista parallela” per la diaspora.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Non basa la propria forza su reti clientelari, ma su competenze, credibilità personale e risultati.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Considera il programma politico come un contratto vincolante, non come una campagna pubblicitaria.</span>
+                                </li>
+                                <li>
+                                    <span class="bullet-dot"></span>
+                                    <span>Riconosce alla diaspora un ruolo stabile nel processo decisionale, e non solo durante le elezioni.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 2: principi organizzativi -->
-        <section class="page-section">
-            <h2 class="section-title">Principi organizzativi del movimento</h2>
-            <p class="section-subtitle">
-                Come funziona concretamente il MDP all’interno: regole, metodo e limiti chiari.
-            </p>
+        <!-- MACRO 2 · TONO AZZURRO CHIARO: principi organizzativi -->
+        <section class="macro-section macro--tone2">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--soft">
+                        <h2 class="section-title">Principi organizzativi del movimento</h2>
+                        <p class="section-subtitle">
+                            Come funziona concretamente il MDP all’interno: regole, metodo e limiti chiari.
+                        </p>
 
-            <div class="principles-grid">
-                <article class="principle-card">
-                    <div class="principle-label">Metodo</div>
-                    <div class="principle-title">Decisioni collegiali, non personalistiche</div>
-                    <div class="principle-text">
-                        Le decisioni politiche principali non sono delegate a un singolo leader, ma a organi collegiali.
-                        Le posizioni ufficiali del movimento devono essere il risultato di un confronto reale, con
-                        verbali e responsabilità dichiarate.
-                    </div>
-                </article>
+                        <div class="principles-grid">
+                            <article class="principle-card">
+                                <div class="principle-label">Metodo</div>
+                                <div class="principle-title">Decisioni collegiali, non personalistiche</div>
+                                <div class="principle-text">
+                                    Le decisioni politiche principali non sono delegate a un singolo leader, ma a organi collegiali.
+                                    Le posizioni ufficiali del movimento devono essere il risultato di un confronto reale, con
+                                    verbali e responsabilità dichiarate.
+                                </div>
+                            </article>
 
-                <article class="principle-card">
-                    <div class="principle-label">Trasparenza</div>
-                    <div class="principle-title">Scelte e risorse tracciabili</div>
-                    <div class="principle-text">
-                        Finanziamenti, incarichi, accordi politici e alleanze devono essere dichiarati, spiegati e
-                        documentati. La diaspora e i cittadini devono poter verificare come viene usato il mandato affidato.
-                    </div>
-                </article>
+                            <article class="principle-card">
+                                <div class="principle-label">Trasparenza</div>
+                                <div class="principle-title">Scelte e risorse tracciabili</div>
+                                <div class="principle-text">
+                                    Finanziamenti, incarichi, accordi politici e alleanze devono essere dichiarati, spiegati e
+                                    documentati. La diaspora e i cittadini devono poter verificare come viene usato il mandato affidato.
+                                </div>
+                            </article>
 
-                <article class="principle-card">
-                    <div class="principle-label">Mandato</div>
-                    <div class="principle-title">Programma come contratto</div>
-                    <div class="principle-text">
-                        Il programma politico non è un testo generico, ma un insieme di impegni verificabili in tempi
-                        definiti. In caso di scarto evidente tra promesse e azioni, il movimento prevede strumenti interni
-                        di correzione e responsabilità.
-                    </div>
-                </article>
+                            <article class="principle-card">
+                                <div class="principle-label">Mandato</div>
+                                <div class="principle-title">Programma come contratto</div>
+                                <div class="principle-text">
+                                    Il programma politico non è un testo generico, ma un insieme di impegni verificabili in tempi
+                                    definiti. In caso di scarto evidente tra promesse e azioni, il movimento prevede strumenti interni
+                                    di correzione e responsabilità.
+                                </div>
+                            </article>
 
-                <article class="principle-card">
-                    <div class="principle-label">Etica</div>
-                    <div class="principle-title">Zero compromessi su corruzione e clientele</div>
-                    <div class="principle-text">
-                        Il MDP rifiuta compromessi su corruzione, favoritismi e scambi di beneficio personale.
-                        Chi ricopre ruoli politici o organizzativi deve essere consapevole che la credibilità è la
-                        prima risorsa del movimento.
+                            <article class="principle-card">
+                                <div class="principle-label">Etica</div>
+                                <div class="principle-title">Zero compromessi su corruzione e clientele</div>
+                                <div class="principle-text">
+                                    Il MDP rifiuta compromessi su corruzione, favoritismi e scambi di beneficio personale.
+                                    Chi ricopre ruoli politici o organizzativi deve essere consapevole che la credibilità è la
+                                    prima risorsa del movimento.
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </article>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 3: struttura del movimento -->
-        <section class="page-section">
-            <h2 class="section-title">Struttura del Macedonian Diaspora Party</h2>
-            <p class="section-subtitle">
-                Un movimento orizzontale ma organizzato, con ruoli chiari e responsabilità definite.
-            </p>
+        <!-- MACRO 3 · TONO AZZURRO VERY LIGHT: struttura -->
+        <section class="macro-section macro--tone3">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--primary">
+                        <h2 class="section-title">Struttura del Macedonian Diaspora Party</h2>
+                        <p class="section-subtitle">
+                            Un movimento orizzontale ma organizzato, con ruoli chiari e responsabilità definite.
+                        </p>
 
-            <div class="structure-grid">
-                <div class="structure-card">
-                    <h3>Organi principali</h3>
-                    <p>
-                        La struttura del movimento è pensata per tenere insieme la realtà della Macedonia e quella della diaspora,
-                        evitando sia il centralismo assoluto, sia la frammentazione.
-                    </p>
-                    <ul class="structure-list">
-                        <li><strong>Assemblea del movimento</strong>: spazio politico generale di indirizzo e confronto.</li>
-                        <li><strong>Coordinamento centrale</strong>: organo esecutivo che attua le linee approvate.</li>
-                        <li><strong>Consiglio diaspora</strong>: rappresentanza stabile dei macedoni all’estero.</li>
-                        <li><strong>Gruppi Paese / Città</strong>: nodi locali che costruiscono il lavoro sul territorio.</li>
-                    </ul>
-                </div>
+                        <div class="structure-grid">
+                            <div class="structure-card">
+                                <h3>Organi principali</h3>
+                                <p>
+                                    La struttura del movimento è pensata per tenere insieme la realtà della Macedonia e quella della diaspora,
+                                    evitando sia il centralismo assoluto, sia la frammentazione.
+                                </p>
+                                <ul class="structure-list">
+                                    <li><strong>Assemblea del movimento</strong>: spazio politico generale di indirizzo e confronto.</li>
+                                    <li><strong>Coordinamento centrale</strong>: organo esecutivo che attua le linee approvate.</li>
+                                    <li><strong>Consiglio diaspora</strong>: rappresentanza stabile dei macedoni all’estero.</li>
+                                    <li><strong>Gruppi Paese / Città</strong>: nodi locali che costruiscono il lavoro sul territorio.</li>
+                                </ul>
+                            </div>
 
-                <div class="structure-card">
-                    <h3>Rapporto tra centro, diaspora e territorio</h3>
-                    <p>
-                        Il movimento evita sia il modello “partito di Skopje che usa la diaspora”, sia il modello
-                        “gruppi isolati all’estero senza collegamento con il Paese”.
-                    </p>
-                    <p style="margin-top:6px;">
-                        Ogni scelta politica rilevante deve tenere conto di tre livelli:
-                    </p>
-                    <ul class="structure-list">
-                        <li>interesse della popolazione residente in Macedonia,</li>
-                        <li>posizione e percezione della diaspora,</li>
-                        <li>equilibrio tra sovranità nazionale e contesto internazionale.</li>
-                    </ul>
-                </div>
+                            <div class="structure-card">
+                                <h3>Rapporto tra centro, diaspora e territorio</h3>
+                                <p>
+                                    Il movimento evita sia il modello “partito di Skopje che usa la diaspora”, sia il modello
+                                    “gruppi isolati all’estero senza collegamento con il Paese”.
+                                </p>
+                                <p style="margin-top:6px;">
+                                    Ogni scelta politica rilevante deve tenere conto di tre livelli:
+                                </p>
+                                <ul class="structure-list">
+                                    <li>interesse della popolazione residente in Macedonia,</li>
+                                    <li>posizione e percezione della diaspora,</li>
+                                    <li>equilibrio tra sovranità nazionale e contesto internazionale.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 4: come si partecipa -->
-        <section class="page-section">
-            <h2 class="section-title">Come si entra nel movimento</h2>
-            <p class="section-subtitle">
-                Partecipare all’MDP significa assumersi una responsabilità politica, non solo “simpatizzare”.
-            </p>
+        <!-- MACRO 4 · TONO AZZURRO PIÙ CARICO: come si partecipa -->
+        <section class="macro-section macro--tone4">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="block block--soft">
+                        <h2 class="section-title">Come si entra nel movimento</h2>
+                        <p class="section-subtitle">
+                            Partecipare all’MDP significa assumersi una responsabilità politica, non solo “simpatizzare”.
+                        </p>
 
-            <div class="steps-grid">
-                <article class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-title">Comprendere la linea del MDP</div>
-                    <div class="step-text">
-                        Il primo passo è leggere con attenzione la dichiarazione fondativa, lo statuto e le posizioni
-                        pubbliche del movimento. La condivisione della linea di fondo è condizione necessaria prima di
-                        qualsiasi ruolo operativo.
-                    </div>
-                    <a href="documenti.html" class="btn-link">Vai alla sezione documenti</a>
-                </article>
+                        <div class="steps-grid">
+                            <article class="step-card">
+                                <div class="step-number">1</div>
+                                <div class="step-title">Comprendere la linea del MDP</div>
+                                <div class="step-text">
+                                    Il primo passo è leggere con attenzione la dichiarazione fondativa, lo statuto e le posizioni
+                                    pubbliche del movimento. La condivisione della linea di fondo è condizione necessaria prima di
+                                    qualsiasi ruolo operativo.
+                                </div>
+                                <a href="documenti.html" class="btn-link">Vai alla sezione documenti</a>
+                            </article>
 
-                <article class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-title">Segnalare la propria disponibilità</div>
-                    <div class="step-text">
-                        Chi è interessato a contribuire può proporsi come semplice aderente, come referente locale
-                        della diaspora o come supporto in ambito tecnico (giuridico, economico, comunicazione, ecc.).
-                    </div>
-                    <a href="index.html#referent-form" class="btn-link">Compila il form dalla pagina principale</a>
-                </article>
+                            <article class="step-card">
+                                <div class="step-number">2</div>
+                                <div class="step-title">Segnalare la propria disponibilità</div>
+                                <div class="step-text">
+                                    Chi è interessato a contribuire può proporsi come semplice aderente, come referente locale
+                                    della diaspora o come supporto in ambito tecnico (giuridico, economico, comunicazione, ecc.).
+                                </div>
+                                <a href="index.html#referent-form" class="btn-link">Compila il form dalla pagina principale</a>
+                            </article>
 
-                <article class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-title">Entrare in un percorso strutturato</div>
-                    <div class="step-text">
-                        Chi entra nel movimento viene inserito in un percorso chiaro: conoscenza della linea, verifica
-                        delle competenze, definizione di un ruolo, regole di trasparenza e responsabilità verso il gruppo.
+                            <article class="step-card">
+                                <div class="step-number">3</div>
+                                <div class="step-title">Entrare in un percorso strutturato</div>
+                                <div class="step-text">
+                                    Chi entra nel movimento viene inserito in un percorso chiaro: conoscenza della linea, verifica
+                                    delle competenze, definizione di un ruolo, regole di trasparenza e responsabilità verso il gruppo.
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </article>
+                </section>
             </div>
         </section>
 
-        <!-- BLOCCO 5: impegni pubblici -->
-        <section class="page-section">
-            <h2 class="section-title">Impegni pubblici del Macedonian Diaspora Party</h2>
-            <p class="section-subtitle">
-                Ciò che il movimento si impegna a non fare e ciò che dichiara di voler fare, in modo chiaro.
-            </p>
+        <!-- MACRO 5 · TONO AZZURRO CHIARO: impegni pubblici -->
+        <section class="macro-section macro--tone5">
+            <div class="macro-inner">
+                <section class="page-section">
+                    <div class="commit-card">
+                        <h2 class="section-title">Impegni pubblici del Macedonian Diaspora Party</h2>
+                        <p class="section-subtitle">
+                            Ciò che il movimento si impegna a non fare e ciò che dichiara di voler fare, in modo chiaro.
+                        </p>
 
-            <p class="section-text">
-                Il MDP considera la fiducia politica come un bene che non si ricostruisce con la propaganda, ma con
-                comportamenti costanti nel tempo. Per questo il movimento assume alcuni impegni pubblici di base:
-            </p>
+                        <p class="section-text">
+                            Il MDP considera la fiducia politica come un bene che non si ricostruisce con la propaganda, ma con
+                            comportamenti costanti nel tempo. Per questo il movimento assume alcuni impegni pubblici di base:
+                        </p>
 
-            <ul class="commit-list">
-                <li>
-                    <span class="commit-icon">✔︎</span>
-                    <span>Non entrare in accordi di potere che tradiscano il proprio programma per ottenere posizioni o benefici.</span>
-                </li>
-                <li>
-                    <span class="commit-icon">✔︎</span>
-                    <span>Rendere pubblici i passaggi decisivi che riguardano alleanze, voti parlamentari, scelte istituzionali.</span>
-                </li>
-                <li>
-                    <span class="commit-icon">✔︎</span>
-                    <span>Pubblicare in modo trasparente i flussi di finanziamento, gli eventuali donatori principali e le condizioni di eventuali accordi.</span>
-                </li>
-                <li>
-                    <span class="commit-icon">✔︎</span>
-                    <span>Prevedere strumenti interni per richiamare o sostituire chi, in ruoli politici o organizzativi, si discosta in modo evidente dal mandato ricevuto.</span>
-                </li>
-            </ul>
+                        <ul class="commit-list">
+                            <li>
+                                <span class="commit-icon">✔︎</span>
+                                <span>Non entrare in accordi di potere che tradiscano il proprio programma per ottenere posizioni o benefici.</span>
+                            </li>
+                            <li>
+                                <span class="commit-icon">✔︎</span>
+                                <span>Rendere pubblici i passaggi decisivi che riguardano alleanze, voti parlamentari, scelte istituzionali.</span>
+                            </li>
+                            <li>
+                                <span class="commit-icon">✔︎</span>
+                                <span>Pubblicare in modo trasparente i flussi di finanziamento, gli eventuali donatori principali e le condizioni di eventuali accordi.</span>
+                            </li>
+                            <li>
+                                <span class="commit-icon">✔︎</span>
+                                <span>Prevedere strumenti interni per richiamare o sostituire chi, in ruoli politici o organizzativi, si discosta in modo evidente dal mandato ricevuto.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
         </section>
 
     </div>
@@ -741,7 +878,7 @@
 
 <script>
     const navToggle = document.getElementById("navToggle");
-    const mainNav = document.getElementById("mainNav");
+    const mainNav   = document.getElementById("mainNav");
 
     if (navToggle && mainNav) {
         navToggle.addEventListener("click", () => {
