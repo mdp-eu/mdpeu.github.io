@@ -17,15 +17,10 @@
             --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
 
-            /* Azzurri pastello coerenti con le altre pagine */
-            --az-50:  #f5f8ff;
-            --az-100: #e5f1ff;
-            --az-150: #ddeeff;
-            --az-200: #d0e6ff;
-            --az-250: #c0dcff;
-            --az-300: #aed2ff;
-            --az-400: #7fb5ff;
-
+            /* palette blu come home hero */
+            --deep-blue-1: #02152f;
+            --deep-blue-2: #032955;
+            --deep-blue-3: #06448f;
             --panel-radius: 24px;
         }
 
@@ -46,7 +41,7 @@
             padding: 0 16px;
         }
 
-        /* HEADER (identico alle altre pagine) */
+        /* HEADER (coerente con le altre pagine) */
         .site-header-wrapper {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
@@ -180,18 +175,18 @@
             }
         }
 
-        /* HERO – stile azzurro */
+        /* HERO DOCUMENTI – come home, blu profondo */
         .hero-wrapper {
             margin-top: 24px;
             margin-bottom: 10px;
         }
 
         .hero-home {
-            background: radial-gradient(circle at top left, #7fb5ff 0, #3f83f8 40%, #2459a6 100%);
+            background: radial-gradient(circle at top left, #3f83f8 0, #0f3d7a 40%, #02152f 100%);
             color: #ffffff;
             padding: 40px 24px 36px;
             border-radius: var(--panel-radius);
-            box-shadow: 0 20px 45px rgba(15,23,42,0.35);
+            box-shadow: 0 20px 45px rgba(15,23,42,0.45);
         }
 
         .hero-main {
@@ -205,7 +200,7 @@
             gap: 7px;
             padding: 4px 11px;
             border-radius: 999px;
-            background: rgba(15,23,42,0.3);
+            background: rgba(15,23,42,0.5);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.16em;
@@ -237,7 +232,7 @@
             margin-bottom: 40px;
         }
 
-        /* MACRO-SEZIONI A PANNELLI */
+        /* MACRO-SEZIONI A PANNELLI BLU */
         .macro-section {
             margin-top: -18px;
             padding-top: 26px;
@@ -246,39 +241,44 @@
         .macro-inner {
             border-radius: var(--panel-radius);
             padding: 22px 20px 26px;
-            box-shadow: 0 14px 34px rgba(15,23,42,0.18);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.6);
         }
 
         .macro--tone1 .macro-inner {
-            background: linear-gradient(135deg, var(--az-150), var(--az-250));
+            background: linear-gradient(145deg, var(--deep-blue-2), var(--deep-blue-1));
         }
 
         .macro--tone2 .macro-inner {
-            background: linear-gradient(135deg, var(--az-100), var(--az-200));
+            background: linear-gradient(145deg, #07326a, #031a3e);
         }
 
         .macro--tone3 .macro-inner {
-            background: linear-gradient(135deg, var(--az-50), var(--az-150));
+            background: linear-gradient(145deg, #042552, #020f29);
         }
 
         .macro--tone4 .macro-inner {
-            background: linear-gradient(135deg, var(--az-150), var(--az-300));
+            background: linear-gradient(145deg, #0b3f84, #02152f);
         }
 
-        /* BOX INTERNI */
-        .block {
-            border-radius: 20px;
-            padding: 16px 18px 18px;
+        /* Testi dentro i pannelli: chiari */
+        .macro-inner .section-title,
+        .macro-inner h2 {
+            color: #f9fafb;
         }
 
-        .block--primary {
-            background: #ffffff;
-            box-shadow: 0 10px 26px rgba(15,23,42,0.15);
+        .macro-inner .section-subtitle,
+        .macro-inner .section-text,
+        .macro-inner p,
+        .macro-inner li {
+            color: #d1d5f0;
         }
 
-        .block--soft {
-            background: rgba(239,246,255,0.9);
-            box-shadow: 0 10px 24px rgba(15,23,42,0.12);
+        .macro-inner .section-subtitle {
+            color: #c7d2fe;
+        }
+
+        .macro-inner strong {
+            color: #e5e7eb;
         }
 
         .page-section {
@@ -288,19 +288,16 @@
         .section-title {
             font-size: 18px;
             font-weight: 700;
-            color: #111827;
             margin-bottom: 6px;
         }
 
         .section-subtitle {
             font-size: 13px;
-            color: #4b5563;
             margin-bottom: 10px;
         }
 
         .section-text {
             font-size: 14px;
-            color: #4b5563;
             line-height: 1.6;
         }
 
@@ -316,7 +313,6 @@
             display: flex;
             gap: 8px;
             font-size: 13px;
-            color: #374151;
         }
 
         .bullet-dot {
@@ -324,8 +320,24 @@
             height: 7px;
             border-radius: 999px;
             margin-top: 6px;
-            background: var(--mdp-red);
+            background: #facc15;
             flex-shrink: 0;
+        }
+
+        /* BOX INTERNI */
+        .block {
+            border-radius: 20px;
+            padding: 16px 18px 18px;
+        }
+
+        .block--primary {
+            background: rgba(7, 23, 58, 0.96);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.55);
+        }
+
+        .block--soft {
+            background: rgba(11, 32, 78, 0.92);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.5);
         }
 
         /* GRIGLIE E CARD */
@@ -349,11 +361,11 @@
         }
 
         .card {
-            background: #ffffff;
+            background: rgba(4, 17, 39, 0.96);
             border-radius: 16px;
-            border: 1px solid #e5e7eb;
+            border: 1px solid rgba(148,163,184,0.45);
             padding: 12px 12px 12px;
-            box-shadow: 0 8px 22px rgba(15,23,42,0.1);
+            box-shadow: 0 14px 32px rgba(0,0,0,0.6);
             display: flex;
             flex-direction: column;
             gap: 4px;
@@ -363,47 +375,41 @@
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.12em;
-            color: #6b7280;
+            color: #a5b4fc;
         }
 
         .card-title {
             font-size: 14px;
             font-weight: 600;
-            color: #111827;
+            color: #f9fafb;
         }
 
         .card-meta {
             font-size: 11px;
-            color: #6b7280;
+            color: #9ca3af;
         }
 
         .card-text {
             font-size: 13px;
-            color: #4b5563;
+            color: #e5e7eb;
             line-height: 1.5;
         }
 
         .card-link {
             font-size: 13px;
-            color: var(--mdp-blue-dark);
+            color: #bfdbfe;
             text-decoration: underline;
             margin-top: 6px;
             align-self: flex-start;
         }
 
-        .tag-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-
-        .tag {
-            font-size: 11px;
-            padding: 2px 7px;
-            border-radius: 999px;
-            background: #e5f1ff;
-            color: #1f2937;
+        .note-box {
+            font-size: 12px;
+            color: #e5e7eb;
+            border-radius: 10px;
+            padding: 8px 10px;
+            background: rgba(15,23,42,0.9);
+            margin-top: 8px;
         }
 
         .meta-list {
@@ -413,27 +419,18 @@
             flex-direction: column;
             gap: 4px;
             font-size: 12px;
-            color: #4b5563;
+            color: #e5e7eb;
         }
 
         .meta-list strong {
             font-weight: 600;
         }
 
-        .note-box {
-            font-size: 12px;
-            color: #4b5563;
-            border-radius: 10px;
-            padding: 8px 10px;
-            background: rgba(255,255,255,0.8);
-            margin-top: 8px;
-        }
-
         .btn-link {
             display: inline-flex;
             margin-top: 8px;
             font-size: 13px;
-            color: var(--mdp-blue-dark);
+            color: #bfdbfe;
             text-decoration: underline;
         }
 
@@ -512,7 +509,7 @@
 <main>
     <div class="container">
 
-        <!-- MACRO 1: perché i documenti contano -->
+        <!-- MACRO 1 -->
         <section class="macro-section macro--tone1">
             <div class="macro-inner">
                 <section class="page-section">
@@ -592,7 +589,7 @@
             </div>
         </section>
 
-        <!-- MACRO 2: documenti principali -->
+        <!-- MACRO 2: DOCUMENTI PRINCIPALI -->
         <section class="macro-section macro--tone2" id="documenti-principali">
             <div class="macro-inner">
                 <section class="page-section">
@@ -612,7 +609,7 @@
                                     obiettivi politici e quali limiti etici e strategici si dà fin dall’inizio. È il
                                     riferimento di base per comprendere la linea del movimento.
                                 </div>
-                                <!-- Sostituisci href con il link reale al PDF quando disponibile -->
+                                <!-- sostituisci con link reale al PDF -->
                                 <a href="#" class="card-link">Scarica la dichiarazione (PDF)</a>
                             </article>
 
@@ -645,7 +642,7 @@
             </div>
         </section>
 
-        <!-- MACRO 3: allegati tematici e aggiornamenti -->
+        <!-- MACRO 3: ALLEGATI E AGGIORNAMENTI -->
         <section class="macro-section macro--tone3">
             <div class="macro-inner">
                 <section class="page-section">
@@ -704,7 +701,7 @@
             </div>
         </section>
 
-        <!-- MACRO 4: metodo di aggiornamento e richieste -->
+        <!-- MACRO 4: METODO E RICHIESTE -->
         <section class="macro-section macro--tone4">
             <div class="macro-inner">
                 <section class="page-section">
