@@ -16,6 +16,8 @@
             --mdp-red: #d0191b;
             --mdp-gold: #f4c430;
             --bg-soft: #f5f7fb;
+
+            --panel-radius: 24px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -55,7 +57,6 @@
             gap: 16px;
         }
 
-        /* LOGO grande, metà barra */
         .brand-logo-box {
             width: 50%;
             display: flex;
@@ -69,7 +70,6 @@
             display: block;
         }
 
-        /* NAV */
         .nav-wrapper {
             display: flex;
             align-items: center;
@@ -95,7 +95,6 @@
             background: #f0f2f5;
         }
 
-        /* MOBILE MENU */
         .nav-toggle {
             display: none;
             width: 42px;
@@ -167,7 +166,7 @@
             }
         }
 
-        /* HERO */
+        /* HERO IN ALTO */
         .hero-wrapper {
             margin-top: 24px;
             margin-bottom: 10px;
@@ -176,16 +175,14 @@
         .hero-home {
             background: radial-gradient(circle at top left, #355c9b 0, var(--mdp-blue) 40%, #001c3a 100%);
             color: #ffffff;
-            padding: 56px 24px 50px;
-            border-radius: 20px;
+            padding: 40px 24px 36px;
+            border-radius: var(--panel-radius);
             box-shadow: 0 20px 45px rgba(15,23,42,0.35);
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-            gap: 26px;
         }
 
         .hero-main {
             text-align: left;
+            max-width: 640px;
         }
 
         .hero-badge {
@@ -257,11 +254,56 @@
             color: #e5e7eb;
         }
 
+        main {
+            margin-bottom: 40px;
+        }
+
+        /* LAYOUT A PANNELLI SOVRAPPOSTI */
+        .section-stack {
+            margin-top: -18px;        /* fa “salire” il pannello verso quello sopra */
+            padding-top: 26px;        /* evita che si veda il taglio */
+        }
+
+        .section-panel {
+            border-radius: var(--panel-radius);
+            padding: 20px 18px 24px;
+            background: #ffffff;
+            box-shadow: 0 18px 40px rgba(15,23,42,0.18);
+        }
+
+        .section-panel--dark {
+            background: radial-gradient(circle at top, #193b6f 0, #020817 75%);
+            color: #ffffff;
+        }
+
+        .section-panel--soft {
+            background: #f9fafb;
+        }
+
+        .section-panel--accent {
+            background: linear-gradient(135deg, #fef3c7, #e5edf9);
+        }
+
+        .section-panel-title {
+            font-size: 13px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            color: #d1d5db;
+        }
+
+        .section-panel--dark .section-panel-title {
+            color: #e5e7eb;
+        }
+
+        @media (max-width: 600px) {
+            .hero-home {
+                padding: 32px 18px 32px;
+            }
+        }
+
+        /* BLOCCO “COSA RENDE DIVERSO” (RICICLO LE STESSE CARD) */
         .hero-side {
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.18);
-            background: radial-gradient(circle at top, rgba(244,196,48,0.12), rgba(15,23,42,0.9));
-            padding: 16px 16px 14px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -272,13 +314,14 @@
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: #e5e7eb;
+            margin-bottom: 4px;
         }
 
         .hero-side-item {
             font-size: 13px;
             color: #e5e7eb;
-            border-radius: 10px;
-            background: rgba(15,23,42,0.7);
+            border-radius: 12px;
+            background: rgba(15,23,42,0.75);
             padding: 8px 10px;
         }
 
@@ -289,35 +332,9 @@
             letter-spacing: 0.08em;
         }
 
-        @media (max-width: 900px) {
-            .hero-home {
-                grid-template-columns: minmax(0, 1fr);
-            }
-            .hero-main {
-                text-align: left;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero-home {
-                padding: 40px 18px 40px;
-            }
-            .hero-main {
-                text-align: left;
-            }
-            .hero-actions {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        main {
-            margin-bottom: 40px;
-        }
-
-        /* SEZIONE UFFICIALE */
+        /* SEZIONI INTERNE (lasciate quasi identiche, ma senza margini esagerati) */
         .official-section {
-            margin-top: 30px;
+            margin-top: 4px;
             display: flex;
             justify-content: center;
         }
@@ -373,9 +390,8 @@
             color: #111827;
         }
 
-        /* PERCHÉ NASCE MDP (2 colonne) */
         .why-section {
-            margin-top: 34px;
+            margin-top: 26px;
             display: grid;
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
             gap: 26px;
@@ -429,9 +445,8 @@
             }
         }
 
-        /* 4 PILASTRI */
         .pillars-section {
-            margin-top: 36px;
+            margin-top: 4px;
         }
 
         .pillars-header {
@@ -486,9 +501,8 @@
             line-height: 1.6;
         }
 
-        /* CONFRONTO PARTITI / MDP */
         .compare-section {
-            margin-top: 38px;
+            margin-top: 4px;
         }
 
         .compare-grid {
@@ -537,9 +551,8 @@
             }
         }
 
-        /* DIASPORA IN RETE */
         .diaspora-section {
-            margin-top: 38px;
+            margin-top: 4px;
         }
 
         .diaspora-grid {
@@ -568,9 +581,8 @@
             line-height: 1.6;
         }
 
-        /* DOCUMENTI */
         .docs-section {
-            margin-top: 40px;
+            margin-top: 26px;
         }
 
         .docs-grid {
@@ -615,10 +627,8 @@
             text-decoration: underline;
         }
 
-        /* CTA FINALE */
         .cta-section {
-            margin-top: 42px;
-            margin-bottom: 10px;
+            margin-top: 4px;
         }
 
         .cta-card {
@@ -745,7 +755,6 @@
 <div class="hero-wrapper">
     <div class="container">
         <section class="hero-home">
-
             <div class="hero-main">
                 <div class="hero-badge">
                     <span class="hero-badge-dot"></span>
@@ -762,23 +771,6 @@
                     <a href="#documenti" class="btn-ghost">Dichiarazione fondativa e statuto</a>
                 </div>
             </div>
-
-            <aside class="hero-side">
-                <div class="hero-side-title">Cosa rende diverso il Macedonian Diaspora Party</div>
-                <div class="hero-side-item">
-                    <strong>Indipendenza reale</strong>
-                    Nessun legame strutturale con i partiti tradizionali di Skopje o con i loro sponsor esterni.
-                </div>
-                <div class="hero-side-item">
-                    <strong>Voto come mandato vincolante</strong>
-                    Il programma non è propaganda: è un contratto scritto tra cittadini e rappresentanti.
-                </div>
-                <div class="hero-side-item">
-                    <strong>Diaspora protagonista</strong>
-                    La diaspora non è un bacino elettorale da usare ogni quattro anni, ma un organo stabile del progetto politico.
-                </div>
-            </aside>
-
         </section>
     </div>
 </div>
@@ -786,285 +778,333 @@
 <main>
     <div class="container">
 
-        <!-- SEZIONE UFFICIALE -->
-        <section class="official-section">
-            <div class="official-card">
-                <div class="official-label">
-                    <span class="official-label-dot"></span>
-                    PAGINA UFFICIALE
-                </div>
-                <div class="official-title">
-                    Il punto di riferimento politico della diaspora macedone
-                </div>
-                <div class="official-text">
-                    Questa è la pagina ufficiale del <em>Macedonian Diaspora Party (MDP)</em>, il movimento politico
-                    indipendente creato dalla diaspora per costruire una Macedonia più giusta, trasparente e veramente
-                    sovrana, liberata dai ricatti dei partiti tradizionali e dalle pressioni esterne.
-                </div>
-            </div>
-        </section>
+        <!-- PANNELLO 1: COSA RENDE DIVERSO -->
+        <section class="section-stack">
+            <div class="section-panel section-panel--dark">
+                <div class="section-panel-title">Cosa rende diverso il Macedonian Diaspora Party</div>
 
-        <!-- PERCHÉ NASCE MDP -->
-        <section class="why-section" id="perche-mdp">
-            <div>
-                <h2 class="section-title">Perché nasce il Macedonian Diaspora Party</h2>
-                <p class="section-subtitle">
-                    Un progetto politico che non nasce nei palazzi, ma tra chi ha dovuto lasciare il Paese.
-                </p>
-                <ul class="why-points">
-                    <li>
-                        <span class="why-bullet"></span>
-                        <span>Per spezzare la dipendenza cronica dai partiti tradizionali e dai loro sponsor economici e geopolitici.</span>
-                    </li>
-                    <li>
-                        <span class="why-bullet"></span>
-                        <span>Per trasformare il voto in un mandato vincolante, con responsabilità chiare e revocabili verso gli eletti.</span>
-                    </li>
-                    <li>
-                        <span class="why-bullet"></span>
-                        <span>Per dare alla diaspora un ruolo strutturale nelle decisioni politiche, non solo una funzione simbolica.</span>
-                    </li>
-                </ul>
-            </div>
+                <div class="hero-side">
+                    <div class="hero-side-title">Punti chiave</div>
 
-            <div>
-                <h3 class="section-subtitle" style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#6b7280;">
-                    Origine del movimento
-                </h3>
-                <p class="why-text">
-                    L’MDP nasce dall’esperienza di chi è emigrato, ha studiato e lavorato in Paesi dove istituzioni,
-                    giustizia e servizi funzionano realmente. Questa esperienza viene riportata verso la Macedonia come
-                    proposta concreta di riforma: non uno slogan, ma un modello di Stato da ricostruire, con regole chiare,
-                    controllabili e trasparenti.
-                </p>
-                <p class="why-text" style="margin-top:8px;">
-                    Il progetto parte dall’Europa, ma parla a tutti i macedoni: residenti in patria, emigrati storici,
-                    nuove generazioni nate all’estero. La diaspora non osserva più da lontano: entra direttamente
-                    nello spazio politico, con una struttura propria.
-                </p>
-            </div>
-        </section>
-
-        <!-- 4 PILASTRI -->
-        <section class="pillars-section">
-            <div class="pillars-header">
-                <h2 class="section-title">I quattro pilastri politici dell’MDP</h2>
-                <p>La linea politica dell’MDP è sintetizzata in quattro assi concreti, verificabili e non negoziabili.</p>
-            </div>
-
-            <div class="pillars-grid">
-                <article class="pillar-card">
-                    <div class="pillar-number">1</div>
-                    <div>
-                        <div class="pillar-body-title">Libertà reale dei cittadini</div>
-                        <div class="pillar-body-text">
-                            Difesa dei diritti fondamentali, libertà di espressione, informazione pluralista, voto come
-                            strumento consapevole e non manipolato. Nessuna tolleranza verso intimidazioni, censure e
-                            propaganda di Stato.
-                        </div>
+                    <div class="hero-side-item">
+                        <strong>Indipendenza reale</strong>
+                        Nessun legame strutturale con i partiti tradizionali di Skopje o con i loro sponsor esterni.
                     </div>
-                </article>
-
-                <article class="pillar-card">
-                    <div class="pillar-number">2</div>
-                    <div>
-                        <div class="pillar-body-title">Giustizia e responsabilità</div>
-                        <div class="pillar-body-text">
-                            Stato di diritto reale, lotta sistemica alla corruzione, responsabilità diretta della
-                            classe politica. Ogni incarico è legato a risultati misurabili e a trasparenza sui
-                            processi decisionali e sull’uso delle risorse pubbliche.
-                        </div>
+                    <div class="hero-side-item">
+                        <strong>Voto come mandato vincolante</strong>
+                        Il programma non è propaganda: è un contratto scritto tra cittadini e rappresentanti.
                     </div>
-                </article>
-
-                <article class="pillar-card">
-                    <div class="pillar-number">3</div>
-                    <div>
-                        <div class="pillar-body-title">Meritocrazia, non clientele</div>
-                        <div class="pillar-body-text">
-                            Stop a nomine basate su parentele, appartenenze di partito o fedeltà personale. Accesso ai
-                            ruoli pubblici e di responsabilità fondato su competenze, percorsi e risultati, verificabili e pubblici.
-                        </div>
-                    </div>
-                </article>
-
-                <article class="pillar-card">
-                    <div class="pillar-number">4</div>
-                    <div>
-                        <div class="pillar-body-title">Sovranità reale della Macedonia</div>
-                        <div class="pillar-body-text">
-                            Difesa degli interessi nazionali rispetto a pressioni esterne economiche, politiche e
-                            militari. La Macedonia deve tornare a decidere per sé stessa, con una diaspora forte come
-                            alleato strategico e non come pubblico passivo.
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- CONFRONTO -->
-        <section class="compare-section">
-            <h2 class="section-title">Cosa distingue l’MDP dai partiti tradizionali</h2>
-            <p class="section-subtitle">
-                Non è solo un nuovo simbolo, ma un modo diverso di intendere politica, mandato e responsabilità.
-            </p>
-
-            <div class="compare-grid">
-                <div class="compare-card">
-                    <div class="compare-label">Partiti tradizionali</div>
-
-                    <div class="compare-row">
-                        <strong>Finanziamenti</strong>
-                        Legami opachi con gruppi di potere, interessi economici e influenze esterne difficili da tracciare.
-                    </div>
-                    <div class="compare-row">
-                        <strong>Mandato elettorale</strong>
-                        Programmi elettorali usati come propaganda, spesso disattesi senza alcuna conseguenza politica reale.
-                    </div>
-                    <div class="compare-row">
-                        <strong>Diaspora</strong>
-                        Strumentalizzata nelle campagne elettorali, ignorata o marginalizzata nelle decisioni concrete.
-                    </div>
-                </div>
-
-                <div class="compare-card">
-                    <div class="compare-label alt">Macedonian Diaspora Party</div>
-
-                    <div class="compare-row">
-                        <strong>Finanziamenti</strong>
-                        Trasparenza dichiarata e tracciabilità delle risorse. Ogni forma di sostegno è rendicontabile e pubblica.
-                    </div>
-                    <div class="compare-row">
-                        <strong>Mandato elettorale</strong>
-                        Programma come contratto vincolante: obiettivi chiari, verifiche periodiche, responsabilità
-                        degli eletti in caso di tradimento del mandato.
-                    </div>
-                    <div class="compare-row">
-                        <strong>Diaspora</strong>
-                        Parte integrante della struttura politica, con ruolo consultivo e propositivo stabile, non solo simbolico.
+                    <div class="hero-side-item">
+                        <strong>Diaspora protagonista</strong>
+                        La diaspora non è un bacino elettorale da usare ogni quattro anni, ma un organo stabile del progetto politico.
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DIASPORA IN RETE -->
-        <section class="diaspora-section">
-            <h2 class="section-title">La diaspora come rete politica organizzata</h2>
-            <p class="section-subtitle">
-                Non una comunità dispersa, ma una rete europea e globale che si struttura per incidere sulle scelte del Paese.
-            </p>
+        <!-- PANNELLO 2: PAGINA UFFICIALE + PERCHÉ NASCE -->
+        <section class="section-stack">
+            <div class="section-panel">
 
-            <div class="diaspora-grid">
-                <article class="diaspora-card">
-                    <h3>Europa Occidentale</h3>
-                    <p>
-                        Comunità macedoni in Italia, Germania, Svizzera, Austria, Francia, Belgio e altri Paesi
-                        concentranouna grande quota di competenze professionali, imprenditoriali e accademiche. L’MDP vuole
-                        trasformare questa presenza in proposta politica strutturata.
+                <!-- SEZIONE UFFICIALE -->
+                <section class="official-section">
+                    <div class="official-card">
+                        <div class="official-label">
+                            <span class="official-label-dot"></span>
+                            PAGINA UFFICIALE
+                        </div>
+                        <div class="official-title">
+                            Il punto di riferimento politico della diaspora macedone
+                        </div>
+                        <div class="official-text">
+                            Questa è la pagina ufficiale del <em>Macedonian Diaspora Party (MDP)</em>, il movimento politico
+                            indipendente creato dalla diaspora per costruire una Macedonia più giusta, trasparente e veramente
+                            sovrana, liberata dai ricatti dei partiti tradizionali e dalle pressioni esterne.
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PERCHÉ NASCE MDP -->
+                <section class="why-section" id="perche-mdp">
+                    <div>
+                        <h2 class="section-title">Perché nasce il Macedonian Diaspora Party</h2>
+                        <p class="section-subtitle">
+                            Un progetto politico che non nasce nei palazzi, ma tra chi ha dovuto lasciare il Paese.
+                        </p>
+                        <ul class="why-points">
+                            <li>
+                                <span class="why-bullet"></span>
+                                <span>Per spezzare la dipendenza cronica dai partiti tradizionali e dai loro sponsor economici e geopolitici.</span>
+                            </li>
+                            <li>
+                                <span class="why-bullet"></span>
+                                <span>Per trasformare il voto in un mandato vincolante, con responsabilità chiare e revocabili verso gli eletti.</span>
+                            </li>
+                            <li>
+                                <span class="why-bullet"></span>
+                                <span>Per dare alla diaspora un ruolo strutturale nelle decisioni politiche, non solo una funzione simbolica.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="section-subtitle" style="font-size:14px; font-weight:600; text-transform:uppercase; letter-spacing:0.12em; color:#6b7280;">
+                            Origine del movimento
+                        </h3>
+                        <p class="why-text">
+                            L’MDP nasce dall’esperienza di chi è emigrato, ha studiato e lavorato in Paesi dove istituzioni,
+                            giustizia e servizi funzionano realmente. Questa esperienza viene riportata verso la Macedonia come
+                            proposta concreta di riforma: non uno slogan, ma un modello di Stato da ricostruire, con regole chiare,
+                            controllabili e trasparenti.
+                        </p>
+                        <p class="why-text" style="margin-top:8px;">
+                            Il progetto parte dall’Europa, ma parla a tutti i macedoni: residenti in patria, emigrati storici,
+                            nuove generazioni nate all’estero. La diaspora non osserva più da lontano: entra direttamente
+                            nello spazio politico, con una struttura propria.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- PANNELLO 3: PILASTRI -->
+        <section class="section-stack">
+            <div class="section-panel section-panel--soft">
+                <section class="pillars-section">
+                    <div class="pillars-header">
+                        <h2 class="section-title">I quattro pilastri politici dell’MDP</h2>
+                        <p>La linea politica dell’MDP è sintetizzata in quattro assi concreti, verificabili e non negoziabili.</p>
+                    </div>
+
+                    <div class="pillars-grid">
+                        <article class="pillar-card">
+                            <div class="pillar-number">1</div>
+                            <div>
+                                <div class="pillar-body-title">Libertà reale dei cittadini</div>
+                                <div class="pillar-body-text">
+                                    Difesa dei diritti fondamentali, libertà di espressione, informazione pluralista, voto come
+                                    strumento consapevole e non manipolato. Nessuna tolleranza verso intimidazioni, censure e
+                                    propaganda di Stato.
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pillar-card">
+                            <div class="pillar-number">2</div>
+                            <div>
+                                <div class="pillar-body-title">Giustizia e responsabilità</div>
+                                <div class="pillar-body-text">
+                                    Stato di diritto reale, lotta sistemica alla corruzione, responsabilità diretta della
+                                    classe politica. Ogni incarico è legato a risultati misurabili e a trasparenza sui
+                                    processi decisionali e sull’uso delle risorse pubbliche.
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pillar-card">
+                            <div class="pillar-number">3</div>
+                            <div>
+                                <div class="pillar-body-title">Meritocrazia, non clientele</div>
+                                <div class="pillar-body-text">
+                                    Stop a nomine basate su parentele, appartenenze di partito o fedeltà personale. Accesso ai
+                                    ruoli pubblici e di responsabilità fondato su competenze, percorsi e risultati, verificabili e pubblici.
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="pillar-card">
+                            <div class="pillar-number">4</div>
+                            <div>
+                                <div class="pillar-body-title">Sovranità reale della Macedonia</div>
+                                <div class="pillar-body-text">
+                                    Difesa degli interessi nazionali rispetto a pressioni esterne economiche, politiche e
+                                    militari. La Macedonia deve tornare a decidere per sé stessa, con una diaspora forte come
+                                    alleato strategico e non come pubblico passivo.
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- PANNELLO 4: CONFRONTO -->
+        <section class="section-stack">
+            <div class="section-panel">
+                <section class="compare-section">
+                    <h2 class="section-title">Cosa distingue l’MDP dai partiti tradizionali</h2>
+                    <p class="section-subtitle">
+                        Non è solo un nuovo simbolo, ma un modo diverso di intendere politica, mandato e responsabilità.
                     </p>
-                </article>
 
-                <article class="diaspora-card">
-                    <h3>Nord Europa e UE allargata</h3>
-                    <p>
-                        Le nuove generazioni macedoni, cresciute in sistemi più stabili e trasparenti, portano un
-                        modo diverso di intendere istituzioni, servizi e diritti. Il loro contributo è prezioso
-                        per disegnare un nuovo modello di Stato.
-                    </p>
-                </article>
+                    <div class="compare-grid">
+                        <div class="compare-card">
+                            <div class="compare-label">Partiti tradizionali</div>
 
-                <article class="diaspora-card">
-                    <h3>Extra-UE e resto del mondo</h3>
-                    <p>
-                        Stati Uniti, Canada, Australia e altri Paesi ospitano comunità attive e radicate. L’MDP mira
-                        a collegare queste realtà in una rete unica, capace di sostenere progetti concreti per la
-                        Macedonia in campo economico, sociale e culturale.
-                    </p>
-                </article>
+                            <div class="compare-row">
+                                <strong>Finanziamenti</strong>
+                                Legami opachi con gruppi di potere, interessi economici e influenze esterne difficili da tracciare.
+                            </div>
+                            <div class="compare-row">
+                                <strong>Mandato elettorale</strong>
+                                Programmi elettorali usati come propaganda, spesso disattesi senza alcuna conseguenza politica reale.
+                            </div>
+                            <div class="compare-row">
+                                <strong>Diaspora</strong>
+                                Strumentalizzata nelle campagne elettorali, ignorata o marginalizzata nelle decisioni concrete.
+                            </div>
+                        </div>
+
+                        <div class="compare-card">
+                            <div class="compare-label alt">Macedonian Diaspora Party</div>
+
+                            <div class="compare-row">
+                                <strong>Finanziamenti</strong>
+                                Trasparenza dichiarata e tracciabilità delle risorse. Ogni forma di sostegno è rendicontabile e pubblica.
+                            </div>
+                            <div class="compare-row">
+                                <strong>Mandato elettorale</strong>
+                                Programma come contratto vincolante: obiettivi chiari, verifiche periodiche, responsabilità
+                                degli eletti in caso di tradimento del mandato.
+                            </div>
+                            <div class="compare-row">
+                                <strong>Diaspora</strong>
+                                Parte integrante della struttura politica, con ruolo consultivo e propositivo stabile, non solo simbolico.
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
 
-        <!-- DOCUMENTI -->
-        <section class="docs-section" id="documenti">
-            <h2 class="section-title">Documenti ufficiali dell’MDP</h2>
-            <p class="section-subtitle">
-                Tutti i testi fondamentali del Macedonian Diaspora Party, consultabili in modo semplice e trasparente.
-            </p>
+        <!-- PANNELLO 5: DIASPORA + DOCUMENTI -->
+        <section class="section-stack">
+            <div class="section-panel">
 
-            <div class="docs-grid">
-                <article class="doc-card">
-                    <div class="doc-label">Documento fondativo</div>
-                    <div class="doc-title">Dichiarazione fondativa dell’MDP</div>
-                    <div class="doc-text">
-                        Il testo che definisce identità, principi e finalità politiche del Macedonian Diaspora Party.
-                    </div>
-                    <a href="documenti.html" class="doc-link">Leggi la dichiarazione</a>
-                </article>
+                <section class="diaspora-section">
+                    <h2 class="section-title">La diaspora come rete politica organizzata</h2>
+                    <p class="section-subtitle">
+                        Non una comunità dispersa, ma una rete europea e globale che si struttura per incidere sulle scelte del Paese.
+                    </p>
 
-                <article class="doc-card">
-                    <div class="doc-label">Struttura interna</div>
-                    <div class="doc-title">Statuto del Macedonian Diaspora Party</div>
-                    <div class="doc-text">
-                        Norme interne, organi del movimento, forme di partecipazione, diritti e doveri degli aderenti.
-                    </div>
-                    <a href="documenti.html" class="doc-link">Consulta lo statuto</a>
-                </article>
+                    <div class="diaspora-grid">
+                        <article class="diaspora-card">
+                            <h3>Europa Occidentale</h3>
+                            <p>
+                                Comunità macedoni in Italia, Germania, Svizzera, Austria, Francia, Belgio e altri Paesi
+                                concentrano una grande quota di competenze professionali, imprenditoriali e accademiche. L’MDP vuole
+                                trasformare questa presenza in proposta politica strutturata.
+                            </p>
+                        </article>
 
-                <article class="doc-card">
-                    <div class="doc-label">Quadro giuridico</div>
-                    <div class="doc-title">Atto costitutivo e registrazioni</div>
-                    <div class="doc-text">
-                        Documentazione formale, riferimenti legali e inquadramento giuridico del partito a livello europeo e nazionale.
+                        <article class="diaspora-card">
+                            <h3>Nord Europa e UE allargata</h3>
+                            <p>
+                                Le nuove generazioni macedoni, cresciute in sistemi più stabili e trasparenti, portano un
+                                modo diverso di intendere istituzioni, servizi e diritti. Il loro contributo è prezioso
+                                per disegnare un nuovo modello di Stato.
+                            </p>
+                        </article>
+
+                        <article class="diaspora-card">
+                            <h3>Extra-UE e resto del mondo</h3>
+                            <p>
+                                Stati Uniti, Canada, Australia e altri Paesi ospitano comunità attive e radicate. L’MDP mira
+                                a collegare queste realtà in una rete unica, capace di sostenere progetti concreti per la
+                                Macedonia in campo economico, sociale e culturale.
+                            </p>
+                        </article>
                     </div>
-                    <a href="documenti.html" class="doc-link">Vai alla sezione documenti</a>
-                </article>
+                </section>
+
+                <section class="docs-section" id="documenti">
+                    <h2 class="section-title">Documenti ufficiali dell’MDP</h2>
+                    <p class="section-subtitle">
+                        Tutti i testi fondamentali del Macedonian Diaspora Party, consultabili in modo semplice e trasparente.
+                    </p>
+
+                    <div class="docs-grid">
+                        <article class="doc-card">
+                            <div class="doc-label">Documento fondativo</div>
+                            <div class="doc-title">Dichiarazione fondativa dell’MDP</div>
+                            <div class="doc-text">
+                                Il testo che definisce identità, principi e finalità politiche del Macedonian Diaspora Party.
+                            </div>
+                            <a href="documenti.html" class="doc-link">Leggi la dichiarazione</a>
+                        </article>
+
+                        <article class="doc-card">
+                            <div class="doc-label">Struttura interna</div>
+                            <div class="doc-title">Statuto del Macedonian Diaspora Party</div>
+                            <div class="doc-text">
+                                Norme interne, organi del movimento, forme di partecipazione, diritti e doveri degli aderenti.
+                            </div>
+                            <a href="documenti.html" class="doc-link">Consulta lo statuto</a>
+                        </article>
+
+                        <article class="doc-card">
+                            <div class="doc-label">Quadro giuridico</div>
+                            <div class="doc-title">Atto costitutivo e registrazioni</div>
+                            <div class="doc-text">
+                                Documentazione formale, riferimenti legali e inquadramento giuridico del partito a livello europeo e nazionale.
+                            </div>
+                            <a href="documenti.html" class="doc-link">Vai alla sezione documenti</a>
+                        </article>
+                    </div>
+                </section>
+
             </div>
         </section>
 
-        <!-- CTA FINALE CON FORMSPREE -->
-        <section class="cta-section">
-            <div class="cta-card">
-                <div>
-                    <div class="cta-title">Vuoi essere un punto di riferimento MDP nella tua città?</div>
-                    <div class="cta-text">
-                        L’MDP non è un progetto calato dall’alto, ma una rete di persone che scelgono di esporsi in
-                        prima persona. Se vivi all’estero e vuoi contribuire alla costruzione di una Macedonia più
-                        libera e più giusta, puoi proporti come referente locale della diaspora nella tua città o nel tuo Paese.
+        <!-- PANNELLO 6: CTA REFERENTI -->
+        <section class="section-stack">
+            <div class="section-panel section-panel--accent">
+                <section class="cta-section">
+                    <div class="cta-card">
+                        <div>
+                            <div class="cta-title">Vuoi essere un punto di riferimento MDP nella tua città?</div>
+                            <div class="cta-text">
+                                L’MDP non è un progetto calato dall’alto, ma una rete di persone che scelgono di esporsi in
+                                prima persona. Se vivi all’estero e vuoi contribuire alla costruzione di una Macedonia più
+                                libera e più giusta, puoi proporti come referente locale della diaspora nella tua città o nel tuo Paese.
+                            </div>
+                        </div>
+
+                        <form class="cta-form"
+                              id="referent-form"
+                              action="https://formspree.io/f/mldzkeyd"
+                              method="POST">
+
+                            <input type="hidden" name="_subject" value="Nuova candidatura referente MDP">
+                            <input type="hidden" name="_language" value="it">
+
+                            <div>
+                                <label for="cta-name">Nome e Cognome</label>
+                                <input type="text" id="cta-name" name="nome" placeholder="Inserisci il tuo nome completo" required>
+                            </div>
+
+                            <div>
+                                <label for="cta-city">Paese / Città</label>
+                                <input type="text" id="cta-city" name="citta" placeholder="Es. Italia – Milano" required>
+                            </div>
+
+                            <div>
+                                <label for="cta-email">Email</label>
+                                <input type="email" id="cta-email" name="email" placeholder="Inserisci la tua email" required>
+                            </div>
+
+                            <div>
+                                <label for="cta-note">In che modo vuoi contribuire?</label>
+                                <textarea id="cta-note" name="messaggio" placeholder="Scrivi poche righe sulla tua disponibilità e competenze" required></textarea>
+                            </div>
+
+                            <button type="submit" class="cta-submit">
+                                Invia la tua manifestazione di interesse
+                            </button>
+                        </form>
                     </div>
-                </div>
-
-                <form class="cta-form"
-                      id="referent-form"
-                      action="https://formspree.io/f/mldzkeyd"
-                      method="POST">
-
-                    <input type="hidden" name="_subject" value="Nuova candidatura referente MDP">
-                    <input type="hidden" name="_language" value="it">
-
-                    <div>
-                        <label for="cta-name">Nome e Cognome</label>
-                        <input type="text" id="cta-name" name="nome" placeholder="Inserisci il tuo nome completo" required>
-                    </div>
-
-                    <div>
-                        <label for="cta-city">Paese / Città</label>
-                        <input type="text" id="cta-city" name="citta" placeholder="Es. Italia – Milano" required>
-                    </div>
-
-                    <div>
-                        <label for="cta-email">Email</label>
-                        <input type="email" id="cta-email" name="email" placeholder="Inserisci la tua email" required>
-                    </div>
-
-                    <div>
-                        <label for="cta-note">In che modo vuoi contribuire?</label>
-                        <textarea id="cta-note" name="messaggio" placeholder="Scrivi poche righe sulla tua disponibilità e competenze" required></textarea>
-                    </div>
-
-                    <button type="submit" class="cta-submit">
-                        Invia la tua manifestazione di interesse
-                    </button>
-                </form>
+                </section>
             </div>
         </section>
 
@@ -1084,7 +1124,6 @@
 </footer>
 
 <script>
-    // menu mobile
     const navToggle = document.getElementById("navToggle");
     const mainNav = document.getElementById("mainNav");
 
@@ -1095,7 +1134,6 @@
         });
     }
 
-    // messaggio di conferma dopo invio form
     const referentForm = document.getElementById("referent-form");
     if (referentForm) {
         referentForm.addEventListener("submit", function () {
