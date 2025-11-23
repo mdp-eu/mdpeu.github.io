@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Визија – Macedonian Diaspora Party</title>
+    <meta name="description" content="Визијата на Macedonian Diaspora Party: вистинска слобода, правда, меритократија и суверенитет за Македонија во служба на граѓаните.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
+
+    <style>
+        :root {
+            --mdp-blue: #003366;
+            --mdp-blue-dark: #001c3a;
+            --mdp-red: #d0191b;
+            --mdp-gold: #f4c430;
+            --bg-soft: #f5f7fb;
+
+            --panel-radius: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg-soft);
+            color: #111827;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* HEADER (identico alle altre pagine) */
+        .site-header-wrapper {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .site-header {
+            padding: 18px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-logo-box {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo-box img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .main-nav a {
+            color: var(--mdp-blue-dark);
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .main-nav a:hover {
+            background: #f0f2f5;
+        }
+
+        .main-nav a.active {
+            background: #e5edf9;
+            color: #111827;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            position: relative;
+        }
+
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            left: 0;
+            transition: 0.2s ease;
+        }
+
+        .nav-toggle span::before { top: -6px; }
+        .nav-toggle span::after  { top: 6px; }
+
+        .nav-toggle.active span { background: transparent; }
+        .nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
+        .nav-toggle.active span::after  { top: 0; transform: rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .brand-logo-box {
+                width: 60%;
+            }
+            .brand-logo-box img {
+                max-height: 160px;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: 110px;
+                right: 16px;
+                background: #ffffff;
+                border-radius: 12px;
+                border: 1px solid #e5e7eb;
+                padding: 16px;
+                width: 210px;
+                flex-direction: column;
+                gap: 14px;
+                opacity: 0;
+                pointer-events: none;
+                box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+            }
+
+            .main-nav.nav-open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        /* HERO PAGINA INTERNA – leggero ma coerente */
+        .hero-inner-wrapper {
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        .hero-inner {
+            background: radial-gradient(circle at top left, #3f83f8 0, #165aa8 40%, #02244b 100%);
+            color: #ffffff;
+            padding: 40px 24px 34px;
+            border-radius: var(--panel-radius);
+            box-shadow: 0 18px 42px rgba(15,23,42,0.45);
+        }
+
+        .hero-kicker {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #e5e7eb;
+            margin-bottom: 8px;
+        }
+
+        .hero-title {
+            font-size: clamp(26px, 3.2vw, 34px);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 720px;
+            color: #e5e7eb;
+        }
+
+        main {
+            margin-bottom: 40px;
+        }
+
+        /* PANNELLI VISIONE (SCURO / CHIARO / MEDIO) */
+
+        .vision-section-wrapper {
+            margin-top: 22px;
+        }
+
+        .vision-panel {
+            border-radius: var(--panel-radius);
+            padding: 22px 20px 24px;
+        }
+
+        .vision-panel--dark {
+            background: linear-gradient(150deg, #0d3b80, #032147);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.55);
+            color: #e5e7eb;
+        }
+
+        .vision-panel--light {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+            color: #111827;
+        }
+
+        .vision-panel--medium {
+            background: linear-gradient(140deg, #e1edf8, #cbd7ea);
+            border: 1px solid #d1d5e5;
+            box-shadow: 0 14px 32px rgba(148,163,184,0.4);
+            color: #111827;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .section-text {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* colori dei testi per variante */
+
+        .vision-panel--dark .section-title {
+            color: #f9fafb;
+        }
+
+        .vision-panel--dark .section-subtitle,
+        .vision-panel--dark .section-text {
+            color: #e5e7eb;
+        }
+
+        .vision-panel--light .section-title {
+            color: #111827;
+        }
+
+        .vision-panel--light .section-subtitle {
+            color: #6b7280;
+        }
+
+        .vision-panel--light .section-text {
+            color: #374151;
+        }
+
+        .vision-panel--medium .section-title {
+            color: #111827;
+        }
+
+        .vision-panel--medium .section-subtitle {
+            color: #4b5563;
+        }
+
+        .vision-panel--medium .section-text {
+            color: #1f2933;
+        }
+
+        /* LISTE PUNTATE */
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .bullet-list li {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .bullet-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        .vision-panel--dark .bullet-list li {
+            color: #e5e7eb;
+        }
+        .vision-panel--dark .bullet-dot {
+            background: #facc15;
+        }
+
+        .vision-panel--light .bullet-list li {
+            color: #374151;
+        }
+        .vision-panel--light .bullet-dot {
+            background: var(--mdp-red);
+        }
+
+        .vision-panel--medium .bullet-list li {
+            color: #1f2933;
+        }
+        .vision-panel--medium .bullet-dot {
+            background: #1d4ed8;
+        }
+
+        /* GRIGLIA PILASTРИ */
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .pillar-card {
+            border-radius: 16px;
+            padding: 12px 12px 10px;
+            box-shadow: 0 10px 24px rgba(148,163,184,0.5);
+            border: 1px solid #d1d5e5;
+            background: #ffffff;
+        }
+
+        .pillar-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 3px;
+            color: #6b7280;
+        }
+
+        .pillar-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #111827;
+        }
+
+        .pillar-text {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        /* TWO COLS GRID */
+
+        .two-cols-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+            gap: 18px;
+            align-items: flex-start;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 900px) {
+            .two-cols-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /* FOOTER */
+
+        .site-footer {
+            margin-top: 38px;
+            background: var(--mdp-blue-dark);
+            border-top: 3px solid var(--mdp-red);
+            padding: 16px 0;
+            color: #e5e7eb;
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="site-header-wrapper">
+    <div class="container">
+        <header class="site-header">
+            <div class="header-inner">
+
+                <div class="brand-logo-box">
+                    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                         alt="Logo MDP">
+                </div>
+
+                <div class="nav-wrapper">
+                    <nav class="main-nav" id="mainNav">
+                        <a href="index.html">Почетна</a>
+                        <a href="movimento.html">Движење</a>
+                        <a href="visione.html" class="active">Визија</a>
+                        <a href="diaspora.html">Дијаспора</a>
+                        <a href="documenti.html">Документи</a>
+                    </nav>
+
+                    <button class="nav-toggle" id="navToggle" aria-label="Отвори мени">
+                        <span></span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+    </div>
+</div>
+
+<!-- HERO VISIONE -->
+<div class="hero-inner-wrapper">
+    <div class="container">
+        <section class="hero-inner">
+            <div class="hero-kicker">Политичка визија</div>
+            <h1 class="hero-title">Каква држава сака да изгради МДП</h1>
+            <p class="hero-subtitle">
+                Држава во служба на граѓаните, а не на партиите. Систем заснован на вистинска слобода, правда,
+                меритократија и суверенитет, способен да ги задржи младите и да ги брани сопствените интереси.
+            </p>
+        </section>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+
+        <!-- BLOCCO 1 – SCURO: cosa soffoca oggi la Macedonia -->
+        <section class="vision-section-wrapper">
+            <div class="vision-panel vision-panel--dark">
+                <h2 class="section-title">Што ја гуши денес Македонија</h2>
+                <p class="section-subtitle">
+                    Проблемот не е само економски. Се работи за систем изграден да ги заштити оние што владеат, а не граѓаните.
+                </p>
+
+                <ul class="bullet-list">
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Структурна корупција и партии претворени во приватни компании.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Политизирано судство и клиентелистичка јавна администрација.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Етничка уцена како политичко оружје и трајна поделба на општеството.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Контролирани медиуми, пропаганда и недостиг од слободни и плуралистички информации.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Бегство на младите, несигурност и зависност од надворешни интереси.</span>
+                    </li>
+                </ul>
+
+                <p class="section-text" style="margin-top:8px;">
+                    МДП постои за да ги погоди овие причини во корен, а не за да се прилагоди на постојниот систем.
+                </p>
+            </div>
+        </section>
+
+        <!-- BLOCCO 2 – CHIARO: missione -->
+        <section class="vision-section-wrapper">
+            <div class="vision-panel vision-panel--light">
+                <h2 class="section-title">Мисијата на Macedonian Diaspora Party</h2>
+                <p class="section-subtitle">
+                    Не да „влезе во системот“, туку да ги препише неговите правила.
+                </p>
+
+                <ul class="bullet-list">
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Да ѝ се врати сериозноста на политиката: програмата како договор, а не како слоган.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Државата да стане независна од клиентели, лобисти и надворешни влијанија.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Изградба на институции што ги бранат граѓаните, а не моќните групи.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- BLOCCO 3 – MEDIO: quattro pilastri -->
+        <section class="vision-section-wrapper">
+            <div class="vision-panel vision-panel--medium">
+                <h2 class="section-title">Четирите столбови на визијата на МДП</h2>
+                <p class="section-subtitle">
+                    Неколку јасни точки што го дефинираат типот на држава што ја сакаме.
+                </p>
+
+                <div class="pillars-grid">
+                    <article class="pillar-card">
+                        <div class="pillar-label">Столб 1</div>
+                        <div class="pillar-title">Вистинска слобода</div>
+                        <div class="pillar-text">
+                            Слобода на говор, на информирање и на политичко организирање. Без уцени поврзани со работа,
+                            кариера или припадност. Граѓанинот мора да може да зборува и да избира без страв.
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-label">Столб 2</div>
+                        <div class="pillar-title">Правосудство што функционира</div>
+                        <div class="pillar-text">
+                            Правосудство независно од партиите, разумни рокови и исти правила за сите. Без правда
+                            нема ниту здрава економија ниту веродостојна демократија.
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-label">Столб 3</div>
+                        <div class="pillar-title">Меритократија</div>
+                        <div class="pillar-text">
+                            Јавни функции, конкурси и одговорности: доделени според компетенции, а не според партиска книшка
+                            или пријателства. Без меритократија младите заминуваат, а државата се празни.
+                        </div>
+                    </article>
+
+                    <article class="pillar-card">
+                        <div class="pillar-label">Столб 4</div>
+                        <div class="pillar-title">Вистински суверенитет</div>
+                        <div class="pillar-text">
+                            Соработка со сите, но одлуки во сопствена режија. Заштита на стратешките ресурси и националните
+                            избори, без заложништво на туѓи агенди.
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCCO 4 – SCURO: democrazia partecipata + diaspora -->
+        <section class="vision-section-wrapper">
+            <div class="vision-panel vision-panel--dark">
+                <div class="two-cols-grid">
+                    <div>
+                        <h2 class="section-title">Партиципативна демократија</h2>
+                        <p class="section-subtitle">
+                            Гласањето не е доволно. Потребна е постојана контрола.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Изборната програма како обврзувачки ангажман, со редовни проверки.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Алатки за оценување на работата на избраните и за барање одговорност за донесените одлуки.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Пристап до податоци, објаснети одлуки и без тајни договори.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 class="section-title">Дијаспората како стратешки ресурс</h2>
+                        <p class="section-subtitle">
+                            Не само гласови: компетенции, независност и визија.
+                        </p>
+                        <ul class="bullet-list">
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Македонци што живеат во странство како извор на знаење и поширока перспектива.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Помалку зависни од локалните клиентели, можат да бидат противтежа на внатрешните центри на моќ.</span>
+                            </li>
+                            <li>
+                                <span class="bullet-dot"></span>
+                                <span>Траен мост меѓу Македонија и економските, културните и политичките мрежи во светот.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCCO 5 – CHIARO: diritti sociali e dignità -->
+        <section class="vision-section-wrapper">
+            <div class="vision-panel vision-panel--light">
+                <h2 class="section-title">Социјални права и достоинство</h2>
+                <p class="section-subtitle">
+                    Политичка слобода без социјална правда е само фасада.
+                </p>
+
+                <ul class="bullet-list">
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Оние што се во тешка состојба мора да бидат поддржани, но со патеки за повторно вклучување и лична одговорност.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Основните права не се партиски услуги, туку гаранции за сите.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Етничката, културната и верската различност се богатство, а не алатка за поделби.</span>
+                    </li>
+                    <li>
+                        <span class="bullet-dot"></span>
+                        <span>Институциите се оценуваат по тоа колку ја намалуваат нееднаквоста и неправдата, а не по пропагандата.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>© Macedonian Diaspora Party</span>
+        <div>
+            <a href="mailto:info@mdp-eu.com">📧 info@mdp-eu.com</a>
+            <a href="tel:+393282290062" style="margin-left:12px;">☎️ +39 328 22 90 062</a>
+            <a href="https://wa.me/393282290062" target="_blank" style="margin-left:12px;">🟢 WhatsApp</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const mainNav   = document.getElementById("mainNav");
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("active");
+            mainNav.classList.toggle("nav-open");
+        });
+    }
+</script>
+
+</body>
+</html>
