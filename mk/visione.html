@@ -37,7 +37,7 @@
             padding: 0 16px;
         }
 
-        /* HEADER (identico alle altre pagine) */
+        /* HEADER */
         .site-header-wrapper {
             background: #ffffff;
             border-bottom: 1px solid #e5e7eb;
@@ -100,6 +100,79 @@
             color: #111827;
         }
 
+        /* LANGUAGE SWITCH (bandierine + pillole) */
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-left: 12px;
+        }
+
+        .lang-flags {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-btn-flag {
+            width: 40px;
+            height: 30px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            background: #f9fafb;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .lang-btn-flag img {
+            display: block;
+            width: 26px;
+            height: auto;
+        }
+
+        .lang-btn-flag.active {
+            border-color: var(--mdp-blue-dark);
+            background: #ffffff;
+        }
+
+        .lang-pills {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lang-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid #e5e7eb;
+            background: #ffffff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .lang-pill span {
+            font-weight: 600;
+            letter-spacing: 0.06em;
+        }
+
+        .lang-pill img {
+            width: 18px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .lang-pill.active {
+            border-color: var(--mdp-blue-dark);
+            background: #f3f4ff;
+        }
+
         .nav-toggle {
             display: none;
             width: 42px;
@@ -137,33 +210,13 @@
         .nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
         .nav-toggle.active span::after  { top: 0; transform: rotate(-45deg); }
 
-        /* SWITCH LINGUA */
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 13px;
-            margin-left: 8px;
-        }
-
-        .lang-divider {
-            opacity: 0.6;
-        }
-
-        .lang-btn {
-            padding: 4px 8px;
-            border-radius: 999px;
-            border: 1px solid transparent;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 13px;
-        }
-
-        .lang-btn.active {
-            border-color: #d1d5db;
-            background: #f3f4f6;
+        @media (max-width: 900px) {
+            .brand-logo-box {
+                width: 55%;
+            }
+            .brand-logo-box img {
+                max-height: 170px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -171,7 +224,7 @@
                 width: 60%;
             }
             .brand-logo-box img {
-                max-height: 160px;
+                max-height: 150px;
             }
 
             .main-nav {
@@ -182,7 +235,7 @@
                 border-radius: 12px;
                 border: 1px solid #e5e7eb;
                 padding: 16px;
-                width: 210px;
+                width: 230px;
                 flex-direction: column;
                 gap: 14px;
                 opacity: 0;
@@ -195,12 +248,17 @@
                 pointer-events: auto;
             }
 
+            .lang-switch {
+                display: none; /* su mobile le lingue le gestiamo nel menu o nella home */
+            }
+
             .nav-toggle {
                 display: flex;
             }
         }
 
-        /* HERO PAGINA INTERNA – leggero ma coerente */
+        /* HERO PAGINA INTERNA */
+
         .hero-inner-wrapper {
             margin-top: 24px;
             margin-bottom: 16px;
@@ -239,7 +297,7 @@
             margin-bottom: 40px;
         }
 
-        /* PANNELLI VISIONE (SCURO / CHIARO / MEDIO) */
+        /* PANNELLI VIZIJA */
 
         .vision-section-wrapper {
             margin-top: 22px;
@@ -286,42 +344,19 @@
             line-height: 1.6;
         }
 
-        /* colori dei testi per variante */
-
-        .vision-panel--dark .section-title {
-            color: #f9fafb;
-        }
-
+        .vision-panel--dark .section-title { color: #f9fafb; }
         .vision-panel--dark .section-subtitle,
-        .vision-panel--dark .section-text {
-            color: #e5e7eb;
-        }
+        .vision-panel--dark .section-text { color: #e5e7eb; }
 
-        .vision-panel--light .section-title {
-            color: #111827;
-        }
+        .vision-panel--light .section-title { color: #111827; }
+        .vision-panel--light .section-subtitle { color: #6b7280; }
+        .vision-panel--light .section-text { color: #374151; }
 
-        .vision-panel--light .section-subtitle {
-            color: #6b7280;
-        }
+        .vision-panel--medium .section-title { color: #111827; }
+        .vision-panel--medium .section-subtitle { color: #4b5563; }
+        .vision-panel--medium .section-text { color: #1f2933; }
 
-        .vision-panel--light .section-text {
-            color: #374151;
-        }
-
-        .vision-panel--medium .section-title {
-            color: #111827;
-        }
-
-        .vision-panel--medium .section-subtitle {
-            color: #4b5563;
-        }
-
-        .vision-panel--medium .section-text {
-            color: #1f2933;
-        }
-
-        /* LISTE PUNTATE */
+        /* LISTE */
 
         .bullet-list {
             list-style: none;
@@ -345,28 +380,16 @@
             flex-shrink: 0;
         }
 
-        .vision-panel--dark .bullet-list li {
-            color: #e5e7eb;
-        }
-        .vision-panel--dark .bullet-dot {
-            background: #facc15;
-        }
+        .vision-panel--dark .bullet-list li { color: #e5e7eb; }
+        .vision-panel--dark .bullet-dot { background: #facc15; }
 
-        .vision-panel--light .bullet-list li {
-            color: #374151;
-        }
-        .vision-panel--light .bullet-dot {
-            background: var(--mdp-red);
-        }
+        .vision-panel--light .bullet-list li { color: #374151; }
+        .vision-panel--light .bullet-dot { background: var(--mdp-red); }
 
-        .vision-panel--medium .bullet-list li {
-            color: #1f2933;
-        }
-        .vision-panel--medium .bullet-dot {
-            background: #1d4ed8;
-        }
+        .vision-panel--medium .bullet-list li { color: #1f2933; }
+        .vision-panel--medium .bullet-dot { background: #1d4ed8; }
 
-        /* GRIGLIA PILASTRI */
+        /* PILASTRI */
 
         .pillars-grid {
             display: grid;
@@ -451,23 +474,43 @@
 
                 <div class="brand-logo-box">
                     <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
-                         alt="Logo MDP">
+                         alt="MDP Logo">
                 </div>
 
                 <div class="nav-wrapper">
+                    <nav class="main-nav" id="mainNav">
+                        <a href="index.html">Почетна</a>
+                        <a href="movimento.html">Движење</a>
+                        <a href="visione.html" class="active">Визија</a>
+                        <a href="diaspora.html">Дијаспора</a>
+                        <a href="documenti.html">Документи</a>
+                    </nav>
 
-    <!-- LANGUAGE SWITCH -->
-    <div style="display:flex; gap:10px; align-items:center; margin-right:10px;">
-        <a href="/index.html" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:30px; border:1px solid #d1d5db; border-radius:6px; background:#ffffff;">
-            <img src="https://flagcdn.com/w20/it.png" alt="IT">
-        </a>
+                    <!-- SWITCH LINGUA -->
+                    <div class="lang-switch">
+                        <div class="lang-flags">
+                            <!-- ITA -->
+                            <a href="../visione.html" class="lang-btn-flag" aria-label="Italiano">
+                                <img src="https://flagcdn.com/w20/it.png" alt="IT">
+                            </a>
 
-        <a href="/mk/index.html" style="display:inline-flex; align-items:center; justify-content:center; width:40px; height:30px; border:2px solid #003366; border-radius:6px; background:#ffffff;">
-            <img src="https://flagcdn.com/w20/mk.png" alt="MK">
-        </a>
-    </div>
+                            <!-- MK (attiva) -->
+                            <button type="button" class="lang-btn-flag active" aria-label="Македонски">
+                                <img src="https://flagcdn.com/w20/mk.png" alt="MK">
+                            </button>
+                        </div>
 
- 
+                        <div class="lang-pills">
+                            <button type="button" class="lang-pill active">
+                                <img src="https://flagcdn.com/w20/mk.png" alt="MK">
+                                <span>MK</span>
+                            </button>
+                            <a href="../visione.html" class="lang-pill">
+                                <img src="https://flagcdn.com/w20/it.png" alt="IT">
+                                <span>IT</span>
+                            </a>
+                        </div>
+                    </div>
 
                     <button class="nav-toggle" id="navToggle" aria-label="Отвори мени">
                         <span></span>
@@ -479,7 +522,7 @@
     </div>
 </div>
 
-<!-- HERO VISIONE -->
+<!-- HERO ВИЗИЈА -->
 <div class="hero-inner-wrapper">
     <div class="container">
         <section class="hero-inner">
@@ -496,7 +539,7 @@
 <main>
     <div class="container">
 
-        <!-- BLOCCO 1 – SCURO: cosa soffoca oggi la Macedonia -->
+        <!-- БЛОК 1 – ШТО ЈА ГУШИ МАКЕДОНИЈА -->
         <section class="vision-section-wrapper">
             <div class="vision-panel vision-panel--dark">
                 <h2 class="section-title">Што ја гуши Македонија денес</h2>
@@ -515,11 +558,11 @@
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Етнички уценувања како политичко оружје и постојана поделба на општеството.</span>
+                        <span>Етнички уцени како политичко оружје и постојана поделба на општеството.</span>
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Контролирани медиуми, пропаганда, недостаток на слободно и плуралистичко информирање.</span>
+                        <span>Контролирани медиуми, пропаганда, недостиг на слободно и плуралистичко информирање.</span>
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
@@ -533,37 +576,37 @@
             </div>
         </section>
 
-        <!-- BLOCCO 2 – CHIARO: missione -->
+        <!-- БЛОК 2 – МИСИЈА -->
         <section class="vision-section-wrapper">
             <div class="vision-panel vision-panel--light">
                 <h2 class="section-title">Мисијата на Macedonian Diaspora Party</h2>
                 <p class="section-subtitle">
-                    Не да „влезе во системот“, туку да ги препише неговите правила.
+                    Не “влегување во системот”, туку препишување на неговите правила.
                 </p>
 
                 <ul class="bullet-list">
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Да ѝ врати сериозност на политиката: програмата како договор, а не како слоган.</span>
+                        <span>Да ја врати сериозноста во политиката: програмата како договор, а не како слоган.</span>
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Да ја направи државата независна од клиентелизам, лобисти и надворешни влијанија.</span>
+                        <span>Да ја направи државата независна од клиентели, лобија и надворешни влијанија.</span>
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Да изгради институции кои ги штитат граѓаните, а не моќните групи.</span>
+                        <span>Да изгради институции што ги штитат граѓаните, а не групите на моќ.</span>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <!-- BLOCCO 3 – MEDIO: quattro pilastri -->
+        <!-- БЛОК 3 – ЧЕТИРИ ПИЛАСТРИ -->
         <section class="vision-section-wrapper">
             <div class="vision-panel vision-panel--medium">
-                <h2 class="section-title">Четирите столбови на визијата на MDP</h2>
+                <h2 class="section-title">Четирите столба на визијата на MDP</h2>
                 <p class="section-subtitle">
-                    Неколку јасни точки кои го дефинираат типот на држава што ја сакаме.
+                    Неколку јасни точки што го дефинираат типот држава што ја сакаме.
                 </p>
 
                 <div class="pillars-grid">
@@ -571,8 +614,8 @@
                         <div class="pillar-label">Столб 1</div>
                         <div class="pillar-title">Вистинска слобода</div>
                         <div class="pillar-text">
-                            Слобода на говор, на информирање и политичко организирање. Без уцени поврзани со работа,
-                            кариера или партиска припадност. Граѓанинот мора да може да зборува и да избира без страв.
+                            Слобода на говор, информирање и политичко организирање. Без уцени поврзани со работа,
+                            кариера или припадност. Граѓанинот мора да може да зборува и да избира без страв.
                         </div>
                     </article>
 
@@ -580,8 +623,8 @@
                         <div class="pillar-label">Столб 2</div>
                         <div class="pillar-title">Правда што функционира</div>
                         <div class="pillar-text">
-                            Судство независно од партиите, разумни рокови, исти правила за сите. Без правда
-                            нема ниту здрава економија, ниту кредибилна демократија.
+                            Судство независно од партиите, разумни рокови, исти правила за сите.
+                            Без правда нема ниту здрава економија ниту кредибилна демократија.
                         </div>
                     </article>
 
@@ -589,8 +632,8 @@
                         <div class="pillar-label">Столб 3</div>
                         <div class="pillar-title">Меритократија</div>
                         <div class="pillar-text">
-                            Јавни функции, конкурси, одговорности: доделени според компетенција, а не според партиска книшка
-                            или пријателство. Без заслуга младите си заминуваат, а државата се празни.
+                            Јавни функции, конкурси и одговорности доделени според компетенција, а не по партиска книшка
+                            или пријателство. Без меритократија, младите си заминуваат и државата се празни.
                         </div>
                     </article>
 
@@ -598,22 +641,22 @@
                         <div class="pillar-label">Столб 4</div>
                         <div class="pillar-title">Вистински суверенитет</div>
                         <div class="pillar-text">
-                            Соработка со сите, но одлуки во целосна автономија. Одбрана на стратешките ресурси и
-                            националните избори, без да се биде заложник на туѓи агенди.
+                            Соработка со сите, но одлуки во сопствена автономија. Одбрана на стратешките ресурси
+                            и на националните избори, без да се биде заложник на туѓи агенди.
                         </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- BLOCCO 4 – SCURO: democrazia partecipata + diaspora -->
+        <!-- БЛОК 4 – ДЕМОКРАТИЈА + ДИЈАСПОРА -->
         <section class="vision-section-wrapper">
             <div class="vision-panel vision-panel--dark">
                 <div class="two-cols-grid">
                     <div>
                         <h2 class="section-title">Партиципативна демократија</h2>
                         <p class="section-subtitle">
-                            Гласањето не е доволно. Потребна е контрола во континуитет.
+                            Гласањето не е доволно. Потребна е постојана контрола.
                         </p>
                         <ul class="bullet-list">
                             <li>
@@ -622,7 +665,7 @@
                             </li>
                             <li>
                                 <span class="bullet-dot"></span>
-                                <span>Механизми за оценување на работата на избраните и за барање отчет за донесените одлуки.</span>
+                                <span>Алатки за оценување на работата на избраните и барање одговорност за донесените одлуки.</span>
                             </li>
                             <li>
                                 <span class="bullet-dot"></span>
@@ -634,16 +677,16 @@
                     <div>
                         <h2 class="section-title">Дијаспората како стратешки ресурс</h2>
                         <p class="section-subtitle">
-                            Не само гласови: компетенции, независност и поширока визија.
+                            Не само гласови: компетенции, независност и визија.
                         </p>
                         <ul class="bullet-list">
                             <li>
                                 <span class="bullet-dot"></span>
-                                <span>Македонци кои живеат во странство како извор на компетенции и пошироко политичко искуство.</span>
+                                <span>Македонците што живеат во странство како извор на знаење и поширока перспектива.</span>
                             </li>
                             <li>
                                 <span class="bullet-dot"></span>
-                                <span>Помалку условени од локалниот клиентелизам, можат да ги балансираат внатрешните центри на моќ.</span>
+                                <span>Помалку зависни од локални клиентели, можат да ги балансираат внатрешните центри на моќ.</span>
                             </li>
                             <li>
                                 <span class="bullet-dot"></span>
@@ -655,18 +698,18 @@
             </div>
         </section>
 
-        <!-- BLOCCO 5 – CHIARO: diritti sociali e dignità -->
+        <!-- БЛОК 5 – СОЦИЈАЛНИ ПРАВА И ДОСТОИНСТВО -->
         <section class="vision-section-wrapper">
             <div class="vision-panel vision-panel--light">
                 <h2 class="section-title">Социјални права и достоинство</h2>
                 <p class="section-subtitle">
-                    Политичката слобода без социјална правда е само фасада.
+                    Политичка слобода без социјална правда е само фасада.
                 </p>
 
                 <ul class="bullet-list">
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Оние кои се во тешка ситуација треба да бидат поддржани, но со патеки за реинтеграција и лична одговорност.</span>
+                        <span>Оние што се во тешка состојба мора да бидат поддржани, но со патеки за реинтеграција и одговорност.</span>
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
@@ -674,11 +717,12 @@
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Етничката, културната и верската разновидност се богатство, а не алатка за поделба.</span>
+                        <span>Етничката, културната и верската различност како богатство, а не како алатка за поделба.</span>
                     </li>
                     <li>
                         <span class="bullet-dot"></span>
-                        <span>Институциите се оценуваат по тоа колку ги намалуваат нееднаквостите и неправдите, а не по пропагандата.</span>
+                        <span>Институциите се оценуваат според тоа колку ги намалуваат нееднаквостите и неправдите,
+                            а не според пропагандата.</span>
                     </li>
                 </ul>
             </div>
