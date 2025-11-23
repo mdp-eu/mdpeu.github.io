@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="mk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,6 +74,33 @@
             display: flex;
             align-items: center;
             gap: 16px;
+        }
+
+        /* LANG SWITCHER */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: 8px;
+        }
+
+        .lang-switcher a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 22px;
+            border-radius: 4px;
+            border: 1px solid #d1d5db;
+            font-size: 13px;
+            background: #ffffff;
+            cursor: pointer;
+        }
+
+        .lang-switcher a.active {
+            border-color: var(--mdp-blue-dark);
+            background: #e5edf9;
+            font-weight: 600;
         }
 
         .main-nav {
@@ -260,8 +287,8 @@
 
         /* LAYOUT A PANNELLI SOVRAPPOSTI */
         .section-stack {
-            margin-top: -18px;        /* fa “salire” il pannello verso quello sopra */
-            padding-top: 26px;        /* evita che si veda il taglio */
+            margin-top: -18px;
+            padding-top: 26px;
         }
 
         .section-panel {
@@ -302,7 +329,7 @@
             }
         }
 
-        /* BLOCCO “COSA RENDE DIVERSO” (RICICLO LE STESSE CARD) */
+        /* BLOCCO “COSA RENDE DIVERSO” */
         .hero-side {
             display: flex;
             flex-direction: column;
@@ -332,7 +359,7 @@
             letter-spacing: 0.08em;
         }
 
-        /* SEZIONI INTERNE (lasciate quasi identiche, ma senza margini esagerati) */
+        /* SEZIONI INTERNE */
         .official-section {
             margin-top: 4px;
             display: flex;
@@ -734,12 +761,21 @@
 
                 <div class="nav-wrapper">
                     <nav class="main-nav" id="mainNav">
+                        <!-- siamo nella versione mk -->
                         <a href="index.html">Home</a>
-                        <a href="movimento.html">Movimento</a>
-                        <a href="visione.html">Visione</a>
-                        <a href="diaspora.html">Diaspora</a>
-                        <a href="documenti.html">Documenti</a>
+                        <!-- le altre pagine, per ora, puntano alla versione IT in root -->
+                        <a href="../movimento.html">Movimento</a>
+                        <a href="../visione.html">Visione</a>
+                        <a href="../diaspora.html">Diaspora</a>
+                        <a href="../documenti.html">Documenti</a>
                     </nav>
+
+                    <div class="lang-switcher">
+                        <!-- MK attivo -->
+                        <a href="index.html" class="active" aria-label="Македонски">🇲🇰</a>
+                        <!-- link alla home italiana -->
+                        <a href="../index.html" aria-label="Italiano">🇮🇹</a>
+                    </div>
 
                     <button class="nav-toggle" id="navToggle" aria-label="Apri menu">
                         <span></span>
@@ -1031,7 +1067,7 @@
                             <div class="doc-text">
                                 Il testo che definisce identità, principi e finalità politiche del Macedonian Diaspora Party.
                             </div>
-                            <a href="documenti.html" class="doc-link">Leggi la dichiarazione</a>
+                            <a href="../documenti.html" class="doc-link">Leggi la dichiarazione</a>
                         </article>
 
                         <article class="doc-card">
@@ -1040,7 +1076,7 @@
                             <div class="doc-text">
                                 Norme interne, organi del movimento, forme di partecipazione, diritti e doveri degli aderenti.
                             </div>
-                            <a href="documenti.html" class="doc-link">Consulta lo statuto</a>
+                            <a href="../documenti.html" class="doc-link">Consulta lo statuto</a>
                         </article>
 
                         <article class="doc-card">
@@ -1049,7 +1085,7 @@
                             <div class="doc-text">
                                 Documentazione formale, riferimenti legali e inquadramento giuridico del partito a livello europeo e nazionale.
                             </div>
-                            <a href="documenti.html" class="doc-link">Vai alla sezione documenti</a>
+                            <a href="../documenti.html" class="doc-link">Vai alla sezione documenti</a>
                         </article>
                     </div>
                 </section>
@@ -1076,8 +1112,8 @@
                               action="https://formspree.io/f/mldzkeyd"
                               method="POST">
 
-                            <input type="hidden" name="_subject" value="Nuova candidatura referente MDP">
-                            <input type="hidden" name="_language" value="it">
+                            <input type="hidden" name="_subject" value="Nuova candidatura referente MDP (pagina MK)">
+                            <input type="hidden" name="_language" value="mk">
 
                             <div>
                                 <label for="cta-name">Nome e Cognome</label>
