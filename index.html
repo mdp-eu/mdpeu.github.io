@@ -95,6 +95,34 @@
             background: #f0f2f5;
         }
 
+        /* LANGUAGE SWITCH */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 8px;
+        }
+
+        .lang-flag {
+            width: 32px;
+            height: 22px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #d1d5db;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .lang-flag span {
+            font-size: 16px;
+        }
+
+        .lang-active {
+            border: 2px solid var(--mdp-blue-dark);
+        }
+
         .nav-toggle {
             display: none;
             width: 42px;
@@ -260,8 +288,8 @@
 
         /* LAYOUT A PANNELLI SOVRAPPOSTI */
         .section-stack {
-            margin-top: -18px;        /* fa “salire” il pannello verso quello sopra */
-            padding-top: 26px;        /* evita che si veda il taglio */
+            margin-top: -18px;
+            padding-top: 26px;
         }
 
         .section-panel {
@@ -302,7 +330,6 @@
             }
         }
 
-        /* BLOCCO “COSA RENDE DIVERSO” (RICICLO LE STESSE CARD) */
         .hero-side {
             display: flex;
             flex-direction: column;
@@ -332,7 +359,6 @@
             letter-spacing: 0.08em;
         }
 
-        /* SEZIONI INTERNE (lasciate quasi identiche, ma senza margini esagerati) */
         .official-section {
             margin-top: 4px;
             display: flex;
@@ -733,6 +759,17 @@
                 </div>
 
                 <div class="nav-wrapper">
+
+                    <!-- SWITCH LINGUA -->
+                    <div class="lang-switch">
+                        <a href="/" class="lang-flag lang-active">
+                            <span>🇮🇹</span>
+                        </a>
+                        <a href="/mk/" class="lang-flag">
+                            <span>🇲🇰</span>
+                        </a>
+                    </div>
+
                     <nav class="main-nav" id="mainNav">
                         <a href="index.html">Home</a>
                         <a href="movimento.html">Movimento</a>
