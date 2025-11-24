@@ -100,6 +100,34 @@
             color: #111827;
         }
 
+        /* SWITCH LINGUA */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-right: 8px;
+        }
+
+        .lang-flag {
+            width: 32px;
+            height: 22px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #d1d5db;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+        }
+
+        .lang-flag span {
+            font-size: 16px;
+        }
+
+        .lang-active {
+            border: 2px solid var(--mdp-blue-dark);
+        }
+
         .nav-toggle {
             display: none;
             width: 42px;
@@ -426,6 +454,17 @@
                 </div>
 
                 <div class="nav-wrapper">
+
+                    <!-- SWITCH LINGUA -->
+                    <div class="lang-switch">
+                        <a href="/" class="lang-flag">
+                            <span>🇮🇹</span>
+                        </a>
+                        <a href="/mk/visione.html" class="lang-flag">
+                            <span>🇲🇰</span>
+                        </a>
+                    </div>
+
                     <nav class="main-nav" id="mainNav">
                         <a href="index.html">Home</a>
                         <a href="movimento.html">Movimento</a>
