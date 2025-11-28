@@ -1,0 +1,160 @@
+<title>Iscrizione – Macedonian Diaspora Party</title>
+<meta name="description" content="Scheda ufficiale di iscrizione al Macedonian Diaspora Party (MDP).">
+<main class="page">
+  <section class="page-hero">
+    <div class="container">
+      <h1 class="page-title">Iscrizione al Macedonian Diaspora Party (MDP)</h1>
+      <p class="page-subtitle">
+        Scheda ufficiale di adesione al MDP per cittadini macedoni in patria e nella diaspora.
+        Compila tutti i campi richiesti: riceverai conferma via e-mail dopo la verifica interna.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <form 
+        class="mdp-form" 
+        action="https://formspree.io/f/IL_TUO_ID" 
+        method="POST"
+      >
+        <!-- DATI PERSONALI -->
+        <h2 class="form-section-title">Dati personali</h2>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="nome">Nome e cognome *</label>
+            <input type="text" id="nome" name="Nome e cognome" required>
+          </div>
+
+          <div class="form-field">
+            <label for="data_nascita">Data di nascita *</label>
+            <input type="date" id="data_nascita" name="Data di nascita" required>
+          </div>
+
+          <div class="form-field">
+            <label for="luogo_nascita">Luogo di nascita *</label>
+            <input type="text" id="luogo_nascita" name="Luogo di nascita" required>
+          </div>
+
+          <div class="form-field">
+            <label for="cittadinanza">Cittadinanza</label>
+            <input type="text" id="cittadinanza" name="Cittadinanza">
+          </div>
+
+          <div class="form-field">
+            <label for="residenza">Indirizzo di residenza</label>
+            <input type="text" id="residenza" name="Indirizzo di residenza" placeholder="Via, numero, città, CAP">
+          </div>
+
+          <div class="form-field">
+            <label for="paese_residenza">Paese di residenza *</label>
+            <input type="text" id="paese_residenza" name="Paese di residenza" required>
+          </div>
+
+          <div class="form-field">
+            <label for="citta_residenza">Città *</label>
+            <input type="text" id="citta_residenza" name="Città" required>
+          </div>
+        </div>
+
+        <!-- CONTATTI -->
+        <h2 class="form-section-title">Contatti</h2>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="Email" required>
+          </div>
+
+          <div class="form-field">
+            <label for="telefono">Telefono / WhatsApp *</label>
+            <input type="tel" id="telefono" name="Telefono" required>
+          </div>
+        </div>
+
+        <!-- POSIZIONE NEL PARTITO -->
+        <h2 class="form-section-title">Tipo di adesione</h2>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="tipo_adesione">Desidero aderire come *</label>
+            <select id="tipo_adesione" name="Tipo di adesione" required>
+              <option value="">Seleziona...</option>
+              <option value="Membro ordinario">Membro ordinario</option>
+              <option value="Attivista operativo">Attivista operativo</option>
+              <option value="Referente locale">Referente locale</option>
+              <option value="Associazione aderente">Associazione aderente</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="nome_associazione">Nome associazione (se applicabile)</label>
+            <input type="text" id="nome_associazione" name="Nome associazione">
+          </div>
+
+          <div class="form-field">
+            <label for="disponibilita_volontariato">Disponibilità al volontariato organizzativo</label>
+            <select id="disponibilita_volontariato" name="Disponibilità volontariato">
+              <option value="Non specificato">Non specificato</option>
+              <option value="Si">Sì</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="ruoli_futuri">Disponibilità a ricoprire ruoli futuri</label>
+            <select id="ruoli_futuri" name="Disponibilità ruoli futuri">
+              <option value="Non specificato">Non specificato</option>
+              <option value="Si">Sì</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- INFORMAZIONI DIASPORA -->
+        <h2 class="form-section-title">Informazioni sulla diaspora</h2>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="anni_estero">Da quanti anni vivi all’estero?</label>
+            <input type="number" id="anni_estero" name="Anni all'estero" min="0">
+          </div>
+
+          <div class="form-field form-field--full">
+            <label for="esperienza_assoc">Esperienze associative o di comunità</label>
+            <textarea id="esperienza_assoc" name="Esperienze associative" rows="3"></textarea>
+          </div>
+
+          <div class="form-field form-field--full">
+            <label for="esperienza_politica">Eventuali esperienze politiche</label>
+            <textarea id="esperienza_politica" name="Esperienze politiche" rows="3"></textarea>
+          </div>
+        </div>
+
+        <!-- DICHIARAZIONI -->
+        <h2 class="form-section-title">Dichiarazioni</h2>
+        <div class="form-legal">
+          <label class="checkbox">
+            <input type="checkbox" name="Accetto Statuto e Codice Etico" required>
+            <span>Dichiaro di condividere i valori e i principi del Macedonian Diaspora Party (MDP) e di accettare Statuto, Codice Etico e norme interne.</span>
+          </label>
+
+          <label class="checkbox">
+            <input type="checkbox" name="Consenso dati personali">
+            <span>Autorizzo il trattamento dei dati personali ai sensi della normativa vigente.</span>
+          </label>
+        </div>
+
+        <!-- CAMPI NASCOSTI FORMSPREE -->
+        <input type="hidden" name="_subject" value="Nuova richiesta di iscrizione al MDP">
+        <input type="hidden" name="_language" value="it">
+
+        <!-- Se vuoi un redirect dopo l'invio, crea una pagina grazie.html e metti qui il link -->
+        <!-- <input type="hidden" name="_redirect" value="https://mdp-eu.com/grazie-iscrizione.html"> -->
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            Invia la richiesta di iscrizione
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
