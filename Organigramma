@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organigramma MDP - Struttura di Comando</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f7fa;
+      color: #1a1a1a;
+      margin: 40px 20px;
+      line-height: 1.5;
+    }
+    h1 {
+      text-align: center;
+      color: #003087;
+      margin-bottom: 40px;
+    }
+    .org-chart {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .level {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      margin: 20px 0;
+      width: 100%;
+    }
+    .box {
+      background: white;
+      border-radius: 10px;
+      padding: 14px 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      min-width: 180px;
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+    }
+    .president { background: #003087; color: white; font-size: 1.3em; }
+    .vice { background: #0050b3; color: white; }
+    .segretario { background: #0066cc; color: white; }
+    .direzione { background: #e6f0ff; border: 2px solid #0066cc; }
+    .coord-int { background: #fff0e6; border: 2px solid #ff6b00; }
+    .coord-paese { background: #fff8e6; border: 2px solid #cc9900; }
+    .coord-region { background: #f0f8e6; border: 2px solid #669900; }
+    .coord-locale { background: #e6fff0; border: 2px solid #009933; }
+    .base { background: #f9f9f9; color: #555; }
+
+    /* Linee di collegamento */
+    .connector {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background: #666;
+      transform: translateX(-50%);
+    }
+    .horizontal-line {
+      position: absolute;
+      top: -20px;
+      height: 2px;
+      background: #666;
+      z-index: 1;
+    }
+    .v-line {
+      position: absolute;
+      width: 2px;
+      background: #666;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ORGANIGRAMMA MDP<br><small>Struttura di Comando Completa</small></h1>
+
+  <div class="org-chart">
+
+    <!-- LIVELLO 1 - Presidente -->
+    <div class="level">
+      <div class="box president">PRESIDENTE<br><small>Autorità massima del partito</small></div>
+    </div>
+
+    <!-- Linea verso livello 2 -->
+    <div class="level"><div class="connector"></div></div>
+
+    <!-- LIVELLO 2 - Vice + Segretario -->
+    <div class="level">
+      <div class="box vice">VICEPRESIDENTE</div>
+      <div style="width: 200px;"></div>
+      <div class="box segretario">SEGRETARIO GENERALE</div>
+    </div>
+
+    <!-- Linee orizzontali e verticali -->
+    <div class="level" style="position:relative;height:40px;">
+      <div class="horizontal-line" style="left:12%;right:12%;"></div>
+      <div class="v-line" style="left:50%;top:0;height:40px;"></div>
+    </div>
+
+    <!-- LIVELLO 3 - Direzione Nazionale e Coordinamento Internazionale -->
+    <div class="level">
+      <div class="box direzione">DIREZIONE NAZIONALE<br><small>Territorio Macedonia<br>7 Settori Nazionali</small></div>
+      <div style="width: 180px;"></div>
+      <div class="box coord-int">COORDINAMENTO<br>INTERNAZIONALE<br><small>Diaspora</small></div>
+    </div>
+
+    <!-- Linea verso livello 4 -->
+    <div class="level"><div class="connector" style="left:27%;"></div><div class="connector" style="left:73%;"></div></div>
+
+    <!-- LIVELLO 4 - Settori Nazionali e Coordinatori Paese -->
+    <div class="level">
+      <div style69="flex:1;text-align:center;font-size:0.9em;color:#0066cc;">
+        Programma • Organizzazione • Giovani • Comunicazione<br>
+        Relazioni Istituzionali • Legalità • Finanze
+      </div>
+      <div style="width: 200px;"></div>
+      <div class="box coord-paese">COORDINATORI PAESE<br><small>(uno per nazione estera)</small></div>
+    </div>
+
+    <!-- Linea verso diaspora -->
+    <div class="level"><div class="connector" style="left:73%;"></div></div>
+
+    <!-- LIVELLO 5 - Coordinatori Regionali + Associazioni -->
+    <div class="level">
+      <div style="width: 400px;"></div>
+      <div class="box coord-region">COORDINATORI REGIONALI</div>
+      <div style="width: 80px;"></div>
+      <div class="box base" style="background:#fff2e6;">ASSOCIAZIONI<br>ADERENTI</div>
+    </div>
+
+    <!-- Linea verso coordinatori locali -->
+    <div class="level"><div class="connector" style="left:65%;"></div></div>
+
+    <!-- LIVELLO 6 - Coordinatori Locali -->
+    <div class="level">
+      <div class="box coord-locale">COORDINATORI LOCALI<br><small>Città / Zone</small></div>
+    </div>
+
+    <!-- Linea verso base -->
+    <div class="level"><div class="connector"></div></div>
+
+    <!-- LIVELLO 7 - Referenti Locali -->
+    <div class="level">
+      <div class="box base">REFERENTI LOCALI</div>
+    </div>
+
+    <!-- Linea verso attivisti -->
+    <div class="level"><div class="connector"></div></div>
+
+    <!-- LIVELLO 8 - Attivisti -->
+    <div class="level">
+      <div class="box base">ATTIVISTI OPERATIVI</div>
+    </div>
+
+    <!-- Linea verso membri -->
+    <div class="level"><div class="connector"></div></div>
+
+    <!-- LIVELLO 9 - Base -->
+    <div class="level">
+      <div class="box base">MEMBRI ORDINARI<br><small>(tutti i tesserati)</small></div>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;margin-top:50px;font-size:0.9em;color:#555;">
+    Catena di comando verticale: Presidente → Vice/Segretario → Direzione Nazionale & Coordinamento Internazionale → Base
+  </p>
+
+</body>
+</html>
