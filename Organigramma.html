@@ -17,10 +17,16 @@
       color: #003087;
       margin-bottom: 40px;
     }
+    h1 small {
+      font-size: 0.6em;
+      color: #555;
+    }
     .org-chart {
       display: flex;
       flex-direction: column;
       align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
     }
     .level {
       display: flex;
@@ -28,6 +34,7 @@
       position: relative;
       margin: 20px 0;
       width: 100%;
+      flex-wrap: wrap;
     }
     .box {
       background: white;
@@ -49,6 +56,12 @@
     .coord-region { background: #f0f8e6; border: 2px solid #669900; }
     .coord-locale { background: #e6fff0; border: 2px solid #009933; }
     .base { background: #f9f9f9; color: #555; }
+
+    /* spaziatori orizzontali desktop */
+    .spacer-200 { width: 200px; }
+    .spacer-180 { width: 180px; }
+    .spacer-400 { width: 400px; }
+    .spacer-80  { width: 80px; }
 
     /* Linee di collegamento */
     .connector {
@@ -73,6 +86,44 @@
       background: #666;
       z-index: 1;
     }
+
+    /* RESPONSIVE per schermi piccoli */
+    @media (max-width: 768px) {
+      body {
+        margin: 15px 10px;
+      }
+      h1 {
+        font-size: 1.4em;
+        margin-bottom: 20px;
+      }
+      .box {
+        min-width: 160px;
+        margin: 6px 0;
+        padding: 10px 12px;
+        font-size: 0.9em;
+      }
+      .level {
+        flex-direction: column;
+        align-items: center;
+      }
+      /* togli spazi vuoti orizzontali su mobile */
+      .spacer-200,
+      .spacer-180,
+      .spacer-400,
+      .spacer-80 {
+        display: none;
+        width: 0;
+        height: 0;
+      }
+      /* semplifica le linee su mobile */
+      .horizontal-line,
+      .v-line {
+        display: none;
+      }
+      .connector {
+        height: 25px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -83,7 +134,9 @@
 
     <!-- LIVELLO 1 - Presidente -->
     <div class="level">
-      <div class="box president">PRESIDENTE<br><small>Autorità massima del partito</small></div>
+      <div class="box president">
+        PRESIDENTE<br><small>Autorità massima del partito</small>
+      </div>
     </div>
 
     <!-- Linea verso livello 2 -->
@@ -92,7 +145,7 @@
     <!-- LIVELLO 2 - Vice + Segretario -->
     <div class="level">
       <div class="box vice">VICEPRESIDENTE</div>
-      <div style="width: 200px;"></div>
+      <div class="spacer-200"></div>
       <div class="box segretario">SEGRETARIO GENERALE</div>
     </div>
 
@@ -104,22 +157,34 @@
 
     <!-- LIVELLO 3 - Direzione Nazionale e Coordinamento Internazionale -->
     <div class="level">
-      <div class="box direzione">DIREZIONE NAZIONALE<br><small>Territorio Macedonia<br>7 Settori Nazionali</small></div>
-      <div style="width: 180px;"></div>
-      <div class="box coord-int">COORDINAMENTO<br>INTERNAZIONALE<br><small>Diaspora</small></div>
+      <div class="box direzione">
+        DIREZIONE NAZIONALE<br>
+        <small>Territorio Macedonia<br>7 Settori Nazionali</small>
+      </div>
+      <div class="spacer-180"></div>
+      <div class="box coord-int">
+        COORDINAMENTO<br>INTERNAZIONALE<br>
+        <small>Diaspora</small>
+      </div>
     </div>
 
     <!-- Linea verso livello 4 -->
-    <div class="level"><div class="connector" style="left:27%;"></div><div class="connector" style="left:73%;"></div></div>
+    <div class="level">
+      <div class="connector" style="left:27%;"></div>
+      <div class="connector" style="left:73%;"></div>
+    </div>
 
     <!-- LIVELLO 4 - Settori Nazionali e Coordinatori Paese -->
     <div class="level">
-      <div style69="flex:1;text-align:center;font-size:0.9em;color:#0066cc;">
+      <div style="flex:1;text-align:center;font-size:0.9em;color:#0066cc;">
         Programma • Organizzazione • Giovani • Comunicazione<br>
         Relazioni Istituzionali • Legalità • Finanze
       </div>
-      <div style="width: 200px;"></div>
-      <div class="box coord-paese">COORDINATORI PAESE<br><small>(uno per nazione estera)</small></div>
+      <div class="spacer-200"></div>
+      <div class="box coord-paese">
+        COORDINATORI PAESE<br>
+        <small>(uno per nazione estera)</small>
+      </div>
     </div>
 
     <!-- Linea verso diaspora -->
@@ -127,10 +192,12 @@
 
     <!-- LIVELLO 5 - Coordinatori Regionali + Associazioni -->
     <div class="level">
-      <div style="width: 400px;"></div>
+      <div class="spacer-400"></div>
       <div class="box coord-region">COORDINATORI REGIONALI</div>
-      <div style="width: 80px;"></div>
-      <div class="box base" style="background:#fff2e6;">ASSOCIAZIONI<br>ADERENTI</div>
+      <div class="spacer-80"></div>
+      <div class="box base" style="background:#fff2e6;">
+        ASSOCIAZIONI<br>ADERENTI
+      </div>
     </div>
 
     <!-- Linea verso coordinatori locali -->
@@ -138,7 +205,9 @@
 
     <!-- LIVELLO 6 - Coordinatori Locali -->
     <div class="level">
-      <div class="box coord-locale">COORDINATORI LOCALI<br><small>Città / Zone</small></div>
+      <div class="box coord-locale">
+        COORDINATORI LOCALI<br><small>Città / Zone</small>
+      </div>
     </div>
 
     <!-- Linea verso base -->
@@ -162,7 +231,9 @@
 
     <!-- LIVELLO 9 - Base -->
     <div class="level">
-      <div class="box base">MEMBRI ORDINARI<br><small>(tutti i tesserati)</small></div>
+      <div class="box base">
+        MEMBRI ORDINARI<br><small>(tutti i tesserati)</small>
+      </div>
     </div>
 
   </div>
