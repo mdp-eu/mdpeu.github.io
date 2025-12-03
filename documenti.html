@@ -525,6 +525,65 @@
             }
         }
 
+        /* AREA DOWNLOAD PDF */
+        .download-box {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(15,23,42,0.12);
+            background: rgba(15,23,42,0.02);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .download-box-text {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .download-box-text strong {
+            font-weight: 600;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border: none;
+            cursor: pointer;
+            background: var(--mdp-red);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(220, 38, 38, 0.35);
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: #b31315;
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
+        }
+
+        .doc-card-dark .download-box {
+            border-color: rgba(248, 250, 252, 0.24);
+            background: rgba(15, 23, 42, 0.75);
+        }
+
+        .doc-card-dark .download-box-text {
+            color: #e5e7eb;
+        }
+
         /* FOOTER */
         .site-footer {
             margin-top: 38px;
@@ -682,12 +741,18 @@
                             sua costituzione, il ruolo della diaspora e le condizioni minime per considerare le
                             azioni dell’MDP coerenti con la propria identità.
                         </div>
-                        <!-- LINK PDF DICHIARAZIONE FONDATIVA -->
-                        <a href="/assets/DichiarazioneFondativa.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Scarica la dichiarazione (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF DICHIARAZIONE FONDATIVA -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Versione integrale della dichiarazione fondativa.
+                            </div>
+                            <a href="/assets/DichiarazioneFondativa.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
 
                     <article class="doc-card-light">
@@ -699,12 +764,18 @@
                             gruppi Paese/città, modalità di adesione, diritti e doveri degli aderenti, criteri di
                             trasparenza e strumenti di responsabilità interna.
                         </div>
-                        <!-- LINK PDF STATUTO -->
-                        <a href="/assets/Statuto.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Scarica lo statuto (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF STATUTO -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Testo completo dello statuto MDP.
+                            </div>
+                            <a href="/assets/Statuto.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
 
                     <article class="doc-card-light">
@@ -715,12 +786,18 @@
                             Raccoglie l’atto costitutivo e le registrazioni ufficiali del movimento presso le autorità
                             competenti nei diversi Stati in cui l’MDP assume forma giuridica riconosciuta.
                         </div>
-                        <!-- LINK PDF ATTO COSTITUTIVO -->
-                        <a href="/assets/AttoCostitutivo.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Scarica l’atto costitutivo (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF ATTO COSTITUTIVO -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Copia dell’atto costitutivo e registrazioni.
+                            </div>
+                            <a href="/assets/AttoCostitutivo.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -747,11 +824,18 @@
                             lotta alla corruzione, ruolo della diaspora, democrazia partecipata, economia e diritti sociali.
                         </div>
 
-                        <a class="download-button"
-                           href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/4a9305ee443383ca7640ccf76874cb5446fae411/assets/Visione%20dello%20Stato%2C%20riforme%2C%20sviluppo%20e%20implementazioni%20per%20uno%20Stato%20a%20visione%20MDP.pdf"
-                           target="_blank">
-                            Scarica il documento (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF VISIONE DELLO STATO -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Versione ufficiale del quadro generale delle riforme.
+                            </div>
+                            <a class="download-btn"
+                               href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/4a9305ee443383ca7640ccf76874cb5446fae411/assets/Visione%20dello%20Stato%2C%20riforme%2C%20sviluppo%20e%20implementazioni%20per%20uno%20Stato%20a%20visione%20MDP.pdf"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
                 </div>
 
@@ -832,7 +916,7 @@
 <!-- FOOTER -->
 <footer class="site-footer">
     <div class="container footer-inner">
-        <span>© Macedonian Diaspora Party</span>
+        <span>©️ Macedonian Diaspora Party</span>
         <div>
             <a href="mailto:info@mdp-eu.com">📧 info@mdp-eu.com</a>
             <a href="tel:+393282290062" style="margin-left:12px;">☎️ +39 328 22 90 062</a>
@@ -855,3 +939,4 @@
 
 </body>
 </html>
+
