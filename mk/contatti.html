@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="mk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакт – Macedonian Diaspora Party</title>
+    <meta name="description" content="Контакт податоци на Macedonian Diaspora Party: е-пошта, телефон, WhatsApp, Facebook и адреса на седиштето во Гамбетола, со карта и формулар за пораки.">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
+
+    <style>
+        :root {
+            --mdp-blue: #003366;
+            --mdp-blue-dark: #001c3a;
+            --mdp-red: #d0191b;
+            --mdp-gold: #f4c430;
+            --bg-soft: #f5f7fb;
+
+            --panel-radius: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg-soft);
+            color: #111827;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* HEADER */
+        .site-header-wrapper {
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .site-header {
+            padding: 18px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-logo-box {
+            width: 50%;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand-logo-box img {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .main-nav a {
+            color: var(--mdp-blue-dark);
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.15s ease, color 0.15s ease;
+        }
+
+        .main-nav a:hover {
+            background: #f0f2f5;
+        }
+
+        .main-nav a.active {
+            background: #e5edf9;
+            color: #111827;
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            border: 1px solid #d1d5db;
+            background: #ffffff;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            position: relative;
+        }
+
+        .nav-toggle span::before,
+        .nav-toggle span::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background: var(--mdp-blue-dark);
+            left: 0;
+            transition: 0.2s ease;
+        }
+
+        .nav-toggle span::before { top: -6px; }
+        .nav-toggle span::after  { top: 6px; }
+
+        .nav-toggle.active span { background: transparent; }
+        .nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
+        .nav-toggle.active span::after  { top: 0; transform: rotate(-45deg); }
+
+        @media (max-width: 768px) {
+            .brand-logo-box {
+                width: 60%;
+            }
+            .brand-logo-box img {
+                max-height: 160px;
+            }
+
+            .main-nav {
+                position: absolute;
+                top: 110px;
+                right: 16px;
+                background: #ffffff;
+                border-radius: 12px;
+                border: 1px solid #e5e7eb;
+                padding: 16px;
+                width: 210px;
+                flex-direction: column;
+                gap: 14px;
+                opacity: 0;
+                pointer-events: none;
+                box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+            }
+
+            .main-nav.nav-open {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+        }
+
+        /* LANGUAGE SWITCH */
+        .lang-switch {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+            font-size: 12px;
+        }
+
+        .lang-flags {
+            display: flex;
+            gap: 6px;
+            justify-content: flex-end;
+        }
+
+        .flag-btn {
+            padding: 4px 6px;
+            border-radius: 999px;
+            border: 1px solid transparent;
+            background: transparent;
+            cursor: pointer;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .flag-btn.active {
+            border-color: #d1d5db;
+            background: #f3f4f6;
+        }
+
+        /* HERO */
+        .hero-wrapper {
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .hero-home {
+            background: radial-gradient(circle at top left, #3f83f8 0, #165aa8 35%, #02244b 100%);
+            color: #ffffff;
+            padding: 56px 24px 50px;
+            border-radius: var(--panel-radius);
+            box-shadow: 0 20px 45px rgba(15,23,42,0.35);
+        }
+
+        .hero-main { text-align: left; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 4px 11px;
+            border-radius: 999px;
+            background: rgba(15,23,42,0.9);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #e5e7eb;
+            margin-bottom: 10px;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--mdp-gold);
+        }
+
+        .hero-title {
+            font-size: clamp(28px, 4vw, 36px);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #e5e7eb;
+            max-width: 640px;
+        }
+
+        .hero-actions {
+            margin-top: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            border-radius: 999px;
+            padding: 9px 18px;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--mdp-gold);
+            color: #111827;
+        }
+
+        .btn-primary:hover { background: #ffd954; }
+
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid #e5e7eb;
+            color: #e5e7eb;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(15,23,42,0.16);
+        }
+
+        main { margin-bottom: 40px; }
+
+        .docs-section-wrapper {
+            margin-top: 24px;
+        }
+
+        .section-badge {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-bottom: 6px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .section-text {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .bullet-list li {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .bullet-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+
+        /* PANELS */
+        .docs-panel {
+            border-radius: var(--panel-radius);
+            padding: 22px 20px 24px;
+        }
+
+        .docs-panel--dark {
+            background: linear-gradient(150deg, #0d3b80, #032147);
+            box-shadow: 0 18px 40px rgba(15,23,42,0.55);
+            color: #e5e7eb;
+        }
+
+        .docs-panel--dark .section-badge {
+            color: #c7d2fe;
+        }
+
+        .docs-panel--dark .section-title {
+            color: #f9fafb;
+        }
+
+        .docs-panel--dark .section-subtitle,
+        .docs-panel--dark .section-text,
+        .docs-panel--dark .bullet-list li {
+            color: #e5e7eb;
+        }
+
+        .docs-panel--dark .bullet-dot {
+            background: #facc15;
+        }
+
+        .docs-panel--light {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.08);
+            color: #111827;
+        }
+
+        .docs-panel--light .section-badge {
+            color: #6b7280;
+        }
+
+        .docs-panel--light .section-title {
+            color: #111827;
+        }
+
+        .docs-panel--light .section-subtitle {
+            color: #6b7280;
+        }
+
+        .docs-panel--light .section-text,
+        .docs-panel--light .bullet-list li {
+            color: #374151;
+        }
+
+        .docs-panel--light .bullet-dot {
+            background: var(--mdp-red);
+        }
+
+        .docs-panel--medium {
+            background: linear-gradient(140deg, #e1edf8, #cbd7ea);
+            border: 1px solid #d1d5e5;
+            box-shadow: 0 14px 32px rgba(148,163,184,0.4);
+            color: #111827;
+        }
+
+        .docs-panel--medium .section-badge {
+            color: #4b5563;
+        }
+
+        .docs-panel--medium .section-title {
+            color: #111827;
+        }
+
+        .docs-panel--medium .section-subtitle {
+            color: #4b5563;
+        }
+
+        .docs-panel--medium .section-text,
+        .docs-panel--medium .bullet-list li {
+            color: #1f2933;
+        }
+
+        .docs-panel--medium .bullet-dot {
+            background: #1d4ed8;
+        }
+
+        /* CARDS */
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin-top: 14px;
+        }
+
+        .doc-card-dark {
+            background: rgba(7,22,48,0.96);
+            border-radius: 18px;
+            padding: 12px 14px 12px;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.6);
+            border: 1px solid rgba(148,163,184,0.45);
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: #e5e7eb;
+        }
+
+        .doc-card-light {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 12px 14px 12px;
+            box-shadow: 0 10px 24px rgba(148,163,184,0.5);
+            border: 1px solid #d1d5e5;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            color: #111827;
+        }
+
+        .doc-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 2px;
+        }
+
+        .doc-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .doc-meta {
+            font-size: 11px;
+        }
+
+        .doc-text {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .doc-link {
+            font-size: 13px;
+            text-decoration: underline;
+            margin-top: 6px;
+            align-self: flex-start;
+        }
+
+        .doc-card-dark .doc-label { color: #a5b4fc; }
+        .doc-card-dark .doc-title { color: #f9fafb; }
+        .doc-card-dark .doc-meta { color: #9ca3af; }
+        .doc-card-dark .doc-text { color: #e5e7eb; }
+        .doc-card-dark .doc-link { color: #bfdbfe; }
+
+        .doc-card-light .doc-label { color: #6b7280; }
+        .doc-card-light .doc-title { color: #111827; }
+        .doc-card-light .doc-meta { color: #6b7280; }
+        .doc-card-light .doc-text { color: #374151; }
+        .doc-card-light .doc-link { color: #1d4ed8; }
+
+        .note-box {
+            margin-top: 8px;
+            font-size: 12px;
+            border-radius: 12px;
+            padding: 8px 10px;
+        }
+
+        .note-box-dark {
+            background: rgba(15,23,42,0.9);
+            color: #e5e7eb;
+        }
+
+        .note-box-light {
+            background: #f3f4ff;
+            color: #111827;
+        }
+
+        .two-cols {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.05fr);
+            gap: 18px;
+            margin-top: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .two-cols {
+                grid-template-columns: minmax(0, 1fr);
+            }
+        }
+
+        /* FOOTER */
+        .site-footer {
+            margin-top: 38px;
+            background: var(--mdp-blue-dark);
+            border-top: 3px solid var(--mdp-red);
+            padding: 16px 0;
+            color: #e5e7eb;
+            font-size: 13px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* CONTATTI – STILI MODERNI CON ICONE */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid #d1d5e5;
+            box-shadow: 0 8px 18px rgba(148,163,184,0.45);
+        }
+
+        .contact-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 1px solid #d1d5e5;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .contact-text-block {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .contact-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6b7280;
+        }
+
+        .contact-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: #111827;
+        }
+
+        .contact-value a {
+            text-decoration: underline;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .contact-input,
+        .contact-textarea {
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #d1d5e5;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .contact-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .contact-submit {
+            margin-top: 8px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: none;
+            background: var(--mdp-red);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(220,38,38,0.35);
+        }
+
+        .contact-submit:hover {
+            filter: brightness(1.05);
+        }
+
+        .map-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 26px rgba(15,23,42,0.35);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="site-header-wrapper">
+    <div class="container">
+        <header class="site-header">
+            <div class="header-inner">
+
+                <div class="brand-logo-box">
+                    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
+                         alt="Logo MDP">
+                </div>
+
+                <div class="nav-wrapper">
+                    <nav class="main-nav" id="mainNav">
+                        <a href="index.html">Почетна</a>
+                        <a href="movimento.html">Движење</a>
+                        <a href="visione.html">Визија</a>
+                        <a href="diaspora.html">Дијаспора</a>
+                        <a href="documenti.html">Документи</a>
+                    </nav>
+
+                    <div class="lang-switch">
+                        <div class="lang-flags">
+                            <a href="../contatti.html" class="flag-btn">🇮🇹</a>
+                            <a href="kontakti.html" class="flag-btn active">🇲🇰</a>
+                        </div>
+                    </div>
+
+                    <button class="nav-toggle" id="navToggle" aria-label="Отвори мени">
+                        <span></span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+    </div>
+</div>
+
+<!-- HERO CONTATTI -->
+<div class="hero-wrapper">
+    <div class="container">
+        <section class="hero-home">
+            <div class="hero-main">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    КОНТАКТ · ОФИЦИЈАЛНИ КАНАЛИ
+                </div>
+                <h1 class="hero-title">Контакт со Macedonian Diaspora Party</h1>
+                <p class="hero-subtitle">
+                    Оваа страница ги собира официјалните контакти на MDP и јавните профили поврзани со движењето:
+                    е-пошта, телефон, WhatsApp, Facebook и страница со информации за Emir Alili, заедно со адреса
+                    на седиштето во Гамбетола и формулар за пораки.
+                </p>
+                <div class="hero-actions">
+                    <a href="#kontakt" class="btn-primary">Отвори контакти</a>
+                    <a href="#mappa" class="btn-ghost">Погледни ја картата</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<main>
+    <div class="container">
+
+        <!-- БЛОК – КОНТАКТ ПОДАТОЦИ -->
+        <section class="docs-section-wrapper" id="kontakt">
+            <div class="docs-panel docs-panel--medium">
+                <div class="section-badge">ОФИЦИЈАЛНИ ПОДАТОЦИ</div>
+                <h2 class="section-title">Како да стапите во контакт со MDP</h2>
+                <p class="section-subtitle">
+                    Канали наменети за комуникација со движењето: организација, членство, медиуми, иницијативи на дијаспората
+                    и координација по држави и градови.
+                </p>
+
+                <div class="contact-grid">
+
+                    <!-- EMAIL -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Envelope icon -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="14" rx="2" ry="2" fill="none" stroke="#1f2937" stroke-width="1.6"/>
+                                <polyline points="4,7 12,12 20,7" fill="none" stroke="#1f2937" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">Е-пошта</div>
+                            <div class="contact-value">
+                                <a href="mailto:info@mdp-eu.com">info@mdp-eu.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TELEFON -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Phone handset -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M7 3c-.6 0-1.1.3-1.4.8L4 7c-.3.6-.2 1.3.3 1.8l2.2 2.2c1.8 1.8 3.9 3.3 6.1 4.4l1.1.5c1 .5 2.2.2 2.9-.7l1.9-2.6c.5-.7.4-1.7-.3-2.3l-2-1.6c-.5-.4-1.2-.4-1.8-.2l-1.3.6c-1.5-.8-2.8-1.8-3.9-2.9L9.9 7c.4-.5.5-1.2.2-1.8L8.7 3.6C8.5 3.2 8 3 7.5 3H7z"
+                                      fill="none" stroke="#1f2937" stroke-width="1.6" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">Телефон</div>
+                            <div class="contact-value">
+                                <a href="tel:+393282290062">+39 328 22 90 062</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WHATSAPP -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- WhatsApp-style chat + phone -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3.2A7.8 7.8 0 0 0 4.2 11a7.7 7.7 0 0 0 1.1 4l-1.1 3.8 3.9-1A7.9 7.9 0 1 0 12 3.2z"
+                                      fill="none" stroke="#16a34a" stroke-width="1.6" stroke-linejoin="round"/>
+                                <path d="M10.2 8.5c-.2-.5-.4-.5-.7-.5h-.5c-.2 0-.5.1-.7.3-.2.3-.9.8-.9 2s.9 2.3 1 2.4.8 1.3 2.1 1.8c1 .4 1.6.4 2.2.3.4-.1 1.1-.5 1.2-.9.1-.3.1-.8 0-.9-.1-.2-.2-.2-.5-.3s-1.1-.6-1.2-.7c-.2-.1-.3-.1-.5.1l-.4.4c-.1.1-.2.1-.4 0-.2-.1-.8-.3-1.3-.9-.5-.5-.9-1.2-1-1.4-.1-.1 0-.3.1-.4l.3-.4c.1-.1.2-.3.1-.5l-.3-.7z"
+                                      fill="#16a34a"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">WhatsApp</div>
+                            <div class="contact-value">
+                                <a href="https://wa.me/393282290062" target="_blank" rel="noopener">
+                                    Отвори WhatsApp разговор
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FACEBOOK EMIR – PROFILO PERSONALE -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Facebook icon (generico) -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10" fill="#0f172a"/>
+                                <path d="M13.2 7.2H14.7V5H12.9C10.8 5 9.7 6.2 9.7 8v1.3H8.3v2.3h1.4V19h2.4v-4.4h1.7l.4-2.3h-2.1V8.1c0-.6.4-0.9 1.1-0.9z"
+                                      fill="#e5e7eb"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">Facebook – личен профил</div>
+                            <div class="contact-value">
+                                <a href="https://www.facebook.com/emir.alili.81" target="_blank" rel="noopener">
+                                    Профил на Emir Alili
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FACEBOOK MDP – PAGINA UFFICIALE -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Facebook icon (pagina ufficiale) -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="4" ry="4" fill="#0f172a"/>
+                                <path d="M13.3 7H12c-1.8 0-2.9 1.1-2.9 3v1.4H8v2.1h1.1V19h2.3v-5.5h1.8l.3-2.1h-2.1V9.9c0-.6.3-.9 1-.9h1V7z"
+                                      fill="#e5e7eb"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">Facebook – официјална страница</div>
+                            <div class="contact-value">
+                                <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=61584175136342"
+                                   target="_blank" rel="noopener">
+                                    Официјална страница на MDP
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SITO CHI È EMIR ALILI – PAGINA WEB PERSONALE -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Globe / web icon -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9" fill="none" stroke="#1f2937" stroke-width="1.6"/>
+                                <ellipse cx="12" cy="12" rx="4" ry="9" fill="none" stroke="#1f2937" stroke-width="1.4"/>
+                                <line x1="3" y1="12" x2="21" y2="12" stroke="#1f2937" stroke-width="1.4"/>
+                                <line x1="12" y1="3" x2="12" y2="21" stroke="#1f2937" stroke-width="1.4" opacity="0.0"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">Лична веб-страница</div>
+                            <div class="contact-value">
+                                <a href="https://aliliemir.weebly.com/" target="_blank" rel="noopener">
+                                    „Кој е Emir Alili“ – официјална страница
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ADRESA -->
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <!-- Location pin -->
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3.5A6 6 0 0 0 6 9.4c0 3.6 3.4 7.1 5.3 8.9.4.3 1 .3 1.4 0C14.6 16.5 18 13 18 9.4A6 6 0 0 0 12 3.5z"
+                                      fill="none" stroke="#b91c1c" stroke-width="1.6"/>
+                                <circle cx="12" cy="9.2" r="2.1" fill="none" stroke="#b91c1c" stroke-width="1.4"/>
+                            </svg>
+                        </div>
+                        <div class="contact-text-block">
+                            <div class="contact-label">Адреса на седиштето</div>
+                            <div class="contact-value">
+                                Via Gramsci 36<br>
+                                47035 Gambettola (FC), Italia
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="note-box note-box-light" style="margin-top:14px;">
+                    За состаноци во живо во Гамбетола е потребно претходно закажување преку е-пошта или WhatsApp.
+                    За прашања поврзани со членство, Ве молиме наведете држава и град на живеење.
+                </div>
+            </div>
+        </section>
+
+        <!-- БЛОК – КАРТА + ФОРМУЛАР -->
+        <section class="docs-section-wrapper" id="mappa">
+            <div class="docs-panel docs-panel--light">
+                <div class="section-badge">ЛОКАЦИЈА И ПОРАКИ</div>
+                <h2 class="section-title">Карта на седиштето и формулар за контакт</h2>
+
+                <div class="two-cols" style="align-items:flex-start;">
+
+                    <!-- КОЛОНА ЛЕВО – КАРТА -->
+                    <div>
+                        <p class="section-text">
+                            Оперативното седиште на Macedonian Diaspora Party се наоѓа во општина Гамбетола (Италија),
+                            во рамките на поширока европска мрежа на активисти и претставници на дијаспората.
+                        </p>
+
+                        <div class="map-wrapper" style="margin-top:12px;">
+                            <iframe
+                                src="https://www.google.com/maps?q=Via+Gramsci+36,+47035+Gambettola+FC,+Italia&output=embed"
+                                width="100%" height="260" style="border:0;" loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- КОЛОНА ДЕСНО – ФОРМУЛАР -->
+                    <div>
+                        <p class="section-text">
+                            Може директно да ни испратите порака преку овој формулар.
+                            Ќе се обидеме да одговориме во рок од 24–48 часа.
+                        </p>
+
+                        <!-- Sostituisci l'URL Formspree con il tuo endpoint reale -->
+                        <form class="contact-form" action="https://formspree.io/f/xxxxx" method="POST">
+                            <input
+                                type="text"
+                                name="name"
+                                class="contact-input"
+                                placeholder="Име и презиме"
+                                required>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="contact-input"
+                                placeholder="Е-пошта"
+                                required>
+
+                            <input
+                                type="text"
+                                name="subject"
+                                class="contact-input"
+                                placeholder="Наслов / тема на пораката"
+                                required>
+
+                            <textarea
+                                name="message"
+                                class="contact-textarea"
+                                placeholder="Вашата порака..."
+                                required></textarea>
+
+                            <button type="submit" class="contact-submit">
+                                Испрати порака до MDP
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>© Macedonian Diaspora Party</span>
+        <div>
+            <a href="mailto:info@mdp-eu.com">📧 info@mdp-eu.com</a>
+            <a href="tel:+393282290062" style="margin-left:12px;">☎️ +39 328 22 90 062</a>
+            <a href="https://wa.me/393282290062" target="_blank" style="margin-left:12px;">🟢 WhatsApp</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const navToggle = document.getElementById("navToggle");
+    const mainNav   = document.getElementById("mainNav");
+
+    if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+            navToggle.classList.toggle("active");
+            mainNav.classList.toggle("nav-open");
+        });
+    }
+</script>
+
+</body>
+</html>
