@@ -527,6 +527,65 @@
             }
         }
 
+        /* AREA DOWNLOAD PDF */
+        .download-box {
+            margin-top: 10px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            border: 1px solid rgba(15,23,42,0.12);
+            background: rgba(15,23,42,0.02);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .download-box-text {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .download-box-text strong {
+            font-weight: 600;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            border: none;
+            cursor: pointer;
+            background: var(--mdp-red);
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(220, 38, 38, 0.35);
+            white-space: nowrap;
+        }
+
+        .download-btn:hover {
+            background: #b31315;
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(220, 38, 38, 0.4);
+        }
+
+        .doc-card-dark .download-box {
+            border-color: rgba(248, 250, 252, 0.24);
+            background: rgba(15, 23, 42, 0.75);
+        }
+
+        .doc-card-dark .download-box-text {
+            color: #e5e7eb;
+        }
+
         /* FOOTER */
         .site-footer {
             margin-top: 38px;
@@ -680,12 +739,18 @@
                             улогата на дијаспората и минималните услови за дејствијата на MDP да се сметаат за
                             доследни на сопствениот идентитет.
                         </div>
-                        <!-- ЛИНК ДО ОСНОВАЧКАДЕКЛАРАЦИЈА.PDF -->
-                        <a href="ОСНОВАЧКАДЕКЛАРАЦИЈА.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Преземи ја декларацијата (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF ОСНОВАЧКАДЕКЛАРАЦИЈА -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Целосна верзија на основачката декларација.
+                            </div>
+                            <a href="ОСНОВАЧКАДЕКЛАРАЦИЈА.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
 
                     <article class="doc-card-light">
@@ -697,12 +762,18 @@
                             групи по држави/градови, начини на приклучување, права и обврски на членовите, критериуми
                             за транспарентност и механизми на внатрешна одговорност.
                         </div>
-                        <!-- ЛИНК ДО СТАТУТ.PDF -->
-                        <a href="СТАТУТ.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Преземи го статутот (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF СТАТУТ -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Целосен текст на статутот на MDP.
+                            </div>
+                            <a href="СТАТУТ.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
 
                     <article class="doc-card-light">
@@ -713,12 +784,18 @@
                             Ги собира нотарските акти и официјалните регистрирања на движењето пред надлежните органи
                             во различните држави каде MDP добива признаена правна форма.
                         </div>
-                        <!-- ЛИНК ДО ОСНОВАЧКИАКТ.PDF -->
-                        <a href="ОСНОВАЧКИАКТ.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Преземи ја документацијата (PDF)
-                        </a>
+                        <!-- BOX DOWNLOAD PDF ОСНОВАЧКИАКТ -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Основачки акт и придружна правна документација.
+                            </div>
+                            <a href="ОСНОВАЧКИАКТ.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -745,11 +822,18 @@
                             борба против корупција, улога на дијаспората, економски развој и државни институции.
                         </div>
 
-                        <a href="ВизијазаДржавата.pdf"
-                           class="doc-link"
-                           target="_blank" rel="noopener">
-                            Преземи PDF
-                        </a>
+                        <!-- BOX DOWNLOAD PDF ВИЗИЈАЗАДРЖАВАТА -->
+                        <div class="download-box">
+                            <div class="download-box-text">
+                                <strong>Download PDF</strong><br>
+                                Официјална верзија на документот „Визија за Државата“.
+                            </div>
+                            <a href="ВизијазаДржавата.pdf"
+                               class="download-btn"
+                               target="_blank" rel="noopener">
+                                Download PDF
+                            </a>
+                        </div>
                     </article>
                 </div>
 
@@ -849,6 +933,10 @@
         });
     }
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
