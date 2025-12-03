@@ -904,53 +904,61 @@
                         </p>
 
                         <!-- Sostituisci l'URL Formspree con il tuo endpoint reale -->
-                       <form
-    class="contact-form"
-    id="contact-form"
-    action="https://formspree.io/f/FORM_ID_REALE"
+                       <!-- FORM CONTATTI -->
+<form
+    action="https://formspree.io/f/mldzkeyd"
     method="POST"
+    style="display:flex;flex-direction:column;gap:14px;"
 >
-    <!-- CAMPO OBBLIGATORIO PER FORMSPREE -->
-    <input
-        type="email"
-        name="email"
-        class="contact-input"
-        placeholder="Е-пошта"
-        required
+
+    <label class="section-text" style="font-weight:600;">
+        Е-пошта
+        <input 
+            type="email" 
+            name="email" 
+            required
+            style="width:100%;padding:12px;border-radius:12px;border:1px solid #d1d5e5;font-size:14px;margin-top:6px;"
+        >
+    </label>
+
+    <label class="section-text" style="font-weight:600;">
+        Име и презиме
+        <input 
+            type="text" 
+            name="name"
+            required
+            style="width:100%;padding:12px;border-radius:12px;border:1px solid #d1d5e5;font-size:14px;margin-top:6px;"
+        >
+    </label>
+
+    <label class="section-text" style="font-weight:600;">
+        Порака
+        <textarea
+            name="message"
+            rows="5"
+            required
+            style="width:100%;padding:12px;border-radius:12px;border:1px solid #d1d5e5;font-size:14px;margin-top:6px;"
+        ></textarea>
+    </label>
+
+    <button 
+        type="submit"
+        style="
+            padding:12px 18px;
+            border-radius:999px;
+            border:none;
+            background:var(--mdp-red);
+            color:white;
+            font-weight:600;
+            font-size:15px;
+            cursor:pointer;
+            box-shadow:0 6px 16px rgba(220,38,38,0.35);
+            margin-top:4px;
+        "
     >
-
-    <input
-        type="text"
-        name="name"
-        class="contact-input"
-        placeholder="Име и презиме"
-        required
-    >
-
-    <input
-        type="text"
-        name="subject"
-        class="contact-input"
-        placeholder="Наслов / тема на пораката"
-        required
-    >
-
-    <textarea
-        name="message"
-        class="contact-textarea"
-        placeholder="Вашата порака..."
-        required
-    ></textarea>
-
-    <!-- opzionale: oggetto predefinito della mail -->
-    <input type="hidden" name="_subject" value="Нова порака од MDP контакт-страната">
-
-    <!-- opzionale: redirect a una tua pagina di 'grazie' -->
-    <!-- <input type="hidden" name="_next" value="https://mdp-eu.github.io/mk/благодариме.html"> -->
-
-    <button type="submit" class="contact-submit">
-        Испрати порака до MDP
+        Испрати порака
     </button>
+
 </form>
                     </div>
 
