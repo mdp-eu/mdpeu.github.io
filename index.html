@@ -95,7 +95,7 @@
             background: #f0f2f5;
         }
 
-        /* LANGUAGE SWITCH */
+        /* LANGUAGE SWITCH (HEADER) */
         .lang-switch {
             display: flex;
             align-items: center;
@@ -742,10 +742,153 @@
             gap: 12px;
             flex-wrap: wrap;
         }
+
+        /* ===================================
+           OVERLAY SCELTA LINGUA ALL'INGRESSO
+           =================================== */
+
+        .lang-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.86);
+            backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .lang-overlay.hidden {
+            display: none;
+        }
+
+        .lang-overlay-panel {
+            background: #ffffff;
+            border-radius: 22px;
+            max-width: 420px;
+            width: 92%;
+            padding: 24px 22px 22px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+            text-align: center;
+        }
+
+        .lang-overlay-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 6px;
+        }
+
+        .lang-overlay-subtitle {
+            font-size: 13px;
+            color: #4b5563;
+            margin-bottom: 18px;
+        }
+
+        .lang-overlay-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .lang-choice-btn {
+            border-radius: 999px;
+            padding: 9px 14px;
+            border: 1px solid #d1d5db;
+            background: #f9fafb;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .lang-choice-main {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-choice-flag {
+            width: 30px;
+            height: 20px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+        }
+
+        .lang-choice-label {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .lang-choice-label span:first-child {
+            font-weight: 600;
+            font-size: 14px;
+            color: #111827;
+        }
+
+        .lang-choice-label span:last-child {
+            font-size: 11px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .lang-choice-arrow {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 480px) {
+            .lang-overlay-panel {
+                padding: 20px 18px 18px;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+<!-- OVERLAY SCELTA LINGUA -->
+<div class="lang-overlay" id="langOverlay">
+    <div class="lang-overlay-panel">
+        <div class="lang-overlay-title">Scegli la lingua del sito</div>
+        <div class="lang-overlay-subtitle">
+            Seleziona con quale lingua vuoi navigare il sito del Macedonian Diaspora Party.
+            La scelta verrà ricordata per le prossime visite.
+        </div>
+
+        <div class="lang-overlay-buttons">
+            <button type="button" class="lang-choice-btn" id="langIt">
+                <div class="lang-choice-main">
+                    <div class="lang-choice-flag">🇮🇹</div>
+                    <div class="lang-choice-label">
+                        <span>Italiano</span>
+                        <span>Versione Europa / diaspora</span>
+                    </div>
+                </div>
+                <span class="lang-choice-arrow">›</span>
+            </button>
+
+            <button type="button" class="lang-choice-btn" id="langMk">
+                <div class="lang-choice-main">
+                    <div class="lang-choice-flag">🇲🇰</div>
+                    <div class="lang-choice-label">
+                        <span>Македонски</span>
+                        <span>Верзија на македонски јазик</span>
+                    </div>
+                </div>
+                <span class="lang-choice-arrow">›</span>
+            </button>
+        </div>
+    </div>
+</div>
 
 <!-- HEADER -->
 <div class="site-header-wrapper">
@@ -760,7 +903,7 @@
 
                 <div class="nav-wrapper">
 
-                    <!-- SWITCH LINGUA -->
+                    <!-- SWITCH LINGUA HEADER -->
                     <div class="lang-switch">
                         <a href="/" class="lang-flag lang-active">
                             <span>🇮🇹</span>
@@ -1161,6 +1304,7 @@
 </footer>
 
 <script>
+    // MENU MOBILE
     const navToggle = document.getElementById("navToggle");
     const mainNav = document.getElementById("mainNav");
 
@@ -1171,6 +1315,7 @@
         });
     }
 
+    // FORM REFERENTE
     const referentForm = document.getElementById("referent-form");
     if (referentForm) {
         referentForm.addEventListener("submit", function () {
@@ -1179,6 +1324,52 @@
             }, 400);
         });
     }
+
+    // OVERLAY SCELTA LINGUA
+    (function () {
+        const OVERLAY_KEY = "mdp_lang_choice_v1";
+        const overlay = document.getElementById("langOverlay");
+        const btnIt = document.getElementById("langIt");
+        const btnMk = document.getElementById("langMk");
+
+        if (!overlay || !btnIt || !btnMk) return;
+
+        const currentPath = window.location.pathname || "/";
+        const saved = localStorage.getItem(OVERLAY_KEY);
+
+        // Se c'è già una scelta salvata, redireziona o nascondi overlay
+        if (saved === "it") {
+            if (currentPath.startsWith("/mk/")) {
+                window.location.href = "/";
+            } else {
+                overlay.classList.add("hidden");
+            }
+            return;
+        }
+
+        if (saved === "mk") {
+            if (!currentPath.startsWith("/mk/")) {
+                window.location.href = "/mk/";
+            } else {
+                overlay.classList.add("hidden");
+            }
+            return;
+        }
+
+        function choose(lang) {
+            localStorage.setItem(OVERLAY_KEY, lang);
+            overlay.classList.add("hidden");
+
+            if (lang === "it") {
+                window.location.href = "/";
+            } else if (lang === "mk") {
+                window.location.href = "/mk/";
+            }
+        }
+
+        btnIt.addEventListener("click", () => choose("it"));
+        btnMk.addEventListener("click", () => choose("mk"));
+    })();
 </script>
 
 </body>
