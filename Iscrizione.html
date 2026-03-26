@@ -1,712 +1,169 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Membership – Macedonian Diaspora Party (MDP)</title>
-    <meta name="description" content="Official membership form of the Macedonian Diaspora Party (MDP), the independent political movement of the Macedonian diaspora.">
-
-    <!-- Favicon -->
-    <link rel="icon" href="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg">
-
-    <style>
-        :root {
-            --mdp-blue: #003366;
-            --mdp-blue-dark: #001c3a;
-            --mdp-red: #d0191b;
-            --mdp-gold: #f4c430;
-            --bg-soft: #f5f7fb;
-
-            --panel-radius: 24px;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: var(--bg-soft);
-            color: #111827;
-        }
-
-        a { text-decoration: none; color: inherit; }
-
-        .container {
-            max-width: 1120px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        /* HEADER */
-        .site-header-wrapper {
-            background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
-            position: sticky;
-            top: 0;
-            z-index: 200;
-        }
-
-        .site-header {
-            padding: 18px 0;
-        }
-
-        .header-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .brand-logo-box {
-            width: 50%;
-            display: flex;
-            align-items: center;
-        }
-
-        .brand-logo-box img {
-            width: 100%;
-            max-height: 220px;
-            object-fit: contain;
-            display: block;
-        }
-
-        .nav-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .main-nav a {
-            color: var(--mdp-blue-dark);
-            padding: 6px 10px;
-            border-radius: 6px;
-            transition: background 0.15s ease;
-        }
-
-        .main-nav a:hover {
-            background: #f0f2f5;
-        }
-
-        /* LANGUAGE SWITCH */
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-right: 8px;
-        }
-
-        .lang-flag {
-            width: 32px;
-            height: 22px;
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #d1d5db;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #fff;
-        }
-
-        .lang-flag span {
-            font-size: 16px;
-        }
-
-        .lang-active {
-            border: 2px solid var(--mdp-blue-dark);
-        }
-
-        .nav-toggle {
-            display: none;
-            width: 42px;
-            height: 42px;
-            border-radius: 8px;
-            border: 1px solid #d1d5db;
-            background: #ffffff;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .nav-toggle span {
-            width: 20px;
-            height: 2px;
-            background: var(--mdp-blue-dark);
-            position: relative;
-        }
-
-        .nav-toggle span::before,
-        .nav-toggle span::after {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: var(--mdp-blue-dark);
-            left: 0;
-            transition: 0.2s ease;
-        }
-
-        .nav-toggle span::before { top: -6px; }
-        .nav-toggle span::after  { top: 6px; }
-
-        .nav-toggle.active span { background: transparent; }
-        .nav-toggle.active span::before { top: 0; transform: rotate(45deg); }
-        .nav-toggle.active span::after  { top: 0; transform: rotate(-45deg); }
-
-        @media (max-width: 768px) {
-            .brand-logo-box {
-                width: 60%;
-            }
-            .brand-logo-box img {
-                max-height: 160px;
-            }
-
-            .main-nav {
-                position: absolute;
-                top: 110px;
-                right: 16px;
-                background: #ffffff;
-                border-radius: 12px;
-                border: 1px solid #e5e7eb;
-                padding: 16px;
-                width: 210px;
-                flex-direction: column;
-                gap: 14px;
-                opacity: 0;
-                pointer-events: none;
-                box-shadow: 0 14px 30px rgba(0,0,0,0.15);
-            }
-
-            .main-nav.nav-open {
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .nav-toggle {
-                display: flex;
-            }
-        }
-
-        /* HERO */
-        .hero-wrapper {
-            margin-top: 24px;
-            margin-bottom: 10px;
-        }
-
-        .hero-home {
-            background: radial-gradient(circle at top left, #355c9b 0, var(--mdp-blue) 40%, #001c3a 100%);
-            color: #ffffff;
-            padding: 40px 24px 36px;
-            border-radius: var(--panel-radius);
-            box-shadow: 0 20px 45px rgba(15,23,42,0.35);
-        }
-
-        .hero-main {
-            text-align: left;
-            max-width: 640px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 4px 11px;
-            border-radius: 999px;
-            background: rgba(15,23,42,0.85);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-            color: #e5e7eb;
-            margin-bottom: 10px;
-        }
-
-        .hero-badge-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 999px;
-            background: var(--mdp-gold);
-        }
-
-        .hero-title {
-            font-size: clamp(30px, 4.2vw, 40px);
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .hero-subtitle {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #e5e7eb;
-            max-width: 580px;
-        }
-
-        .hero-actions {
-            margin-top: 18px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn-primary,
-        .btn-ghost {
-            border-radius: 999px;
-            padding: 9px 18px;
-            font-size: 14px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: var(--mdp-gold);
-            color: #111827;
-        }
-
-        .btn-primary:hover {
-            background: #ffd954;
-        }
-
-        .btn-ghost {
-            background: transparent;
-            border: 1px solid #e5e7eb;
-            color: #e5e7eb;
-        }
-
-        main {
-            margin-bottom: 40px;
-        }
-
-        /* PANELS */
-        .section-stack {
-            margin-top: -18px;
-            padding-top: 26px;
-        }
-
-        .section-panel {
-            border-radius: var(--panel-radius);
-            padding: 20px 18px 24px;
-            background: #ffffff;
-            box-shadow: 0 18px 40px rgba(15,23,42,0.18);
-        }
-
-        .section-panel--soft {
-            background: #f9fafb;
-        }
-
-        .section-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #111827;
-            margin-bottom: 10px;
-        }
-
-        .section-subtitle {
-            font-size: 13px;
-            color: #6b7280;
-            margin-bottom: 10px;
-        }
-
-        /* FORM */
-        .mdp-form {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            margin-top: 12px;
-        }
-
-        .form-section-title {
-            font-size: 15px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 4px;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 12px 18px;
-        }
-
-        .form-field {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            font-size: 13px;
-        }
-
-        .form-field--full {
-            grid-column: 1 / -1;
-        }
-
-        .form-field label {
-            font-weight: 500;
-            color: #374151;
-        }
-
-        .form-field input,
-        .form-field select,
-        .form-field textarea {
-            border-radius: 8px;
-            border: 1px solid #cbd5e1;
-            padding: 7px 8px;
-            font-size: 13px;
-            font-family: inherit;
-            background: #ffffff;
-        }
-
-        .form-field textarea {
-            min-height: 70px;
-            resize: vertical;
-        }
-
-        .form-legal {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            font-size: 12px;
-            color: #374151;
-            margin-top: 6px;
-        }
-
-        .checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 6px;
-        }
-
-        .checkbox input[type="checkbox"] {
-            margin-top: 3px;
-        }
-
-        .form-actions {
-            margin-top: 10px;
-        }
-
-        .btn-submit {
-            border-radius: 999px;
-            padding: 9px 18px;
-            font-size: 14px;
-            font-weight: 500;
-            border: none;
-            cursor: pointer;
-            background: var(--mdp-blue-dark);
-            color: #ffffff;
-        }
-
-        .btn-submit:hover {
-            background: #00254d;
-        }
-
-        /* FOOTER */
-        .site-footer {
-            margin-top: 38px;
-            background: var(--mdp-blue-dark);
-            border-top: 3px solid var(--mdp-red);
-            padding: 16px 0;
-            color: #e5e7eb;
-            font-size: 13px;
-        }
-
-        .footer-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iscriviti — Macedonian Diaspora Party</title>
+<meta name="description" content="Entra nel Macedonian Diaspora Party. Proponi la tua disponibilità come referente locale della diaspora.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">
+    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP Logo">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-key="nav-home">Home</a></li>
+    <li><a href="movimento.html" data-key="nav-movimento">Movimento</a></li>
+    <li><a href="visione.html" data-key="nav-visione">Visione</a></li>
+    <li><a href="diaspora.html" data-key="nav-diaspora">Diaspora</a></li>
+    <li><a href="documenti.html" data-key="nav-documenti">Documenti</a></li>
+    <li><a href="Iscrizione.html" class="active" data-key="nav-iscriviti" style="color:var(--gold)">Iscriviti</a></li>
+  </ul>
+  <div class="nav-lang">
+    <button class="lang-btn" data-lang="it">🇮🇹 IT</button>
+    <button class="lang-btn" data-lang="mk">🇲🇰 MK</button>
+  </div>
+</nav>
 
-<!-- HEADER -->
-<div class="site-header-wrapper">
-    <div class="container">
-        <header class="site-header">
-            <div class="header-inner">
 
-                <div class="brand-logo-box">
-                    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg"
-                         alt="MDP Logo">
-                </div>
-
-                <div class="nav-wrapper">
-
-                    <!-- LANGUAGE SWITCH -->
-                    <div class="lang-switch">
-                        <a href="/" class="lang-flag lang-active">
-                            <span>🇬🇧</span>
-                        </a>
-                        <a href="/mk/" class="lang-flag">
-                            <span>🇲🇰</span>
-                        </a>
-                    </div>
-
-                    <nav class="main-nav" id="mainNav">
-                        <a href="index.html">Home</a>
-                        <a href="movimento.html">Movement</a>
-                        <a href="visione.html">Vision</a>
-                        <a href="diaspora.html">Diaspora</a>
-                        <a href="documenti.html">Documents</a>
-                        <a href="iscrizione.html">Membership</a>
-                    </nav>
-
-                    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
-                        <span></span>
-                    </button>
-                </div>
-
-            </div>
-        </header>
-    </div>
+<div class="page-hero">
+  <div class="page-hero-bg"></div><div class="page-hero-grid"></div><div class="page-hero-stripe"></div>
+  <div class="page-hero-eyebrow">Partecipa · Iscriviti</div>
+  <h1>Vuoi essere un punto di<br>riferimento <em>nella tua città?</em></h1>
+  <p class="page-hero-sub">L'MDP non è un progetto calato dall'alto, ma una rete di persone che scelgono di esporsi in prima persona. Se vivi all'estero e vuoi contribuire, puoi proporti come referente locale della diaspora.</p>
 </div>
 
-<!-- HERO -->
-<div class="hero-wrapper">
-    <div class="container">
-        <section class="hero-home">
-            <div class="hero-main">
-                <div class="hero-badge">
-                    <span class="hero-badge-dot"></span>
-                    OFFICIAL MEMBERSHIP · MDP
-                </div>
-                <h1 class="hero-title">Join the Macedonian Diaspora Party (MDP)</h1>
-                <p class="hero-subtitle">
-                    The official membership form for those who believe in a free, fair and merit-based Macedonia.
-                    Fill in the form: after internal verification you will receive a confirmation email.
-                </p>
-                <div class="hero-actions">
-                    <a href="#membership" class="btn-primary">Go to Membership Form</a>
-                    <a href="documenti.html" class="btn-ghost">Read Statute & Founding Declaration</a>
-                </div>
-            </div>
-        </section>
+<section class="page-section">
+  <div class="content-split inner">
+    <div class="reveal">
+      <div class="section-eyebrow">Prima di iscriversi</div>
+      <h2 class="section-title">Cosa significa entrare nel MDP</h2>
+      <div class="prose" style="margin-top:24px">
+        <p>Partecipare all'MDP significa assumersi una responsabilità politica, non solo "simpatizzare". Il movimento cerca persone disposte a lavorare con metodo, rispettare la linea politica e rispondere delle proprie azioni.</p>
+        <ul>
+          <li>Hai letto la dichiarazione fondativa e lo statuto?</li>
+          <li>Condividi i quattro pilastri della visione MDP?</li>
+          <li>Sei disposto/a a lavorare in modo trasparente e collegiale?</li>
+          <li>Puoi dedicare tempo reale alla costruzione del movimento?</li>
+        </ul>
+      </div>
+      <a href="documenti.html" class="btn btn-outline" style="margin-top:24px">Leggi i documenti prima →</a>
     </div>
-</div>
-
-<main>
-    <div class="container">
-
-        <!-- INTRO PANEL -->
-        <section class="section-stack">
-            <div class="section-panel section-panel--soft">
-                <h2 class="section-title">Why become a member of MDP</h2>
-                <p class="section-subtitle">
-                    Membership is not symbolic. It is a clear political choice: joining an organised diaspora network
-                    and contributing to building a new leadership class for Macedonia.
-                </p>
-                <p style="font-size:14px; color:#4b5563; line-height:1.7;">
-                    By joining the Macedonian Diaspora Party, you declare that you share the principles of freedom,
-                    justice, meritocracy and real sovereignty, that you accept the Statute and the Ethical Code,
-                    and that you wish to contribute—according to your availability—to an independent political project,
-                    free from traditional power blocs and external sponsors.
-                </p>
-            </div>
-        </section>
-
-        <!-- MEMBERSHIP FORM PANEL -->
-        <section class="section-stack" id="membership">
-            <div class="section-panel">
-                <h2 class="section-title">Official Membership Form</h2>
-                <p class="section-subtitle">
-                    Please fill in all required fields. All personal data will be handled confidentially and used
-                    exclusively for statutory MDP purposes.
-                </p>
-
-                <form
-                    class="mdp-form"
-                    id="membership-form"
-                    action="https://formspree.io/f/mldzkeyd"
-                    method="POST"
-                >
-                    <!-- PERSONAL DATA -->
-                    <h3 class="form-section-title">Personal Information</h3>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="name">Full name *</label>
-                            <input type="text" id="name" name="Full name" required>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="birth_date">Date of birth *</label>
-                            <input type="date" id="birth_date" name="Date of birth" required>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="birth_place">Place of birth *</label>
-                            <input type="text" id="birth_place" name="Place of birth" required>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="citizenship">Citizenship</label>
-                            <input type="text" id="citizenship" name="Citizenship">
-                        </div>
-
-                        <div class="form-field form-field--full">
-                            <label for="address">Home address</label>
-                            <input type="text" id="address" name="Home address" placeholder="Street, number, ZIP, city">
-                        </div>
-
-                        <div class="form-field">
-                            <label for="country_residence">Country of residence *</label>
-                            <input type="text" id="country_residence" name="Country of residence" required>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="city_residence">City *</label>
-                            <input type="text" id="city_residence" name="City" required>
-                        </div>
-                    </div>
-
-                    <!-- CONTACTS -->
-                    <h3 class="form-section-title">Contacts</h3>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="email">Email *</label>
-                            <input type="email" id="email" name="Email" required>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="phone">Phone / WhatsApp *</label>
-                            <input type="tel" id="phone" name="Phone" required>
-                        </div>
-                    </div>
-
-                    <!-- MEMBERSHIP TYPE -->
-                    <h3 class="form-section-title">Membership Type</h3>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="membership_type">I want to join as *</label>
-                            <select id="membership_type" name="Membership type" required>
-                                <option value="">Select...</option>
-                                <option value="Ordinary Member">Ordinary Member</option>
-                                <option value="Active Volunteer">Active Volunteer</option>
-                                <option value="Local Representative">Local Representative</option>
-                                <option value="Affiliated Association">Affiliated Association</option>
-                            </select>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="association_name">Association name (if applicable)</label>
-                            <input type="text" id="association_name" name="Association name">
-                        </div>
-
-                        <div class="form-field">
-                            <label for="volunteer_availability">Availability for organisational volunteering</label>
-                            <select id="volunteer_availability" name="Volunteer availability">
-                                <option value="Not specified">Not specified</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="future_roles">Availability for future roles</label>
-                            <select id="future_roles" name="Future roles availability">
-                                <option value="Not specified">Not specified</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- DIASPORA INFO -->
-                    <h3 class="form-section-title">Diaspora Information</h3>
-                    <div class="form-grid">
-                        <div class="form-field">
-                            <label for="years_abroad">How many years have you been living abroad?</label>
-                            <input type="number" id="years_abroad" name="Years abroad" min="0">
-                        </div>
-
-                        <div class="form-field form-field--full">
-                            <label for="community_experience">Community or association experience</label>
-                            <textarea id="community_experience" name="Community experience" rows="3"></textarea>
-                        </div>
-
-                        <div class="form-field form-field--full">
-                            <label for="political_experience">Any previous political experience</label>
-                            <textarea id="political_experience" name="Political experience" rows="3"></textarea>
-                        </div>
-                    </div>
-
-                    <!-- DECLARATIONS -->
-                    <h3 class="form-section-title">Declarations</h3>
-                    <div class="form-legal">
-                        <label class="checkbox">
-                            <input type="checkbox" name="Accept Statute and Ethical Code" required>
-                            <span>
-                                I declare that I share the values and principles of the Macedonian Diaspora Party (MDP)
-                                and that I accept its Statute, Ethical Code and internal regulations.
-                            </span>
-                        </label>
-
-                        <label class="checkbox">
-                            <input type="checkbox" name="Privacy consent">
-                            <span>
-                                I authorise the processing of my personal data according to applicable privacy regulations.
-                            </span>
-                        </label>
-                    </div>
-
-                    <!-- FORMSPREE HIDDEN FIELDS -->
-                    <input type="hidden" name="_subject" value="New MDP Membership Request">
-                    <input type="hidden" name="_language" value="en">
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn-submit">
-                            Submit Membership Request
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </section>
-
-    </div>
-</main>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="container footer-inner">
-        <span>© Macedonian Diaspora Party</span>
-        <div>
-            <a href="mailto:info@mdp-eu.com">📧 info@mdp-eu.com</a>
-            <a href="tel:+393282290062" style="margin-left:12px;">☎️ +39 328 22 90 062</a>
-            <a href="https://wa.me/393282290062" target="_blank" style="margin-left:12px;">🟢 WhatsApp</a>
+    <div class="reveal reveal-delay-2">
+      <div class="join-form" id="referent-form">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,184,28,0.7);margin-bottom:20px">Manifestazione di interesse</div>
+        <div class="form-group">
+          <label class="form-label">Nome e Cognome *</label>
+          <input type="text" class="form-input" placeholder="Il tuo nome completo">
         </div>
+        <div class="form-group">
+          <label class="form-label">Paese / Città *</label>
+          <input type="text" class="form-input" placeholder="Es. Milano, Italia">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email *</label>
+          <input type="email" class="form-input" placeholder="tuaemail@esempio.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">In che modo vuoi contribuire?</label>
+          <textarea class="form-textarea" placeholder="Referente locale · Supporto tecnico-giuridico · Comunicazione · Altro — descrivici brevemente..."></textarea>
+        </div>
+        <button class="btn-form">Invia la manifestazione di interesse →</button>
+        <div style="margin-top:14px;font-size:12px;color:rgba(255,255,255,0.3);line-height:1.5">I tuoi dati verranno utilizzati esclusivamente per i contatti relativi al Macedonian Diaspora Party.</div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="page-section page-section--alt">
+  <div class="inner">
+    <div class="section-eyebrow reveal">Cosa succede dopo</div>
+    <h2 class="section-title reveal">Il percorso di ingresso nel MDP</h2>
+    <div class="steps reveal" style="max-width:720px;margin-top:40px">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Riceviamo la tua manifestazione</div>
+          <div class="step-text">Il coordinamento centrale prende visione della tua richiesta entro 7 giorni lavorativi e valuta la compatibilità con le esigenze del movimento.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Primo contatto e orientamento</div>
+          <div class="step-text">Ti contatteremo per un primo scambio: capire la tua disponibilità reale, il tuo contesto geografico e le competenze che puoi portare.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Inserimento nella rete</div>
+          <div class="step-text">Definizione del tuo ruolo, collegamento con il coordinamento di riferimento, accesso agli strumenti interni del movimento.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div>
+    <div class="cta-strip-title">Contatti diretti</div>
+    <div class="cta-strip-sub">Per domande urgenti o contatti istituzionali.</div>
+  </div>
+  <div class="cta-strip-actions">
+    <a href="mailto:info@mdp-eu.com" class="btn btn-gold">✉ info@mdp-eu.com</a>
+    <a href="https://wa.me/393282290062" class="btn btn-outline" target="_blank">💬 WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" class="footer-logo">
+        <div class="footer-brand-sub" data-key="footer-sub">Il movimento politico indipendente della diaspora macedone.</div>
+        <div class="footer-contact">
+          <a href="mailto:info@mdp-eu.com">✉ info@mdp-eu.com</a>
+          <a href="tel:+393282290062">☎ +39 328 22 90 062</a>
+          <a href="https://wa.me/393282290062">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title" data-key="footer-nav">Navigazione</div>
+        <ul class="footer-links">
+          <li><a href="index.html" data-key="nav-home">Home</a></li>
+          <li><a href="movimento.html" data-key="nav-movimento">Movimento</a></li>
+          <li><a href="visione.html" data-key="nav-visione">Visione</a></li>
+          <li><a href="diaspora.html" data-key="nav-diaspora">Diaspora</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-key="footer-doc">Documenti</div>
+        <ul class="footer-links">
+          <li><a href="documenti.html">Dichiarazione fondativa</a></li>
+          <li><a href="documenti.html">Statuto</a></li>
+          <li><a href="documenti.html">Atto costitutivo</a></li>
+          <li><a href="Iscrizione.html">Iscriviti</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title" data-key="footer-lang">Lingua</div>
+        <ul class="footer-links">
+          <li><a href="#" onclick="setLang('it');return false">🇮🇹 Italiano</a></li>
+          <li><a href="#" onclick="setLang('mk');return false">🇲🇰 Македонски</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 <span>Macedonian Diaspora Party</span> · mdp-eu.com</div>
+      <div class="footer-copy" data-key="footer-tagline">Metodo. Responsabilità. Risultati.</div>
+    </div>
+  </div>
 </footer>
 
-<script>
-    const navToggle = document.getElementById("navToggle");
-    const mainNav = document.getElementById("mainNav");
-
-    if (navToggle && mainNav) {
-        navToggle.addEventListener("click", () => {
-            navToggle.classList.toggle("active");
-            mainNav.classList.toggle("nav-open");
-        });
-    }
-
-    const membershipForm = document.getElementById("membership-form");
-    if (membershipForm) {
-        membershipForm.addEventListener("submit", function () {
-            setTimeout(() => {
-                alert("Thank you! Your membership request has been successfully submitted.\nYou will be contacted after internal verification.");
-            }, 400);
-        });
-    }
-</script>
-
+<script src="main.js"></script>
 </body>
 </html>
-
