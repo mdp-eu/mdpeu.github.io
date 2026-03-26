@@ -1,91 +1,263 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Movimento — Macedonian Diaspora Party</title>
-<meta name="description" content="Che cos'è il Macedonian Diaspora Party. Origini, principi, struttura e impegni del movimento.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,600;1,300&family=Barlow+Condensed:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Movimento / Движење — Macedonian Diaspora Party</title>
+<meta name="description" content="Movimento / Движење — MDP. Dalla diaspora. Per la Macedonia. Verso l'Europa.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#1B2E6E;--navy2:#0F1E4E;--red:#C8102E;--gold:#E8A400;--gold2:#FFB81C;
+  --white:#FFFFFF;--off:#F5F4F0;--light:#EAE8E2;--ink:#111111;--muted:#666560;
+  --border:rgba(27,46,110,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:'Source Serif 4',serif;font-weight:300;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--red)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:var(--navy2);border-bottom:3px solid var(--gold);transition:height 0.3s}
+nav.scrolled{height:60px}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo img{height:44px;width:auto;transition:height 0.3s}
+nav.scrolled .nav-logo img{height:36px}
+.nav-links{display:flex;align-items:center;gap:4px;list-style:none}
+.nav-links a{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.7);padding:6px 14px;border-bottom:2px solid transparent;transition:all 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--gold2);border-bottom-color:var(--gold2)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-lang{display:flex;gap:3px}
+.lang-btn{background:none;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;padding:5px 10px;cursor:pointer;transition:all 0.2s;text-transform:uppercase}
+.lang-btn:hover,.lang-btn.active{background:var(--gold);border-color:var(--gold);color:var(--navy2)}
+.nav-cta{background:var(--red);color:white;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:9px 20px;transition:background 0.2s;white-space:nowrap}
+.nav-cta:hover{background:#e01428}
+
+/* PAGE HERO */
+.page-hero{background:var(--navy2);padding:140px 48px 80px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,0.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,0.03) 60px)}
+.page-hero-bar{position:absolute;top:0;left:0;width:6px;height:100%;background:var(--red)}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.page-hero-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold2);display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.page-hero-label::before{content:'';width:28px;height:2px;background:var(--gold2)}
+.page-hero h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(48px,7vw,88px);line-height:0.95;color:white;letter-spacing:-1px;margin-bottom:24px}
+.page-hero h1 em{color:var(--gold2);font-style:normal}
+.page-hero h1 .red{color:var(--red)}
+.page-hero-sub{font-size:18px;line-height:1.75;color:rgba(255,255,255,0.6);max-width:620px;font-weight:300}
+.page-hero-slogan{font-family:'Oswald',sans-serif;font-weight:400;font-size:20px;color:var(--gold2);letter-spacing:1px;margin-top:20px;opacity:0.7}
+
+/* TICKER */
+.ticker{background:var(--red);padding:13px 0;overflow:hidden;white-space:nowrap}
+.ticker-inner{display:inline-flex;animation:tickerScroll 30s linear infinite}
+.ticker-item{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:white;padding:0 44px;display:inline-flex;align-items:center;gap:16px}
+.ticker-item::after{content:'◆';font-size:8px;opacity:0.6}
+
+/* SECTIONS */
+section{padding:88px 48px}
+.inner{max-width:1200px;margin:0 auto}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--red);display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.section-label::before{content:'';width:28px;height:2px;background:var(--red)}
+.section-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(34px,4vw,56px);line-height:1;color:var(--navy2);letter-spacing:-0.5px}
+.section-title em{color:var(--red);font-style:normal}
+.section-lead{margin-top:14px;font-size:17px;line-height:1.75;color:var(--muted);max-width:620px;font-weight:300}
+
+/* SECTION ALT */
+.sec-alt{background:var(--off)}
+.sec-navy{background:var(--navy2)}
+.sec-navy .section-label{color:var(--gold2)}.sec-navy .section-label::before{background:var(--gold2)}
+.sec-navy .section-title{color:white}
+.sec-navy .section-lead{color:rgba(255,255,255,0.55)}
+
+/* CARDS GRID */
+.cards{display:grid;gap:2px;background:var(--border);margin-top:52px}
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.cards-4{grid-template-columns:repeat(4,1fr)}
+.cards-2{grid-template-columns:repeat(2,1fr)}
+.card{background:white;padding:36px 28px;border-top:3px solid transparent;transition:all 0.3s;position:relative}
+.sec-alt .card{background:white}
+.sec-navy .card{background:rgba(255,255,255,0.04);border-top-color:transparent}
+.sec-navy .card:hover{background:rgba(255,255,255,0.09);border-top-color:var(--gold2)}
+.card:hover{border-top-color:var(--red)}
+.card-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:56px;color:var(--light);line-height:1;margin-bottom:12px;transition:color 0.3s}
+.card:hover .card-num{color:rgba(200,16,46,0.2)}
+.sec-navy .card-num{color:rgba(255,255,255,0.06)}
+.sec-navy .card:hover .card-num{color:rgba(232,164,0,0.2)}
+.card-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy2);margin-bottom:10px}
+.sec-navy .card-title{color:white}
+.card-text{font-size:14px;line-height:1.65;color:var(--muted)}
+.sec-navy .card-text{color:rgba(255,255,255,0.5)}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;max-width:1200px;margin:0 auto}
+.split-wide{grid-template-columns:3fr 2fr}
+.prose{font-size:16px;line-height:1.85;color:var(--muted)}
+.prose p+p{margin-top:18px}
+.prose strong{color:var(--ink);font-weight:600}
+.prose ul{list-style:none;margin-top:16px}
+.prose ul li{padding:11px 0 11px 20px;border-top:1px solid var(--border);font-size:15px;color:var(--muted);position:relative}
+.prose ul li::before{content:'—';position:absolute;left:0;color:var(--red);font-weight:700}
+
+/* COMPARE BOX */
+.compare-box{background:var(--off);border:2px solid var(--border);border-top:4px solid var(--navy);padding:36px}
+.compare-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--navy);margin-bottom:20px}
+.compare-table{width:100%;border-collapse:collapse}
+.compare-table th{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:10px 14px;text-align:left;border-bottom:2px solid var(--border)}
+.compare-table th:first-child{color:var(--muted)}
+.compare-table th:last-child{color:var(--red)}
+.compare-table td{padding:12px 14px;font-size:13px;line-height:1.5;border-top:1px solid var(--border);vertical-align:top}
+.compare-table td:first-child{color:var(--muted)}
+.compare-table td:last-child{color:var(--navy2);font-weight:400}
+.compare-table td strong{display:block;font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.compare-table td:last-child strong{color:var(--red)}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:2px;margin-top:48px}
+.step{background:white;border:1px solid var(--border);border-left:4px solid var(--light);padding:24px 28px;display:flex;gap:20px;align-items:flex-start;transition:border-left-color 0.2s}
+.step:hover{border-left-color:var(--red)}
+.step-num{font-family:'Oswald',sans-serif;font-weight:700;font-size:32px;color:var(--light);line-height:1;flex-shrink:0;min-width:28px;transition:color 0.2s}
+.step:hover .step-num{color:var(--red)}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--navy2);margin-bottom:5px}
+.step-text{font-size:14px;line-height:1.6;color:var(--muted)}
+.step-link{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);transition:gap 0.2s}
+.step-link:hover{gap:12px}
+
+/* DOC CARDS */
+.doc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:52px}
+.doc-card{background:white;border:2px solid var(--border);border-top:4px solid var(--navy);padding:32px;display:flex;flex-direction:column;transition:all 0.25s}
+.doc-card:hover{border-top-color:var(--red);transform:translateY(-4px);box-shadow:0 8px 32px rgba(27,46,110,0.1)}
+.doc-type{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.doc-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:20px;color:var(--navy2);line-height:1.2;margin-bottom:6px}
+.doc-version{font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:1px;color:var(--muted);margin-bottom:10px}
+.doc-desc{font-size:13px;line-height:1.6;color:var(--muted);flex:1;margin-bottom:18px}
+.doc-langs{display:flex;gap:6px;margin-bottom:14px}
+.doc-lang{font-family:'Barlow Condensed',sans-serif;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border:1px solid var(--border);color:var(--muted)}
+.doc-downloads{display:flex;gap:12px;flex-wrap:wrap}
+.doc-link{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--navy);display:flex;align-items:center;gap:6px;transition:all 0.2s}
+.doc-link:hover{color:var(--red);gap:11px}
+
+/* CTA STRIP */
+.cta-strip{background:var(--navy2);padding:80px 48px;position:relative;overflow:hidden}
+.cta-strip::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.025) 20px,rgba(255,255,255,0.025) 21px)}
+.cta-strip-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;position:relative}
+.cta-strip-title{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(28px,3.5vw,44px);color:white;margin-bottom:8px}
+.cta-strip-sub{font-size:16px;color:rgba(255,255,255,0.55)}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--red);color:white;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s}
+.btn-primary:hover{background:#e01428}
+.btn-outline-w{border:2px solid rgba(255,255,255,0.3);color:white;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:12px 28px;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s}
+.btn-outline-w:hover{border-color:var(--gold2);color:var(--gold2)}
+.btn-gold{background:var(--gold);color:var(--navy2);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 32px;display:inline-flex;align-items:center;gap:8px;transition:opacity 0.2s}
+.btn-gold:hover{opacity:0.85}
+
+/* JOIN FORM */
+.join-form-wrap{background:var(--red);padding:88px 48px;position:relative;overflow:hidden}
+.join-form-wrap::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,0.04) 20px,rgba(255,255,255,0.04) 21px)}
+.join-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;position:relative}
+.join-form-wrap .section-label{color:rgba(255,255,255,0.7)}.join-form-wrap .section-label::before{background:rgba(255,255,255,0.7)}
+.join-form-wrap .section-title{color:white}
+.join-form-wrap .section-lead{color:rgba(255,255,255,0.75);margin-top:14px}
+.form-box{background:white;padding:36px}
+.form-group{margin-bottom:16px}
+.form-label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--navy);margin-bottom:7px}
+.form-input,.form-textarea{width:100%;background:var(--off);border:1px solid var(--border);color:var(--ink);font-family:'Source Serif 4',serif;font-size:15px;padding:11px 14px;outline:none;transition:border-color 0.2s}
+.form-input:focus,.form-textarea:focus{border-color:var(--navy);background:white}
+.form-textarea{min-height:88px;resize:vertical}
+.btn-submit{width:100%;background:var(--navy2);color:white;border:none;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:15px;cursor:pointer;transition:background 0.2s;margin-top:6px}
+.btn-submit:hover{background:var(--navy)}
+
+/* FOOTER */
+footer{background:var(--navy2);padding:64px 48px 36px}
+.footer-inner{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,0.08)}
+.footer-logo{height:48px;width:auto;margin-bottom:14px}
+.footer-slogan{font-family:'Oswald',sans-serif;font-weight:400;font-size:16px;color:var(--gold2);letter-spacing:0.5px}
+.footer-sub{font-size:13px;line-height:1.6;color:rgba(255,255,255,0.35);margin-top:10px;max-width:240px}
+.footer-contact{margin-top:18px;display:flex;flex-direction:column;gap:7px}
+.footer-contact a{font-size:13px;color:rgba(255,255,255,0.35);display:flex;align-items:center;gap:7px;transition:color 0.2s}
+.footer-contact a:hover{color:var(--gold2)}
+.footer-col-title{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:16px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-links a{font-size:14px;color:rgba(255,255,255,0.45);transition:color 0.2s}
+.footer-links a:hover{color:var(--gold2)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px}
+.footer-copy{font-size:12px;color:rgba(255,255,255,0.25)}
+.footer-copy span{color:var(--gold2)}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s,transform 0.7s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:0.1s}.rd2{transition-delay:0.2s}.rd3{transition-delay:0.3s}.rd4{transition-delay:0.4s}
+
+/* ANIMATIONS */
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .cards-4{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  section{padding:64px 20px}
+  .page-hero{padding:120px 20px 60px}
+  .split,.split-wide{grid-template-columns:1fr;gap:40px}
+  .cards-3,.cards-2{grid-template-columns:1fr}
+  .doc-grid{grid-template-columns:1fr}
+  .join-inner{grid-template-columns:1fr;gap:40px}
+  .cta-strip,.join-form-wrap{padding:60px 20px}
+  .cta-strip-inner{flex-direction:column;align-items:flex-start}
+  footer{padding:48px 20px 32px}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+}
+@media(max-width:600px){
+  .cards-4{grid-template-columns:1fr}
+  .page-hero h1{font-size:44px}
+}
+</style>
 </head>
 <body>
-<nav id="navbar">
-  <a href="index.html" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP Logo">
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html" data-key="nav-home">Home</a></li>
-    <li><a href="movimento.html" class="active" data-key="nav-movimento">Movimento</a></li>
-    <li><a href="visione.html" data-key="nav-visione">Visione</a></li>
-    <li><a href="diaspora.html" data-key="nav-diaspora">Diaspora</a></li>
-    <li><a href="documenti.html" data-key="nav-documenti">Documenti</a></li>
-    <li><a href="Iscrizione.html" data-key="nav-iscriviti" style="color:var(--gold)">Iscriviti</a></li>
-  </ul>
-  <div class="nav-lang">
-    <button class="lang-btn" data-lang="it">🇮🇹 IT</button>
-    <button class="lang-btn" data-lang="mk">🇲🇰 MK</button>
-  </div>
-</nav>
-
+<nav id="navbar"><a href="index.html" class="nav-logo"><img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP"></a><ul class="nav-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" class="active" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li><li><a href="documenti.html" data-it="Documenti" data-mk="Документи">Documenti</a></li></ul><div class="nav-right"><div class="nav-lang"><button class="lang-btn active" data-lang="it">🇮🇹 IT</button><button class="lang-btn" data-lang="mk">🇲🇰 MK</button></div><a href="Iscrizione.html" class="nav-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a></div></nav>
 
 <div class="page-hero">
-  <div class="page-hero-bg"></div>
-  <div class="page-hero-grid"></div>
-  <div class="page-hero-stripe"></div>
-  <div class="page-hero-eyebrow">Il Movimento</div>
-  <h1>Che cos'è il<br><em>Macedonian Diaspora Party</em></h1>
-  <p class="page-hero-sub">Un progetto politico indipendente nato dalla diaspora per riportare trasparenza, meritocrazia e sovranità reale allo Stato macedone.</p>
-</div>
-
-<div class="ticker">
-  <div class="ticker-inner">
-    <span class="ticker-item">Indipendenza reale</span>
-    <span class="ticker-item">Mandato vincolante</span>
-    <span class="ticker-item">Diaspora protagonista</span>
-    <span class="ticker-item">Zero clientele</span>
-    <span class="ticker-item">Indipendenza reale</span>
-    <span class="ticker-item">Mandato vincolante</span>
-    <span class="ticker-item">Diaspora protagonista</span>
-    <span class="ticker-item">Zero clientele</span>
+  <div class="page-hero-bar"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-label" data-it="Il Movimento" data-mk="Движењето">Il Movimento</div>
+    <h1 data-it="Che cos'è il<br><em>Macedonian Diaspora Party</em>" data-mk="Што претставува<br><em>Macedonian Diaspora Party</em>">Che cos'è il<br><em>Macedonian Diaspora Party</em></h1>
+    <p class="page-hero-sub" data-it="Un progetto politico indipendente nato dalla diaspora per riportare trasparenza, meritocrazia e sovranità reale allo Stato macedone." data-mk="Независен политички проект роден од дијаспората за да врати транспарентност, меритократија и вистински суверенитет на македонската држава.">Un progetto politico indipendente nato dalla diaspora per riportare trasparenza, meritocrazia e sovranità reale allo Stato macedone.</p>
+    <div class="page-hero-slogan" data-it="Dalla diaspora. Per la Macedonia. Verso l'Europa." data-mk="Од дијаспората. За Македонија. Кон Европа.">Dalla diaspora. Per la Macedonia. Verso l'Europa.</div>
   </div>
 </div>
+<div class="ticker"><div class="ticker-inner" id="ticker-inner"></div></div>
 
-<section class="page-section">
-  <div class="content-split--wide content-split inner">
+<section>
+  <div class="split-wide split inner">
     <div class="reveal">
-      <div class="section-eyebrow">Origine</div>
-      <h2 class="section-title">Nato fuori dai palazzi di Skopje</h2>
+      <div class="section-label" data-it="Origine" data-mk="Потекло">Origine</div>
+      <h2 class="section-title" data-it="Nato fuori dai palazzi di Skopje" data-mk="Роден надвор од скопските палати">Nato fuori dai palazzi di Skopje</h2>
       <div class="prose" style="margin-top:24px">
-        <p>Il Macedonian Diaspora Party nasce dalla volontà di <strong>Emir Alili</strong>, cittadino macedone di origine mista — padre di etnia albanese e madre macedone — cresciuto in Italia, dove ha sviluppato una visione politica maturata tra imprenditoria, managerialità e attivismo sociale.</p>
-        <p>La convinzione che la Macedonia abbia bisogno di un modello politico realmente nuovo — libero da clientelismo, influenze esterne e corruzione strutturale — nasce dall'osservazione del divario tra le prassi politiche del Paese e quelle dei sistemi democratici più maturi.</p>
-        <p>L'MDP rappresenta un progetto politico indipendente, costruito attorno alla competenza, alla responsabilità e alla partecipazione attiva. Non è un movimento identitario né etnico: è un progetto civico che nasce da un percorso personale e professionale che unisce Macedonia, Italia e l'intera diaspora europea.</p>
+        <p data-it="Il Macedonian Diaspora Party nasce dalla volontà di <strong>Emir Alili</strong>, cittadino macedone di origine mista — padre di etnia albanese e madre macedone — cresciuto in Italia, dove ha sviluppato una visione politica maturata tra imprenditoria, managerialità e attivismo sociale." data-mk="Macedonian Diaspora Party произлегува од иницијативата на <strong>Емир Алини</strong>, македонски државјанин со мешано потекло – татко од албанска етничка заедница и мајка Македонка – кој е израснат во Италија, каде развил политичка визија меѓу претприемништво, менаџмент и социјален активизам.">Il Macedonian Diaspora Party nasce dalla volontà di <strong>Emir Alili</strong>, cittadino macedone di origine mista — padre di etnia albanese e madre macedone — cresciuto in Italia, dove ha sviluppato una visione politica maturata tra imprenditoria, managerialità e attivismo sociale.</p>
+        <p data-it="La convinzione che la Macedonia abbia bisogno di un modello politico realmente nuovo — libero da clientelismo, influenze esterne e corruzione strutturale — nasce dall'osservazione del divario tra le prassi politiche del Paese e quelle dei sistemi democratici più maturi." data-mk="Убеденоста дека Македонија има потреба од навистина нов политички модел – ослободен од клиентелизам, надворешни влијанија и структурна корупција – произлегува од набљудување на јазот меѓу политичките практики во земјата и оние во поразвиените демократски системи.">La convinzione che la Macedonia abbia bisogno di un modello politico realmente nuovo — libero da clientelismo, influenze esterne e corruzione strutturale — nasce dall'osservazione del divario tra le prassi politiche del Paese e quelle dei sistemi democratici più maturi.</p>
+        <p data-it="L'MDP non è un movimento identitario né etnico: è un progetto civico che nasce da un percorso personale e professionale che unisce Macedonia, Italia e l'intera diaspora europea, con l'obiettivo di riportare il Paese su basi di meritocrazia, trasparenza e sovranità reale." data-mk="MDP не е етничко ниту идентитетско движење: тоа е граѓански проект кој произлегува од личен и професионален пат кој ги поврзува Македонија, Италија и целата европска дијаспора.">L'MDP non è un movimento identitario né etnico: è un progetto civico che nasce da un percorso personale e professionale che unisce Macedonia, Italia e l'intera diaspora europea.</p>
         <ul>
-          <li>Non legato ai partiti tradizionali di Skopje</li>
-          <li>Forza basata su competenze e credibilità, non su reti clientelari</li>
-          <li>Programma politico come contratto vincolante</li>
-          <li>Diaspora con ruolo stabile, non solo elettorale</li>
+          <li data-it="Non legato ai partiti tradizionali di Skopje" data-mk="Не е поврзан со традиционалните партии во Скопје">Non legato ai partiti tradizionali di Skopje</li>
+          <li data-it="Forza basata su competenze e credibilità, non su reti clientelari" data-mk="Сила заснована на компетенции и кредибилитет, не на клиентелистички мрежи">Forza basata su competenze e credibilità, non su reti clientelari</li>
+          <li data-it="Programma politico come contratto vincolante, non propaganda" data-mk="Политичкиот програм е обврзувачки договор, не пропаганда">Programma politico come contratto vincolante, non propaganda</li>
+          <li data-it="Diaspora con ruolo stabile nelle decisioni, non solo nelle elezioni" data-mk="Дијаспората со трајна улога во одлуките, не само во изборите">Diaspora con ruolo stabile nelle decisioni, non solo nelle elezioni</li>
         </ul>
       </div>
     </div>
-    <div class="reveal reveal-delay-2">
-      <div class="compare-card">
-        <div class="compare-label">MDP vs Partiti tradizionali</div>
+    <div class="reveal rd2">
+      <div class="compare-box">
+        <div class="compare-label" data-it="MDP vs Partiti tradizionali" data-mk="MDP наспроти традиционалните партии">MDP vs Partiti tradizionali</div>
         <table class="compare-table">
-          <thead><tr><th>Tradizionali</th><th>MDP</th></tr></thead>
+          <thead><tr><th data-it="Aspetto" data-mk="Аспект">Aspetto</th><th data-it="Tradizionali" data-mk="Традиционални">Tradizionali</th><th data-it="MDP" data-mk="MDP">MDP</th></tr></thead>
           <tbody>
-            <tr>
-              <td><strong>Finanziamenti</strong>Legami opachi con gruppi di potere difficili da tracciare</td>
-              <td><strong>Finanziamenti</strong>Trasparenza totale — ogni risorsa rendicontata e pubblica</td>
-            </tr>
-            <tr>
-              <td><strong>Mandato</strong>Programmi usati come propaganda, spesso disattesi</td>
-              <td><strong>Mandato</strong>Contratto vincolante: obiettivi chiari, verifiche periodiche</td>
-            </tr>
-            <tr>
-              <td><strong>Diaspora</strong>Strumentalizzata nelle campagne, ignorata poi</td>
-              <td><strong>Diaspora</strong>Organo stabile con ruolo consultivo e propositivo</td>
-            </tr>
+            <tr><td data-it="Finanziamenti" data-mk="Финансирање">Finanziamenti</td><td data-it="Legami opachi con gruppi di potere" data-mk="Непроѕирни врски со моќни групи">Legami opachi con gruppi di potere</td><td data-it="<strong>Trasparenza</strong>Ogni risorsa rendicontata e pubblica" data-mk="<strong>Транспарентност</strong>Секој ресурс е јавно отчетен"><strong>Trasparenza</strong>Ogni risorsa rendicontata e pubblica</td></tr>
+            <tr><td data-it="Mandato" data-mk="Мандат">Mandato</td><td data-it="Programmi usati come propaganda" data-mk="Програми користени за пропаганда">Programmi usati come propaganda</td><td data-it="<strong>Contratto</strong>Obiettivi chiari, verifiche periodiche" data-mk="<strong>Договор</strong>Јасни цели, периодични проверки"><strong>Contratto</strong>Obiettivi chiari, verifiche periodiche</td></tr>
+            <tr><td data-it="Diaspora" data-mk="Дијаспора">Diaspora</td><td data-it="Strumentalizzata nelle campagne" data-mk="Злоупотребена во кампањи">Strumentalizzata nelle campagne</td><td data-it="<strong>Organo stabile</strong>Ruolo consultivo e propositivo permanente" data-mk="<strong>Постојан орган</strong>Консултативна и иницијативна улога"><strong>Organo stabile</strong>Ruolo consultivo e propositivo permanente</td></tr>
           </tbody>
         </table>
       </div>
@@ -93,158 +265,67 @@
   </div>
 </section>
 
-<section class="page-section page-section--alt">
+<section class="sec-alt">
   <div class="inner">
-    <div class="section-eyebrow reveal">Principi</div>
-    <h2 class="section-title reveal">Come funziona il movimento</h2>
-    <div class="cards-grid cards-grid--4" style="margin-top:48px">
-      <div class="card reveal reveal-delay-1">
-        <div class="card-num">01</div>
-        <div class="card-title">Metodo collegiale</div>
-        <div class="card-text">Le decisioni politiche principali non sono delegate a un singolo leader, ma a organi collegiali con verbali e responsabilità dichiarate.</div>
-      </div>
-      <div class="card reveal reveal-delay-2">
-        <div class="card-num">02</div>
-        <div class="card-title">Trasparenza totale</div>
-        <div class="card-text">Finanziamenti, incarichi, accordi e alleanze devono essere dichiarati, spiegati e documentati. Verificabili da chiunque.</div>
-      </div>
-      <div class="card reveal reveal-delay-3">
-        <div class="card-num">03</div>
-        <div class="card-title">Mandato vincolante</div>
-        <div class="card-text">Il programma non è un testo generico, ma impegni verificabili in tempi definiti. Strumenti interni di correzione in caso di scarto.</div>
-      </div>
-      <div class="card reveal reveal-delay-4">
-        <div class="card-num">04</div>
-        <div class="card-title">Zero compromessi</div>
-        <div class="card-text">Il MDP rifiuta compromessi su corruzione, favoritismi e scambi di beneficio personale. La credibilità è la prima risorsa del movimento.</div>
-      </div>
+    <div class="section-label reveal" data-it="Come funziona" data-mk="Како функционира">Come funziona</div>
+    <h2 class="section-title reveal" data-it="I principi organizzativi del MDP" data-mk="Организациски принципи на MDP">I principi organizzativi del MDP</h2>
+    <div class="cards cards-4 reveal" style="margin-top:48px">
+      <div class="card rd1"><div class="card-num">01</div><div class="card-title" data-it="Metodo collegiale" data-mk="Колегијален метод">Metodo collegiale</div><div class="card-text" data-it="Le decisioni politiche principali non sono delegate a un singolo leader, ma a organi collegiali con verbali e responsabilità dichiarate." data-mk="Клучните политички одлуки не се препуштаат на еден лидер, туку на колегијални органи со записници и јасна одговорност.">Le decisioni politiche principali non sono delegate a un singolo leader, ma a organi collegiali con verbali e responsabilità dichiarate.</div></div>
+      <div class="card rd2"><div class="card-num">02</div><div class="card-title" data-it="Trasparenza totale" data-mk="Целосна транспарентност">Trasparenza totale</div><div class="card-text" data-it="Finanziamenti, incarichi, accordi e alleanze: dichiarati, spiegati e documentati. Verificabili da chiunque." data-mk="Финансирањето, функциите, договорите и алијансите: јавно објаснети и документирани. Проверливи од секого.">Finanziamenti, incarichi, accordi e alleanze: dichiarati, spiegati e documentati. Verificabili da chiunque.</div></div>
+      <div class="card rd3"><div class="card-num">03</div><div class="card-title" data-it="Mandato vincolante" data-mk="Обврзувачки мандат">Mandato vincolante</div><div class="card-text" data-it="Il programma non è un testo generico, ma impegni verificabili in tempi definiti. Strumenti interni di correzione in caso di scarto dal mandato." data-mk="Програмата не е општ текст, туку збир на обврски проверливи во одредени рокови. Внатрешни механизми за корекција при отстапување.">Il programma non è un testo generico, ma impegni verificabili in tempi definiti. Strumenti interni di correzione in caso di scarto dal mandato.</div></div>
+      <div class="card rd4"><div class="card-num">04</div><div class="card-title" data-it="Zero compromessi" data-mk="Нулта толеранција">Zero compromessi</div><div class="card-text" data-it="Il MDP rifiuta compromessi su corruzione, favoritismi e scambi di beneficio personale. La credibilità è la prima risorsa del movimento." data-mk="MDP не прифаќа компромиси за корупција, фаворизирање и размена на лични услуги. Кредибилитетот е првиот ресурс на движењето.">Il MDP rifiuta compromessi su corruzione, favoritismi e scambi di beneficio personale. La credibilità è la prima risorsa del movimento.</div></div>
     </div>
   </div>
 </section>
 
-<section class="page-section">
+<section>
   <div class="inner">
-    <div class="section-eyebrow reveal">Struttura</div>
-    <h2 class="section-title reveal">Organi del Macedonian Diaspora Party</h2>
-    <p class="section-lead reveal">Un movimento orizzontale ma organizzato, con ruoli chiari e responsabilità definite.</p>
-    <div class="cards-grid" style="margin-top:48px">
-      <div class="card reveal reveal-delay-1">
-        <div class="card-title">Assemblea del movimento</div>
-        <div class="card-text">Spazio politico generale di indirizzo e confronto. Organo sovrano per le decisioni strategiche del movimento.</div>
-      </div>
-      <div class="card reveal reveal-delay-2">
-        <div class="card-title">Coordinamento centrale</div>
-        <div class="card-text">Organo esecutivo che attua le linee approvate dall'assemblea. Responsabile della coerenza politica e operativa.</div>
-      </div>
-      <div class="card reveal reveal-delay-3">
-        <div class="card-title">Consiglio diaspora</div>
-        <div class="card-text">Rappresentanza stabile dei macedoni all'estero. Voce strutturale, non occasionale, nelle decisioni del movimento.</div>
-      </div>
-      <div class="card reveal reveal-delay-1" style="margin-top:1px">
-        <div class="card-title">Gruppi Paese / Città</div>
-        <div class="card-text">Nodi locali che costruiscono il lavoro sul territorio. Raccolgono esigenze e organizzano attività nella propria area.</div>
-      </div>
-      <div class="card reveal reveal-delay-2" style="margin-top:1px;grid-column:2/-1">
-        <div class="card-title">Impegni pubblici del MDP</div>
-        <div class="card-text" style="display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;margin-top:4px">
-          <span>✔ Non entrare in accordi di potere che tradiscano il programma</span>
-          <span>✔ Rendere pubblici i passaggi decisivi su alleanze e voti</span>
-          <span>✔ Pubblicare in modo trasparente i flussi di finanziamento</span>
-          <span>✔ Strumenti interni per richiamare chi si discosta dal mandato</span>
-        </div>
-      </div>
+    <div class="section-label reveal" data-it="Struttura" data-mk="Структура">Struttura</div>
+    <h2 class="section-title reveal" data-it="Gli organi del Macedonian Diaspora Party" data-mk="Органи на Macedonian Diaspora Party">Gli organi del Macedonian Diaspora Party</h2>
+    <div class="cards cards-4 reveal" style="margin-top:48px">
+      <div class="card rd1"><div class="card-title" data-it="Assemblea del movimento" data-mk="Собрание на движењето">Assemblea del movimento</div><div class="card-text" data-it="Spazio politico generale di indirizzo e confronto. Organo sovrano per le decisioni strategiche del movimento." data-mk="Општ политички простор за насоки и расправа. Суверен орган за стратешките одлуки на движењето.">Spazio politico generale di indirizzo e confronto. Organo sovrano per le decisioni strategiche del movimento.</div></div>
+      <div class="card rd2"><div class="card-title" data-it="Coordinamento centrale" data-mk="Централна координација">Coordinamento centrale</div><div class="card-text" data-it="Organo esecutivo che attua le linee approvate dall'assemblea. Responsabile della coerenza politica e operativa del movimento." data-mk="Извршен орган кој ги спроведува усвоените линии. Одговорен за политичката и оперативната доследност на движењето.">Organo esecutivo che attua le linee approvate dall'assemblea. Responsabile della coerenza politica e operativa.</div></div>
+      <div class="card rd3"><div class="card-title" data-it="Consiglio diaspora" data-mk="Совет на дијаспората">Consiglio diaspora</div><div class="card-text" data-it="Rappresentanza stabile dei macedoni all'estero. Voce strutturale permanente nelle decisioni del movimento." data-mk="Трајна претставничка структура на Македонците во странство. Постојан структурен глас во одлуките.">Rappresentanza stabile dei macedoni all'estero. Voce strutturale permanente nelle decisioni del movimento.</div></div>
+      <div class="card rd4"><div class="card-title" data-it="Gruppi Paese / Città" data-mk="Групи по Держава / Град">Gruppi Paese / Città</div><div class="card-text" data-it="Nodi locali che costruiscono il lavoro sul territorio. Raccolgono esigenze e organizzano attività nella propria area." data-mk="Локални јазли кои ја градат работата на терен. Собираат потреби и организираат активности.">Nodi locali che costruiscono il lavoro sul territorio. Raccolgono esigenze e organizzano attività nella propria area.</div></div>
     </div>
   </div>
 </section>
 
-<section class="page-section page-section--alt">
+<section class="sec-alt">
   <div class="inner">
-    <div class="section-eyebrow reveal">Partecipa</div>
-    <h2 class="section-title reveal">Come si entra nel movimento</h2>
-    <div class="steps reveal" style="max-width:720px;margin-top:40px">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <div class="step-title">Comprendere la linea del MDP</div>
-          <div class="step-text">Il primo passo è leggere con attenzione la dichiarazione fondativa, lo statuto e le posizioni pubbliche. La condivisione della linea di fondo è condizione necessaria prima di qualsiasi ruolo.</div>
-          <a href="documenti.html" class="step-link">Vai ai documenti →</a>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <div class="step-title">Segnalare la propria disponibilità</div>
-          <div class="step-text">Chi è interessato può proporsi come semplice aderente, come referente locale della diaspora o come supporto in ambito tecnico.</div>
-          <a href="Iscrizione.html" class="step-link">Vai al form di iscrizione →</a>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <div class="step-title">Entrare in un percorso strutturato</div>
-          <div class="step-text">Chi entra nel movimento viene inserito in un percorso chiaro: conoscenza della linea, verifica delle competenze, definizione di un ruolo e regole di trasparenza.</div>
-        </div>
-      </div>
+    <div class="section-label reveal" data-it="Partecipa" data-mk="Учествувај">Partecipa</div>
+    <h2 class="section-title reveal" data-it="Come si entra nel MDP" data-mk="Како се станува дел од MDP">Come si entra nel MDP</h2>
+    <div class="steps reveal" style="max-width:760px;margin-top:0">
+      <div class="step"><div class="step-num">1</div><div><div class="step-title" data-it="Leggere i documenti fondativi" data-mk="Читање на основачките документи">Leggere i documenti fondativi</div><div class="step-text" data-it="Il primo passo è leggere con attenzione la dichiarazione fondativa, lo statuto e le posizioni pubbliche. La condivisione della linea è condizione necessaria prima di qualsiasi ruolo." data-mk="Првиот чекор е внимателно да се прочита основачката декларација, статутот и јавните позиции. Споделувањето на основната линија е неопходен услов.">Il primo passo è leggere con attenzione la dichiarazione fondativa, lo statuto e le posizioni pubbliche.</div><a href="documenti.html" class="step-link" data-it="Vai ai documenti →" data-mk="Отвори ги документите →">Vai ai documenti →</a></div></div>
+      <div class="step"><div class="step-num">2</div><div><div class="step-title" data-it="Segnalare la propria disponibilità" data-mk="Пријавување на подготвеноста">Segnalare la propria disponibilità</div><div class="step-text" data-it="Chi è interessato può proporsi come semplice aderente, come referente locale della diaspora o come supporto in ambito tecnico (giuridico, economico, comunicazione)." data-mk="Заинтересираните можат да се пријават како обични поддржувачи, локални референти на дијаспората или стручна поддршка.">Chi è interessato può proporsi come semplice aderente, come referente locale della diaspora o come supporto tecnico.</div><a href="Iscrizione.html" class="step-link" data-it="Vai al form di iscrizione →" data-mk="Пополни ја формата →">Vai al form di iscrizione →</a></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-title" data-it="Entrare in un percorso strutturato" data-mk="Влегување во структуриран процес">Entrare in un percorso strutturato</div><div class="step-text" data-it="Chi entra nel movimento viene inserito in un percorso chiaro: conoscenza della linea, verifica delle competenze, definizione di un ruolo e regole di trasparenza e responsabilità verso il gruppo." data-mk="Секој кој влегува во движењето се вклучува во јасен процес: запознавање, проверка на компетенциите, дефинирање улога и правила на транспарентност и одговорност.">Chi entra nel movimento viene inserito in un percorso chiaro: conoscenza della linea, verifica delle competenze, definizione di un ruolo.</div></div></div>
     </div>
   </div>
 </section>
 
 <div class="cta-strip">
-  <div>
-    <div class="cta-strip-title">Pronto a contribuire?</div>
-    <div class="cta-strip-sub">Entra nella rete MDP dalla tua città.</div>
-  </div>
-  <div class="cta-strip-actions">
-    <a href="Iscrizione.html" class="btn btn-gold">Iscriviti ora</a>
-    <a href="documenti.html" class="btn btn-outline">Leggi i documenti</a>
+  <div class="cta-strip-inner">
+    <div>
+      <div class="cta-strip-title" data-it="Pronto a contribuire?" data-mk="Подготвен да придонесеш?">Pronto a contribuire?</div>
+      <div class="cta-strip-sub" data-it="Entra nella rete MDP dalla tua città." data-mk="Влез во мрежата на MDP од твојот град.">Entra nella rete MDP dalla tua città.</div>
+    </div>
+    <div class="cta-btns">
+      <a href="Iscrizione.html" class="btn-gold" data-it="Iscriviti ora →" data-mk="Зачлени се сега →">Iscriviti ora →</a>
+      <a href="documenti.html" class="btn-outline-w" data-it="Leggi i documenti" data-mk="Прочитај ги документите">Leggi i documenti</a>
+    </div>
   </div>
 </div>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" class="footer-logo">
-        <div class="footer-brand-sub" data-key="footer-sub">Il movimento politico indipendente della diaspora macedone.</div>
-        <div class="footer-contact">
-          <a href="mailto:info@mdp-eu.com">✉ info@mdp-eu.com</a>
-          <a href="tel:+393282290062">☎ +39 328 22 90 062</a>
-          <a href="https://wa.me/393282290062">💬 WhatsApp</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title" data-key="footer-nav">Navigazione</div>
-        <ul class="footer-links">
-          <li><a href="index.html" data-key="nav-home">Home</a></li>
-          <li><a href="movimento.html" data-key="nav-movimento">Movimento</a></li>
-          <li><a href="visione.html" data-key="nav-visione">Visione</a></li>
-          <li><a href="diaspora.html" data-key="nav-diaspora">Diaspora</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title" data-key="footer-doc">Documenti</div>
-        <ul class="footer-links">
-          <li><a href="documenti.html">Dichiarazione fondativa</a></li>
-          <li><a href="documenti.html">Statuto</a></li>
-          <li><a href="documenti.html">Atto costitutivo</a></li>
-          <li><a href="Iscrizione.html">Iscriviti</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title" data-key="footer-lang">Lingua</div>
-        <ul class="footer-links">
-          <li><a href="#" onclick="setLang('it');return false">🇮🇹 Italiano</a></li>
-          <li><a href="#" onclick="setLang('mk');return false">🇲🇰 Македонски</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2025 <span>Macedonian Diaspora Party</span> · mdp-eu.com</div>
-      <div class="footer-copy" data-key="footer-tagline">Metodo. Responsabilità. Risultati.</div>
-    </div>
-  </div>
-</footer>
-
-<script src="main.js"></script>
+<footer><div class="footer-inner"><div class="footer-top">
+<div><img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" class="footer-logo"><div class="footer-slogan" data-it="Dalla diaspora. Per la Macedonia. Verso l'Europa." data-mk="Од дијаспората. За Македонија. Кон Европа.">Dalla diaspora. Per la Macedonia. Verso l'Europa.</div><div class="footer-sub" data-it="Il movimento politico indipendente della diaspora macedone." data-mk="Независното политичко движење на македонската дијаспора.">Il movimento politico indipendente della diaspora macedone.</div><div class="footer-contact"><a href="mailto:info@mdp-eu.com">✉ info@mdp-eu.com</a><a href="tel:+393282290062">☎ +39 328 22 90 062</a><a href="https://wa.me/393282290062">💬 WhatsApp</a></div></div>
+<div><div class="footer-col-title" data-it="Navigazione" data-mk="Навигација">Navigazione</div><ul class="footer-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li></ul></div>
+<div><div class="footer-col-title" data-it="Documenti" data-mk="Документи">Documenti</div><ul class="footer-links"><li><a href="documenti.html" data-it="Dichiarazione fondativa" data-mk="Основачка декларација">Dichiarazione fondativa</a></li><li><a href="documenti.html" data-it="Statuto" data-mk="Статут">Statuto</a></li><li><a href="documenti.html" data-it="Atto costitutivo" data-mk="Основачки акт">Atto costitutivo</a></li><li><a href="Iscrizione.html" data-it="Iscriviti" data-mk="Зачлени се">Iscriviti</a></li></ul></div>
+<div><div class="footer-col-title" data-it="Lingua" data-mk="Јазик">Lingua</div><ul class="footer-links"><li><a href="#" onclick="setLang('it');return false">🇮🇹 Italiano</a></li><li><a href="#" onclick="setLang('mk');return false">🇲🇰 Македонски</a></li></ul></div>
+</div><div class="footer-bottom"><div class="footer-copy">© 2025 <span>Macedonian Diaspora Party</span> · mdp-eu.com</div><div class="footer-copy" data-it="Metodo. Responsabilità. Risultati." data-mk="Метод. Одговорност. Резултати.">Metodo. Responsabilità. Risultati.</div></div></div></footer>
+<script>
+var TICKER={"it":["Il Movimento MDP", "Indipendenza reale", "Mandato vincolante", "Zero clientele", "Diaspora protagonista"],"mk":["Движењето MDP", "Вистинска независност", "Обврзувачки мандат", "Нулта толеранција", "Дијаспора носител"]};
+function buildTicker(lang){var t=document.getElementById('ticker-inner');if(!t)return;var items=TICKER[lang]||TICKER.it;var html='';for(var r=0;r<3;r++)items.forEach(function(i){html+='<span class="ticker-item">'+i+'</span>';});t.innerHTML=html;}
+function setLang(lang){try{localStorage.setItem('mdp-lang',lang);}catch(e){}document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});document.querySelectorAll('[data-it][data-mk]').forEach(function(el){var val=el.getAttribute('data-'+lang);if(!val)return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.setAttribute('placeholder',val);else el.innerHTML=val;});buildTicker(lang);document.documentElement.lang=lang==='mk'?'mk':'it';}
+document.addEventListener('DOMContentLoaded',function(){var saved;try{saved=localStorage.getItem('mdp-lang')||'it';}catch(e){saved='it';}document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(n)n.classList.toggle('scrolled',window.scrollY>60);});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});setLang(saved);});</script>
 </body>
 </html>
