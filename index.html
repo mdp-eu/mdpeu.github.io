@@ -571,6 +571,53 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 .hero-slide.active{opacity:1}
 .hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(0.25) saturate(0.6);animation:kenBurns 8s ease-in-out infinite alternate}
 @keyframes kenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1%,-1%)}}
+
+/* ── MOBILE HAMBURGER MENU ── */
+.hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;cursor:pointer;background:none;border:none;padding:0;z-index:300}
+.hamburger span{display:block;width:100%;height:2px;background:white;transition:all 0.3s;transform-origin:left}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(1px,-1px)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(1px,1px)}
+
+.mobile-menu{
+  position:fixed;top:0;left:0;right:0;z-index:250;
+  background:var(--navy2);
+  border-bottom:3px solid var(--gold);
+  transform:translateY(-110%);
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  padding:80px 24px 32px;
+}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu-links{display:flex;flex-direction:column;gap:2px}
+.mobile-menu-links a{
+  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.75);
+  padding:14px 16px;border-left:3px solid transparent;
+  transition:all 0.2s;display:block;
+}
+.mobile-menu-links a:hover,.mobile-menu-links a.active{
+  color:var(--gold2);border-left-color:var(--gold2);background:rgba(255,255,255,0.04)
+}
+.mobile-menu-lang{display:flex;gap:8px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)}
+.mobile-menu-cta{
+  display:block;margin-top:12px;
+  background:var(--red);color:white;text-align:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;padding:14px;
+}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-right .nav-lang{display:none}
+  .nav-right .nav-cta{display:none}
+  .hamburger{display:flex}
+  .nav-logo-text{display:block}
+}
+
+
+@media(min-width:901px){.nav-logo-text{display:block!important}}
+@media(max-width:480px){.nav-logo-text{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -594,11 +641,29 @@ footer{background:var(--navy2);padding:64px 48px 36px}
     </div>
     <a href="Iscrizione.html" class="nav-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a>
   </div>
+<button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav class="mobile-menu-links">
+    <a href="index.html" class="active" data-it="Home" data-mk="Почетна">Home</a>
+    <a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a>
+    <a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a>
+    <a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a>
+    <a href="documenti.html" data-it="Documenti" data-mk="Документи">Documenti</a>
+  </nav>
+  <div class="mobile-menu-lang">
+    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
+    <button class="lang-btn" data-lang="mk" onclick="setLang('mk')">🇲🇰 Македонски</button>
+  </div>
+  <a href="Iscrizione.html" class="mobile-menu-cta" data-it="Iscriviti al MDP →" data-mk="Зачлени се →">Iscriviti al MDP →</a>
+</div>
+
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-pattern"></div><div class="hero-slides"><div class="hero-slide"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div>
+  <div class="hero-pattern"></div><div class="hero-slides"><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541611408516-12e2e9c33b0b?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1515168985558-57e8e72498f5?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div>
   <div class="hero-bar"></div>
   <div class="hero-corner"></div>
 
@@ -894,7 +959,7 @@ footer{background:var(--navy2);padding:64px 48px 36px}
       <div>
         <div class="footer-col-title" data-it="Navigazione" data-mk="Навигација">Navigazione</div>
         <ul class="footer-links">
-          <li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li>
+          <li><a href="index.html" class="active" data-it="Home" data-mk="Почетна">Home</a></li>
           <li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li>
           <li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li>
           <li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li>
@@ -995,6 +1060,35 @@ document.addEventListener('DOMContentLoaded', function(){
     if(img){{ img.style.animation='none'; void img.offsetHeight; img.style.animation=''; }}
   }}, 5000);
 }})();
+
+// Hamburger menu
+(function(){
+  var btn = document.getElementById('hamburger');
+  var menu = document.getElementById('mobileMenu');
+  if(!btn||!menu) return;
+  btn.addEventListener('click',function(){
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+  });
+  // Close on link click
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click',function(e){
+    if(!btn.contains(e.target)&&!menu.contains(e.target)){
+      btn.classList.remove('open');
+      menu.classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+})();
+
 </script>
 </body>
 </html>
