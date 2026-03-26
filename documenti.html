@@ -218,75 +218,111 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 .page-hero::before{display:none}/* remove grid pattern - replaced by slides */
 @keyframes kenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1%,-1%)}}
 
-/* ── MOBILE HAMBURGER MENU ── */
-.hamburger{display:none;flex-direction:column;justify-content:space-between;width:28px;height:20px;cursor:pointer;background:none;border:none;padding:0;z-index:300}
-.hamburger span{display:block;width:100%;height:2px;background:white;transition:all 0.3s;transform-origin:left}
-.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(1px,-1px)}
-.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(1px,1px)}
 
-.mobile-menu{
-  position:fixed;top:0;left:0;right:0;z-index:250;
+
+
+/* ═══ MOBILE MENU v2 ═══ */
+.hamburger{display:none;flex-direction:column;justify-content:space-between;
+  width:26px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:400;flex-shrink:0}
+.hamburger span{display:block;width:100%;height:2px;background:white;transition:all 0.3s;border-radius:2px}
+.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:290}
+.mob-overlay.open{display:block}
+
+.mob-drawer{
+  position:fixed;top:0;left:0;right:0;z-index:300;
   background:var(--navy2);
+  transform:translateY(-100%);
+  transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);
+  padding-top:72px;
   border-bottom:3px solid var(--gold);
-  transform:translateY(-110%);
-  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
-  padding:80px 24px 32px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.4);
 }
-.mobile-menu.open{transform:translateY(0)}
-.mobile-menu-links{display:flex;flex-direction:column;gap:2px}
-.mobile-menu-links a{
-  font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.75);
-  padding:14px 16px;border-left:3px solid transparent;
-  transition:all 0.2s;display:block;
+.mob-drawer.open{transform:translateY(0)}
+
+.mob-nav{padding:8px 0}
+.mob-nav a{
+  display:block;padding:16px 28px;
+  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.8);
+  border-left:4px solid transparent;transition:all 0.15s;
 }
-.mobile-menu-links a:hover,.mobile-menu-links a.active{
-  color:var(--gold2);border-left-color:var(--gold2);background:rgba(255,255,255,0.04)
+.mob-nav a:hover,.mob-nav a.active{
+  color:var(--gold2);border-left-color:var(--gold2);
+  background:rgba(255,255,255,0.04);
 }
-.mobile-menu-lang{display:flex;gap:8px;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.1)}
-.mobile-menu-cta{
-  display:block;margin-top:12px;
-  background:var(--red);color:white;text-align:center;
-  font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;padding:14px;
+.mob-bottom{
+  display:flex;align-items:center;gap:10px;
+  padding:16px 28px 24px;border-top:1px solid rgba(255,255,255,0.1);
+  margin-top:4px;
+}
+.mob-lang-btn{
+  flex:1;padding:10px;text-align:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;
+}
+.mob-lang-btn.active{background:var(--gold);border-color:var(--gold);color:var(--navy2)}
+.mob-cta{
+  flex:2;padding:11px 16px;text-align:center;
+  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;
+  background:var(--red);color:white;border:none;cursor:pointer;
+  text-decoration:none;display:block;
 }
 
 @media(max-width:900px){
-  .nav-links{display:none}
-  .nav-right .nav-lang{display:none}
-  .nav-right .nav-cta{display:none}
   .hamburger{display:flex}
-  .nav-logo-text{display:block}
+  .nav-links{display:none!important}
+  .nav-right .nav-lang{display:none!important}
+  .nav-right .nav-cta{display:none!important}
 }
-
-
-@media(min-width:901px){.nav-logo-text{display:block!important}}
-@media(max-width:480px){.nav-logo-text{display:none!important}}
+/* Fix hero image on mobile */
+.page-hero{min-height:60vh!important}
+.hero-slide img{width:100%;height:100%;object-fit:cover;
+  filter:brightness(0.28) saturate(0.6);
+  animation:kenBurns 10s ease-in-out infinite alternate;
+  transform-origin:center center}
+.page-hero-inner{position:relative;z-index:2;padding-top:0}
+.page-hero-bar{z-index:3!important}
+@media(max-width:900px){
+  .page-hero{min-height:auto!important;padding:120px 20px 56px!important}
+  .page-hero h1{font-size:36px!important;line-height:1.05!important;overflow-wrap:break-word!important;word-break:break-word!important}
+  .page-hero-sub{font-size:15px!important}
+}
 
 </style></head><body><nav id="navbar"><a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
     <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" style="height:42px;width:auto">
     <span class="nav-logo-text" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:white;line-height:1.2;display:none">MDP<br><span style="color:var(--gold2);font-size:10px;letter-spacing:3px">MACEDONIAN DIASPORA PARTY</span></span>
-  </a><ul class="nav-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li><li><a href="documenti.html" class="active" data-it="Documenti" data-mk="Документи">Documenti</a></li></ul><div class="nav-right"><div class="nav-lang"><button class="lang-btn active" data-lang="it">🇮🇹 IT</button><button class="lang-btn" data-lang="mk">🇲🇰 MK</button></div><a href="Iscrizione.html" class="nav-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a></div><button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </a><ul class="nav-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li><li><a href="documenti.html" class="active"  class="active" data-it="Documenti" data-mk="Документи">Documenti</a></li></ul><div class="nav-right"><div class="nav-lang"><button class="lang-btn active" data-lang="it">🇮🇹 IT</button><button class="lang-btn" data-lang="mk">🇲🇰 MK</button></div><a href="Iscrizione.html" class="nav-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a></div>
+<button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <nav class="mobile-menu-links">
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-drawer" id="mobDrawer">
+  <nav class="mob-nav" id="mobNav">
     <a href="index.html" data-it="Home" data-mk="Почетна">Home</a>
     <a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a>
     <a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a>
     <a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a>
-    <a href="documenti.html" class="active" data-it="Documenti" data-mk="Документи">Documenti</a>
+    <a href="documenti.html"  class="active" data-it="Documenti" data-mk="Документи">Documenti</a>
   </nav>
-  <div class="mobile-menu-lang">
-    <button class="lang-btn active" data-lang="it" onclick="setLang('it')">🇮🇹 Italiano</button>
-    <button class="lang-btn" data-lang="mk" onclick="setLang('mk')">🇲🇰 Македонски</button>
+  <div class="mob-bottom">
+    <button class="mob-lang-btn active" onclick="setLang('it');closeMob()" data-lang="it">🇮🇹 IT</button>
+    <button class="mob-lang-btn" onclick="setLang('mk');closeMob()" data-lang="mk">🇲🇰 MK</button>
+    <a href="Iscrizione.html" class="mob-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a>
   </div>
+</div>
+
+
   <a href="Iscrizione.html" class="mobile-menu-cta" data-it="Iscriviti al MDP →" data-mk="Зачлени се →">Iscriviti al MDP →</a>
 </div>
 
-<div class="page-hero"><div class="hero-slides"><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541611408516-12e2e9c33b0b?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1515168985558-57e8e72498f5?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div><div class="page-hero-bar"></div><div class="page-hero-inner">
+<div class="page-hero"><div class="hero-slides"><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Europaparlament.jpg/1280px-Europaparlament.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/European_flags_in_front_of_European_Parliament_%28Strasbourg%29.jpg/1280px-European_flags_in_front_of_European_Parliament_%28Strasbourg%29.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Skopje_from_Vodno_2.jpg/1280px-Skopje_from_Vodno_2.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/2013_Schuman_Roundabout%2C_Brussels.jpg/1280px-2013_Schuman_Roundabout%2C_Brussels.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Parliament_of_Macedonia.jpg/1280px-Parliament_of_Macedonia.jpg" alt="" loading="eager" crossorigin="anonymous"></div></div><div class="page-hero-bar"></div><div class="page-hero-inner">
   <div class="page-hero-label" data-it="Documenti Ufficiali · Trasparenza" data-mk="Официјални Документи · Транспарентност">Documenti Ufficiali · Trasparenza</div>
   <h1 data-it="Prima le regole.<br>Poi le <em>promesse.</em>" data-mk="Прво правилата.<br>Потоа <em>ветувањата.</em>">Prima le regole.<br>Poi le <em>promesse.</em></h1>
   <p class="page-hero-sub" data-it="Tutti i testi fondamentali dell'MDP, disponibili in italiano e macedone. Senza testi chiari e pubblici, la politica resta propaganda." data-mk="Сите основни текстови на MDP, достапни на италијански и македонски. Без јасни и јавни текстови, политиката останува пропаганда.">Tutti i testi fondamentali dell'MDP, disponibili in italiano e macedone. Senza testi chiari e pubblici, la politica resta propaganda.</p>
@@ -388,7 +424,9 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 <div class="cta-strip"><div class="cta-strip-inner">
   <div><div class="cta-strip-title" data-it="Hai letto i documenti?" data-mk="Ги прочитавте документите?">Hai letto i documenti?</div><div class="cta-strip-sub" data-it="Se condividi la linea, il passo successivo è iscriverti." data-mk="Ако ја споделуваш линијата, следниот чекор е да се зачлениш.">Se condividi la linea, il passo successivo è iscriverti.</div></div>
   <div class="cta-btns"><a href="Iscrizione.html" class="btn-gold" data-it="Iscriviti al MDP →" data-mk="Зачлени се во MDP →">Iscriviti al MDP →</a><a href="movimento.html" class="btn-outline-w" data-it="Scopri il movimento" data-mk="Дознај за движењето">Scopri il movimento</a></div>
-</div></div><footer><div class="footer-inner"><div class="footer-top"><div><img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" class="footer-logo"><div class="footer-slogan" data-it="Dalla diaspora. Per la Macedonia. Verso l'Europa." data-mk="Од дијаспората. За Македонија. Кон Европа.">Dalla diaspora. Per la Macedonia. Verso l'Europa.</div><div class="footer-sub" data-it="Il movimento politico indipendente della diaspora macedone." data-mk="Независното политичко движење на македонската дијаспора.">Il movimento politico indipendente della diaspora macedone.</div><div class="footer-contact"><a href="mailto:info@mdp-eu.com">✉ info@mdp-eu.com</a><a href="tel:+393282290062">☎ +39 328 22 90 062</a><a href="https://wa.me/393282290062">💬 WhatsApp</a></div></div><div><div class="footer-col-title" data-it="Navigazione" data-mk="Навигација">Navigazione</div><ul class="footer-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li></ul></div><div><div class="footer-col-title" data-it="Documenti" data-mk="Документи">Documenti</div><ul class="footer-links"><li><a href="documenti.html" class="active" data-it="Dichiarazione fondativa" data-mk="Основачка декларација">Dichiarazione fondativa</a></li><li><a href="documenti.html" class="active" data-it="Statuto" data-mk="Статут">Statuto</a></li><li><a href="documenti.html" class="active" data-it="Atto costitutivo" data-mk="Основачки акт">Atto costitutivo</a></li><li><a href="Iscrizione.html" data-it="Iscriviti" data-mk="Зачлени се">Iscriviti</a></li></ul></div><div><div class="footer-col-title" data-it="Lingua" data-mk="Јазик">Lingua</div><ul class="footer-links"><li><a href="#" onclick="setLang('it');return false">🇮🇹 Italiano</a></li><li><a href="#" onclick="setLang('mk');return false">🇲🇰 Македонски</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 <span>Macedonian Diaspora Party</span> · mdp-eu.com</div><div class="footer-copy" data-it="Metodo. Responsabilità. Risultati." data-mk="Метод. Одговорност. Резултати.">Metodo. Responsabilità. Risultati.</div></div></div></footer><script>var TICKER={"it":["Dichiarazione fondativa", "Statuto MDP", "Atto costitutivo", "Trasparenza totale"],"mk":["Основачка декларација", "Статут MDP", "Основачки акт", "Целосна транспарентност"]};function buildTicker(lang){var t=document.getElementById('ticker-inner');if(!t)return;var items=TICKER[lang]||TICKER.it;var html='';for(var r=0;r<3;r++)items.forEach(function(i){html+='<span class="ticker-item">'+i+'</span>';});t.innerHTML=html;}function setLang(lang){try{localStorage.setItem('mdp-lang',lang);}catch(e){}document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});document.querySelectorAll('[data-it][data-mk]').forEach(function(el){var val=el.getAttribute('data-'+lang);if(!val)return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.setAttribute('placeholder',val);else el.innerHTML=val;});buildTicker(lang);document.documentElement.lang=lang==='mk'?'mk':'it';}document.addEventListener('DOMContentLoaded',function(){var saved;try{saved=localStorage.getItem('mdp-lang')||'it';}catch(e){saved='it';}document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(n)n.classList.toggle('scrolled',window.scrollY>60);});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});setLang(saved);});
+</div></div><footer><div class="footer-inner"><div class="footer-top"><div><img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" class="footer-logo"><div class="footer-slogan" data-it="Dalla diaspora. Per la Macedonia. Verso l'Europa." data-mk="Од дијаспората. За Македонија. Кон Европа.">Dalla diaspora. Per la Macedonia. Verso l'Europa.</div><div class="footer-sub" data-it="Il movimento politico indipendente della diaspora macedone." data-mk="Независното политичко движење на македонската дијаспора.">Il movimento politico indipendente della diaspora macedone.</div><div class="footer-contact"><a href="mailto:info@mdp-eu.com">✉ info@mdp-eu.com</a><a href="tel:+393282290062">☎ +39 328 22 90 062</a><a href="https://wa.me/393282290062">💬 WhatsApp</a></div></div><div><div class="footer-col-title" data-it="Navigazione" data-mk="Навигација">Navigazione</div><ul class="footer-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li></ul></div><div><div class="footer-col-title" data-it="Documenti" data-mk="Документи">Documenti</div><ul class="footer-links"><li><a href="documenti.html" class="active"  class="active" data-it="Dichiarazione fondativa" data-mk="Основачка декларација">Dichiarazione fondativa</a></li><li><a href="documenti.html" class="active"  class="active" data-it="Statuto" data-mk="Статут">Statuto</a></li><li><a href="documenti.html" class="active"  class="active" data-it="Atto costitutivo" data-mk="Основачки акт">Atto costitutivo</a></li><li><a href="Iscrizione.html" data-it="Iscriviti" data-mk="Зачлени се">Iscriviti</a></li></ul></div><div><div class="footer-col-title" data-it="Lingua" data-mk="Јазик">Lingua</div><ul class="footer-links"><li><a href="#" onclick="setLang('it');return false">🇮🇹 Italiano</a></li><li><a href="#" onclick="setLang('mk');return false">🇲🇰 Македонски</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 <span>Macedonian Diaspora Party</span> · mdp-eu.com</div><div class="footer-copy" data-it="Metodo. Responsabilità. Risultati." data-mk="Метод. Одговорност. Резултати.">Metodo. Responsabilità. Risultati.</div></div></div></footer><script>var TICKER={"it":["Dichiarazione fondativa", "Statuto MDP", "Atto costitutivo", "Trasparenza totale"],"mk":["Основачка декларација", "Статут MDP", "Основачки акт", "Целосна транспарентност"]};function buildTicker(lang){var t=document.getElementById('ticker-inner');if(!t)return;var items=TICKER[lang]||TICKER.it;var html='';for(var r=0;r<3;r++)items.forEach(function(i){html+='<span class="ticker-item">'+i+'</span>';});t.innerHTML=html;}function setLang(lang){
+  // Sync mobile lang buttons
+  document.querySelectorAll('.mob-lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});try{localStorage.setItem('mdp-lang',lang);}catch(e){}document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});document.querySelectorAll('[data-it][data-mk]').forEach(function(el){var val=el.getAttribute('data-'+lang);if(!val)return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.setAttribute('placeholder',val);else el.innerHTML=val;});buildTicker(lang);document.documentElement.lang=lang==='mk'?'mk':'it';}document.addEventListener('DOMContentLoaded',function(){var saved;try{saved=localStorage.getItem('mdp-lang')||'it';}catch(e){saved='it';}document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(n)n.classList.toggle('scrolled',window.scrollY>60);});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});setLang(saved);});
 // Hero slideshow
 (function(){{
   var slides = document.querySelectorAll('.hero-slide');
@@ -405,32 +443,33 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   }}, 5000);
 }})();
 
-// Hamburger menu
-(function(){
-  var btn = document.getElementById('hamburger');
-  var menu = document.getElementById('mobileMenu');
-  if(!btn||!menu) return;
-  btn.addEventListener('click',function(){
-    btn.classList.toggle('open');
-    menu.classList.toggle('open');
-    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
-  });
-  // Close on link click
-  menu.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){
-      btn.classList.remove('open');
-      menu.classList.remove('open');
-      document.body.style.overflow='';
-    });
-  });
-  // Close on outside click
-  document.addEventListener('click',function(e){
-    if(!btn.contains(e.target)&&!menu.contains(e.target)){
-      btn.classList.remove('open');
-      menu.classList.remove('open');
-      document.body.style.overflow='';
-    }
-  });
-})();
+
+
+
+function toggleMob(){
+  var btn=document.getElementById('hamburger');
+  var drawer=document.getElementById('mobDrawer');
+  var overlay=document.getElementById('mobOverlay');
+  if(!btn||!drawer) return;
+  var open=drawer.classList.toggle('open');
+  btn.classList.toggle('open');
+  if(overlay) overlay.classList.toggle('open');
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMob(){
+  var btn=document.getElementById('hamburger');
+  var drawer=document.getElementById('mobDrawer');
+  var overlay=document.getElementById('mobOverlay');
+  if(drawer) drawer.classList.remove('open');
+  if(btn) btn.classList.remove('open');
+  if(overlay) overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('DOMContentLoaded',function(){
+  var overlay=document.getElementById('mobOverlay');
+  if(overlay) overlay.addEventListener('click',closeMob);
+  var links=document.querySelectorAll('.mob-nav a');
+  links.forEach(function(a){a.addEventListener('click',closeMob);});
+});
 
 </script></body></html>
