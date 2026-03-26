@@ -565,6 +565,12 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   .pillars{grid-template-columns:1fr}
   .hero-headline{font-size:48px}
 }
+
+.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease-in-out}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(0.25) saturate(0.6);animation:kenBurns 8s ease-in-out infinite alternate}
+@keyframes kenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1%,-1%)}}
 </style>
 </head>
 <body>
@@ -592,7 +598,7 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-pattern"></div>
+  <div class="hero-pattern"></div><div class="hero-slides"><div class="hero-slide"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div>
   <div class="hero-bar"></div>
   <div class="hero-corner"></div>
 
@@ -845,27 +851,29 @@ footer{background:var(--navy2);padding:64px 48px 36px}
         L'MDP non è un progetto calato dall'alto, ma una rete di persone che scelgono di esporsi in prima persona. Se vivi all'estero e vuoi contribuire, puoi proporti come referente locale.
       </p>
     </div>
-    <div class="join-form reveal reveal-d2">
+    <form class="join-form reveal reveal-d2" action="https://formspree.io/f/mldzkeyd" method="POST">
       <div style="font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:20px"
            data-it="Manifestazione di interesse" data-mk="Пријава за интерес">Manifestazione di interesse</div>
       <div class="form-group">
         <label class="form-label" data-it="Nome e Cognome" data-mk="Ime i Prezime">Nome e Cognome</label>
-        <input type="text" class="form-input" placeholder="Il tuo nome completo">
+        <input type="text" class="form-input" placeholder="Il tuo nome completo" name="nome_cognome">
       </div>
       <div class="form-group">
         <label class="form-label" data-it="Paese / Città" data-mk="Држава / Град">Paese / Città</label>
-        <input type="text" class="form-input" placeholder="Es. Milano, Italia">
+        <input type="text" class="form-input" placeholder="Es. Milano, Italia" name="paese_citta">
       </div>
       <div class="form-group">
         <label class="form-label" data-it="Email" data-mk="Е-пошта">Email</label>
-        <input type="email" class="form-input" placeholder="tuaemail@esempio.com">
+        <input type="email" class="form-input" placeholder="tuaemail@esempio.com" name="email">
       </div>
       <div class="form-group">
         <label class="form-label" data-it="In che modo vuoi contribuire?" data-mk="Kako sakash da pridoneseš?">In che modo vuoi contribuire?</label>
-        <textarea class="form-textarea" placeholder="Descrivici brevemente..."></textarea>
+        <textarea class="form-textarea" placeholder="Descrivici brevemente..." name="contributo"></textarea>
       </div>
-      <button class="btn-submit" data-it="Invia la manifestazione di interesse →" data-mk="Испрати пријава за интерес →">Invia la manifestazione di interesse →</button>
-    </div>
+      <button type="submit" class="btn-submit" data-it="Invia la manifestazione di interesse →" data-mk="Испрати пријава за интерес →">Invia la manifestazione di interesse →</button>
+<input type="hidden" name="_subject" value="Nuova iscrizione MDP">
+<input type="text" name="_gotcha" style="display:none">
+    </form>
   </div>
 </section>
 
@@ -971,6 +979,22 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
+
+// Hero slideshow
+(function(){{
+  var slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+  var current = 0;
+  slides[0].classList.add('active');
+  setInterval(function(){{
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+    // Reset ken burns
+    var img = slides[current].querySelector('img');
+    if(img){{ img.style.animation='none'; void img.offsetHeight; img.style.animation=''; }}
+  }}, 5000);
+}})();
 </script>
 </body>
 </html>

@@ -38,8 +38,8 @@ nav.scrolled .nav-logo img{height:36px}
 /* PAGE HERO */
 .page-hero{background:var(--navy2);padding:140px 48px 80px;position:relative;overflow:hidden}
 .page-hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,0.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,0.03) 60px)}
-.page-hero-bar{position:absolute;top:0;left:0;width:6px;height:100%;background:var(--red)}
-.page-hero-inner{max-width:1200px;margin:0 auto;position:relative}
+.page-hero-bar{position:absolute;top:0;left:0;width:6px;height:100%;background:var(--red);z-index:3}
+.page-hero-inner{max-width:1200px;margin:0 auto;position:relative;z-index:2}
 .page-hero-label{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold2);display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .page-hero-label::before{content:'';width:28px;height:2px;background:var(--gold2)}
 .page-hero h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(48px,7vw,88px);line-height:0.95;color:white;letter-spacing:-1px;margin-bottom:24px}
@@ -216,12 +216,21 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   .cards-4{grid-template-columns:1fr}
   .page-hero h1{font-size:44px}
 }
+
+/* HERO SLIDESHOW */
+.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease-in-out;background-size:cover;background-position:center;animation:none}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(0.35) saturate(0.7);animation:kenBurns 8s ease-in-out infinite alternate}
+.page-hero::before{display:none}/* remove grid pattern - replaced by slides */
+@keyframes kenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1%,-1%)}}
 </style>
 </head>
 <body>
 <nav id="navbar"><a href="index.html" class="nav-logo"><img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP"></a><ul class="nav-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" class="active" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li><li><a href="documenti.html" data-it="Documenti" data-mk="Документи">Documenti</a></li></ul><div class="nav-right"><div class="nav-lang"><button class="lang-btn active" data-lang="it">🇮🇹 IT</button><button class="lang-btn" data-lang="mk">🇲🇰 MK</button></div><a href="Iscrizione.html" class="nav-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a></div></nav>
 
 <div class="page-hero">
+<div class="hero-slides"><div class="hero-slide"><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1568219557405-376e23e4f7cf?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div><div class="hero-slide"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1600&auto=format&fit=crop&q=80" alt="" loading="lazy"></div></div>
   <div class="page-hero-bar"></div>
   <div class="page-hero-inner">
     <div class="page-hero-label" data-it="Il Movimento" data-mk="Движењето">Il Movimento</div>
@@ -326,6 +335,35 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 var TICKER={"it":["Il Movimento MDP", "Indipendenza reale", "Mandato vincolante", "Zero clientele", "Diaspora protagonista"],"mk":["Движењето MDP", "Вистинска независност", "Обврзувачки мандат", "Нулта толеранција", "Дијаспора носител"]};
 function buildTicker(lang){var t=document.getElementById('ticker-inner');if(!t)return;var items=TICKER[lang]||TICKER.it;var html='';for(var r=0;r<3;r++)items.forEach(function(i){html+='<span class="ticker-item">'+i+'</span>';});t.innerHTML=html;}
 function setLang(lang){try{localStorage.setItem('mdp-lang',lang);}catch(e){}document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});document.querySelectorAll('[data-it][data-mk]').forEach(function(el){var val=el.getAttribute('data-'+lang);if(!val)return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.setAttribute('placeholder',val);else el.innerHTML=val;});buildTicker(lang);document.documentElement.lang=lang==='mk'?'mk':'it';}
-document.addEventListener('DOMContentLoaded',function(){var saved;try{saved=localStorage.getItem('mdp-lang')||'it';}catch(e){saved='it';}document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(n)n.classList.toggle('scrolled',window.scrollY>60);});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});setLang(saved);});</script>
+document.addEventListener('DOMContentLoaded',function(){var saved;try{saved=localStorage.getItem('mdp-lang')||'it';}catch(e){saved='it';}document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(n)n.classList.toggle('scrolled',window.scrollY>60);});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});setLang(saved);});
+// Hero slideshow
+(function(){{
+  var slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+  var current = 0;
+  slides[0].classList.add('active');
+  setInterval(function(){{
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+    // Reset ken burns
+    var img = slides[current].querySelector('img');
+    if(img){{ img.style.animation='none'; void img.offsetHeight; img.style.animation=''; }}
+  }}, 5000);
+}})();
+
+(function(){
+  var slides = document.querySelectorAll('.hero-slide');
+  if(!slides.length) return;
+  var current = 0;
+  slides[0].classList.add('active');
+  setInterval(function(){
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000);
+})();
+
+</script>
 </body>
 </html>
