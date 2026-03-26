@@ -210,13 +210,7 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   .page-hero h1{font-size:44px}
 }
 
-/* HERO SLIDESHOW */
-.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease-in-out;background-size:cover;background-position:center;animation:none}
-.hero-slide.active{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(0.35) saturate(0.7);animation:kenBurns 8s ease-in-out infinite alternate}
-.page-hero::before{display:none}/* remove grid pattern - replaced by slides */
-@keyframes kenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1%,-1%)}}
+to{transform:scale(1.08) translate(-1%,-1%)}}
 
 
 
@@ -295,6 +289,113 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   .page-hero-sub{font-size:15px!important}
 }
 
+
+/* ═══ HERO VISUAL BACKGROUNDS ═══ */
+.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-slide{
+  position:absolute;inset:0;opacity:0;
+  transition:opacity 2s ease-in-out;
+}
+.hero-slide.active{opacity:1}
+
+/* Each slide has a distinct political/institutional visual identity */
+.hero-slide:nth-child(1){
+  background:
+    linear-gradient(135deg, rgba(27,46,110,0.95) 0%, rgba(15,30,78,0.98) 100%),
+    repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(255,184,28,0.03) 80px, rgba(255,184,28,0.03) 81px),
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,184,28,0.03) 80px, rgba(255,184,28,0.03) 81px);
+}
+.hero-slide:nth-child(1)::after{
+  content:'★  ★  ★  ★  ★  ★  ★  ★  ★  ★  ★  ★';
+  position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
+  font-size:28px;color:rgba(255,184,28,0.12);letter-spacing:24px;
+  white-space:nowrap;
+}
+
+.hero-slide:nth-child(2){
+  background:
+    linear-gradient(160deg, rgba(15,30,78,0.97) 0%, rgba(27,46,110,0.9) 50%, rgba(200,16,46,0.15) 100%);
+}
+.hero-slide:nth-child(2)::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 80% 50%, rgba(255,184,28,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200,16,46,0.1) 0%, transparent 60%);
+}
+.hero-slide:nth-child(2)::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,transparent,transparent 60px,
+    rgba(255,255,255,0.015) 60px,rgba(255,255,255,0.015) 61px
+  );
+}
+
+.hero-slide:nth-child(3){
+  background:linear-gradient(180deg, rgba(10,20,55,0.98) 0%, rgba(27,46,110,0.92) 100%);
+}
+.hero-slide:nth-child(3)::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,184,28,0.04) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,184,28,0.04) 40px);
+}
+.hero-slide:nth-child(3)::after{
+  content:'МАКЕДОНИЈА';
+  position:absolute;right:-20px;bottom:10%;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(60px,12vw,140px);
+  color:rgba(255,255,255,0.025);letter-spacing:8px;
+  white-space:nowrap;line-height:1;
+}
+
+.hero-slide:nth-child(4){
+  background:linear-gradient(135deg, rgba(15,30,78,0.97) 30%, rgba(200,16,46,0.2) 100%);
+}
+.hero-slide:nth-child(4)::after{
+  content:'EUROPA';
+  position:absolute;left:-10px;top:15%;
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(80px,15vw,180px);
+  color:rgba(255,255,255,0.02);letter-spacing:12px;
+  white-space:nowrap;line-height:1;
+}
+.hero-slide:nth-child(4)::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(circle 600px at 90% 80%, rgba(200,16,46,0.12) 0%, transparent 60%),
+    radial-gradient(circle 400px at 10% 20%, rgba(255,184,28,0.08) 0%, transparent 50%);
+}
+
+.hero-slide:nth-child(5){
+  background:linear-gradient(200deg, rgba(27,46,110,0.95) 0%, rgba(10,20,55,0.99) 60%, rgba(200,16,46,0.1) 100%);
+}
+.hero-slide:nth-child(5)::before{
+  content:'';position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(255,255,255,0.012) 30px,rgba(255,255,255,0.012) 31px);
+}
+.hero-slide:nth-child(5)::after{
+  content:'MDP';
+  position:absolute;right:5%;bottom:5%;
+  font-family:'Oswald',sans-serif;font-weight:700;font-size:clamp(100px,20vw,260px);
+  color:rgba(255,255,255,0.02);letter-spacing:16px;line-height:1;
+}
+
+/* Ken Burns equivalent for CSS slides */
+.hero-slide.active{animation:slideZoom 6s ease-in-out forwards}
+@keyframes slideZoom{
+  from{transform:scale(1);opacity:0}
+  10%{opacity:1}
+  90%{opacity:1}
+  to{transform:scale(1.04);opacity:0}
+}
+
+/* Override img inside slide since we use CSS now */
+.hero-slide img{display:none}
+
+/* For index.html hero (different class) */
+.hero .hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+
 </style></head><body><nav id="navbar"><a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
     <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" style="height:42px;width:auto">
     <span class="nav-logo-text" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:white;line-height:1.2;display:none">MDP<br><span style="color:var(--gold2);font-size:10px;letter-spacing:3px">MACEDONIAN DIASPORA PARTY</span></span>
@@ -322,7 +423,14 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   <a href="Iscrizione.html" class="mobile-menu-cta" data-it="Iscriviti al MDP →" data-mk="Зачлени се →">Iscriviti al MDP →</a>
 </div>
 
-<div class="page-hero"><div class="hero-slides"><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Europaparlament.jpg/1280px-Europaparlament.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/European_flags_in_front_of_European_Parliament_%28Strasbourg%29.jpg/1280px-European_flags_in_front_of_European_Parliament_%28Strasbourg%29.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Skopje_from_Vodno_2.jpg/1280px-Skopje_from_Vodno_2.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/2013_Schuman_Roundabout%2C_Brussels.jpg/1280px-2013_Schuman_Roundabout%2C_Brussels.jpg" alt="" loading="eager" crossorigin="anonymous"></div><div class="hero-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Parliament_of_Macedonia.jpg/1280px-Parliament_of_Macedonia.jpg" alt="" loading="eager" crossorigin="anonymous"></div></div><div class="page-hero-bar"></div><div class="page-hero-inner">
+<div class="page-hero">
+<div class="hero-slides">
+  <div class="hero-slide active"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+  <div class="hero-slide"></div>
+</div><div class="page-hero-bar"></div><div class="page-hero-inner">
   <div class="page-hero-label" data-it="Documenti Ufficiali · Trasparenza" data-mk="Официјални Документи · Транспарентност">Documenti Ufficiali · Trasparenza</div>
   <h1 data-it="Prima le regole.<br>Poi le <em>promesse.</em>" data-mk="Прво правилата.<br>Потоа <em>ветувањата.</em>">Prima le regole.<br>Poi le <em>promesse.</em></h1>
   <p class="page-hero-sub" data-it="Tutti i testi fondamentali dell'MDP, disponibili in italiano e macedone. Senza testi chiari e pubblici, la politica resta propaganda." data-mk="Сите основни текстови на MDP, достапни на италијански и македонски. Без јасни и јавни текстови, политиката останува пропаганда.">Tutti i testi fondamentali dell'MDP, disponibili in italiano e macedone. Senza testi chiari e pubblici, la politica resta propaganda.</p>
@@ -471,5 +579,19 @@ document.addEventListener('DOMContentLoaded',function(){
   var links=document.querySelectorAll('.mob-nav a');
   links.forEach(function(a){a.addEventListener('click',closeMob);});
 });
+
+
+// CSS slideshow — no images needed
+(function(){
+  var slides = document.querySelectorAll('.hero-slides .hero-slide');
+  if(!slides.length) return;
+  var current = 0;
+  function next(){
+    slides[current].classList.remove('active');
+    current = (current+1) % slides.length;
+    slides[current].classList.add('active');
+  }
+  setInterval(next, 5500);
+})();
 
 </script></body></html>
