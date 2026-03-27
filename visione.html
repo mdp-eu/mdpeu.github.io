@@ -219,62 +219,7 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
 
 
 
-/* ═══ MOBILE MENU v2 ═══ */
-.hamburger{display:none;flex-direction:column;justify-content:space-between;
-  width:26px;height:18px;cursor:pointer;background:none;border:none;padding:0;z-index:400;flex-shrink:0}
-.hamburger span{display:block;width:100%;height:2px;background:white;transition:all 0.3s;border-radius:2px}
-.hamburger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
-.hamburger.open span:nth-child(2){opacity:0}
-.hamburger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
-.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:290}
-.mob-overlay.open{display:block}
-
-.mob-drawer{
-  position:fixed;top:0;left:0;right:0;z-index:300;
-  background:var(--navy2);
-  transform:translateY(-100%);
-  transition:transform 0.32s cubic-bezier(0.4,0,0.2,1);
-  padding-top:72px;
-  border-bottom:3px solid var(--gold);
-  box-shadow:0 8px 32px rgba(0,0,0,0.4);
-}
-.mob-drawer.open{transform:translateY(0)}
-
-.mob-nav{padding:8px 0}
-.mob-nav a{
-  display:block;padding:16px 28px;
-  font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;
-  letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.8);
-  border-left:4px solid transparent;transition:all 0.15s;
-}
-.mob-nav a:hover,.mob-nav a.active{
-  color:var(--gold2);border-left-color:var(--gold2);
-  background:rgba(255,255,255,0.04);
-}
-.mob-bottom{
-  display:flex;align-items:center;gap:10px;
-  padding:16px 28px 24px;border-top:1px solid rgba(255,255,255,0.1);
-  margin-top:4px;
-}
-.mob-lang-btn{
-  flex:1;padding:10px;text-align:center;
-  font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;
-  letter-spacing:1px;text-transform:uppercase;
-  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);
-  color:rgba(255,255,255,0.6);cursor:pointer;transition:all 0.2s;
-}
-.mob-lang-btn.active{background:var(--gold);border-color:var(--gold);color:var(--navy2)}
-.mob-cta{
-  flex:2;padding:11px 16px;text-align:center;
-  font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;
-  letter-spacing:1.5px;text-transform:uppercase;
-  background:var(--red);color:white;border:none;cursor:pointer;
-  text-decoration:none;display:block;
-}
-
-@media(max-width:900px){
-  .hamburger{display:flex}
   .nav-links{display:none!important}
   .nav-right .nav-lang{display:none!important}
   .nav-right .nav-cta{display:none!important}
@@ -400,28 +345,112 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
 /* For index.html hero (different class) */
 .hero .hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
 
+
+/* ═══ MOBILE NAV v3 ═══ */
+.hamburger{
+  display:none;flex-direction:column;justify-content:space-between;
+  width:24px;height:17px;cursor:pointer;background:none;border:none;padding:0;
+  z-index:400;flex-shrink:0;
+}
+.hamburger span{display:block;width:100%;height:2px;background:white;transition:all 0.3s;border-radius:1px}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+
+/* Fullscreen overlay menu */
+.mob-fullscreen{
+  position:fixed;inset:0;z-index:300;
+  background:var(--navy2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+.mob-fullscreen.open{opacity:1;pointer-events:all}
+
+.mob-fullscreen-nav{
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;width:100%;
+}
+.mob-fullscreen-nav a{
+  font-family:'Oswald',sans-serif;font-weight:700;
+  font-size:clamp(28px,8vw,44px);
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,0.85);
+  padding:18px 40px;width:100%;text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  transition:color 0.15s,background 0.15s;
+  text-decoration:none;display:block;
+}
+.mob-fullscreen-nav a:first-child{border-top:1px solid rgba(255,255,255,0.06)}
+.mob-fullscreen-nav a:hover,
+.mob-fullscreen-nav a.active{color:var(--gold2)}
+
+.mob-fullscreen-bottom{
+  margin-top:32px;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  padding:0 40px;width:100%;
+}
+.mob-fullscreen-cta{
+  display:block;width:100%;max-width:320px;padding:16px;text-align:center;
+  background:var(--red);color:white;
+  font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  text-decoration:none;
+}
+
+/* Language flags — always visible in nav bar on mobile */
+.nav-lang-mobile{
+  display:none;align-items:center;gap:4px;
+}
+.nav-lang-mobile .lang-btn{
+  background:none;border:1px solid rgba(255,255,255,0.25);
+  color:rgba(255,255,255,0.7);
+  font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:1px;padding:4px 8px;cursor:pointer;
+  transition:all 0.2s;text-transform:uppercase;
+}
+.nav-lang-mobile .lang-btn.active{
+  background:var(--gold);border-color:var(--gold);color:var(--navy2);
+}
+
+@media(max-width:900px){
+  .hamburger{display:flex}
+  .nav-links{display:none!important}
+  .nav-right{display:none!important}
+  .nav-lang-mobile{display:flex}
+}
+
 </style></head><body>
 <nav id="navbar"><a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
     <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" style="height:42px;width:auto">
     <span class="nav-logo-text" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:white;line-height:1.2;display:none">MDP<br><span style="color:var(--gold2);font-size:10px;letter-spacing:3px">MACEDONIAN DIASPORA PARTY</span></span>
   </a><ul class="nav-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" class="active"  class="active" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li><li><a href="documenti.html" data-it="Documenti" data-mk="Документи">Documenti</a></li></ul><div class="nav-right"><div class="nav-lang"><button class="lang-btn active" data-lang="it">🇮🇹 IT</button><button class="lang-btn" data-lang="mk">🇲🇰 MK</button></div><a href="Iscrizione.html" class="nav-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a></div>
-<button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()"><span></span><span></span><span></span></button>
-</nav>
 
-<div class="mob-overlay" id="mobOverlay"></div>
-<div class="mob-drawer" id="mobDrawer">
-  <nav class="mob-nav" id="mobNav">
+<!-- MOBILE: lang flags always visible in nav -->
+<div class="nav-lang-mobile" id="navLangMobile">
+  <button class="lang-btn active" data-lang="it" onclick="setLang('it')">🇮🇹 IT</button>
+  <button class="lang-btn" data-lang="mk" onclick="setLang('mk')">🇲🇰 MK</button>
+</div>
+<button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- FULLSCREEN MOBILE MENU -->
+<div class="mob-fullscreen" id="mobFullscreen">
+  <nav class="mob-fullscreen-nav" id="mobNav">
     <a href="index.html" data-it="Home" data-mk="Почетна">Home</a>
     <a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a>
-    <a href="visione.html"  class="active" data-it="Visione" data-mk="Визија">Visione</a>
+    <a href="visione.html" class="active" data-it="Visione" data-mk="Визија">Visione</a>
     <a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a>
     <a href="documenti.html" data-it="Documenti" data-mk="Документи">Documenti</a>
   </nav>
-  <div class="mob-bottom">
-    <button class="mob-lang-btn active" onclick="setLang('it');closeMob()" data-lang="it">🇮🇹 IT</button>
-    <button class="mob-lang-btn" onclick="setLang('mk');closeMob()" data-lang="mk">🇲🇰 MK</button>
-    <a href="Iscrizione.html" class="mob-cta" data-it="Iscriviti →" data-mk="Зачлени се →">Iscriviti →</a>
+  <div class="mob-fullscreen-bottom">
+    <a href="Iscrizione.html" class="mob-fullscreen-cta" data-it="Iscriviti al MDP →" data-mk="Зачлени се →">Iscriviti al MDP →</a>
   </div>
+</div>
+
+</nav>
+
 </div>
 
 
@@ -501,6 +530,7 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
   <div><div class="cta-strip-title" data-it="Condividi questa visione?" data-mk="Ја споделуваш оваа визија?">Condividi questa visione?</div><div class="cta-strip-sub" data-it="Entra nel movimento. Porta la tua competenza." data-mk="Влез во движењето. Донеси ги своите компетенции.">Entra nel movimento. Porta la tua competenza.</div></div>
   <div class="cta-btns"><a href="Iscrizione.html" class="btn-gold" data-it="Iscriviti ora →" data-mk="Зачлени се сега →">Iscriviti ora →</a><a href="movimento.html" class="btn-outline-w" data-it="Scopri il movimento" data-mk="Дознај за движењето">Scopri il movimento</a></div>
 </div></div><footer><div class="footer-inner"><div class="footer-top"><div><img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" class="footer-logo"><div class="footer-slogan" data-it="Dalla diaspora. Per la Macedonia. Verso l'Europa." data-mk="Од дијаспората. За Македонија. Кон Европа.">Dalla diaspora. Per la Macedonia. Verso l'Europa.</div><div class="footer-sub" data-it="Il movimento politico indipendente della diaspora macedone." data-mk="Независното политичко движење на македонската дијаспора.">Il movimento politico indipendente della diaspora macedone.</div><div class="footer-contact"><a href="mailto:info@mdp-eu.com">✉ info@mdp-eu.com</a><a href="tel:+393282290062">☎ +39 328 22 90 062</a><a href="https://wa.me/393282290062">💬 WhatsApp</a></div></div><div><div class="footer-col-title" data-it="Navigazione" data-mk="Навигација">Navigazione</div><ul class="footer-links"><li><a href="index.html" data-it="Home" data-mk="Почетна">Home</a></li><li><a href="movimento.html" data-it="Movimento" data-mk="Движење">Movimento</a></li><li><a href="visione.html" class="active"  class="active" data-it="Visione" data-mk="Визија">Visione</a></li><li><a href="diaspora.html" data-it="Diaspora" data-mk="Дијаспора">Diaspora</a></li></ul></div><div><div class="footer-col-title" data-it="Documenti" data-mk="Документи">Documenti</div><ul class="footer-links"><li><a href="documenti.html" data-it="Dichiarazione fondativa" data-mk="Основачка декларација">Dichiarazione fondativa</a></li><li><a href="documenti.html" data-it="Statuto" data-mk="Статут">Statuto</a></li><li><a href="documenti.html" data-it="Atto costitutivo" data-mk="Основачки акт">Atto costitutivo</a></li><li><a href="Iscrizione.html" data-it="Iscriviti" data-mk="Зачлени се">Iscriviti</a></li></ul></div><div><div class="footer-col-title" data-it="Lingua" data-mk="Јазик">Lingua</div><ul class="footer-links"><li><a href="#" onclick="setLang('it');return false">🇮🇹 Italiano</a></li><li><a href="#" onclick="setLang('mk');return false">🇲🇰 Македонски</a></li></ul></div></div><div class="footer-bottom"><div class="footer-copy">© 2025 <span>Macedonian Diaspora Party</span> · mdp-eu.com</div><div class="footer-copy" data-it="Metodo. Responsabilità. Risultati." data-mk="Метод. Одговорност. Резултати.">Metodo. Responsabilità. Risultati.</div></div></div></footer><script>var TICKER={"it":["Visione MDP", "Libertà reale", "Giustizia", "Meritocrazia", "Sovranità"],"mk":["Визија MDP", "Вистинска слобода", "Правда", "Меритократија", "Суверенитет"]};function buildTicker(lang){var t=document.getElementById('ticker-inner');if(!t)return;var items=TICKER[lang]||TICKER.it;var html='';for(var r=0;r<3;r++)items.forEach(function(i){html+='<span class="ticker-item">'+i+'</span>';});t.innerHTML=html;}function setLang(lang){
+  document.querySelectorAll('.nav-lang-mobile .lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});
   // Sync mobile lang buttons
   document.querySelectorAll('.mob-lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});try{localStorage.setItem('mdp-lang',lang);}catch(e){}document.querySelectorAll('.lang-btn').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-lang')===lang);});document.querySelectorAll('[data-it][data-mk]').forEach(function(el){var val=el.getAttribute('data-'+lang);if(!val)return;if(el.tagName==='INPUT'||el.tagName==='TEXTAREA')el.setAttribute('placeholder',val);else el.innerHTML=val;});buildTicker(lang);document.documentElement.lang=lang==='mk'?'mk':'it';}document.addEventListener('DOMContentLoaded',function(){var saved;try{saved=localStorage.getItem('mdp-lang')||'it';}catch(e){saved='it';}document.querySelectorAll('.lang-btn').forEach(function(b){b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'));});});var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.07});document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});window.addEventListener('scroll',function(){var n=document.getElementById('navbar');if(n)n.classList.toggle('scrolled',window.scrollY>60);});document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});});setLang(saved);});
 // Hero slideshow
@@ -522,33 +552,6 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
 
 
 
-function toggleMob(){
-  var btn=document.getElementById('hamburger');
-  var drawer=document.getElementById('mobDrawer');
-  var overlay=document.getElementById('mobOverlay');
-  if(!btn||!drawer) return;
-  var open=drawer.classList.toggle('open');
-  btn.classList.toggle('open');
-  if(overlay) overlay.classList.toggle('open');
-  document.body.style.overflow=open?'hidden':'';
-}
-function closeMob(){
-  var btn=document.getElementById('hamburger');
-  var drawer=document.getElementById('mobDrawer');
-  var overlay=document.getElementById('mobOverlay');
-  if(drawer) drawer.classList.remove('open');
-  if(btn) btn.classList.remove('open');
-  if(overlay) overlay.classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('DOMContentLoaded',function(){
-  var overlay=document.getElementById('mobOverlay');
-  if(overlay) overlay.addEventListener('click',closeMob);
-  var links=document.querySelectorAll('.mob-nav a');
-  links.forEach(function(a){a.addEventListener('click',closeMob);});
-});
-
-
 // CSS slideshow — no images needed
 (function(){
   var slides = document.querySelectorAll('.hero-slides .hero-slide');
@@ -561,5 +564,28 @@ document.addEventListener('DOMContentLoaded',function(){
   }
   setInterval(next, 5500);
 })();
+
+
+// Mobile fullscreen menu
+function toggleMob(){
+  var btn=document.getElementById('hamburger');
+  var fs=document.getElementById('mobFullscreen');
+  if(!btn||!fs) return;
+  var open=fs.classList.toggle('open');
+  btn.classList.toggle('open');
+  document.body.style.overflow=open?'hidden':'';
+}
+function closeMob(){
+  var btn=document.getElementById('hamburger');
+  var fs=document.getElementById('mobFullscreen');
+  if(fs) fs.classList.remove('open');
+  if(btn) btn.classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.querySelectorAll('.mob-fullscreen-nav a, .mob-fullscreen-cta').forEach(function(a){
+    a.addEventListener('click',closeMob);
+  });
+});
 
 </script></body></html>
