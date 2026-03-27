@@ -569,7 +569,7 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 .hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
 .hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease-in-out}
 .hero-slide.active{opacity:1}
-.hero-slide img{width:100%;height:100%;object-fit:cover;filter:brightness(0.25) saturate(0.6);animation:kenBurns 8s ease-in-out infinite alternate}
+
 @keyframes kenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.08) translate(-1%,-1%)}}
 
 
@@ -582,10 +582,7 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 }
 /* Fix hero image on mobile */
 .page-hero{min-height:60vh!important}
-.hero-slide img{width:100%;height:100%;object-fit:cover;
-  filter:brightness(0.28) saturate(0.6);
-  animation:kenBurns 10s ease-in-out infinite alternate;
-  transform-origin:center center}
+
 .page-hero-inner{position:relative;z-index:2;padding-top:0}
 .page-hero-bar{z-index:3!important}
 @media(max-width:900px){
@@ -594,14 +591,6 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   .page-hero-sub{font-size:15px!important}
 }
 
-
-/* ═══ HERO VISUAL BACKGROUNDS ═══ */
-.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-slide{
-  position:absolute;inset:0;opacity:0;
-  transition:opacity 2s ease-in-out;
-}
-.hero-slide.active{opacity:1}
 
 /* Each slide has a distinct political/institutional visual identity */
 .hero-slide:nth-child(1){
@@ -696,7 +685,7 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 }
 
 /* Override img inside slide since we use CSS now */
-.hero-slide img{display:none}
+
 
 /* For index.html hero (different class) */
 .hero .hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
@@ -776,6 +765,26 @@ footer{background:var(--navy2);padding:64px 48px 36px}
   .nav-lang-mobile{display:flex}
 }
 
+
+
+
+/* ═══ HERO SLIDESHOW IMAGES ═══ */
+.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-slide{
+  position:absolute;inset:0;opacity:0;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  transition:opacity 1.8s ease-in-out;
+}
+.hero-slide.active{opacity:1;animation:kenBurns 8s ease-in-out forwards}
+.hero-slide::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(9,9,15,0.72) 0%,rgba(15,30,78,0.65) 50%,rgba(9,9,15,0.75) 100%);
+}
+@keyframes kenBurns{
+  from{transform:scale(1);transform-origin:center}
+  to{transform:scale(1.06);transform-origin:center}
+}
+
 </style>
 </head>
 <body>
@@ -836,6 +845,13 @@ footer{background:var(--navy2);padding:64px 48px 36px}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-pattern"></div>
+<div class="hero-slides">
+  <div class="hero-slide" style="background-image:url('assets/img-eu-parliament.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-eu-flags.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-skopje.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-macedonia-parliament.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-skopje-square.jpg')"></div>
+</div>
   <div class="hero-bar"></div>
   <div class="hero-corner"></div>
 
@@ -1239,18 +1255,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
 
-// CSS slideshow — no images needed
-(function(){
-  var slides = document.querySelectorAll('.hero-slides .hero-slide');
-  if(!slides.length) return;
-  var current = 0;
-  function next(){
-    slides[current].classList.remove('active');
-    current = (current+1) % slides.length;
-    slides[current].classList.add('active');
-  }
-  setInterval(next, 5500);
-})();
+
+
+
 
 
 // Mobile fullscreen menu
@@ -1274,6 +1281,23 @@ document.addEventListener('DOMContentLoaded',function(){
     a.addEventListener('click',closeMob);
   });
 });
+
+
+
+
+
+// Image slideshow
+(function(){
+  var slides=document.querySelectorAll('.hero-slides .hero-slide');
+  if(!slides.length) return;
+  var cur=0;
+  slides[cur].classList.add('active');
+  setInterval(function(){
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+  },5500);
+})();
 
 </script>
 </body>

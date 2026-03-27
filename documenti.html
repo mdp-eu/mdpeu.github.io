@@ -235,14 +235,6 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
 }
 
 
-/* ═══ HERO VISUAL BACKGROUNDS ═══ */
-.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
-.hero-slide{
-  position:absolute;inset:0;opacity:0;
-  transition:opacity 2s ease-in-out;
-}
-.hero-slide.active{opacity:1}
-
 /* Each slide has a distinct political/institutional visual identity */
 .hero-slide:nth-child(1){
   background:
@@ -416,6 +408,25 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
   .nav-lang-mobile{display:flex}
 }
 
+
+/* ═══ HERO SLIDESHOW IMAGES ═══ */
+.hero-slides{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero-slide{
+  position:absolute;inset:0;opacity:0;
+  background-size:cover;background-position:center;background-repeat:no-repeat;
+  transition:opacity 1.8s ease-in-out;
+  animation:none;
+}
+.hero-slide.active{opacity:1;animation:kenBurns 8s ease-in-out forwards}
+.hero-slide::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(9,9,15,0.72) 0%,rgba(15,30,78,0.65) 50%,rgba(9,9,15,0.75) 100%);
+}
+@keyframes kenBurns{
+  from{transform:scale(1);transform-origin:center}
+  to{transform:scale(1.06);transform-origin:center}
+}
+
 </style></head><body><nav id="navbar"><a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none">
     <img src="https://raw.githubusercontent.com/mdp-eu/mdpeu.github.io/refs/heads/main/assets/56504f9d-8ff7-4a18-a674-fa4d49103499.jpeg" alt="MDP" style="height:42px;width:auto">
     <span class="nav-logo-text" style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:white;line-height:1.2;display:none">MDP<br><span style="color:var(--gold2);font-size:10px;letter-spacing:3px">MACEDONIAN DIASPORA PARTY</span></span>
@@ -454,7 +465,12 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
 
 <div class="page-hero">
 <div class="hero-slides">
-  <div class="hero-slide active"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-eu-parliament.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-eu-flags.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-skopje.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-macedonia-parliament.jpg')"></div>
+  <div class="hero-slide" style="background-image:url('assets/img-skopje-square.jpg')"></div>
+</div>
   <div class="hero-slide"></div>
   <div class="hero-slide"></div>
   <div class="hero-slide"></div>
@@ -584,18 +600,9 @@ to{transform:scale(1.08) translate(-1%,-1%)}}
 
 
 
-// CSS slideshow — no images needed
-(function(){
-  var slides = document.querySelectorAll('.hero-slides .hero-slide');
-  if(!slides.length) return;
-  var current = 0;
-  function next(){
-    slides[current].classList.remove('active');
-    current = (current+1) % slides.length;
-    slides[current].classList.add('active');
-  }
-  setInterval(next, 5500);
-})();
+
+
+
 
 
 // Mobile fullscreen menu
@@ -619,5 +626,19 @@ document.addEventListener('DOMContentLoaded',function(){
     a.addEventListener('click',closeMob);
   });
 });
+
+
+// Image slideshow
+(function(){
+  var slides=document.querySelectorAll('.hero-slides .hero-slide');
+  if(!slides.length) return;
+  var cur=0;
+  slides[cur].classList.add('active');
+  setInterval(function(){
+    slides[cur].classList.remove('active');
+    cur=(cur+1)%slides.length;
+    slides[cur].classList.add('active');
+  },5500);
+})();
 
 </script></body></html>
