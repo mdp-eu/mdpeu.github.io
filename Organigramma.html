@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Organigramma MDP - Struttura di Comando</title>
+  <meta name="description" content="Organigramma del Macedonian Diaspora Party (MDP) e struttura di comando del movimento.">
+  <link rel="canonical" href="https://mdp-eu.com/Organigramma.html">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Macedonian Diaspora Party",
+    "alternateName":"MDP",
+    "url":"https://mdp-eu.com/",
+    "founder":{
+      "@type":"Person",
+      "name":"Emir Alili",
+      "url":"https://emiralili.it/chi-sono.html",
+      "sameAs":["https://emiralili.it/","https://www.linkedin.com/in/emiralili/"]
+    }
+  }
+  </script>
   <style>
     body {
       font-family: "Segoe UI", Arial, sans-serif;
@@ -48,6 +65,7 @@
       z-index: 2;
     }
     .president { background: #003087; color: white; font-size: 1.3em; }
+    .president a { color:#fff; text-decoration:underline; font-size:.72em; font-weight:500; }
     .vice { background: #0050b3; color: white; }
     .segretario { background: #0066cc; color: white; }
     .direzione { background: #e6f0ff; border: 2px solid #0066cc; }
@@ -57,13 +75,11 @@
     .coord-locale { background: #e6fff0; border: 2px solid #009933; }
     .base { background: #f9f9f9; color: #555; }
 
-    /* spaziatori orizzontali desktop */
     .spacer-200 { width: 200px; }
     .spacer-180 { width: 180px; }
     .spacer-400 { width: 400px; }
     .spacer-80  { width: 80px; }
 
-    /* Linee di collegamento */
     .connector {
       position: absolute;
       top: -20px;
@@ -87,42 +103,19 @@
       z-index: 1;
     }
 
-    /* RESPONSIVE per schermi piccoli */
     @media (max-width: 768px) {
-      body {
-        margin: 15px 10px;
-      }
-      h1 {
-        font-size: 1.4em;
-        margin-bottom: 20px;
-      }
+      body { margin: 15px 10px; }
+      h1 { font-size: 1.4em; margin-bottom: 20px; }
       .box {
         min-width: 160px;
         margin: 6px 0;
         padding: 10px 12px;
         font-size: 0.9em;
       }
-      .level {
-        flex-direction: column;
-        align-items: center;
-      }
-      /* togli spazi vuoti orizzontali su mobile */
-      .spacer-200,
-      .spacer-180,
-      .spacer-400,
-      .spacer-80 {
-        display: none;
-        width: 0;
-        height: 0;
-      }
-      /* semplifica le linee su mobile */
-      .horizontal-line,
-      .v-line {
-        display: none;
-      }
-      .connector {
-        height: 25px;
-      }
+      .level { flex-direction: column; align-items: center; }
+      .spacer-200,.spacer-180,.spacer-400,.spacer-80 { display:none; width:0; height:0; }
+      .horizontal-line,.v-line { display:none; }
+      .connector { height:25px; }
     }
   </style>
 </head>
@@ -131,31 +124,26 @@
   <h1>ORGANIGRAMMA MDP<br><small>Struttura di Comando Completa</small></h1>
 
   <div class="org-chart">
-
-    <!-- LIVELLO 1 - Presidente -->
     <div class="level">
       <div class="box president">
-        PRESIDENTE<br><small>Autorità massima del partito</small>
+        PRESIDENTE<br><strong>Emir Alili</strong><br>
+        <small><a href="https://emiralili.it/chi-sono.html" rel="author">Profilo personale e pubblicazioni ↗</a></small>
       </div>
     </div>
 
-    <!-- Linea verso livello 2 -->
     <div class="level"><div class="connector"></div></div>
 
-    <!-- LIVELLO 2 - Vice + Segretario -->
     <div class="level">
       <div class="box vice">VICEPRESIDENTE</div>
       <div class="spacer-200"></div>
       <div class="box segretario">SEGRETARIO GENERALE</div>
     </div>
 
-    <!-- Linee orizzontali e verticali -->
     <div class="level" style="position:relative;height:40px;">
       <div class="horizontal-line" style="left:12%;right:12%;"></div>
       <div class="v-line" style="left:50%;top:0;height:40px;"></div>
     </div>
 
-    <!-- LIVELLO 3 - Direzione Nazionale e Coordinamento Internazionale -->
     <div class="level">
       <div class="box direzione">
         DIREZIONE NAZIONALE<br>
@@ -168,13 +156,11 @@
       </div>
     </div>
 
-    <!-- Linea verso livello 4 -->
     <div class="level">
       <div class="connector" style="left:27%;"></div>
       <div class="connector" style="left:73%;"></div>
     </div>
 
-    <!-- LIVELLO 4 - Settori Nazionali e Coordinatori Paese -->
     <div class="level">
       <div style="flex:1;text-align:center;font-size:0.9em;color:#0066cc;">
         Programma • Organizzazione • Giovani • Comunicazione<br>
@@ -187,10 +173,8 @@
       </div>
     </div>
 
-    <!-- Linea verso diaspora -->
     <div class="level"><div class="connector" style="left:73%;"></div></div>
 
-    <!-- LIVELLO 5 - Coordinatori Regionali + Associazioni -->
     <div class="level">
       <div class="spacer-400"></div>
       <div class="box coord-region">COORDINATORI REGIONALI</div>
@@ -200,42 +184,33 @@
       </div>
     </div>
 
-    <!-- Linea verso coordinatori locali -->
     <div class="level"><div class="connector" style="left:65%;"></div></div>
 
-    <!-- LIVELLO 6 - Coordinatori Locali -->
     <div class="level">
       <div class="box coord-locale">
         COORDINATORI LOCALI<br><small>Città / Zone</small>
       </div>
     </div>
 
-    <!-- Linea verso base -->
     <div class="level"><div class="connector"></div></div>
 
-    <!-- LIVELLO 7 - Referenti Locali -->
     <div class="level">
       <div class="box base">REFERENTI LOCALI</div>
     </div>
 
-    <!-- Linea verso attivisti -->
     <div class="level"><div class="connector"></div></div>
 
-    <!-- LIVELLO 8 - Attivisti -->
     <div class="level">
       <div class="box base">ATTIVISTI OPERATIVI</div>
     </div>
 
-    <!-- Linea verso membri -->
     <div class="level"><div class="connector"></div></div>
 
-    <!-- LIVELLO 9 - Base -->
     <div class="level">
       <div class="box base">
         MEMBRI ORDINARI<br><small>(tutti i tesserati)</small>
       </div>
     </div>
-
   </div>
 
   <p style="text-align:center;margin-top:50px;font-size:0.9em;color:#555;">
